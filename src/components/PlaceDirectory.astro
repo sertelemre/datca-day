@@ -12,13 +12,26 @@ const labels = {
   ru: {taxi:'Стоянки такси', outpatient:'Амбулаторные отделения государственной больницы', family:'Центры семейной медицины', private:'Частные клиники и кабинеты', map:'Карта адресов', pin:'Показать на карте', route:'Маршрут', all:'Все адреса', source:'Источник контактов', location:'Источник координат', dental:'Стоматологическая клиника', zoomIn:'Приблизить', zoomOut:'Отдалить', error:'Карта не загрузилась. Адреса и ссылки на маршруты доступны в списке ниже.', appointment:'Запись через MHRS'},
 }[locale];
 const groups = [...new Set<DirectoryGroup>(places.map(p => p.group))];
+const pharmacyOnly = groups.length === 1 && groups[0] === 'pharmacy';
+const hasPharmacies = groups.includes('pharmacy');
+const duty = {
+  tr: { pharmacies:'Tüm eczaneler', title:'Datça’nın nöbetçi eczanesi', active:'Şu an nöbetçi', scheduled:'Bugün başlayacak nöbet', notice:'Güncel nöbet için Muğla Eczacı Odasının listesini kontrol edebilirsin.', source:'Muğla Eczacı Odası nöbet listesi', note:'Saatler Türkiye saatidir. Yola çıkmadan önce eczaneyi arayabilirsin.' },
+  en: { pharmacies:'All pharmacies', title:'Duty pharmacy in Datça', active:'On duty now', scheduled:'Scheduled for today', notice:'Check the Muğla Chamber of Pharmacists for the current duty roster.', source:'Muğla Chamber of Pharmacists duty roster', note:'Times are local to Türkiye. You can call before setting out.' },
+  ru: { pharmacies:'Все аптеки', title:'Дежурная аптека Датчи', active:'Сейчас дежурит', scheduled:'Дежурство сегодня по расписанию', notice:'Актуальное дежурство можно уточнить в списке Палаты фармацевтов Муглы.', source:'Список дежурств Палаты фармацевтов Муглы', note:'Указано местное время Турции. Перед поездкой можно позвонить в аптеку.' },
+}[locale];
+const groupName = (group: DirectoryGroup) => group === 'pharmacy' ? duty.pharmacies : labels[group];
 ---
-<section class="directory" data-place-directory aria-label={labels.map}>
+<section class:list={['directory', { 'pharmacies-only': pharmacyOnly }]} data-place-directory aria-label={labels.map}>
   {groups.length > 1 && <nav class="sections" aria-label={labels.map}>
-    {groups.map(group => <a href={'#' + group}>{labels[group]}</a>)}
+    {groups.map(group => <a href={'#' + group}>{groupName(group)}</a>)}
   </nav>}
+  {hasPharmacies && <section class="duty-panel" id="nobet-listesi" data-duty-panel data-active={duty.active} data-scheduled={duty.scheduled} aria-labelledby="duty-title">
+    <h2 id="duty-title"><span aria-hidden="true">E</span>{duty.title}</h2>
+    <div data-duty-list aria-live="polite"></div><p data-duty-notice>{duty.notice}</p>
+    <p>{duty.note} <a href="https://www.muglaeczaciodasi.org.tr/nobetci-eczaneler" target="_blank" rel="noopener noreferrer">{duty.source} ↗</a></p>
+  </section>}
   <div class="directory-layout">
-    <div class="map-panel" data-map-panel hidden>
+    <div class="map-panel" id="konum-haritasi" data-map-panel hidden>
       <div class="map-heading"><h2>{labels.map}</h2><button type="button" data-map-reset>{labels.all}</button></div>
       <div class="map" role="region" aria-label={labels.map} data-location-map data-zoom-in={labels.zoomIn} data-zoom-out={labels.zoomOut}
         data-cluster-label={['{n} konuma yakınlaştır', 'Zoom to {n} locations', 'Приблизить группу из {n} адресов'][lang]}></div>
@@ -26,12 +39,16 @@ const groups = [...new Set<DirectoryGroup>(places.map(p => p.group))];
     </div>
     <div class="list">
       {groups.map(group => <section class="place-group" id={group} aria-labelledby={'title-' + group}>
-        <h2 id={'title-' + group}>{labels[group]}</h2>
+        <div class="group-heading">
+          <h2 id={'title-' + group}>{groupName(group)}{group === 'pharmacy' && <small> ({places.filter(p => p.group === group).length})</small>}</h2>
+          {pharmacyOnly && <a class="map-jump" href="#konum-haritasi"><Icon name="pin" size={16}/>{labels.map}</a>}
+        </div>
         {places.filter(place => place.group === group).map(place => {
           const number = places.indexOf(place) + 1;
           const [lat, lon] = place.coordinates;
-          return <article class="place" id={place.id} data-place data-lat={lat} data-lon={lon} data-number={number}>
+          return <article class="place" id={place.id} data-place data-pharmacy={group === 'pharmacy' ? '' : undefined} data-lat={lat} data-lon={lon} data-number={number}>
             <header><span class="place-number" aria-hidden="true">{number}</span><h3>{place.name}</h3></header>
+            {group === 'pharmacy' && <strong class="duty-badge" data-duty-badge hidden></strong>}
             {place.note ? <p>{place.note[lang]}</p> : group === 'private' && <p>{labels.dental}</p>}
             <address>{place.address}, Datça/Muğla</address>
             <a class="phone" href={'tel:' + place.phone.replaceAll(' ', '')}><Icon name="phone" size={16}/>{place.phone}</a>
@@ -51,13 +68,27 @@ const groups = [...new Set<DirectoryGroup>(places.map(p => p.group))];
   </div>
 </section>
 <script>
-  const directory = document.querySelector<HTMLElement>('[data-place-directory]');
-  if (directory) import('../scripts/place-map').then(({ showPlaceMap }) => showPlaceMap(directory));
+  for (const directory of document.querySelectorAll<HTMLElement>('[data-place-directory]')) {
+    const panel = directory.querySelector<HTMLElement>('[data-duty-panel]');
+    if (panel) import('../scripts/pharmacy-duty').then(({showDuty}) => showDuty(directory, panel));
+    import('../scripts/place-map').then(({ showPlaceMap }) => showPlaceMap(directory));
+  }
 </script>
 <style>
   .directory { margin: 20px 0 48px; }
   .sections,.actions,.sources { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
   .sections { margin: 0 0 18px; }
+  .duty-panel { margin: 0 0 26px; padding: clamp(16px, 2.5vw, 28px); background: var(--paper); border: 1px solid var(--line); border-left: 4px solid #ac2636; border-radius: 8px; }
+  .duty-panel h2 { display: flex; align-items: center; gap: 10px; font-size: clamp(24px, 3vw, 36px); line-height: 1.15; margin: 0 0 10px; }
+  .duty-panel h2 span,.map :global(.directory-duty-pin) { background: #ac2636; color: white; border-radius: 5px; }
+  .duty-panel h2 span { padding: 5px 8px; font: 700 17px/1 sans-serif; }
+  .duty-badge { display: inline-block; color: #8c1c29; font-size: 13px; margin-top: 6px; }
+  .duty-panel p,.duty-panel :global(address),.duty-panel :global(.duty-entry p) { font-size: 14px; line-height: 1.5; font-style: normal; margin: 5px 0; }
+  .duty-panel a,.duty-panel :global(.duty-actions a) { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+  .duty-panel :global(.duty-entry) { margin: 12px 0; }
+  .duty-panel :global(.duty-entry strong) { font-size: 19px; }
+  .duty-panel :global(.duty-actions) { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 20px; }
+  .duty-panel :global(.duty-actions a) { display: inline-flex; align-items: center; gap: 5px; min-height: 38px; font-size: 15px; }
   .sections a,.actions a,.map-heading button { display: inline-flex; align-items: center; gap: 5px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); color: var(--green); font: 600 14px/1.4 var(--sans, sans-serif); }
   .directory-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: clamp(20px, 4vw, 48px); }
   .directory-layout:not(:has(.map-panel:not([hidden]))) { grid-template-columns: 1fr; }
@@ -69,12 +100,19 @@ const groups = [...new Set<DirectoryGroup>(places.map(p => p.group))];
   .map-heading h2,.list h2 { font-size: clamp(24px, 3vw, 34px); line-height: 1.12; margin: 0; }
   .place-group { scroll-margin-top: 18px; }
   .place-group + .place-group { margin-top: 32px; }
-  .place-group h2 { margin-bottom: 12px; }
+  .group-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .group-heading small { font: 500 .65em var(--sans, sans-serif); color: var(--muted); }
+  .map-jump { display: none; }
+  @media (max-width: 750px) {
+    .pharmacies-only .list { grid-row: 1; }
+    .pharmacies-only:has(.map-panel:not([hidden])) .map-jump { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; text-decoration: underline; }
+  }
   .place { border-top: 1px solid var(--line); padding: 18px 0; }
   .place h3 { font-size: clamp(20px, 2.2vw, 27px); margin: 0; line-height: 1.2; }
   .place-number,.map :global(.directory-pin) { display: grid; place-items: center; background: var(--green); color: white; border-radius: 50%; font: 700 13px/1 sans-serif; }
   .place-number { width: 26px; height: 26px; flex: 0 0 26px; }
   .map :global(.directory-pin) { border: 2px solid white; box-shadow: 0 1px 5px #18362f70; }
+  .map :global(.directory-pin.directory-duty-pin) { background: #ac2636; border-radius: 5px; font-size: 17px; }
   .map :global(.directory-cluster) { display: grid; place-items: center; border-radius: 50%; border: 4px solid #d9ede1; background: #e8f4e7; color: #134338; box-shadow: 0 0 0 2px #43765e; font: 700 15px/1 sans-serif; }
   .map :global(.leaflet-popup-content strong),.map :global(.leaflet-popup-content a) { display: block; margin: 4px 0; }
   .place p,.place address,.map-panel p { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 8px 0 0; font-style: normal; }

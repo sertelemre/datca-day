@@ -2,6 +2,8 @@
 import { getLocale, localePath } from '../lib/i18n';
 import { guideProviders, localText, servicesCopy } from '../lib/local-services';
 import Icon from './Icon.astro';
+import PlaceDirectory from './PlaceDirectory.astro';
+import { pharmacies } from '../lib/place-directory';
 
 interface Props { slug:string }
 const { slug } = Astro.props;
@@ -18,17 +20,7 @@ const showHealth = Object.hasOwn(healthLinks, slug);
 {(showHealth || slug === 'ulasim-rehberleri') && <div class="service-links">
   <a href={localePath(showHealth ? '/datca-saglik-rehberi' + healthLinks[slug] : '/datca-taksi-duraklari', locale)}><Icon name="pin" size={16}/>{t(showHealth ? 'clinicMap' : 'taxiMap')} →</a>
 </div>}
-{pharmacy && <section id="nobet-listesi" class="local-panel" aria-labelledby="pharmacy-title" data-duty-pharmacies>
-  <h2 id="pharmacy-title">{t('pharmacy')}</h2>
-  <p>{t('pharmacyIntro')} {t('fieldGuide')}</p>
-  <iframe src="https://www.eczaneler.gen.tr/iframe.php?lokasyon=1266" title={t('frameTitle')} width="400" height="245" referrerpolicy="no-referrer" loading="eager"></iframe>
-  <p class="service-note">{t('privacy')}</p>
-  <div class="service-links">
-    <a href="https://www.eczaneler.gen.tr/nobetci-mugla-datca" target="_blank" rel="noopener noreferrer">{t('direct')} <Icon name="external" size={14}/></a>
-    <a href="https://datca.bel.tr/nobetci-eczane" target="_blank" rel="noopener noreferrer">{t('city')} <Icon name="external" size={14}/></a>
-    <a href="https://www.muglaeczaciodasi.org.tr/nobetci-eczaneler" target="_blank" rel="noopener noreferrer">{t('chamber')} <Icon name="external" size={14}/></a>
-  </div>
-</section>}
+{pharmacy && <PlaceDirectory places={pharmacies} locale={locale}/>}
 {group && <section class="local-panel" aria-labelledby="providers-title" data-local-providers>
   <h2 id="providers-title">{t(group.group)}</h2><p>{t(compare[group.group])}</p>
   <div class="providers">{group.items.map(provider=><article class="provider">
@@ -38,5 +30,5 @@ const showHealth = Object.hasOwn(healthLinks, slug);
   </article>)}</div>
 </section>}
 <style>
-.local-panel{margin-block:28px;padding:clamp(17px,3vw,30px);border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);min-width:0}.local-panel h2{font-size:clamp(28px,4vw,40px);margin:0 0 10px;line-height:1.12}.local-panel>p,.provider p{font-size:15px;line-height:1.65;color:var(--muted);margin:0 0 14px}.local-panel .service-note{font-size:13px}.local-panel iframe{display:block;border:1px solid var(--line);border-radius:5px;width:100%;max-width:400px;background:#fff}.service-links,.providers{display:flex;flex-wrap:wrap;gap:14px}.service-links{margin-top:14px}.service-links a,.provider a{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:3px}.provider{padding:16px;background:var(--cream);border:1px solid var(--line);border-radius:7px;flex:1 1 min(210px,100%);min-width:0;display:flex;flex-direction:column;align-items:flex-start}.provider-place{display:inline-flex;gap:5px;align-items:center;font-size:12px;color:var(--muted)}.provider h3{font-size:24px;line-height:1.16;margin:6px 0 8px}.provider p{font-size:14px}.provider a{margin-top:auto}
+.local-panel{margin-block:28px;padding:clamp(17px,3vw,30px);border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);min-width:0}.local-panel h2{font-size:clamp(28px,4vw,40px);margin:0 0 10px;line-height:1.12}.local-panel>p,.provider p{font-size:15px;line-height:1.65;color:var(--muted);margin:0 0 14px}.service-links,.providers{display:flex;flex-wrap:wrap;gap:14px}.service-links{margin-top:14px}.service-links a,.provider a{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:3px}.provider{padding:16px;background:var(--cream);border:1px solid var(--line);border-radius:7px;flex:1 1 min(210px,100%);min-width:0;display:flex;flex-direction:column;align-items:flex-start}.provider-place{display:inline-flex;gap:5px;align-items:center;font-size:12px;color:var(--muted)}.provider h3{font-size:24px;line-height:1.16;margin:6px 0 8px}.provider p{font-size:14px}.provider a{margin-top:auto}
 </style>

@@ -1,4 +1,36 @@
 {
+  "Sağlık ve eczaneler": [
+    "Health & pharmacies",
+    "Здоровье и аптеки"
+  ],
+  "Tüm eczaneler": [
+    "All pharmacies",
+    "Все аптеки"
+  ],
+  "Nöbetçi eczane": [
+    "Duty pharmacy",
+    "Дежурная аптека"
+  ],
+  "Sağlık haritası": [
+    "Health map",
+    "Карта медучреждений"
+  ],
+  "Taksi durakları": [
+    "Taxi ranks",
+    "Стоянки такси"
+  ],
+  "Hastane ve poliklinikler": [
+    "Hospital and outpatient clinics",
+    "Больница и поликлиники"
+  ],
+  "Aile sağlığı merkezleri": [
+    "Family health centres",
+    "Центры семейной медицины"
+  ],
+  "Özel klinikler": [
+    "Private clinics",
+    "Частные клиники"
+  ],
   "Taksi ve sağlık haritalarını görüntülediğinde tarayıcın harita görüntülerini OpenStreetMap sunucularından alır. Yol tarifi bağlantısı Google Haritalar’da açılır.": [
     "Your browser loads map tiles from OpenStreetMap when you view the taxi or health directory map. Directions open in Google Maps.",
     "При просмотре карты такси или медицинских учреждений браузер загружает карту с серверов OpenStreetMap. Маршруты открываются в Google Картах."
@@ -1671,9 +1703,9 @@
     "No events or routes match this search.",
     "По этому запросу не найдено событий или маршрутов."
   ],
-  "Etkinlik afişleri ve günlük eczane listesi görüntülendiğinde tarayıcın ilgili afiş sunucusuna veya Eczaneler.gen.tr’ye bağlanır. Bu sağlayıcılar IP adresini ve tarayıcı bilgilerini alabilir.": [
-    "When event posters or the duty pharmacy list load, your browser contacts the poster host or Eczaneler.gen.tr. These providers can receive your IP address and browser information.",
-    "При загрузке афиш или списка дежурных аптек браузер подключается к серверу афиш или Eczaneler.gen.tr. Эти сервисы могут получить ваш IP-адрес и данные браузера."
+  "Etkinlik afişleri görüntülendiğinde tarayıcın ilgili afiş sunucusuna bağlanır. Sağlayıcı IP adresini ve tarayıcı bilgilerini alabilir.": [
+    "When an event poster loads, your browser contacts the poster host, which can receive your IP address and browser information.",
+    "При загрузке афиши браузер подключается к серверу изображений, который может получить ваш IP-адрес и данные браузера."
   ],
   "Fotoğraflarla Datça": [
     "Datça in photographs",

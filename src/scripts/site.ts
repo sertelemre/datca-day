@@ -28,7 +28,34 @@ document.addEventListener('click',event=>{
 });
 document.getElementById('saved-clear')?.addEventListener('click',()=>{try{localStorage.setItem(key,'[]');updateSaved();notify(t('Kaydedilen yerler temizlendi.'));}catch{}});
 window.addEventListener('storage',updateSaved);updateSaved();
-const menu=document.querySelector<HTMLButtonElement>('.mobile-menu-button');menu?.addEventListener('click',()=>{const panel=document.getElementById('mobile-menu');if(panel){panel.hidden=!panel.hidden;menu.setAttribute('aria-expanded',String(!panel.hidden));menu.setAttribute('aria-label',t(panel.hidden?'Menüyü aç':'Menüyü kapat'))}});
+const menu = document.querySelector<HTMLButtonElement>('.mobile-menu-button');
+const mobilePanel = document.getElementById('mobile-menu');
+function setMobileMenu(open: boolean) {
+  if (!menu || !mobilePanel) return;
+  mobilePanel.hidden = !open;
+  menu.setAttribute('aria-expanded', String(open));
+  menu.setAttribute('aria-label', t(open ? 'Menüyü kapat' : 'Menüyü aç'));
+}
+menu?.addEventListener('click', () => setMobileMenu(!!mobilePanel?.hidden));
+document.addEventListener('click', event => {
+  if (!(event.target instanceof Element)) return;
+  const target = event.target;
+  for (const group of document.querySelectorAll<HTMLDetailsElement>('.nav-group[open]')) {
+    if (!group.contains(target) || target.closest('a')) group.open = false;
+  }
+  if (!mobilePanel?.hidden && (target.closest('#mobile-menu a') || !target.closest('.site-header'))) setMobileMenu(false);
+});
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') return;
+  const group = document.activeElement?.closest<HTMLDetailsElement>('.nav-group[open]');
+  if (group) {
+    group.open = false;
+    group.querySelector('summary')?.focus();
+  } else if (mobilePanel && !mobilePanel.hidden) {
+    setMobileMenu(false);
+    menu?.focus();
+  }
+});
 const dialog=document.getElementById('search-dialog') as HTMLDialogElement;
 const input=document.getElementById('modal-search-input') as HTMLInputElement;
 const results=document.getElementById('search-results')!;

@@ -16,5 +16,18 @@ export function getRelated(article:Article) {
 export const navigation = [
   {name:'Keşfet',path:'/kategori/datca-cevresi'}, {name:'Turlar & Aktiviteler',path:'/kategori/gunluk-turlar'},
   {name:'Koylar & Plajlar',path:'/kategori/datca-koylari'}, {name:'Konaklama',path:'/datcada-nerede-kalinir'},
-  {name:'Etkinlikler',path:'/etkinlikler'}, {name:'Ulaşım',path:'/ulasim'}, {name:'Tatil Rehberi',path:'/rehber'},
+  {name:'Etkinlikler',path:'/etkinlikler'},
+  {name:'Ulaşım',children:[
+    {name:'Sefer saatleri',path:'/ulasim'},
+    {name:'Taksi durakları',path:'/datca-taksi-duraklari'},
+  ]},
+  {name:'Sağlık ve eczaneler',children:[
+    {name:'Tüm eczaneler',path:'/kategori/eczane-ve-saglik#pharmacy'},
+    {name:'Nöbetçi eczane',path:'/kategori/eczane-ve-saglik#nobet-listesi'},
+    {name:'Sağlık haritası',path:'/datca-saglik-rehberi'},
+    {name:'Hastane ve poliklinikler',path:'/datca-saglik-rehberi#outpatient'},
+    {name:'Aile sağlığı merkezleri',path:'/datca-saglik-rehberi#family'},
+    {name:'Özel klinikler',path:'/datca-saglik-rehberi#private'},
+  ]},
+  {name:'Tatil Rehberi',path:'/rehber'},
 ];

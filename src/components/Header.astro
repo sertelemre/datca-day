@@ -1,24 +1,22 @@
 ---
 import { ui } from '../lib/ui';
-import { getLocale, localePath, pagePath } from '../lib/i18n';
+import { getLocale, localePath } from '../lib/i18n';
 const locale = getLocale(Astro.url.pathname);
 const t = ui(locale);
 const localize = (path: string) => localePath(path, locale);
 
 import Icon from './Icon.astro';
 import BrandLogo from './BrandLogo.astro';
-import { navigation as defaultNavigation } from '../lib/content';
+import HeaderNavigation from './HeaderNavigation.astro';
 import { alternatePaths, languageNames } from '../lib/i18n';
-const navigation = defaultNavigation.map(item => ({...item, path:localize(item.path), name:t(item.name)}));
 const languages = alternatePaths(Astro.url.pathname);
 const languageLinks = languages.length ? languages : alternatePaths('/');
-const path = pagePath(Astro.url.pathname);
 ---
 <header class="site-header">
   <div class="header-inner container">
     <BrandLogo href={localize("/")} label={t("datca.day ana sayfa")} />
-    <nav class="desktop-nav" aria-label={t("Ana menü")}>{navigation.map(item => <a href={item.path} class:list={{ active: path === item.path }}>{item.name}</a>)}</nav>
+    <nav class="desktop-nav" aria-label={t("Ana menü")}><HeaderNavigation/></nav>
     <div class="header-actions"><nav class="language-switch" aria-label={t("Dil seçimi")}>{languageLinks.map(item=><a href={item.path} hreflang={item.locale} lang={item.locale} aria-label={languageNames[item.locale]} aria-current={item.locale === locale ? "page" : undefined}>{item.locale.toUpperCase()}</a>)}</nav><button class="header-icon" data-open-search aria-label={t("Sitede ara")}><Icon name="search"/></button><a class="header-icon saved-nav" href={localize("/kaydedilenler")} aria-label={t("Kaydettiğim yerler")}><Icon name="heart"/><span data-saved-count hidden>0</span></a><a class="button button-small plan-button" href={localize("/tatil-planim")}>{t("Tatilimi planla")} <Icon name="arrow" size={16}/></a><button class="header-icon mobile-menu-button" aria-label={t("Menüyü aç")} aria-expanded="false" aria-controls="mobile-menu"><Icon name="menu"/></button></div>
   </div>
-  <nav id="mobile-menu" class="mobile-nav" aria-label={t("Mobil menü")} hidden><nav class="language-switch mobile-language-switch" aria-label={t("Dil seçimi")}>{languageLinks.map(item=><a href={item.path} hreflang={item.locale} lang={item.locale} aria-label={languageNames[item.locale]} aria-current={item.locale === locale ? "page" : undefined}>{item.locale.toUpperCase()}</a>)}</nav>{navigation.map(item => <a href={item.path}>{item.name}<Icon name="arrow" size={17}/></a>)}<a href={localize("/tatil-planim")}>{t("Tatilimi planla")}<Icon name="calendar" size={17}/></a><a href={localize("/iletisim")}>{t("İletişim")}<Icon name="mail" size={17}/></a></nav>
+  <nav id="mobile-menu" class="mobile-nav" aria-label={t("Mobil menü")} hidden><nav class="language-switch mobile-language-switch" aria-label={t("Dil seçimi")}>{languageLinks.map(item=><a href={item.path} hreflang={item.locale} lang={item.locale} aria-label={languageNames[item.locale]} aria-current={item.locale === locale ? "page" : undefined}>{item.locale.toUpperCase()}</a>)}</nav><HeaderNavigation mobile/><a href={localize("/tatil-planim")}>{t("Tatilimi planla")}<Icon name="calendar" size={17}/></a><a href={localize("/iletisim")}>{t("İletişim")}<Icon name="mail" size={17}/></a></nav>
 </header>

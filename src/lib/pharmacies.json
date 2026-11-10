@@ -1,0 +1,134 @@
+[
+  {
+    "id": "aktur-eczanesi",
+    "name": "Aktur Eczanesi",
+    "address": "Emecik Mah., Aktur Sok. No. 940",
+    "phone": "+90 252 724 61 92",
+    "coordinates": [
+      36.75735,
+      27.887545
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-aktur-eczanesi"
+  },
+  {
+    "id": "anil-eczanesi",
+    "name": "Anıl Eczanesi",
+    "address": "Datça Mah., Kazım Yılmaz Bulvarı No. 107/A-B",
+    "phone": "+90 252 712 44 51",
+    "coordinates": [
+      36.740738,
+      27.66996
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-anil-eczanesi"
+  },
+  {
+    "id": "datca-eczanesi",
+    "name": "Datça Eczanesi",
+    "address": "İskele Mah., Atatürk Cad. No. 26/A",
+    "phone": "+90 252 712 30 92",
+    "coordinates": [
+      36.726654,
+      27.6858911
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-datca-eczanesi"
+  },
+  {
+    "id": "elaki-eczanesi",
+    "name": "Elaki Eczanesi",
+    "address": "Reşadiye Mah., Kazım Yılmaz Bulvarı No. 186/A",
+    "phone": "+90 252 712 99 19",
+    "coordinates": [
+      36.751861,
+      27.663069
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-elaki-eczanesi"
+  },
+  {
+    "id": "eski-datca-eczanesi",
+    "name": "Eski Datça Eczanesi",
+    "address": "Datça Mah., Kazım Yılmaz Bulvarı No. 111/A-B",
+    "phone": "+90 252 712 36 32",
+    "coordinates": [
+      36.7409,
+      27.6696
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-eski-datca-eczanesi"
+  },
+  {
+    "id": "gulin-eczanesi",
+    "name": "Gülin Eczanesi",
+    "address": "İskele Mah., Dr. Turgut Dündar Cad. No. 12/F",
+    "phone": "+90 544 452 35 82",
+    "coordinates": [
+      36.727255,
+      27.687456
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-gulin-eczanesi"
+  },
+  {
+    "id": "karaman-eczanesi",
+    "name": "Karaman Eczanesi",
+    "address": "İskele Mah., Op. Dr. Turgut Dündar Cad. No. 8",
+    "phone": "+90 252 712 92 96",
+    "coordinates": [
+      36.727474,
+      27.68742
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-karaman-eczanesi"
+  },
+  {
+    "id": "kocareis-eczanesi",
+    "name": "Kocareis Eczanesi",
+    "address": "İskele Mah., Atatürk Cad. No. 24/A",
+    "phone": "+90 252 712 38 65",
+    "coordinates": [
+      36.726733,
+      27.685908
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-kocareis-eczanesi"
+  },
+  {
+    "id": "nazar-eczanesi",
+    "name": "Nazar Eczanesi",
+    "address": "Yaka Mah., Palamutbükü Küme Evleri No. 107/B",
+    "phone": "+90 252 725 50 51",
+    "coordinates": [
+      36.674485,
+      27.5083
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/istanbul-kartal-nazar-eczanesi"
+  },
+  {
+    "id": "tugce-eczanesi",
+    "name": "Tuğçe Eczanesi",
+    "address": "İskele Mah., Dr. Turgut Dündar Cad. No. 12/C",
+    "phone": "+90 252 712 22 14",
+    "coordinates": [
+      36.727182,
+      27.687742
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-tugce-eczanesi"
+  },
+  {
+    "id": "umut-eczanesi",
+    "name": "Umut Eczanesi",
+    "address": "İskele Mah., Atatürk Cad. No. 5/C",
+    "phone": "+90 252 712 82 50",
+    "coordinates": [
+      36.727631,
+      27.686562
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-umut-eczanesi"
+  },
+  {
+    "id": "yeni-esen-eczanesi",
+    "name": "Yeni Esen Eczanesi",
+    "address": "İskele Mah., Op. Dr. Turgut Dündar Cad. No. 12/A",
+    "phone": "+90 252 712 04 97",
+    "coordinates": [
+      36.726988,
+      27.687481
+    ],
+    "locationSource": "https://www.eczaneler.gen.tr/eczane/mugla-datca-yeni-esen-eczanesi"
+  }
+]

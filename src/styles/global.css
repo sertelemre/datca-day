@@ -71,3 +71,24 @@ html[lang=ru]{--sans:'Noto Sans',Arial,sans-serif}
   .destination-copy{left:9px;right:7px}
   .destination-copy h3{font-size:clamp(20px,5.7vw,26px)}
 }
+
+.nav-group { position: relative; }
+.nav-group summary { display: flex; align-items: center; gap: 4px; cursor: pointer; list-style: none; }
+.nav-group summary::-webkit-details-marker { display: none; }
+.nav-group[open] > summary svg { transform: rotate(180deg); }
+.desktop-nav summary { min-height: 44px; font-size: 14px; white-space: nowrap; }
+.desktop-nav .nav-children { position: absolute; top: 100%; right: 0; min-width: 200px; padding: 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); box-shadow: 0 6px 20px #183b341a; }
+.nav-children a { display: flex; align-items: center; min-height: 42px; padding: 7px 12px; }
+.nav-children a:hover,.nav-children a:focus-visible { background: var(--cream); color: var(--green); }
+.mobile-nav { max-height: calc(100dvh - 88px); overflow-y: auto; }
+.mobile-nav .nav-group { border-bottom: 1px solid var(--line); }
+.mobile-nav summary { justify-content: space-between; padding: 12px 0; min-height: 44px; }
+.mobile-nav .nav-children { padding: 0 0 8px 10px; border-left: 2px solid var(--line); margin-bottom: 8px; }
+@media(min-width:1351px) { .header-inner.container { width: min(1450px,calc(100% - 48px)); } }
+
+@media (min-width: 1351px) and (max-width: 1460px) {
+  .header-inner .brand-logo { width: 145px; }
+  .header-inner { gap: 12px; }
+  .desktop-nav { gap: 9px; }
+  .header-actions { gap: 10px; }
+}

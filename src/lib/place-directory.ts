@@ -1,6 +1,7 @@
 import { copy, type Guide } from './guides';
+import pharmacyRecords from './pharmacies.json';
 
-export type DirectoryGroup = 'taxi' | 'outpatient' | 'family' | 'private';
+export type DirectoryGroup = 'taxi' | 'outpatient' | 'family' | 'private' | 'pharmacy';
 type Translation = [string, string, string];
 export interface DirectoryPlace {
   group: DirectoryGroup;
@@ -18,6 +19,11 @@ const taxi = 'https://taksibul.net/il/mugla/';
 const asm = 'https://muglaism.saglik.gov.tr/TR-48653/asm-ve-ahb-iletisim.html';
 const cityGuide = 'https://datca.rehberi.tr/firma/';
 const yandex = 'https://yandex.com.tr/maps/org/';
+
+export const pharmacies: DirectoryPlace[] = pharmacyRecords.map(record => ({
+  ...record, group: 'pharmacy', coordinates: [record.coordinates[0], record.coordinates[1]],
+  source: 'https://www.muglaeczaciodasi.org.tr/uyelerimiz/1266',
+}));
 
 export const places: DirectoryPlace[] = [
   {
@@ -129,6 +135,7 @@ export const places: DirectoryPlace[] = [
     address: 'İskele Mah., Ahmet Taner Kışlalı Cad. No. 52/4', phone: '+90 536 728 48 00',
     coordinates: [36.731806, 27.684806], source: 'https://i-klinik.com/iletisim/',
   },
+  ...pharmacies,
 ];
 
 export const taxiSlug = 'datca-taksi-duraklari';
@@ -153,11 +160,11 @@ export const directoryGuides: Guide[] = [
   {
     slug: healthSlug, groups: ['health'], photo: 'datca-merkez',
     source: { label: 'Muğla İl Sağlık Müdürlüğü', url: asm },
-    tr: copy('Datça poliklinikleri, aile sağlığı merkezleri ve özel klinikler', 'Devlet Hastanesi poliklinikleri, dört aile sağlığı merkezi, diş klinikleri ve özel muayenehaneler için telefon, adres ve yol tarifi.',
+    tr: copy('Datça’da hastane, klinik ve eczane haritası', 'Devlet Hastanesi poliklinikleri, dört aile sağlığı merkezi, özel klinikler ve eczaneler için telefon, adres ve yol tarifi. Bugünün nöbetçi eczanesini haritada bul.',
       ['Randevu ve başvuru', 'Devlet Hastanesi için MHRS’de Datça’yı ve ilgili branşı seç. Aile sağlığı merkezini ararken kayıtlı olduğun birimi belirt. Özel kliniklere kendi telefonlarından ulaşabilirsin.']),
-    en: copy('Outpatient clinics, family health centres and private practices in Datça', 'Phone numbers, street addresses and directions for the state hospital’s outpatient departments, four family health centres, dental clinics and private practices.',
+    en: copy('Map of the hospital, clinics and pharmacies in Datça', 'Phone numbers, street addresses and directions for the state hospital’s outpatient departments, four family health centres, private practices and pharmacies, including today’s duty pharmacy.',
       ['Appointments', 'For the state hospital, select Datça and the specialty in MHRS. When calling a family health centre, give your unit number if you are registered. Contact private clinics directly.']),
-    ru: copy('Поликлиники, центры семейной медицины и частные клиники Датчи', 'Телефоны, адреса и маршруты до амбулаторных отделений государственной больницы, четырёх центров семейной медицины, стоматологий и частных кабинетов.',
+    ru: copy('Больница, клиники и аптеки на карте Датчи', 'Телефоны, адреса и маршруты до амбулаторных отделений государственной больницы, четырёх центров семейной медицины, частных клиник и аптек. На карте отмечена дежурная аптека.',
       ['Запись на приём', 'Для записи в государственную больницу выберите Датчу и специальность в MHRS. При звонке в центр семейной медицины укажите свой участок, если вы прикреплены. В частную клинику можно позвонить напрямую.']),
   },
 ];

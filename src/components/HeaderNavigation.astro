@@ -1,0 +1,24 @@
+---
+import { navigation } from '../lib/content';
+import { getLocale, localePath, pagePath } from '../lib/i18n';
+import { ui } from '../lib/ui';
+import Icon from './Icon.astro';
+
+interface Props { mobile?: boolean }
+const { mobile = false } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+const path = pagePath(Astro.url.pathname);
+const href = (value: string) => localePath(value, locale);
+---
+{navigation.map(item => item.children
+  ? <details class="nav-group" name={mobile ? 'mobile-sections' : 'desktop-sections'}>
+      <summary>{t(item.name)}<Icon name="down" size={14}/></summary>
+      <div class="nav-children">{item.children.map(link =>
+        <a href={href(link.path)}>{t(link.name)}</a>
+      )}</div>
+    </details>
+  : <a href={href(item.path)} aria-current={path === href(item.path) ? 'page' : undefined} class:list={{active: path === href(item.path)}}>
+      {t(item.name)}{mobile && <Icon name="arrow" size={17}/>}
+    </a>
+)}

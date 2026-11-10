@@ -26,6 +26,7 @@ export function showPlaceMap(root: HTMLElement) {
       return L.divIcon({ className: 'directory-cluster', html: label, iconSize: [36, 36] });
     },
   });
+  const pharmacyPins: Array<() => void> = [];
   for (const card of cards) {
     const position = L.latLng(Number(card.dataset.lat), Number(card.dataset.lon));
     const title = card.querySelector('h3')!;
@@ -36,8 +37,31 @@ export function showPlaceMap(root: HTMLElement) {
       card.querySelector('.phone')!.cloneNode(true), card.querySelector('[data-directions]')!.cloneNode(true));
     const icon = L.divIcon({ className: 'directory-pin', html: card.dataset.number, iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14] });
     const marker = L.marker(position, { title: name.textContent, icon }).bindPopup(popup);
-    marker.on('add', () => { marker.getElement()?.setAttribute('aria-label', name.textContent); });
+    const markerLabel = () => [name.textContent, card.dataset.duty].filter(Boolean).join(' · ');
+    marker.on('add', () => { marker.getElement()?.setAttribute('aria-label', markerLabel()); });
     markers.addLayer(marker);
+    if (card.hasAttribute('data-pharmacy')) {
+      const status = document.createElement('strong');
+      name.after(status);
+      let lastDuty = '';
+      pharmacyPins.push(() => {
+        const duty = card.dataset.duty || '';
+        if (lastDuty === duty) return;
+        lastDuty = duty;
+        status.textContent = duty;
+        status.hidden = !duty;
+        if (duty) {
+          markers.removeLayer(marker);
+          marker.setIcon(L.divIcon({ className: 'directory-pin directory-duty-pin', html: 'E',
+            iconSize: [32, 32], iconAnchor: [16, 16], popupAnchor: [0, -16] }));
+          marker.setZIndexOffset(2000).addTo(map);
+        } else {
+          marker.removeFrom(map).setIcon(icon).setZIndexOffset(0);
+          markers.addLayer(marker);
+        }
+        marker.getElement()?.setAttribute('aria-label', markerLabel());
+      });
+    }
     bounds.extend(position);
     card.querySelector('a[data-show-place]')!.addEventListener('click', event => {
       if (!(event instanceof MouseEvent) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -54,5 +78,8 @@ export function showPlaceMap(root: HTMLElement) {
   }
   showAll();
   markers.addTo(map);
+  const updatePharmacyPins = () => pharmacyPins.forEach(update => update());
+  updatePharmacyPins();
+  root.addEventListener('pharmacy-duty-change', updatePharmacyPins);
   panel.querySelector('[data-map-reset]')!.addEventListener('click', showAll);
 }

@@ -46,7 +46,7 @@ export function guideProviders(slug:string) {
   return {group,items:keys.map(key=>providers[key])};
 }
 export const servicesCopy:Record<string,Copy> = {
-  clinicMap:['Poliklinikler, aile sağlığı merkezleri ve özel klinikler haritası','Map of outpatient clinics, family health centres and private practices','Карта поликлиник, центров семейной медицины и частных клиник'],
+  clinicMap:['Hastane, aile sağlığı merkezleri, klinikler ve eczaneler haritası','Map of the hospital, family health centres, clinics and pharmacies','Карта больницы, центров семейной медицины, клиник и аптек'],
   taxiMap:['Taksi durakları haritası','Taxi rank map','Карта стоянок такси'],
   boat:['Tekne turu işletmeleri','Boat tour operators','Организаторы морских прогулок'],
   stay:['Konaklama yerlerini karşılaştır','Compare places to stay','Варианты размещения'],
@@ -55,12 +55,4 @@ export const servicesCopy:Record<string,Copy> = {
   compareStay:['Konum ve konaklama biçimine göre seçim yap. Oda tipini, sezon tarihlerini ve iptal koşullarını tesisle doğrula.','Choose a location and accommodation style. Confirm the room type, opening dates and cancellation terms with the property.','Выберите район и тип жилья. Уточните у владельцев категорию номера, сезон работы и условия отмены.'],
   compareSea:['Seans tarihini, buluşma noktasını ve ekipmanı programı düzenleyen ekiple doğrula.','Confirm the date, meeting point and equipment with the team running the session.','Уточните у организатора дату занятия, место встречи и снаряжение.'],
   website:['İşletmenin sayfası','Provider website','Сайт организатора'],
-  pharmacy:['Datça’nın nöbetçi eczanesi','On-duty pharmacies in Datça','Дежурные аптеки Датчи'],
-  pharmacyIntro:['Listedeki tarihe bak. Gece yarısından sonra önceki günün nöbeti sürebilir. Gitmeden önce listelenen numaradan nöbeti ve adresi doğrula.','Check the duty date at the top of the list. After midnight, the previous day’s shift may still apply. Call the listed number to confirm the shift and address.','Проверьте дату дежурства в верхней строке. После полуночи может продолжаться смена предыдущего дня. Позвоните по указанному номеру и уточните время работы и адрес.'],
-  frameTitle:['Eczaneler.gen.tr günlük Datça nöbet listesi','Daily Datça duty roster from Eczaneler.gen.tr','Ежедневный список дежурных аптек Датчи от Eczaneler.gen.tr'],
-  privacy:['Günlük liste Eczaneler.gen.tr’den yüklenir. Tarayıcın bu sağlayıcıya bağlanır.','The daily roster loads from Eczaneler.gen.tr. Your browser connects to this provider.','Ежедневный список загружается с Eczaneler.gen.tr. Ваш браузер подключается к этому сайту.'],
-  direct:['Listeyi ayrı aç','Open the roster separately','Открыть список отдельно'],
-  city:['Datça Belediyesi','Datça Municipality','Муниципалитет Датчи'],
-  chamber:['Muğla Eczacı Odası','Muğla Chamber of Pharmacists','Палата фармацевтов Муглы'],
-  fieldGuide:['','The roster is in Turkish. “Adres” is the address and “Telefon” is the telephone number.','Список на турецком языке. «Adres» — адрес, «Telefon» — номер телефона.'],
 };
