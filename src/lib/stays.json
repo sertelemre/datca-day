@@ -472,9 +472,15 @@
     "number": "2022-48-1522",
     "name": "Bizim Ev Datça",
     "type": "pansiyon",
-    "address": "İskele Mah. 3. Sok. No:9",
+    "address": "Kargı Koyu, 1. Sokak No:17, Datça/Muğla",
     "phone": "+90 533 253 80 48",
-    "area": "İskele"
+    "area": "Datça",
+    "website": "https://bizimevdatca.com/",
+    "coordinates": [
+      36.699267,
+      27.675364
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Bizim+Ev+Dat%C3%A7a+Karg%C4%B1+Dat%C3%A7a&query_place_id=ChIJH8GgMOMlvhQRBPEXEDnbSIE"
   },
   {
     "number": "2022-48-1523",
@@ -828,7 +834,12 @@
     "type": "apart otel",
     "address": "Mesudiye Mah. Ovabükü Sok. No:31",
     "phone": "+90 506 484 24 99",
-    "area": "Mesudiye"
+    "area": "Mesudiye",
+    "coordinates": [
+      36.685003,
+      27.560329
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=LEMAN+APART+Dat%C3%A7a&query_place_id=ChIJ31NmOd0hvhQRqTi6CBStImk"
   },
   {
     "number": "2022-48-1865",
@@ -978,7 +989,12 @@
     "type": "pansiyon",
     "address": "Yaka Mah. Palamutbükü Sok. No:238",
     "phone": "+90 538 256 41 12",
-    "area": "Yaka"
+    "area": "Yaka",
+    "coordinates": [
+      36.673757,
+      27.503186
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Nostalgia+Apart+Dat%C3%A7a&query_place_id=ChIJfRz8sEgfvhQRyFLVCSCMj-A"
   },
   {
     "number": "2022-48-1898",
@@ -1103,7 +1119,12 @@
     "type": "apart otel",
     "address": "Cumalı Mah. Palamutbükü/Cumalı Mah. Küme Evler No:26/2",
     "phone": "+90 507 277 62 65",
-    "area": "Cumalı"
+    "area": "Cumalı",
+    "coordinates": [
+      36.672481,
+      27.499916
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=%C5%9Eafak+Apart+Dat%C3%A7a&query_place_id=ChIJiaZBP88fvhQRY8nFfOs5nEg"
   },
   {
     "number": "2022-48-1915",
@@ -1354,7 +1375,12 @@
     "type": "pansiyon",
     "address": "İskele Mah. 87. Sok. No:12/1",
     "phone": "+90 252 712 99 92",
-    "area": "İskele"
+    "area": "İskele",
+    "coordinates": [
+      36.730146,
+      27.688469
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Ta%C5%9Fk%C4%B1ran+Apart+Dat%C3%A7a&query_place_id=ChIJu7fxluEkvhQRJjRm04j8mLQ"
   },
   {
     "number": "2022-48-1950",
@@ -1601,7 +1627,12 @@
     "type": "apart otel",
     "address": "Yaka Mah. Palamutbükü Sok. No:91",
     "phone": "+90 549 016 88 85",
-    "area": "Yaka"
+    "area": "Yaka",
+    "coordinates": [
+      36.673249,
+      27.506832
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Burcu+Apart+Dat%C3%A7a&query_place_id=ChIJ-0v8RqwfvhQRpOhIcb8uwPM"
   },
   {
     "number": "2022-48-2000",
@@ -1667,7 +1698,13 @@
     "type": "pansiyon",
     "address": "Mesudiye Mah. Ovabükü Sok. No:42/1",
     "phone": "+90 542 226 41 88",
-    "area": "Mesudiye"
+    "area": "Mesudiye",
+    "coordinates": [
+      36.683824,
+      27.557539
+    ],
+    "mappedDoor": "42/1",
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/512580"
   },
   {
     "number": "2022-48-2006",
@@ -1701,7 +1738,12 @@
     "type": "pansiyon",
     "address": "Mesudiye Mah. Ovabükü Küme Evleri No:81/2",
     "phone": "+90 535 600 76 72",
-    "area": "Mesudiye"
+    "area": "Mesudiye",
+    "coordinates": [
+      36.686481,
+      27.556466
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Zeytin%C3%B6z%C3%BC+Apart+Dat%C3%A7a&query_place_id=ChIJ2WqUVDAhvhQRf3ZWxcm_YF8"
   },
   {
     "number": "2022-48-2027",
@@ -1709,7 +1751,12 @@
     "type": "apart otel",
     "address": "Yaka Mah. Palamutbükü Sok. No:351",
     "phone": "+90 532 691 08 01",
-    "area": "Yaka"
+    "area": "Yaka",
+    "coordinates": [
+      36.673954,
+      27.507041
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Damla+Apart+Dat%C3%A7a&query_place_id=ChIJK69VE6wfvhQRAmKY2EOrlz8"
   },
   {
     "number": "2022-48-2035",
@@ -1843,7 +1890,13 @@
     "type": "pansiyon",
     "address": "Cumalı Mah. Palamutbükü Sok. No:129/1,2,3,4",
     "phone": "+90 543 368 06 27",
-    "area": "Cumalı"
+    "area": "Cumalı",
+    "coordinates": [
+      36.670551,
+      27.502316
+    ],
+    "mappedDoor": "129B",
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/576145"
   },
   {
     "number": "2022-48-2103",
@@ -1915,7 +1968,13 @@
     "type": "pansiyon",
     "address": "Yaka Mah. Palamutbükü Sok. No:24-25a",
     "phone": "+90 505 385 50 48",
-    "area": "Yaka"
+    "area": "Yaka",
+    "coordinates": [
+      36.677181,
+      27.503148
+    ],
+    "mappedDoor": "24",
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/563012"
   },
   {
     "number": "2022-48-2121",
@@ -2162,7 +2221,12 @@
     "area": "Mesudiye",
     "website": "https://botanikahsapevler.com/",
     "photo": "https://botanikahsapevler.com/gallery_gen/154207011cef3d8d67fc3a37dc8ea8e8_100x90_fit.jpg?ts=1791988929",
-    "gallery": "https://botanikahsapevler.com/"
+    "gallery": "https://botanikahsapevler.com/",
+    "coordinates": [
+      36.685451,
+      27.565728
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Botanik+Ah%C5%9Fap+Evler+Dat%C3%A7a&query_place_id=ChIJn3kUGLchvhQRevN8XQUPQaM"
   },
   {
     "number": "2022-48-2187",
@@ -2328,7 +2392,14 @@
     "type": "pansiyon",
     "address": "Cumalı Mah. Palamutbükü Sok. 43/1",
     "phone": "+90 553 436 64 22",
-    "area": "Cumalı"
+    "area": "Cumalı",
+    "coordinates": [
+      36.671056,
+      27.503048
+    ],
+    "mappedDoor": "43",
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/430597",
+    "unconfirmedEntrance": "43/1"
   },
   {
     "number": "2022-48-2229",
@@ -2689,7 +2760,12 @@
     "type": "pansiyon",
     "address": "Cumalı Mah. Palamutbükü Sok. No:117/1",
     "phone": "+90 555 712 98 21",
-    "area": "Cumalı"
+    "area": "Cumalı",
+    "coordinates": [
+      36.672296,
+      27.500197
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Menek%C5%9Fe+Apart+Dat%C3%A7a&query_place_id=ChIJhdgp7nAfvhQRZMKZ7Hzq3bA"
   },
   {
     "number": "2022-48-2329",
@@ -2725,12 +2801,17 @@
     "number": "2022-48-2351",
     "name": "Çümen Apart",
     "type": "apart otel",
-    "address": "Reşadiye Mah. Küme 8 Küme Evleri No:15",
+    "address": "Emecik Mah. Karaincir Tatil Köyü, 1. Cadde, Datça/Muğla",
     "phone": "+90 539 923 97 97",
-    "area": "Reşadiye",
+    "area": "Emecik",
     "website": "https://www.cumenapart.com/",
     "photo": "https://static.wixstatic.com/media/b0a786_8f218002e68d4efeb5c8f02a065547ad~mv2.jpeg/v1/fill/w_353,h_628,q_90,enc_avif,quality_auto/b0a786_8f218002e68d4efeb5c8f02a065547ad~mv2.jpeg",
-    "gallery": "https://www.cumenapart.com/"
+    "gallery": "https://www.cumenapart.com/",
+    "coordinates": [
+      36.761733,
+      27.794395
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=%C3%87%C3%BCmen+Apart+Otel+Dat%C3%A7a&query_place_id=ChIJq_VyzLMlvhQRHLS4sI7567I"
   },
   {
     "number": "2022-48-2354",
@@ -3315,7 +3396,12 @@
     "type": "pansiyon",
     "address": "İskele Mah. 190.Sokak No:32/1-2-3",
     "phone": "+90 536 222 70 95",
-    "area": "İskele"
+    "area": "İskele",
+    "coordinates": [
+      36.739954,
+      27.69157
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Dat%C3%A7a+Deniz+K%C4%B1z%C4%B1+Pansiyon+Dat%C3%A7a&query_place_id=ChIJQX28v9wlvhQRv02GvSG9k3w"
   },
   {
     "number": "22610",
@@ -3516,14 +3602,25 @@
     "name": "Datça Hayalperest",
     "type": "pansiyon",
     "address": "Yaka Mah. Yaka Küme Evleri No:460/A-B",
-    "area": "Yaka"
+    "area": "Yaka",
+    "coordinates": [
+      36.681954,
+      27.501075
+    ],
+    "mappedDoor": "460A",
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/3866"
   },
   {
     "number": "23683",
     "name": "Datça Polat Pansiyon",
     "type": "pansiyon",
     "address": "Emecik Mah. Emecik Küme Evleri No:385-1-2-3-4-5-6-7",
-    "area": "Emecik"
+    "area": "Emecik",
+    "coordinates": [
+      36.766166,
+      27.798956
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Dat%C3%A7a+Polat+Pansiyon+Dat%C3%A7a&query_place_id=ChIJK9oiKugxvhQRKTT-qwlwnmo"
   },
   {
     "number": "23719",
@@ -3579,7 +3676,12 @@
     "area": "Emecik",
     "phone": "+90 541 559 75 09",
     "photo": "https://bulotel.com/media/accommodations/23922/f1ce0879-7ca1-45e3-b8e5-84e246052b99.webp?v=edi-media-v2",
-    "gallery": "https://bulotel.com/tesis/karaincir-sevgi-pansiyon"
+    "gallery": "https://bulotel.com/tesis/karaincir-sevgi-pansiyon",
+    "coordinates": [
+      36.764754,
+      27.795036
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Dat%C3%A7a+Karaincir+Sevgi+Pansiyon+apart+hotel+Dat%C3%A7a&query_place_id=ChIJOTDh8hwxvhQRmvufH0s0sHc"
   },
   {
     "number": "24036",
@@ -3660,7 +3762,12 @@
     "name": "Hayalim Taşev",
     "type": "pansiyon",
     "address": "Mesudiye Mah. Hayıtbükü Küme Evleri No:35/1",
-    "area": "Mesudiye"
+    "area": "Mesudiye",
+    "coordinates": [
+      36.685515,
+      27.578298
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Hayalim+Ta%C5%9F+Ev+Dat%C3%A7a&query_place_id=ChIJtbOsMO0hvhQRvK8ZSd0GFaw"
   },
   {
     "number": "24116",
@@ -3683,14 +3790,25 @@
     "gallery": "https://www.etstur.com/Palamutbuku-Reis-Pansiyon",
     "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Palamutb_k_Reis_pansiyon_202506251842356_20250616_185435.jpg",
     "area": "Yaka",
-    "phone": "+90 546 546 07 23"
+    "phone": "+90 546 546 07 23",
+    "coordinates": [
+      36.676524,
+      27.506739
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Reis+Apart+Otel+Dat%C3%A7a&query_place_id=ChIJnZIAha0fvhQRMyn30k52JK4"
   },
   {
     "number": "24167",
     "name": "Kastro Tireli Pansiyon",
     "type": "pansiyon",
     "address": "Emecik Mahallesi Emecik Küme Evleri No:357",
-    "area": "Emecik"
+    "area": "Emecik",
+    "coordinates": [
+      36.758988,
+      27.780006
+    ],
+    "mappedDoor": "357",
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/445595"
   },
   {
     "number": "24408",
@@ -3710,7 +3828,12 @@
     "type": "pansiyon",
     "address": "Mesudiye Mah. Hayıtbükü Sok.No:4",
     "phone": "+90 542 783 72 02",
-    "area": "Mesudiye"
+    "area": "Mesudiye",
+    "coordinates": [
+      36.685373,
+      27.568543
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Sempati+A%C4%9Fa%C3%A7+Evleri+Dat%C3%A7a&query_place_id=ChIJuRFvE-ohvhQR2iIqk89aXuk"
   },
   {
     "number": "24567",
@@ -3760,7 +3883,13 @@
     "type": "pansiyon",
     "address": "Hızırsah Mah. Hızırsah Küme Evleri No:343/A Datça/Muğla",
     "area": "Hızırşah",
-    "phone": "+90 533 709 08 88"
+    "phone": "+90 533 709 08 88",
+    "coordinates": [
+      36.738408,
+      27.646797
+    ],
+    "mappedDoor": "343A",
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/383648"
   },
   {
     "number": "25068",
@@ -3798,7 +3927,12 @@
     "type": "pansiyon",
     "address": "Emecik Mah. Emecik Sok. No:414/1-2-3-4 Datça/Muğla",
     "phone": "+90 505 156 09 93",
-    "area": "Emecik"
+    "area": "Emecik",
+    "coordinates": [
+      36.764945,
+      27.797349
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=KARA%C4%B0NC%C4%B0R+EGE+PANS%C4%B0YON+Dat%C3%A7a&query_place_id=ChIJtRKlIb8xvhQRUE5oJAigjME"
   },
   {
     "number": "25305",
@@ -3983,7 +4117,15 @@
   {
     "number": "26275",
     "name": "Melisa Pansiyon Zeytincik",
-    "type": "pansiyon"
+    "type": "pansiyon",
+    "address": "Sındı Mah. Zeytincik Sokak No:58, Datça/Muğla",
+    "area": "Sındı",
+    "phone": "+90 543 952 05 33",
+    "coordinates": [
+      36.703255,
+      27.531034
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Melisa+Pansiyon+Dat%C3%A7a&query_place_id=ChIJ-4OvNKYlvhQRzg2leTRe-cM"
   },
   {
     "number": "26340",
@@ -4038,7 +4180,14 @@
     "number": "26542",
     "name": "Feray Pansiyon",
     "type": "pansiyon",
-    "phone": "+90 530 672 35 48"
+    "phone": "+90 530 672 35 48",
+    "address": "Yaka Mah. Palamutbükü Sokak No:350, Datça/Muğla",
+    "area": "Yaka",
+    "coordinates": [
+      36.674032,
+      27.507935
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Feray+Pansiyon+Palamutb%C3%BCk%C3%BC+Dat%C3%A7a&query_place_id=ChIJdTG08DAfvhQREXMgRSeE7S4"
   },
   {
     "number": "26543",
@@ -4135,12 +4284,26 @@
     "photo": "https://www.wyndhamhotels.com/is/image/WyndhamProd/60878_exterior_view_1?wid=1600&op_usm=3%2C0.3&fit=constrain&resMode=sharp2&bfc=on&network=on",
     "gallery": "https://www.wyndhamhotels.com/ramada/mugla-turkiye/ramada-resort-datca",
     "phone": "+90 252 512 41 41",
-    "address": "Kızlan Mahallesi, Kızlan Küme, 48900 Datça/Muğla"
+    "address": "Kızlan Mah. Kızlan Küme Evleri No:791, Datça/Muğla",
+    "area": "Kızlan",
+    "coordinates": [
+      36.764768,
+      27.759284
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Ramada+Resort+by+Wyndham+Dat%C3%A7a+Dat%C3%A7a&query_place_id=ChIJYTqL09IxvhQRVQ5nGgdldmo"
   },
   {
     "number": "27543",
     "name": "Anayelken",
-    "type": "pansiyon"
+    "type": "pansiyon",
+    "address": "Emecik Mah. Emecik Küme Evleri No:440A, Datça/Muğla",
+    "area": "Emecik",
+    "phone": "+90 507 845 76 93",
+    "coordinates": [
+      36.759557,
+      27.777584
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=Ana+Yelken+Dat%C3%A7a+Dat%C3%A7a&query_place_id=ChIJ7StqZU4wvhQRY56SL8xl-Tg"
   },
   {
     "number": "27560",
@@ -4244,8 +4407,15 @@
     "type": "rental",
     "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/La_Vida_Hotel_Datca_202606121637496_IMG_2789.JPG",
     "gallery": "https://www.etstur.com/La-Vida-Hotel-Datca",
-    "address": "MHJ6+5C Datça, Muğla iskele mahallesi Dr. Turgut Dündar Cad. No:14 AAi",
-    "area": "İskele"
+    "address": "Mesudiye Mah. Ovabükü Küme Evleri No:7, Datça/Muğla",
+    "area": "Mesudiye",
+    "website": "https://www.lavidahotel.com.tr/tr/pages/contact",
+    "phone": "+90 505 741 66 45",
+    "coordinates": [
+      36.680398,
+      27.561066
+    ],
+    "locationSource": "https://www.google.com/maps/search/?api=1&query=La+Vida+Hotel+Dat%C3%A7a&query_place_id=ChIJGXzJvgUhvhQRQ3BkSdBDR8I"
   },
   {
     "number": "48-2368",

@@ -45,9 +45,10 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
           <p class="kind">{labels[kind(spot.type)]}{spot.area && <> · {spot.area}</>}</p>
           <h3><a data-select-stay href={mapsUrl}>{title}</a></h3>
           {spot.address && <address>{spot.address}</address>}
+          {spot.mappedDoor && <p class="door-note" data-door-note>{m.door.replace('{n}', spot.mappedDoor)}{spot.unconfirmedEntrance && ' ' + m.entrance.replace('{unit}', spot.unconfirmedEntrance)}</p>}
           {spot.phone && <a class="phone" href={'tel:'+spot.phone.replaceAll(' ','')}><Icon name="phone" size={15}/>{spot.phone}</a>}
           <div class="stay-links"><a href={mapsUrl} data-map-link data-select-stay={pin ? '' : undefined} target="_blank" rel="noopener noreferrer"><Icon name="pin" size={15}/>{pin ? m.show : labels.map}</a>{spot.website && <a href={spot.website} target="_blank" rel="noopener noreferrer">{labels.web} ↗</a>}</div>
-          <small>{spot.locationSource && <><a data-location-source href={spot.locationSource} target="_blank" rel="noopener noreferrer">{m.source} ↗</a> · </>}{spot.type==='application'?labels.application:labels.number} {spot.number}</small>
+          <small>{spot.locationSource && <><a data-location-source href={spot.locationSource} target="_blank" rel="noopener noreferrer">{spot.mappedDoor ? m.addressSource : m.source} ↗</a> · </>}{spot.type==='application'?labels.application:labels.number} {spot.number}</small>
           {spot.gallery && <a class="credit" href={spot.gallery} target="_blank" rel="noopener noreferrer">{labels.gallery} · {photoSource(spot.gallery)} ↗</a>}
         </div>
       </article>
@@ -133,6 +134,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
   .stay-body { padding:16px; display:grid; gap:7px; }
   .stay h3 { font:500 clamp(22px,2vw,27px)/1.12 var(--serif); margin:0; overflow-wrap:anywhere; }
   .stay address { font-style:normal; }
+  .door-note {font-size:13px;line-height:1.45;color:var(--muted);}
   .stay h3 a:hover,.stay small a:hover { text-decoration:underline; }
   .stay:has([data-select-stay]) {cursor:pointer;}
   .kind,.stay small,.credit { font-size:12px; line-height:1.5; }

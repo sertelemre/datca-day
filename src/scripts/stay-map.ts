@@ -47,7 +47,7 @@ export function mountStayMap(root: HTMLElement, cards: HTMLElement[]) {
     heading.textContent=card.querySelector('h3')!.textContent;
     if(picture) {const img=picture.cloneNode(true) as HTMLImageElement;img.loading='eager';content.append(img);}
     content.append(heading);
-    for(const selector of ['address','a.phone']) {
+    for(const selector of ['address','[data-door-note]','a.phone']) {
       const entry=card.querySelector(selector);if(entry) content.append(entry.cloneNode(true));
     }
     const link=card.querySelector<HTMLAnchorElement>('[data-map-link]')!.cloneNode(true) as HTMLAnchorElement;
