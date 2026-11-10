@@ -26,6 +26,7 @@ jobs:
       - run: node --test scripts/transport.test.mjs
       - run: npm run transport:update
       - run: npm run build
+      - run: npm run verify
       - name: Save verified timetables
         run: |
           git add src/lib/transport-data.json

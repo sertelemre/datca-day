@@ -24,6 +24,7 @@ jobs:
       - run: node --test scripts/events/*.test.mjs
       - run: node scripts/events/update.mjs
       - run: npm run build
+      - run: npm run verify
       - name: Commit refreshed public schedule
         run: |
           git add src/lib/events-data.json
