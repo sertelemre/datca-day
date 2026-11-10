@@ -19,6 +19,7 @@ const labels:Record<string, [string,string,string]> = {
   examples:['Örn. Palamutbükü, Havaş, 48-16','e.g. Palamutbükü, Havaş, 48-16','Например, Palamutbükü, Havaş, 48-16'],
   noMatch:['Bu aramayla eşleşen hat bulunamadı.','No routes match this search.','Маршруты не найдены.'],
   local:['Datça dolmuşları','Local minibuses','Местные долмуши'],
+  taxiMap:['Taksi durakları haritası','Taxi rank map','Карта стоянок такси'],
   intercity:['İlçeler arası otobüsler','Regional buses','Междугородние автобусы'],
   airport:['Havalimanı servisleri','Airport shuttles','Шаттлы в аэропорт'],
   ferry:['Bodrum–Datça feribotu','Bodrum–Datça ferry','Паром Бодрум — Датча'],

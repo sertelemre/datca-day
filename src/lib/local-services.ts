@@ -46,6 +46,8 @@ export function guideProviders(slug:string) {
   return {group,items:keys.map(key=>providers[key])};
 }
 export const servicesCopy:Record<string,Copy> = {
+  clinicMap:['Poliklinikler, aile sağlığı merkezleri ve özel klinikler haritası','Map of outpatient clinics, family health centres and private practices','Карта поликлиник, центров семейной медицины и частных клиник'],
+  taxiMap:['Taksi durakları haritası','Taxi rank map','Карта стоянок такси'],
   boat:['Tekne turu işletmeleri','Boat tour operators','Организаторы морских прогулок'],
   stay:['Konaklama yerlerini karşılaştır','Compare places to stay','Варианты размещения'],
   sea:['Su sporları ve eğitim','Water sports and lessons','Водный спорт и обучение'],

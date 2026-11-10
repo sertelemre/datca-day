@@ -1,0 +1,90 @@
+---
+import { locales, type Locale } from '../lib/paths';
+import type { DirectoryGroup, DirectoryPlace } from '../lib/place-directory';
+import Icon from './Icon.astro';
+
+interface Props { places: DirectoryPlace[]; locale: Locale }
+const { places, locale } = Astro.props;
+const lang = locales.indexOf(locale);
+const labels = {
+  tr: {taxi:'Taksi durakları', outpatient:'Devlet Hastanesi poliklinikleri', family:'Aile sağlığı merkezleri', private:'Özel klinikler ve muayenehaneler', map:'Konum haritası', pin:'Haritada göster', route:'Yol tarifi', all:'Tüm konumlar', source:'İletişim kaynağı', location:'Konum kaynağı', dental:'Ağız ve diş sağlığı', zoomIn:'Yakınlaştır', zoomOut:'Uzaklaştır', error:'Harita zemini yüklenemedi. Adresi ve yol tarifini aşağıdaki listede bulabilirsin.', appointment:'MHRS randevusu'},
+  en: {taxi:'Taxi ranks', outpatient:'State hospital outpatient departments', family:'Family health centres', private:'Private clinics and practices', map:'Location map', pin:'Show on map', route:'Directions', all:'Show all locations', source:'Contact source', location:'Location source', dental:'Dental clinic', zoomIn:'Zoom in', zoomOut:'Zoom out', error:'The map tiles could not load. Addresses and directions are available in the list below.', appointment:'MHRS appointments'},
+  ru: {taxi:'Стоянки такси', outpatient:'Амбулаторные отделения государственной больницы', family:'Центры семейной медицины', private:'Частные клиники и кабинеты', map:'Карта адресов', pin:'Показать на карте', route:'Маршрут', all:'Все адреса', source:'Источник контактов', location:'Источник координат', dental:'Стоматологическая клиника', zoomIn:'Приблизить', zoomOut:'Отдалить', error:'Карта не загрузилась. Адреса и ссылки на маршруты доступны в списке ниже.', appointment:'Запись через MHRS'},
+}[locale];
+const groups = [...new Set<DirectoryGroup>(places.map(p => p.group))];
+---
+<section class="directory" data-place-directory aria-label={labels.map}>
+  {groups.length > 1 && <nav class="sections" aria-label={labels.map}>
+    {groups.map(group => <a href={'#' + group}>{labels[group]}</a>)}
+  </nav>}
+  <div class="directory-layout">
+    <div class="map-panel" data-map-panel hidden>
+      <div class="map-heading"><h2>{labels.map}</h2><button type="button" data-map-reset>{labels.all}</button></div>
+      <div class="map" role="region" aria-label={labels.map} data-location-map data-zoom-in={labels.zoomIn} data-zoom-out={labels.zoomOut}
+        data-cluster-label={['{n} konuma yakınlaştır', 'Zoom to {n} locations', 'Приблизить группу из {n} адресов'][lang]}></div>
+      <p data-map-error hidden role="status">{labels.error}</p>
+    </div>
+    <div class="list">
+      {groups.map(group => <section class="place-group" id={group} aria-labelledby={'title-' + group}>
+        <h2 id={'title-' + group}>{labels[group]}</h2>
+        {places.filter(place => place.group === group).map(place => {
+          const number = places.indexOf(place) + 1;
+          const [lat, lon] = place.coordinates;
+          return <article class="place" id={place.id} data-place data-lat={lat} data-lon={lon} data-number={number}>
+            <header><span class="place-number" aria-hidden="true">{number}</span><h3>{place.name}</h3></header>
+            {place.note ? <p>{place.note[lang]}</p> : group === 'private' && <p>{labels.dental}</p>}
+            <address>{place.address}, Datça/Muğla</address>
+            <a class="phone" href={'tel:' + place.phone.replaceAll(' ', '')}><Icon name="phone" size={16}/>{place.phone}</a>
+            <div class="actions">
+              <a data-show-place href={'https://www.openstreetmap.org/?mlat=' + lat + '&mlon=' + lon + '#map=18/' + lat + '/' + lon}><Icon name="pin" size={15}/>{labels.pin}</a>
+              <a data-directions href={'https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lon} target="_blank" rel="noopener noreferrer"><Icon name="compass" size={15}/>{labels.route}</a>
+              {group === 'outpatient' && <a href="https://www.mhrs.gov.tr/" target="_blank" rel="noopener noreferrer">{labels.appointment}</a>}
+            </div>
+            <div class="sources">
+              <a href={place.source} target="_blank" rel="noopener noreferrer">{labels.source} ↗</a>
+              {place.locationSource && <a href={place.locationSource} target="_blank" rel="noopener noreferrer">{labels.location} ↗</a>}
+            </div>
+          </article>;
+        })}
+      </section>)}
+    </div>
+  </div>
+</section>
+<script>
+  const directory = document.querySelector<HTMLElement>('[data-place-directory]');
+  if (directory) import('../scripts/place-map').then(({ showPlaceMap }) => showPlaceMap(directory));
+</script>
+<style>
+  .directory { margin: 20px 0 48px; }
+  .sections,.actions,.sources { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+  .sections { margin: 0 0 18px; }
+  .sections a,.actions a,.map-heading button { display: inline-flex; align-items: center; gap: 5px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); color: var(--green); font: 600 14px/1.4 var(--sans, sans-serif); }
+  .directory-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: clamp(20px, 4vw, 48px); }
+  .directory-layout:not(:has(.map-panel:not([hidden]))) { grid-template-columns: 1fr; }
+  .map-panel { position: sticky; top: 16px; min-width: 0; isolation: isolate; }
+  .map-heading,.place header { display: flex; align-items: center; gap: 12px; }
+  .map-heading { justify-content: space-between; margin-bottom: 12px; }
+  .map-heading button { cursor: pointer; }
+  .map { height: clamp(310px, 54vh, 530px); border: 1px solid var(--line); border-radius: 8px; background: var(--cream); }
+  .map-heading h2,.list h2 { font-size: clamp(24px, 3vw, 34px); line-height: 1.12; margin: 0; }
+  .place-group { scroll-margin-top: 18px; }
+  .place-group + .place-group { margin-top: 32px; }
+  .place-group h2 { margin-bottom: 12px; }
+  .place { border-top: 1px solid var(--line); padding: 18px 0; }
+  .place h3 { font-size: clamp(20px, 2.2vw, 27px); margin: 0; line-height: 1.2; }
+  .place-number,.map :global(.directory-pin) { display: grid; place-items: center; background: var(--green); color: white; border-radius: 50%; font: 700 13px/1 sans-serif; }
+  .place-number { width: 26px; height: 26px; flex: 0 0 26px; }
+  .map :global(.directory-pin) { border: 2px solid white; box-shadow: 0 1px 5px #18362f70; }
+  .map :global(.directory-cluster) { display: grid; place-items: center; border-radius: 50%; border: 4px solid #d9ede1; background: #e8f4e7; color: #134338; box-shadow: 0 0 0 2px #43765e; font: 700 15px/1 sans-serif; }
+  .map :global(.leaflet-popup-content strong),.map :global(.leaflet-popup-content a) { display: block; margin: 4px 0; }
+  .place p,.place address,.map-panel p { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 8px 0 0; font-style: normal; }
+  .phone { display: inline-flex; align-items: center; gap: 8px; color: var(--green); padding: 8px 0; font-weight: 700; }
+  .actions { margin-top: 3px; gap: 8px; }
+  .sources { margin-top: 10px; }
+  .sources a { font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 750px) {
+    .directory-layout { grid-template-columns: 1fr; }
+    .map-panel { position: static; }
+    .map { height: clamp(230px, 40vh, 360px); }
+  }
+</style>

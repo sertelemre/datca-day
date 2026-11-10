@@ -1,5 +1,5 @@
 ---
-import { getLocale } from '../lib/i18n';
+import { getLocale, localePath } from '../lib/i18n';
 import { guideProviders, localText, servicesCopy } from '../lib/local-services';
 import Icon from './Icon.astro';
 
@@ -10,7 +10,14 @@ const t = (key:string) => localText(servicesCopy[key],locale);
 const pharmacy = ['datca-nobetci-eczane','eczane-ve-saglik'].includes(slug);
 const group = guideProviders(slug);
 const compare = {boat:'compareBoat',stay:'compareStay',sea:'compareSea'};
+const healthLinks: Record<string, string> = {
+  'eczane-ve-saglik': '', 'datca-devlet-hastanesi': '#devlet-hastanesi', 'datcada-dis-sagligi': '#private',
+};
+const showHealth = Object.hasOwn(healthLinks, slug);
 ---
+{(showHealth || slug === 'ulasim-rehberleri') && <div class="service-links">
+  <a href={localePath(showHealth ? '/datca-saglik-rehberi' + healthLinks[slug] : '/datca-taksi-duraklari', locale)}><Icon name="pin" size={16}/>{t(showHealth ? 'clinicMap' : 'taxiMap')} →</a>
+</div>}
 {pharmacy && <section id="nobet-listesi" class="local-panel" aria-labelledby="pharmacy-title" data-duty-pharmacies>
   <h2 id="pharmacy-title">{t('pharmacy')}</h2>
   <p>{t('pharmacyIntro')} {t('fieldGuide')}</p>

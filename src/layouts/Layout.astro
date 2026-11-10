@@ -31,7 +31,7 @@ const verifications = [
  {name:'msvalidate.01',value:import.meta.env.BING_SITE_VERIFICATION},
  {name:'yandex-verification',value:import.meta.env.YANDEX_SITE_VERIFICATION},
 ].filter(entry=>entry.value?.trim());
-const searchIndex = articles.map(({title,path,basePath,excerpt,image,imageAlt,categories,noindex})=>({title,path,basePath:basePath || path,excerpt:excerpt.slice(0,180),image,imageAlt,categories,searchable:!noindex}));
+const searchIndex = articles.map(({title,path,basePath,excerpt,image,imageAlt,categories,noindex,searchTerms})=>({title,path,searchTerms,basePath:basePath || path,excerpt:excerpt.slice(0,180),image,imageAlt,categories,searchable:!noindex}));
 const eventSearchIndex = getEventSearchEntries(locale);
 ---
 <!doctype html>

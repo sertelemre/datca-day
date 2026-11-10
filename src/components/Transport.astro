@@ -30,7 +30,7 @@ const sourceUrl = route?.code === 'Havaş' && locale !== 'tr' ? 'https://havas.n
   {!route ? <>
     <div class="transport-tools">
       <label class="search-field"><span>{t('search')}</span><span class="search-box"><Icon name="search" size={18}/><input type="search" data-route-search placeholder={t('examples')}/></span></label>
-      <nav aria-label={t('name')} class="transport-jump">{kinds.map(kind=><a href={'#'+kind}>{t(kind)}</a>)}</nav>
+      <nav aria-label={t('name')} class="transport-jump">{kinds.map(kind=><a href={'#'+kind}>{t(kind)}</a>)}<a href={localePath('/datca-taksi-duraklari', locale)}>{t('taxiMap')}</a></nav>
     </div>
     <p hidden data-no-routes role="status">{t('noMatch')}</p>
     {kinds.map(kind=><section class="transport-group" id={kind} data-group>

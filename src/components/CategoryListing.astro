@@ -41,7 +41,7 @@ const description = category.description;
     </div>
     {subcategories.length > 0 && <div class="category-filters" aria-label={t("Alt kategori filtresi")}><button type="button" data-category="all" class="is-active" aria-pressed="true">{t("Tümünü keşfet")} <span>{articles.length}</span></button>{subcategories.map(subcategory => <button type="button" data-category={subcategory.id} aria-pressed="false">{subcategory.name}<span>{articles.filter(article => inCategory(article, subcategory)).length}</span></button>)}</div>}
     <div class="category-results-heading"><p id="category-results-count" role="status" aria-live="polite"><strong>{articles.length}</strong> {t("rehber", {n:articles.length})}</p><span>{t("Datça’dan ilham veren hikâyeler")}</span></div>
-    <div class="category-article-grid" id="category-article-grid">{articles.map((article, index) => <div class="category-article-item" data-title={article.title} data-excerpt={article.excerpt} data-categories={[...new Set([...article.categories, ...subcategories.filter(subcategory => inCategory(article, subcategory)).map(subcategory => subcategory.id)])].join(',')} data-date={article.date} data-order={index}><Card article={article} /></div>)}</div>
+    <div class="category-article-grid" id="category-article-grid">{articles.map((article, index) => <div class="category-article-item" data-title={article.title} data-excerpt={article.excerpt} data-terms={article.searchTerms} data-categories={[...new Set([...article.categories, ...subcategories.filter(subcategory => inCategory(article, subcategory)).map(subcategory => subcategory.id)])].join(',')} data-date={article.date} data-order={index}><Card article={article} /></div>)}</div>
     <div class="category-empty" id="category-empty" hidden><div><Icon name="search" size={30} /></div><h2>{t("Henüz bir eşleşme yok.")}</h2><p>{t("Başka bir sözcük dene veya tüm rehberleri keşfet.")}</p><button type="button" id="category-reset">{t("Filtreleri temizle")} <Icon name="arrow" size={17} /></button></div>
     <nav class="category-pagination" id="category-pagination" aria-label={t("Rehber sayfaları")}></nav>
   </section>
@@ -70,7 +70,7 @@ const description = category.description;
     const render = (scroll = false) => {
       const search = normalize(input.value.trim());
       clear.hidden = !search;
-      let matching = cards.filter(card => (!search || normalize(`${card.dataset.title} ${card.dataset.excerpt}`).includes(search)) && (selectedCategory === 'all' || (card.dataset.categories || '').split(',').includes(selectedCategory)));
+      let matching = cards.filter(card => (!search || normalize(`${card.dataset.title} ${card.dataset.excerpt} ${card.dataset.terms || ''}`).includes(search)) && (selectedCategory === 'all' || (card.dataset.categories || '').split(',').includes(selectedCategory)));
       if (sort.value === 'az' || sort.value === 'za') matching.sort((a, b) => (a.dataset.title || '').localeCompare(b.dataset.title || '', document.documentElement.lang) * (sort.value === 'za' ? -1 : 1));
       else if (sort.value === 'newest') matching.sort((a, b) => (Date.parse(b.dataset.date || '') || 0) - (Date.parse(a.dataset.date || '') || 0));
       else matching.sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order));

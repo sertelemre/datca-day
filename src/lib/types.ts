@@ -4,6 +4,7 @@ export interface Article {
   slug: string;
   path: string;
   excerpt: string;
+  searchTerms?: string;
   content: string;
   image: string;
   date: string;

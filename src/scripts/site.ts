@@ -1,7 +1,7 @@
 import { clientUI } from '../lib/ui';
 import type { EventSearchEntry } from '../lib/search';
 const t = clientUI();
-interface Entry { path: string; basePath?:string; title: string; image: string; excerpt?: string; imageAlt?:string; searchable?:boolean; }
+interface Entry { path: string; basePath?:string; title: string; image: string; excerpt?: string; imageAlt?:string; searchTerms?:string; searchable?:boolean; }
 const key = 'datca.day:saved';
 const index: Entry[] = JSON.parse(document.getElementById('search-index')?.textContent || '[]');
 const eventSearchIndex: EventSearchEntry[] = JSON.parse(document.getElementById('event-search-index')?.textContent || '[]');
@@ -42,7 +42,7 @@ const calendarIcon = '<span class="search-entry-icon" aria-hidden="true"><svg wi
 const eventResult = (entry:EventSearchEntry) => `<a class="search-result search-event-result" href="${escape(safePath(entry.path))}">${calendarIcon}<span><small class="search-kind">${t(entry.kind==='transport'?'Sefer saatleri':'Etkinlikler')}</small><strong>${escape(entry.title)}</strong><small>${escape(entry.excerpt)}</small></span><span aria-hidden="true">→</span></a>`;
 type SearchEntry = Entry | EventSearchEntry;
 const score = (entry:SearchEntry, needle:string) => {const title=fold(entry.title);return title.startsWith(needle)?200:title.includes(needle)?100:10;};
-function search(){const query=input.value.trim();if(!query){results.innerHTML='';return;}const needle=fold(query);const available:SearchEntry[]=[...index,...eventSearchIndex.filter(currentEventEntry)];const match=available.filter(a=>a.searchable!==false&&fold(a.title+' '+(a.excerpt||'')).includes(needle)).sort((a,b)=>score(b,needle)-score(a,needle)).slice(0,7);results.innerHTML=match.length?match.map(a=>'kind' in a?eventResult(a):`<a class="search-result" href="${escape(safePath(a.path))}"><img src="${escape(safeImage(a.image))}" alt="" width="63" height="55"><span><strong>${escape(a.title)}</strong><small>${escape(a.excerpt||'')}</small></span><span aria-hidden="true">→</span></a>`).join(''):`<p class="search-empty">${t('Bu aramada bir yer bulamadık. Başka bir kelime dene.')}</p>`;}
+function search(){const query=input.value.trim();if(!query){results.innerHTML='';return;}const needle=fold(query);const available:SearchEntry[]=[...index,...eventSearchIndex.filter(currentEventEntry)];const match=available.filter(a=>a.searchable!==false&&fold([a.title, a.excerpt, 'searchTerms' in a && a.searchTerms].filter(Boolean).join(' ')).includes(needle)).sort((a,b)=>score(b,needle)-score(a,needle)).slice(0,7);results.innerHTML=match.length?match.map(a=>'kind' in a?eventResult(a):`<a class="search-result" href="${escape(safePath(a.path))}"><img src="${escape(safeImage(a.image))}" alt="" width="63" height="55"><span><strong>${escape(a.title)}</strong><small>${escape(a.excerpt||'')}</small></span><span aria-hidden="true">→</span></a>`).join(''):`<p class="search-empty">${t('Bu aramada bir yer bulamadık. Başka bir kelime dene.')}</p>`;}
 const eventSearchPage = document.querySelector<HTMLElement>('[data-event-search-page]');
 const guideSearchInput = document.querySelector<HTMLInputElement>('#category-search');
 function updateEventPageSearch() {

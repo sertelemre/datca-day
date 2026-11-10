@@ -9,6 +9,8 @@ import Card from './Card.astro';
 import Icon from './Icon.astro';
 import BudgetPlanner from './BudgetPlanner.astro';
 import LocalServices from './LocalServices.astro';
+import PlaceDirectory from './PlaceDirectory.astro';
+import { placesForGuide } from '../lib/place-directory';
 import OfficialLinks from './OfficialLinks.astro';
 import './secondary.css';
 interface Props {article:Article;category?:Category;related:Article[]}
@@ -22,12 +24,13 @@ const dateLabel=new Intl.DateTimeFormat(locale,{day:'numeric',month:'long',year:
 const readingTime=Math.max(1,Math.ceil(article.content.split(/\s+/).length/180));
 const outline=articleOutline(article.content);
 const isPharmacy=article.slug==='datca-nobetci-eczane';
+const directoryPlaces = placesForGuide(article.slug);
 const isFood=article.slug==='datcada-ne-yenir';
 const tocEntries=[...outline.headings,
   ...(article.visitStops?.length ? [{id:"visit-plan",label:t("Üç duraklı gezi planı"),level:2}] : []),
   ...(article.faqs?.length ? [{id:"faq-heading",label:t("Sık sorulan sorular"),level:2}] : []),...(isFood?[{id:'budget-title',label:t('Yeme içme bütçeni hesapla.'),level:2}]:[])];
 ---
-<div class:list={["article-page",{"service-page duty-pharmacy-page":isPharmacy}]}><div class="detail-container">
+<div class:list={["article-page",{"service-page":isPharmacy || directoryPlaces.length > 0, "duty-pharmacy-page":isPharmacy}]}><div class="detail-container">
     <nav class="detail-breadcrumb" aria-label={t("Sayfa yolu")}>
       <a href={localize("/")}>datca.day</a><Icon name="chevron" size={12} />
       {category && <><a href={category.path}>{category.name}</a><Icon name="chevron" size={12} /></>}
@@ -47,7 +50,7 @@ const tocEntries=[...outline.headings,
         </div>
       </div>
     </header>
-    {isPharmacy ? <LocalServices slug={article.slug}/> : <figure class="article-cover">
+    {directoryPlaces.length ? <PlaceDirectory places={directoryPlaces} locale={locale}/> : isPharmacy ? <LocalServices slug={article.slug}/> : <figure class="article-cover">
       <img src={article.image} srcset={article.image.replace('.webp','-640.webp')+' 640w, '+article.image+' 1200w'} sizes="(max-width:700px) 100vw, 1050px" alt={photoCaption(article.image,locale)} width="1050" height="550" fetchpriority="high"/>
       <figcaption><span><Icon name="pin" size={14}/>{photoCaption(article.image,locale)}</span>{cover && <small><a href={cover.source}>{cover.author}</a> · <a href={cover.licenseUrl}>{cover.license}</a></small>}</figcaption>
     </figure>}

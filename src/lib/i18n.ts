@@ -1,5 +1,6 @@
 import { guides as travelGuides } from './guides';
 import { practicalGuides } from './practical-guides';
+import { directoryGuides, placesForGuide } from './place-directory';
 import { visitNotes } from './visit-notes';
 import articleRoutes from './article-routes.json';
 import { experienceGuides } from './experience-guides';
@@ -10,7 +11,7 @@ import { events } from './events';
 import transport from './transport-data.json';
 import { locales, eventPath, transportPath, type Locale } from './paths';
 import type { SiteContent } from './types';
-const guides = [...travelGuides, ...practicalGuides, ...peninsulaGuides, ...experienceGuides];
+const guides = [...travelGuides, ...practicalGuides, ...peninsulaGuides, ...experienceGuides, ...directoryGuides];
 export { locales, type Locale };
 export const languageNames = { tr: 'Türkçe', en: 'English', ru: 'Русский' };
 export const languageTags = { tr: 'tr-TR', en: 'en', ru: 'ru' };
@@ -75,6 +76,7 @@ export function getContent(locale:Locale = 'tr'):SiteContent {
       title:copy.title,excerpt:copy.summary, content:copy.sections.map(({heading,text})=>'<h2>'+escape(heading)+'</h2><p>'+escape(text)+'</p>').join(''),
       image:'/images/'+key+'.webp', imageAlt:photoCaption('/images/'+key+'.webp',locale), date:'2026-11-10', updatedDate:'2026-11-10',
       sources:[{title:guide.source.label,url:guide.source.url}],
+      searchTerms: placesForGuide(guide.slug).map(place => [place.name,place.address,place.note?.[lang]].filter(Boolean).join(' ')).join(' ') || undefined,
       visitStops:visitNotes[guide.slug]?.[locale]?.stops, faqs:visitNotes[guide.slug]?.[locale]?.faqs,
       categories:guide.groups.map(id=>topics.findIndex(topic=>topic.key===id)+1),
     };
