@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import { photoCaption } from '../lib/photo-caption';
 import { getLocale, localePath } from '../lib/i18n';
 import { transportPath, type Locale } from '../lib/paths';
 import { dayLabel, formatDate, kinds, localizedNote, placeName, transportCopy, transportRoutes } from '../lib/transport';
@@ -11,7 +12,7 @@ const route = transportRoutes.find(item => item.slug === routeSlug);
 if (routeSlug && !route) throw new Error('Transport route missing: ' + routeSlug);
 const hub = localePath('/ulasim',locale);
 const checked = route?.checked || transportRoutes[0].checked;
-const icons = {airport:'compass', ferry:'boat', local:'pin', intercity:'compass'};
+const icons = {airport:'plane', ferry:'boat', local:'minibus', intercity:'bus'};
 const related = route?.kind === 'ferry' ? ['datca-karakoy-9-8'] :
   route?.kind === 'airport' ? ['datca-marmaris-48-16'] :
   route?.code === '48-16' ? ['marmaris-dalaman-havas','marmaris-otogar-dalaman-havalimani-48-26'] :
@@ -22,19 +23,21 @@ const sourceUrl = route?.code === 'Havaş' && locale !== 'tr' ? 'https://havas.n
 <div class="transport container" data-transport-root data-checked={checked}>
   <nav class="breadcrumbs" aria-label={t('name')}><a href={localePath('/',locale)}>{t('home')}</a><span>›</span>{route ? <><a href={hub}>{t('name')}</a><span>›</span><span>{route.code}</span></> : <span>{t('name')}</span>}</nav>
   <header class:list={["transport-intro",{"hub-intro":!route}]}>
-    <span class="eyebrow">{route ? <><Icon name={icons[route.kind]} size={15}/>{t(route.kind)} · {route.code}</> : <><Icon name="compass" size={15}/>Datça · Muğla</>}</span>
+    {!route && <img class="hub-photo" src="/images/kormen.webp" srcset="/images/kormen-640.webp 640w, /images/kormen.webp 1200w" sizes="(max-width: 680px) 100vw, 60vw" width="1200" height="550" alt="" fetchpriority="high"/>}
+    <div class="intro-text"><span class="eyebrow">{route ? <><Icon name={icons[route.kind]} size={15}/>{t(route.kind)} · {route.code}</> : <><Icon name="compass" size={15}/>Datça · Muğla</>}</span>
     <h1>{title}</h1>
-    <p>{!route ? t('intro') : route.kind === 'airport' ? t('transfer') : route.kind === 'ferry' ? t('port') : t('aboutTimes')}</p>
+    <p>{!route ? t('intro') : route.kind === 'airport' ? t('transfer') : route.kind === 'ferry' ? t('port') : t('aboutTimes')}</p></div>
+    {!route && <span class="photo-caption"><Icon name="pin" size={14}/>{photoCaption('/images/kormen.webp', locale)}</span>}
   </header>
   <p data-stale hidden class="transport-notice">{t('older')}</p>
   {!route ? <>
     <div class="transport-tools">
       <label class="search-field"><span>{t('search')}</span><span class="search-box"><Icon name="search" size={18}/><input type="search" data-route-search placeholder={t('examples')}/></span></label>
-      <nav aria-label={t('name')} class="transport-jump">{kinds.map(kind=><a href={'#'+kind}>{t(kind)}</a>)}<a href={localePath('/datca-taksi-duraklari', locale)}>{t('taxiMap')}</a></nav>
+      <nav aria-label={t('name')} class="transport-jump">{kinds.map(kind=><a href={'#'+kind} data-mode={kind}><span class="mode-icon"><Icon name={icons[kind]} size={24}/></span><strong>{t(kind)}</strong><Icon name="down" size={15}/></a>)}<a data-mode="taxi" href={localePath('/datca-taksi-duraklari', locale)}><span class="mode-icon"><Icon name="taxi" size={24}/></span><strong>{t('taxiMap')}</strong><Icon name="arrow" size={15}/></a></nav>
     </div>
     <p hidden data-no-routes role="status">{t('noMatch')}</p>
     {kinds.map(kind=><section class="transport-group" id={kind} data-group>
-      <h2>{t(kind)}</h2>
+      <h2 class="group-title" data-mode={kind}><span class="mode-icon"><Icon name={icons[kind]} size={22}/></span>{t(kind)}</h2>
       {kind === 'airport' && <p>{t('transfer')}</p>}
       {kind === 'ferry' && <p>{t('port')}</p>}
       <div class="route-grid">{transportRoutes.filter(item=>item.kind===kind).sort((a,b)=>Number(b.code==='48-16')-Number(a.code==='48-16')).map(item=><a class="route-card" href={transportPath(item.slug,locale)} data-route-card data-search={[item.code,item.title,placeName(item.title,locale),item.via].join(' ')}>
@@ -84,6 +87,12 @@ const sourceUrl = route?.code === 'Havaş' && locale !== 'tr' ? 'https://havas.n
     if (match) days.forEach(day=>{day.open = day===match;});
     const input = root.querySelector<HTMLInputElement>('[data-route-search]');
     const normalize = (value:string) => value.toLocaleLowerCase('tr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replaceAll('ı','i');
+    root.querySelector('.transport-jump')?.addEventListener('click', event => {
+      if (input?.value && event.target instanceof Element && event.target.closest('a[href^="#"]')) {
+        input.value = '';
+        input.dispatchEvent(new Event('input'));
+      }
+    });
     input?.addEventListener('input',()=>{
       const query = normalize(input.value.trim());
       let total = 0;
@@ -109,4 +118,40 @@ const sourceUrl = route?.code === 'Havaş' && locale !== 'tr' ? 'https://havas.n
   .transport-tools{padding:12px}.transport-jump{display:flex;flex-wrap:nowrap;overflow:auto;scrollbar-width:thin}
   .transport-jump a{white-space:nowrap;flex:none;min-height:44px}.transport-group{margin-top:20px}
 }
+
+  .hub-intro { isolation:isolate; overflow:hidden; position:relative; display:flex; align-items:center; min-height:255px; margin:0 0 20px; padding:clamp(24px,4vw,55px); border-radius:12px; color:#fff; background:#183c36; }
+  .hub-photo,.hub-intro::before { position:absolute; inset:0; width:100%; height:100%; z-index:-1; }
+  .hub-photo { object-fit:cover; object-position:center 53%; }
+  .hub-intro::before { content:""; z-index:0; background:linear-gradient(90deg,#12382ff2 2%,#143c33e8 38%,#123b3370 68%,#12372f10 100%); }
+  .hub-intro .intro-text,.photo-caption { position:relative; }
+  .hub-intro .intro-text { max-width:min(620px,67%); }
+  .hub-intro h1 { font-size:clamp(34px,4.1vw,60px); color:white; }
+  .hub-intro .eyebrow,.hub-intro p { color:#fff; }
+  .hub-intro p { max-width:56ch; }
+  .photo-caption { position:absolute; right:14px; bottom:12px; display:flex; gap:5px; align-items:center; padding:4px 8px; border-radius:4px; color:white; background:#15392ddd; font-size:12px; }
+  .transport-tools { background:none; border:0; padding:0; gap:16px; }
+  .search-box { max-width:none; min-height:46px; }
+  .transport-jump { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; }
+  [data-mode] { --mode-ink:#245844; --mode-fill:#e2eedf; }
+  [data-mode="airport"] { --mode-ink:#445480; --mode-fill:#e9ebf5; }
+  [data-mode="ferry"] { --mode-ink:#205b72; --mode-fill:#dfedf3; }
+  [data-mode="local"] { --mode-ink:#964c24; --mode-fill:#f7e9d9; }
+  [data-mode="taxi"] { --mode-ink:#735411; --mode-fill:#f6edcb; }
+  .transport-jump a { display:flex; align-items:center; gap:9px; white-space:normal; line-height:1.35; padding:12px; min-height:68px; border:1px solid var(--line); background:var(--paper); border-radius:8px; }
+  .transport-jump a>svg { margin-left:auto; flex:none; }
+  .mode-icon { display:inline-grid; place-items:center; flex:none; width:38px; height:38px; background:var(--mode-fill); color:var(--mode-ink); border-radius:9px; }
+  .group-title { display:flex; align-items:center; gap:12px; }
+  @media(max-width:950px) { .transport-jump {grid-template-columns:repeat(3,minmax(0,1fr))} }
+  @media(max-width:600px) {
+    .hub-intro { padding:22px 18px 38px; min-height:156px; margin-bottom:15px; }
+    .hub-intro .intro-text { max-width:90%; }
+    .hub-intro h1 { font-size:clamp(32px,8vw,42px); }
+    .hub-intro::before { background:linear-gradient(90deg,#12382fe8,#12382fa0 65%,#12382f30); }
+    .transport-jump { grid-template-columns:repeat(2,minmax(0,1fr)); overflow:visible; gap:7px; }
+    .transport-jump a { min-height:50px; padding:8px; gap:7px; }
+    .transport-jump a:last-child { grid-column:1/-1; }
+    .transport-jump .mode-icon { width:29px; height:32px; }
+    .transport-jump .mode-icon svg { width:19px; }
+    .transport-group { margin-top:0; }
+  }
 </style>

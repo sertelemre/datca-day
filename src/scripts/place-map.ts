@@ -26,6 +26,8 @@ export function showPlaceMap(root: HTMLElement) {
       return L.divIcon({ className: 'directory-cluster', html: label, iconSize: [36, 36] });
     },
   });
+  const requestedId = new URLSearchParams(window.location.search).get('konum');
+  let openRequestedPlace: (() => void) | undefined;
   const pharmacyPins: Array<() => void> = [];
   for (const card of cards) {
     const position = L.latLng(Number(card.dataset.lat), Number(card.dataset.lon));
@@ -50,6 +52,7 @@ export function showPlaceMap(root: HTMLElement) {
         lastDuty = duty;
         status.textContent = duty;
         status.hidden = !duty;
+        const wasOpen = marker.isPopupOpen();
         if (duty) {
           markers.removeLayer(marker);
           marker.setIcon(L.divIcon({ className: 'directory-pin directory-duty-pin', html: 'E',
@@ -59,17 +62,22 @@ export function showPlaceMap(root: HTMLElement) {
           marker.removeFrom(map).setIcon(icon).setZIndexOffset(0);
           markers.addLayer(marker);
         }
+        if (wasOpen) marker.openPopup();
         marker.getElement()?.setAttribute('aria-label', markerLabel());
       });
     }
     bounds.extend(position);
-    card.querySelector('a[data-show-place]')!.addEventListener('click', event => {
-      if (!(event instanceof MouseEvent) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      event.preventDefault();
+    function openPlace() {
       map.setView(position, 17, { animate: false });
       marker.openPopup();
       marker.getElement()?.focus({preventScroll: true});
       panel.scrollIntoView({ block: 'nearest' });
+    }
+    if (card.id === requestedId) openRequestedPlace = openPlace;
+    card.querySelector('a[data-show-place]')!.addEventListener('click', event => {
+      if (!(event instanceof MouseEvent) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      openPlace();
     });
   }
   function showAll() {
@@ -80,6 +88,7 @@ export function showPlaceMap(root: HTMLElement) {
   markers.addTo(map);
   const updatePharmacyPins = () => pharmacyPins.forEach(update => update());
   updatePharmacyPins();
+  openRequestedPlace?.();
   root.addEventListener('pharmacy-duty-change', updatePharmacyPins);
   panel.querySelector('[data-map-reset]')!.addEventListener('click', showAll);
 }

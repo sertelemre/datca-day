@@ -1,0 +1,2833 @@
+[
+  {
+    "number": "12228",
+    "name": "Flow Datça Surf & Beach Hotel",
+    "type": "otel",
+    "address": "Datça Marmaris Yolu Kızlanaltı Kösekesik Mevkii Datça / Muğla",
+    "phone": "+90 252 722 05 12",
+    "gallery": "https://www.etstur.com/Flow-Datca-Surf-Beach-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Flow_Dat_a_Surf_Beach_Hotel_202606081813505__skele_Dron_1.jpeg",
+    "alias": "Flow Datça Surf Beach Hotel"
+  },
+  {
+    "number": "12877",
+    "name": "Orcey Otel",
+    "type": "otel",
+    "address": "İskele Mah. 85 Sok. No:8",
+    "gallery": "https://www.etstur.com/Orcey-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9ZHJvbmVnZW5lbDE0LTI_20220616135741.jpg",
+    "alias": "Orcey Hotel",
+    "area": "İskele"
+  },
+  {
+    "number": "14059",
+    "name": "Adaburnu Gölmar Otel",
+    "type": "otel",
+    "address": "Kızlan Mah. Kızlan Küme Evleri No:627",
+    "phone": "+90 252 723 35 91",
+    "area": "Kızlan"
+  },
+  {
+    "number": "15389",
+    "name": "Datça Bağ",
+    "type": "ciftlik evi-koy evi",
+    "address": "Reşadiye Mah. Küme 8 No: 5",
+    "phone": "+90 252 722 03 72",
+    "gallery": "https://www.etstur.com/Datca-Vineyard-Guesthouse--14-Adult-Only",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Dat_a_Vineyard_Guesthouse_202505071343109_vineyard_gorsel.jpg",
+    "alias": "Datça Vineyard Guesthouse",
+    "area": "Reşadiye"
+  },
+  {
+    "number": "15591",
+    "name": "Wyndham Datça Perili Bay",
+    "type": "ozel konaklama tesisi",
+    "address": "Emecik Mahallesi Emecik Sokak No:356",
+    "phone": "+90 543 769 63 65",
+    "gallery": "https://www.hotelprice.com/tr/wyndham-datca-perili-bay",
+    "photo": "https://images.etstur.com/files/images/hotelImages/TR/216037/l/Marble-Arch-Hotel-By-Perili-Genel-343775.jpg",
+    "area": "Emecik"
+  },
+  {
+    "number": "16264",
+    "name": "Datça Doris Hotel",
+    "type": "ozel konaklama tesisi",
+    "address": "Emecik Mah. G Adası 1. Cad. No:34",
+    "phone": "+90 252 722 03 33",
+    "gallery": "https://www.etstur.com/Datca-Doris-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Dat_a_Doris_Hotel_202507071726097_DJI_20250627071329_0003_D_copy.webp",
+    "area": "Emecik"
+  },
+  {
+    "number": "16485",
+    "name": "Acroter Hotel & Spa",
+    "type": "otel",
+    "address": "Kızlan Mah. Kızlan Sok. No: 537",
+    "phone": "+90 252 723 30 01",
+    "gallery": "https://www.etstur.com/Acroter-Hotel-Spa",
+    "photo": "https://images.etstur.com/imgproxy/files/images/hotelImages/TR/210622/m/Acroter-Hotel---SPA-Genel-386969.jpg",
+    "alias": "Acroter Hotel & Spa",
+    "area": "Kızlan"
+  },
+  {
+    "number": "17183",
+    "name": "Ak-Tur Datça Kamping Tesisleri",
+    "type": "kamping, pansiyon",
+    "address": "Emecik Mah. Çiflik Mevkii Aktur Tatil Sitesi",
+    "phone": "+90 252 724 61 68",
+    "area": "Emecik"
+  },
+  {
+    "number": "18239",
+    "name": "Cape Krıo Boutıque Hotel & Spa",
+    "type": "butik otel",
+    "address": "İskele Mah. Kargı Yolu Cad. No:26",
+    "phone": "+90 252 722 02 02",
+    "gallery": "https://www.etstur.com/Cape-Krio-Boutique-Hotel-SPA--12-Adult-Only",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/f071db4f48c8d3d587bb8feeeb7d9d3d.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "20113",
+    "name": "Knidia Ecofarm",
+    "type": "kirsal turizm tesisi",
+    "address": "Yazı Mah. Yazı Sok Yazı Küme Evlri No:262/1-1a",
+    "phone": "+90 532 211 38 58",
+    "area": "Yazı"
+  },
+  {
+    "number": "2021-48-0299",
+    "name": "Club Datça Tatil Köyü",
+    "type": "otel",
+    "address": "İskele Mahallesi Hürriyet Caddesino: 25",
+    "phone": "+90 543 413 28 49",
+    "area": "İskele"
+  },
+  {
+    "number": "2021-48-2278",
+    "name": "Egeden Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. 87. Sok. No:8/1",
+    "phone": "+90 506 852 69 89",
+    "gallery": "https://www.etstur.com/Egeden-Hotel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9X0RTQzM3Njc_20230704112919.jpg",
+    "alias": "Egeden Hotel Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-0156",
+    "name": "Mehmet Ali Ağa Konağı",
+    "type": "otel",
+    "address": "Reşadiye Mahallesi Koca Ev Sokak No:5",
+    "phone": "+90 252 712 92 57",
+    "gallery": "https://www.etstur.com/Heritage-Homes-Mehmet-Ali-Aga-Konagi",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Heritage_Homes_Mehmet_Ali_A_a_Kona__202607070943397_Ekran_g_r_nt_s_2026_07_07_094213.png",
+    "alias": "Heritage Homes Mehmet Ali Ağa Konağı",
+    "area": "Reşadiye"
+  },
+  {
+    "number": "2022-48-0157",
+    "name": "Alamango Otel",
+    "type": "otel",
+    "address": "Datça Mahallesi İr Meydanı Sokak No:3",
+    "phone": "+90 532 592 61 27",
+    "gallery": "https://www.etstur.com/Alamango-Evi",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Alamango_Evi_202601132053555_9e886357_ea22_4ef2_96fa_40d966b699e7.png",
+    "alias": "Alamango Evi",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-0363",
+    "name": "Villa Aşina",
+    "type": "otel",
+    "address": "İskele Mahallesi 24. Sok. No:10",
+    "phone": "+90 252 712 04 43",
+    "gallery": "https://www.etstur.com/Villa-Asina-Datca-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9MjU_20221228113551.jpg",
+    "alias": "Villa Aşina Datça Otel",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-0460",
+    "name": "Fuda Otel",
+    "type": "otel",
+    "address": "İskele Mahallesi Sevgiyolu Sokak No: 5",
+    "phone": "+90 533 552 81 24",
+    "gallery": "https://www.etstur.com/Fuda-Otel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/kfmm9yswvblfzmczt6zd.jpg",
+    "alias": "Fuda Otel Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-0463",
+    "name": "Serap Otel",
+    "type": "apart otel",
+    "address": "İskele Mahallesi Atatürk Caddesi No:35",
+    "phone": "+90 533 446 49 89",
+    "area": "İskele",
+    "website": "https://www.serapapartotel.com/tr/",
+    "photo": "https://www.serapapartotel.com/media/1105/_mg_0251.jpg?center=0.43622448979591838,0.47448979591836737&mode=crop&width=1423&height=450&rnd=131150810390000000",
+    "gallery": "https://www.serapapartotel.com/tr/"
+  },
+  {
+    "number": "2022-48-0511",
+    "name": "Aria Doria Otel",
+    "type": "pansiyon",
+    "address": "İskele Mah. 51. Sok. No:8 Datça/Muğla",
+    "phone": "+90 542 512 36 95",
+    "gallery": "https://www.etstur.com/Aria-Doria-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9V2hhdHNBcHAtSW1hZ2UtMjAyMy0wMS0xMi1hdC0xNi4yMC4yOQ_20230112162053.jpeg",
+    "alias": "Aria Doria Hotel",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-0670",
+    "name": "Çuhadar Ahşap Evleri",
+    "type": "pansiyon",
+    "address": "Yaka Mahallesi Palamutbükü Sokak Kümeevleri No:358",
+    "phone": "+90 505 629 97 59",
+    "gallery": "https://www.etstur.com/Cuhadar-Ahsap-Evleri",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9U09OMDA2MjY_20220622134555.jpg",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-0672",
+    "name": "Eski Datça Evleri-Badem Ve İncir",
+    "type": "pansiyon",
+    "address": "Datça Mah. Gazi Mustafa Kemal Cad. No:30/A-B",
+    "phone": "+90 533 282 70 81",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-0674",
+    "name": "Arzu Otel Apart",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:212",
+    "phone": "+90 545 674 58 36",
+    "gallery": "https://www.etstur.com/Arzu-Otel-Apart",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ARZU_OTEL_APART_202407161157297_IMG_4796_photo.JPG",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-0675",
+    "name": "Karia Hotel",
+    "type": "pansiyon",
+    "address": "Cumalı Mahallesi Cumalı Sokak No:169",
+    "phone": "+90 536 697 69 13",
+    "gallery": "https://www.etstur.com/Karia-Hotel-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9SU1HXzYwOTY_20220609110407.jpg",
+    "alias": "Karia Hotel Palamutbükü",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-0891",
+    "name": "Palmaris Apart",
+    "type": "pansiyon",
+    "address": "Yaka Mahallesi Bük Market Arkası Palamutbükü",
+    "phone": "+90 533 510 27 18",
+    "area": "Yaka",
+    "website": "https://www.palmarisapart.com/",
+    "photo": "https://static.wixstatic.com/media/bcabd9_bf1ed89bbea6451ca86eb9954ff05672~mv2.jpg/v1/fill/w_147,h_110,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/bcabd9_bf1ed89bbea6451ca86eb9954ff05672~mv2.jpg",
+    "gallery": "https://www.palmarisapart.com/"
+  },
+  {
+    "number": "2022-48-1018",
+    "name": "Zeytin Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:229",
+    "phone": "+90 541 853 08 60",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1019",
+    "name": "Yalı Suites Hotel-Restaurant",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Küme Evler No:297-297/A",
+    "phone": "+90 532 516 46 83",
+    "area": "Yaka",
+    "website": "https://www.yalisuiteshotel.com/hakkimizda/",
+    "photo": "https://www.yalisuiteshotel.com/wp-content/uploads/elementor/thumbs/DJI_0751-15-scaled-r3db4qihv5yiutbij3h00uevg7tp6sr45uhkv0b6wc.webp",
+    "gallery": "https://www.yalisuiteshotel.com/hakkimizda/"
+  },
+  {
+    "number": "2022-48-1020",
+    "name": "Berrak Pansiyon",
+    "type": "pansiyon",
+    "address": "Cumalı Mahallesi Palamutbükü Sokak No: 76",
+    "phone": "+90 252 725 51 64",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-1021",
+    "name": "Ceylan Motel",
+    "type": "motel",
+    "address": "Yaka Mah. Palamutbükü Kümeevler No:107",
+    "phone": "+90 542 263 81 12",
+    "gallery": "https://www.etstur.com/Ceylan-Hotel-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/nfskcwaoimvxkezltg93.jpg",
+    "alias": "Ceylan Hotel Palamutbükü",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1022",
+    "name": "Badem Motel",
+    "type": "pansiyon",
+    "address": "Yaka Mahallesi Palamutbükü Kümeevler No: 85",
+    "phone": "+90 532 492 77 50",
+    "gallery": "https://www.etstur.com/Badem-Otel-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/qbkb4ojvrgoohxuqz0kt.jpg",
+    "alias": "Badem Otel Palamutbükü",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1023",
+    "name": "Tanış Apart Otel",
+    "type": "pansiyon",
+    "address": "Yaka Mahallesi Palamutbükü Sokak No: 228",
+    "phone": "+90 543 291 29 95",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1024",
+    "name": "Bedya Pansiyon Ve Sanat Evi",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:229",
+    "phone": "+90 543 514 21 19",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1249",
+    "name": "Beyaz İnci Otel",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Küme Evleri No:109/1",
+    "phone": "+90 531 473 17 28",
+    "gallery": "https://www.etstur.com/Otel-Beyaz-Inci",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9REpJXzA0OTMtRWRpdA_20210618002251.jpg",
+    "alias": "Otel Beyaz İnci",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1522",
+    "name": "Bizim Ev Datça",
+    "type": "pansiyon",
+    "address": "İskele Mah. 3. Sok. No:9",
+    "phone": "+90 533 253 80 48",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1523",
+    "name": "Berk Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. 96 Sok. No:7/1",
+    "phone": "+90 535 328 23 04",
+    "gallery": "https://www.etstur.com/Berk-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Berk_Butik_Pansiyon_202609212038090_IMG_20260719_122415.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1561",
+    "name": "Antik Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. Nuri Kolcu Sok. No:53",
+    "phone": "+90 536 480 95 13",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1576",
+    "name": "Konak Tuncel Efe",
+    "type": "otel",
+    "address": "İskele Mah. Atatürk Cad. No:55",
+    "phone": "+90 542 437 76 13",
+    "gallery": "https://www.etstur.com/Konak-Tuncel-Efe",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/jcgw8lipy8tp1rqd9bws.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1577",
+    "name": "Dört Mevsim Evi",
+    "type": "pansiyon",
+    "address": "Emecik Mah. Güllük Mevkii No:117",
+    "phone": "+90 538 524 27 36",
+    "gallery": "https://www.etstur.com/Dort-Mevsim-Butik-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/zy3atetttvduge3g7iap.jpg",
+    "alias": "Dört Mevsim Butik Otel",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-1578",
+    "name": "Guest House",
+    "type": "otel",
+    "address": "Reşadiye Mah. Küme 5 Evler No:5/1",
+    "phone": "+90 545 769 52 41",
+    "gallery": "https://www.etstur.com/Guest-House-By-West",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Guest_House_By_West_202508020952124__17A9090.JPG",
+    "alias": "Guest House By West",
+    "area": "Reşadiye"
+  },
+  {
+    "number": "2022-48-1588",
+    "name": "Datça Sapphire Hotel",
+    "type": "otel",
+    "address": "İskele Mah. 3. Kargı Yolu Cad. No: 8",
+    "phone": "+90 252 712 44 99",
+    "gallery": "https://www.etstur.com/Datca-Sapphire-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/g0btsrikwrlw2wcgoaoe.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1589",
+    "name": "Dadya Apart Otel",
+    "type": "pansiyon",
+    "address": "İskele Mah. Barış Cad. No: 13",
+    "phone": "+90 532 645 46 40",
+    "area": "İskele",
+    "photo": "https://www.bademcicegifestivali.com/wp-content/uploads/2019/02/dadya-apart-300x194.jpg",
+    "gallery": "https://www.bademcicegifestivali.com/konaklama/"
+  },
+  {
+    "number": "2022-48-1593",
+    "name": "Datça Beyaz Ev Otel",
+    "type": "pansiyon",
+    "address": "İskele Mah. Hürriyet Cad. No:15/1",
+    "phone": "+90 532 478 37 04",
+    "gallery": "https://www.etstur.com/Datca-Beyaz-Ev-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/jdfak7fk87wfyy7zjlqw.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1705",
+    "name": "Mülayim Restaurant",
+    "type": "pansiyon",
+    "address": "Kızlan Mah. Kızlan Sok. No:476/A",
+    "phone": "+90 554 667 83 27",
+    "area": "Kızlan"
+  },
+  {
+    "number": "2022-48-1727",
+    "name": "Nima Apart Otel",
+    "type": "pansiyon",
+    "address": "Kızlan Mah. Kızlan Sok. No:545/A",
+    "phone": "+90 533 258 54 02",
+    "area": "Kızlan"
+  },
+  {
+    "number": "2022-48-1752",
+    "name": "Thomas Suites",
+    "type": "pansiyon",
+    "address": "İskele Mah. 21. Sok.No:1/1",
+    "phone": "+90 507 249 07 97",
+    "gallery": "https://www.etstur.com/Thomas-Suites-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ng31lugf0tmox2fbadm7.jpg",
+    "alias": "Thomas Suites Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1754",
+    "name": "Thetis Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. H. Aşkın Cad. No:3",
+    "phone": "+90 532 601 75 07",
+    "gallery": "https://www.etstur.com/Thetis-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Thetis_Pansiyon_202506161334435_WhatsApp_Image_2025_06_16_at_13_11_00.jpeg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1760",
+    "name": "Taş Apart",
+    "type": "pansiyon",
+    "address": "İskele Mah. 83/1 Sok. No:4",
+    "phone": "+90 535 822 22 31",
+    "gallery": "https://www.etstur.com/Tas-Apart-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Ta_Apart_Dat_a_202507010944207_3ed16b85_1a4a_4e4d_baf3_14dd3b12d4a6.jpeg",
+    "alias": "Taş Apart Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1794",
+    "name": "Halise Apart",
+    "type": "otel",
+    "address": "Kızlan Mah. Küme Evleri No:25",
+    "phone": "+90 532 162 52 25",
+    "gallery": "https://www.etstur.com/Halise-Apart-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Halise_Apart_Pansiyon_202405071344427_IMG_5699.JPG",
+    "alias": "Halise Apart Pansiyon",
+    "area": "Kızlan"
+  },
+  {
+    "number": "2022-48-1796",
+    "name": "Karakaş Apart",
+    "type": "apart otel",
+    "address": "Emecik Mah. Emecik Küme Evleri No:275",
+    "phone": "+90 554 320 71 89",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-1799",
+    "name": "Kaya Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. 84. Sok. No:8/1",
+    "phone": "+90 505 618 10 42",
+    "gallery": "https://www.etstur.com/Kaya-Apart-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Kaya_Apart_Dat_a_202608051829333_WhatsApp_Image_2026_08_05_at_16_14_00_1_.jpeg",
+    "alias": "Kaya Apart Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1801",
+    "name": "Kumluk Otel",
+    "type": "otel",
+    "address": "İskele Mah. Atatürk Cad. No:39",
+    "phone": "+90 535 604 39 84",
+    "gallery": "https://www.etstur.com/Kumluk-Otel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Kumluk_Otel_Dat_a_202503282145598_IMG_4666.jpeg",
+    "alias": "Kumluk Otel Datça",
+    "area": "İskele",
+    "website": "https://kumlukotel.com/"
+  },
+  {
+    "number": "2022-48-1812",
+    "name": "Karadağlı Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. Halil Aşkın Cad. No:15",
+    "phone": "+90 531 889 08 08",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1817",
+    "name": "Şahinler Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. 87 Sok. No:14",
+    "phone": "+90 537 896 71 51",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1826",
+    "name": "Şerifin Yeri",
+    "type": "pansiyon",
+    "address": "Kızlan Mah. Kızlan Sok. No:486",
+    "phone": "+90 536 220 31 55",
+    "area": "Kızlan"
+  },
+  {
+    "number": "2022-48-1828",
+    "name": "Mercan Pansiyon",
+    "type": "pansiyon",
+    "address": "Emecik Mah. Emecik Sok. No:235/1",
+    "phone": "+90 534 478 09 67",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-1833",
+    "name": "Mercan Pansiyon - 2",
+    "type": "pansiyon",
+    "address": "Emecik Mah. Emecik Sok. No:364/A-B-C-D-E",
+    "phone": "+90 534 478 09 67",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-1843",
+    "name": "Filiz Apart",
+    "type": "apart otel",
+    "address": "Emecik Mah. Karaincir Mevkii No:359",
+    "phone": "+90 536 593 57 02",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-1860",
+    "name": "Mandalina Apart",
+    "type": "pansiyon",
+    "address": "İskele Mah. 69/1 Sok. No:1",
+    "phone": "+90 507 646 98 76",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1862",
+    "name": "Leman Apart",
+    "type": "apart otel",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:31",
+    "phone": "+90 506 484 24 99",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1865",
+    "name": "Karia Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:29",
+    "phone": "+90 537 861 95 33",
+    "gallery": "https://www.etstur.com/Karia-Apart-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/buw9crajyzh38cx63a2c.jpg",
+    "alias": "Karia Apart Pansiyon",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1868",
+    "name": "Kapari Ahşap Evleri",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:31/3",
+    "phone": "+90 532 700 11 54",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1872",
+    "name": "Gülbahar Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:62",
+    "phone": "+90 535 599 54 99",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1874",
+    "name": "Hayıtbükü Ahşap Evleri",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. No:23/1",
+    "phone": "+90 532 507 01 06",
+    "gallery": "https://www.etstur.com/Hayitbuku-Ahsap-Evleri",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/xxrd12hrg8jggwtz5qwb.jpg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1877",
+    "name": "Savana Otel",
+    "type": "otel",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:24/A",
+    "phone": "+90 530 639 40 48",
+    "gallery": "https://www.etstur.com/Savana-Butik-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Savana_Butik_Otel_202406091718436_DSC05407_HDR.jpg",
+    "alias": "Savana Butik Otel",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1881",
+    "name": "İskandil Apart",
+    "type": "apart otel",
+    "address": "Yaka Mah. Palamutbükü Sok. No:227",
+    "phone": "+90 542 322 12 89",
+    "area": "Yaka",
+    "website": "https://www.iskandilapart.com/"
+  },
+  {
+    "number": "2022-48-1884",
+    "name": "Sakin Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. Atatürk Cad. No:69",
+    "phone": "+90 532 524 34 55",
+    "gallery": "https://www.etstur.com/Sakin-Otel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Sakin_Otel_Dat_a_202606271202512_8.jpg",
+    "alias": "Sakin Otel Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1886",
+    "name": "Kardelen Evleri",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:357",
+    "phone": "+90 505 451 14 87",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1890",
+    "name": "Poyraz Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Mevkii No:a-B-14",
+    "phone": "+90 544 712 97 40",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1893",
+    "name": "Okyanus Apart",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:262/2",
+    "phone": "+90 533 765 57 03",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1896",
+    "name": "Nostalgia Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:238",
+    "phone": "+90 538 256 41 12",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1898",
+    "name": "Yalçınkayalar Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. Halide Edip Adıvar Cad. No:11",
+    "phone": "+90 532 424 09 63",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1899",
+    "name": "Nil Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:69",
+    "phone": "+90 548 202 73 66",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1901",
+    "name": "Viya Apart",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:234/1",
+    "phone": "+90 539 786 42 09",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1903",
+    "name": "My Marina Select Otel",
+    "type": "otel",
+    "address": "İSKELE MH. HÜRRİYET CD. No:27/27 DATÇA",
+    "phone": "+90 532 693 24 84",
+    "gallery": "https://www.etstur.com/My-Marina-Select-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/My_Marina_Select_Hotel_20231225215959_1.jpg",
+    "alias": "My Marina Select Hotel",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1904",
+    "name": "Marphe Apart Otel",
+    "type": "otel",
+    "address": "İskele Mah. Hisarmağara Cad. 230 Sok. No:20",
+    "phone": "+90 532 242 29 64",
+    "gallery": "https://www.etstur.com/Marphe-Hotel-Suit-Ve-Villalari",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9bWFycGhlMjA_20220531111801.jpg",
+    "alias": "Marphe Hotel Süit ve Villaları",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1907",
+    "name": "Villa Vino",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Mezgit Küme Evler No:1",
+    "phone": "+90 545 925 50 49",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1908",
+    "name": "Ada Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:59",
+    "phone": "+90 554 307 83 02",
+    "gallery": "https://www.etstur.com/Ada-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9REpJXzA5NjktKENvcHkp_20220617182946.jpg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1911",
+    "name": "Elly's Home",
+    "type": "pansiyon",
+    "address": "Mesudiye Mh. Hayıtbükü Sk. No:51/1",
+    "phone": "+90 539 443 39 60",
+    "gallery": "https://www.etstur.com/Ellys-Home-Mesudiye",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9NDk_20221228160524.JPG",
+    "alias": "Ellys Home Mesudiye",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1914",
+    "name": "Şafak Apart",
+    "type": "apart otel",
+    "address": "Cumalı Mah. Palamutbükü/Cumalı Mah. Küme Evler No:26/2",
+    "phone": "+90 507 277 62 65",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-1915",
+    "name": "Özdemir Otel",
+    "type": "otel",
+    "address": "Mesudiye Mah. Ovabükü Sokak. No:13/A",
+    "phone": "+90 532 226 98 33",
+    "gallery": "https://www.etstur.com/Ozdemir-Otel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9MUUzRUQ0OEQtQjZGQy00NTU2LUJCRUYtMUExRDcxQ0VDRUEx_20210505144150.jpeg",
+    "alias": "Özdemir Otel Datça",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1917",
+    "name": "Casa Dalida",
+    "type": "otel",
+    "address": "İskele Mahallesi. Atatürk Cad. No:67",
+    "phone": "+90 533 611 54 30",
+    "gallery": "https://www.etstur.com/Casa-Dalida-Boutique-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Casa_Dalida_Boutique_Hotel_202506261615518_IMG_4095_kopya.jpg",
+    "alias": "Casa Dalida Boutique Hotel",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1919",
+    "name": "Gölge Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mh. Hayıtbükü Sk. No:54/2-2",
+    "phone": "+90 554 981 32 88",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1920",
+    "name": "Mandalya Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah.Sabiha Gökçen Cad. No:86",
+    "phone": "+90 554 832 64 80",
+    "gallery": "https://www.etstur.com/Mandalya-Kucuk-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/MANDALYA_PANS_YON_202502210037477_YDHC4522.JPG",
+    "alias": "Mandalya Küçük Otel",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1923",
+    "name": "Liman Pansiyon",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:72/A",
+    "phone": "+90 542 786 75 48",
+    "gallery": "https://www.etstur.com/Liman-Pansiyon-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Liman_Pansiyon_Palamutb_k__202607071605516_MG_1196_min_1024x683.jpg",
+    "alias": "Liman Pansiyon Palamutbükü",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-1924",
+    "name": "Villa Tokur",
+    "type": "pansiyon",
+    "address": "İskele Mah. 31. Sok. No:1",
+    "phone": "+90 532 497 42 65",
+    "gallery": "https://www.etstur.com/Hotel-Villa-Tokur",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Hotel_Villa_Tokur_202606151058536_IMG_5167.jpg",
+    "alias": "Hotel Villa Tokur",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1926",
+    "name": "Lara Apart Otel",
+    "type": "apart otel",
+    "address": "İskele Mah. Turan Serin Sok. No:10",
+    "phone": "+90 533 691 23 90",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1929",
+    "name": "Veziroğlu Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. Atatürk Cad. No:47/A",
+    "phone": "+90 532 347 45 22",
+    "gallery": "https://www.etstur.com/Veziroglu-Apart",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Veziroglu_Apart_20240317124622_2.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1930",
+    "name": "Kabuk Ev Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:78/1",
+    "phone": "+90 532 202 07 83",
+    "gallery": "https://www.etstur.com/Kabuk-Ev-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9NjIzNzg5ODdfMjQxNjIyMzQ3NTA2NDg1NV81OTQxODk5MzMyMDE2OTMwODE2X24_20210724014029.jpg",
+    "alias": "Kabuk Ev Otel",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1933",
+    "name": "Işıl Apart",
+    "type": "apart otel",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:31",
+    "phone": "+90 507 769 38 88",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-1935",
+    "name": "Uslu Otel",
+    "type": "otel",
+    "address": "İskele Mah. Nuri Kolcu Sok. No:2",
+    "phone": "+90 532 421 88 69",
+    "area": "İskele",
+    "photo": "https://www.bademcicegifestivali.com/wp-content/uploads/2018/12/uslu-otel-royal-yatching-300x194.jpg",
+    "gallery": "https://www.bademcicegifestivali.com/konaklama/"
+  },
+  {
+    "number": "2022-48-1939",
+    "name": "Uğurlu Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. Nilüfer Sk. No:11/A",
+    "phone": "+90 252 712 85 48",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1940",
+    "name": "Mandalin Suites Apart",
+    "type": "apart otel",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:117",
+    "phone": "+90 532 452 22 25",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-1941",
+    "name": "Tsira Otel",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Döşeme Sok. No:19/A",
+    "phone": "+90 505 357 90 70",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1944",
+    "name": "Armeda Restaurant Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Mevkii No:70",
+    "phone": "+90 538 510 55 77",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1945",
+    "name": "Taşkıran Kaptan Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. 84. Sok. No:13/16",
+    "phone": "+90 544 579 81 08",
+    "gallery": "https://www.etstur.com/Kaptan-Apart-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/zoiqrr1u0d0tg9cprypg.jpg",
+    "alias": "Kaptan Apart Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1947",
+    "name": "Taşkıran Apart",
+    "type": "pansiyon",
+    "address": "İskele Mah. 87. Sok. No:12/1",
+    "phone": "+90 252 712 99 92",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1950",
+    "name": "Bora Otel",
+    "type": "otel",
+    "address": "İskele Mah. Atatürk Cad. No:71",
+    "phone": "+90 532 356 96 69",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1953",
+    "name": "Sevgin Pansiyon",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:60",
+    "phone": "+90 543 842 36 61",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-1955",
+    "name": "Şef Apart 2",
+    "type": "apart otel",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:128a-B",
+    "phone": "+90 506 875 43 67",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-1958",
+    "name": "Şef Apart",
+    "type": "apart otel",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:51",
+    "phone": "+90 506 875 43 67",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-1960",
+    "name": "Ilgın Apart",
+    "type": "apart otel",
+    "address": "Yaka Mah.Palamutbükü Küme Evleri No:231/308",
+    "phone": "+90 535 279 23 10",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1961",
+    "name": "Villa Mercan Pansiyon",
+    "type": "pansiyon",
+    "address": "Datça Mah. 543 Sok No:49-51",
+    "phone": "+90 507 936 24 30",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-1982",
+    "name": "Denge Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. Ambarcı Cad. Nilüfer Sok. No:2",
+    "phone": "+90 554 503 26 63",
+    "gallery": "https://www.etstur.com/Denge-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Denge_Pansiyon_202603051203051_WhatsApp_Image_2026_01_09_at_12_43_50_1_.jpeg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1984",
+    "name": "Giritli Apart",
+    "type": "apart otel",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:65a/1-2-3, 65b/1-2-3, 65c/1-2-3",
+    "phone": "+90 506 290 42 62",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-1986",
+    "name": "Gabaklar Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. No:37/A",
+    "phone": "+90 552 227 47 39",
+    "gallery": "https://www.etstur.com/Gabaklar-Boutique-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/i9aeyiush8qk4td8im9l.jpg",
+    "alias": "Gabaklar Boutique Otel",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1987",
+    "name": "Ersu Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Küme Evleri No:245/1-2",
+    "phone": "+90 554 285 13 08",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1990",
+    "name": "Elfida Apart",
+    "type": "apart otel",
+    "address": "Yaka Mah. Palamutbükü Sok. No:207/2",
+    "phone": "+90 559 861 18 43",
+    "gallery": "https://www.etstur.com/Elfida-Apart",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Elfida_Apart_202607042318362_Elfida_Genel_1.jpeg",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1992",
+    "name": "Feli Pansiyon",
+    "type": "pansiyon",
+    "address": "Datça Mah. Can Yücel Sok. No:12",
+    "phone": "+90 532 571 95 76",
+    "gallery": "https://www.etstur.com/Feli-Eski-Datca-Adult-Only--9",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Feli_Eski_Dat_a_Adult_Only_9__202603281255251_20230425_124349_01.jpeg",
+    "alias": "Feli Eski Datça",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-1993",
+    "name": "Villa Anfora",
+    "type": "otel",
+    "address": "İskele Mah. Bademli Cad. No:44",
+    "phone": "+90 532 655 49 02",
+    "gallery": "https://www.etstur.com/Villa-Anfora-Hotel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Villa_Anfora_Hotel_Dat_a_202405241541588_WhatsApp_Image_2024_05_22_at_17_56_35_1_.jpeg",
+    "alias": "Villa Anfora Hotel Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-1994",
+    "name": "Bozalan Sahil Evleri",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sk. No:307",
+    "phone": "+90 506 838 56 55",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-1996",
+    "name": "Aybüke Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:185/2",
+    "phone": "+90 532 354 58 08",
+    "gallery": "https://www.etstur.com/Aybuke-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ng8lmo8vcv4zf1wxduzs.jpg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-1997",
+    "name": "Cicis Pansiyon",
+    "type": "pansiyon",
+    "address": "Datça Mah Güllüce Sok. No:1",
+    "phone": "+90 552 387 48 48",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-1998",
+    "name": "Otel Borada",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:77",
+    "phone": "+90 543 725 51 14",
+    "area": "Cumalı",
+    "website": "https://otelborada.com/",
+    "photo": "https://img1.wsimg.com/isteam/ip/d79c9ea1-04c2-408a-a2fa-6ba243e748a5/genel2.jpg",
+    "gallery": "https://otelborada.com/"
+  },
+  {
+    "number": "2022-48-1999",
+    "name": "Burcu Apart",
+    "type": "apart otel",
+    "address": "Yaka Mah. Palamutbükü Sok. No:91",
+    "phone": "+90 549 016 88 85",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2000",
+    "name": "Dadia House",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:83/3",
+    "phone": "+90 532 293 71 38",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2001",
+    "name": "Casa Elia",
+    "type": "pansiyon",
+    "address": "Emecik Mah. Emecik Sok. No:379",
+    "phone": "+90 533 772 51 80",
+    "gallery": "https://www.etstur.com/Casa-Elia-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Casa_Elia_Dat_a_202603231557147_havuz1.jpeg",
+    "alias": "Casa Elia Datça",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-2003",
+    "name": "Yavuz Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. Turgut Dündar Cad. No:20",
+    "phone": "+90 542 252 47 83",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2004",
+    "name": "Yarımada Apart",
+    "type": "apart otel",
+    "address": "Mesudiye Mah. Ovabükü Mevkii No:31/1",
+    "phone": "+90 532 602 83 87",
+    "gallery": "https://www.etstur.com/Yarimada-Otel-Restaurant",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9X0RTQzI3MTktSERS_20220723234713.jpg",
+    "alias": "Yarımada Otel & Restaurant",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2005",
+    "name": "Yiğitşah Apart",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:42/1",
+    "phone": "+90 542 226 41 88",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2006",
+    "name": "Yalım Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah.Küme Evler Hayıtbükü Sok. No:53",
+    "phone": "+90 534 450 57 20",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2007",
+    "name": "Begonvil Apart",
+    "type": "apart otel",
+    "address": "Yaka Mah. Palamutbükü Sok. No:249",
+    "phone": "+90 554 713 07 58",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2011",
+    "name": "Zeytinözü Apart",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Küme Evleri No:81/2",
+    "phone": "+90 535 600 76 72",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2027",
+    "name": "Damla Apart",
+    "type": "apart otel",
+    "address": "Yaka Mah. Palamutbükü Sok. No:351",
+    "phone": "+90 532 691 08 01",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2035",
+    "name": "Çağan Apart",
+    "type": "apart otel",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:82",
+    "phone": "+90 543 771 39 82",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2037",
+    "name": "Zephyros City Otel",
+    "type": "otel",
+    "address": "İSKELE MAH. RAUF BALIKÇI SK. CITY OTEL No:/8",
+    "phone": "+90 535 718 05 57",
+    "gallery": "https://www.etstur.com/Zephyros-City-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9V2hhdHNBcHAtSW1hZ2UtMjAyMS0wNi0xMC1hdC0xMy40NC4zMQ_20210610165512.jpeg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2039",
+    "name": "Çeşme Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:90",
+    "phone": "+90 554 483 36 85",
+    "area": "Yaka",
+    "website": "https://palamutbukucesmeotel.com/",
+    "alias": "Palamutbükü Çeşme Otel",
+    "photo": "https://palamutbukucesmeotel.com/img/600/23/products/IMG_3959.jpg",
+    "gallery": "https://palamutbukucesmeotel.com/"
+  },
+  {
+    "number": "2022-48-2040",
+    "name": "Gül Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Küme Evleri No:22/1-2",
+    "phone": "+90 538 570 04 84",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2046",
+    "name": "Erdinç Apart",
+    "type": "apart otel",
+    "address": "Yaka Mah. Palamutbükü Sok. No:5",
+    "phone": "+90 532 492 77 49",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2056",
+    "name": "Canözüm Apart",
+    "type": "apart otel",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:34/1",
+    "phone": "+90 554 301 61 60",
+    "gallery": "https://www.etstur.com/Canozum-Apart-Otel-Datca-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Dat_a_Palamutb_k_Can_z_m_Apart_202507181047020_1_bina_on1.jpeg",
+    "alias": "Canözüm Apart Otel Datça Palamutbükü",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2076",
+    "name": "Mesudiye Apart",
+    "type": "apart otel",
+    "address": "Mesudiye Mh. Mesudiye Sk. No:148",
+    "phone": "+90 543 679 62 15",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2094",
+    "name": "Gürsel Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. Atatürk Caddesi No:84/Z-1",
+    "phone": "+90 505 627 38 07",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2101",
+    "name": "Ogün Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mh. Hayıtbükü Sk. No:38 A",
+    "phone": "+90 542 687 30 39",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2102",
+    "name": "Defnem Apart",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:129/1,2,3,4",
+    "phone": "+90 543 368 06 27",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2103",
+    "name": "Türkeli Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mh. Hayıtbükü Sok. No:46",
+    "phone": "+90 534 954 02 77",
+    "gallery": "https://www.etstur.com/Turkeli-Pansiyon-Mesudiye",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/T_rkeli_Pansiyon_Mesudiye_202506301405278_IMG_5502.JPEG",
+    "alias": "Türkeli Pansiyon Mesudiye",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2108",
+    "name": "Sur-7 Pansiyon",
+    "type": "pansiyon",
+    "address": "Datça Mah. Palamutluk Sokak No:4",
+    "phone": "+90 533 410 91 19",
+    "gallery": "https://www.etstur.com/Sur7-Butik-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9ZGlzLW1la2FuLTktZXh0cg_20210622185216.jpeg",
+    "alias": "Sur7 Butik Otel",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-2110",
+    "name": "La Petra Pansiyon",
+    "type": "pansiyon",
+    "address": "Datça Mah. Pınar Sok. No:/8 A",
+    "phone": "+90 532 357 45 72",
+    "gallery": "https://www.etstur.com/La-Petra-Boutique-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9MjM2Njg2ODI4_20210623103547.jpg",
+    "alias": "La Petra Boutique Hotel",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-2114",
+    "name": "Datça Zeytin Evleri",
+    "type": "pansiyon",
+    "address": "İskele Mahallesi Vatan Cad. No:43/1",
+    "phone": "+90 532 391 64 43",
+    "gallery": "https://www.etstur.com/Datca-Zeytinevleri-Apart",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Dat_a_Zeytinevleri_Apart_202506121110510_Daire_2_4_6_d_sar_dan.jpg",
+    "alias": "Datça Zeytinevleri Apart",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2120",
+    "name": "Umut Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:24-25a",
+    "phone": "+90 505 385 50 48",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2121",
+    "name": "Soysal Apart",
+    "type": "apart otel",
+    "address": "İskele Mahallesi Atatürk Cad. No:4",
+    "phone": "+90 546 206 08 37",
+    "gallery": "https://www.etstur.com/Soysal-Apart-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9OGM1YmVhMzQtYjcwMy00ZDJhLWIxYzYtMmU5MzhlYzYyYjM1_20220622132313.jpg",
+    "alias": "Soysal Apart Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2122",
+    "name": "Şimşek Apart",
+    "type": "apart otel",
+    "address": "Cumalı Mah. Palamutbükü Sokak No:23 /A",
+    "phone": "+90 545 791 20 16",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2124",
+    "name": "Gebora Tatil Evleri",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sokak No:371/1",
+    "phone": "+90 530 208 05 49",
+    "gallery": "https://www.etstur.com/Gebora-Tatil-Evleri",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Gebora_Tatil_Evleri_202505271809068_IMG_0453.jpg",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2130",
+    "name": "Karaincir Suit Otel",
+    "type": "otel",
+    "address": "Emecik Mah. Emecik Sok. No:381",
+    "phone": "+90 543 590 99 54",
+    "gallery": "https://www.etstur.com/Karaincir-Suit-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/d019ebd5dfffebbdc5e56ea12735e2fc.jpg",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-2137",
+    "name": "Güllük Pansiyon",
+    "type": "pansiyon",
+    "address": "Emecik Mah. Güllük Mevkii No:485/1",
+    "phone": "+90 535 290 06 24",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-2140",
+    "name": "Mavi Beyaz Otel (Louse'in Konağı)",
+    "type": "pansiyon",
+    "address": "İskele Mah. 36 Sok. No:4",
+    "phone": "+90 532 337 03 00",
+    "gallery": "https://www.etstur.com/Mavi-Beyaz-Turkevi-Otel-Datca-Merkez",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9T3RlbC1NYXZpLUJleWF6LURhdGNh_20210703001800.jpg",
+    "alias": "Mavi Beyaz Türkevi Otel (Datça Merkez)",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2144",
+    "name": "Pharos Otel",
+    "type": "pansiyon",
+    "address": "İskele Mah. Halil Aşkın Cd. No:31",
+    "phone": "+90 535 319 65 06",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2148",
+    "name": "Özdemir Kamping",
+    "type": "camping",
+    "address": "Mesudiye Mah. Ovabükü Küme Evleri No:13",
+    "phone": "+90 536 420 90 43",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2164",
+    "name": "Ada Evleri",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sk. No:40",
+    "phone": "+90 505 390 12 99",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2165",
+    "name": "Turgut Pansiyon",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:80",
+    "phone": "+90 530 624 80 48",
+    "gallery": "https://www.etstur.com/Turgut-Apart-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/TURGUT_APART_OTEL_202502110236119_WhatsApp_Image_2024_07_01_at_16_50_57_2_.jpeg",
+    "alias": "Turgut Apart Otel",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2174",
+    "name": "Bağevi Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Küme Evleri No:57/1",
+    "phone": "+90 532 424 08 63",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2178",
+    "name": "Laçin Apart Otel",
+    "type": "apart otel",
+    "address": "İskele Mah. Buxwrolles Sk. No:14/A",
+    "phone": "+90 530 668 36 66",
+    "gallery": "https://www.etstur.com/Lacin-Apart-Otel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9bGFjaW4tYXBhcnQ_20221229093144.jpeg",
+    "alias": "Laçin Apart Otel Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2179",
+    "name": "Limon Datça",
+    "type": "pansiyon",
+    "address": "REŞADİYE MAH. KÜME EVLER No:3",
+    "phone": "+90 537 012 89 98",
+    "gallery": "https://www.hotelprice.com/tr/limon-datca",
+    "photo": "https://images.odamax.com/img/1024x768/odamax/image/upload/ZmlsZU5hbWU9OGY0ZjkzMzktZWQwNS00NTJkLWI3YjgtYTA4OTQ2NGI0NmQ3_20210709171457.JPG",
+    "area": "Reşadiye"
+  },
+  {
+    "number": "2022-48-2183",
+    "name": "Bade Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. 89. Sok. No:6/1",
+    "phone": "+90 532 393 87 58",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2184",
+    "name": "Işık Apart Otel",
+    "type": "apart otel",
+    "address": "İSKELE MAH. AHMET TANER KIŞLALI BLV. No:13/A-1",
+    "phone": "+90 532 433 68 03",
+    "gallery": "https://www.etstur.com/Isik-Apart",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/I_k_Apart_202506231514104_DSCF9026_HDR_Edit.jpg",
+    "alias": "Işık Apart",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2185",
+    "name": "Bahar Bahçe Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Küme Evleri No:75",
+    "phone": "+90 531 394 23 14",
+    "gallery": "https://www.etstur.com/Bahar-Bahce-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9TkxXSUU3MjE0_20210323103317.JPG",
+    "alias": "Bahar Bahçe Datça",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2186",
+    "name": "Botanik Ahşap Evleri",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. No:55",
+    "phone": "+90 532 640 21 61",
+    "area": "Mesudiye",
+    "website": "https://botanikahsapevler.com/",
+    "photo": "https://botanikahsapevler.com/gallery_gen/154207011cef3d8d67fc3a37dc8ea8e8_100x90_fit.jpg?ts=1791988929",
+    "gallery": "https://botanikahsapevler.com/"
+  },
+  {
+    "number": "2022-48-2187",
+    "name": "Bizim Cennet Bungalov",
+    "type": "otel",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. No:37-A",
+    "phone": "+90 543 444 25 23",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2188",
+    "name": "Kalina Otel",
+    "type": "otel",
+    "address": "Emecik Mah. B Ada 2. Cad. No:19/1",
+    "phone": "+90 532 245 96 16",
+    "gallery": "https://www.etstur.com/Kalina-Otel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/dzol2sm70g57xossiir3.jpg",
+    "alias": "Kalina Otel Datça",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-2195",
+    "name": "Casa Di Datça",
+    "type": "pansiyon",
+    "address": "Datça Mah. Küme 1 Küme Evler No:6/1",
+    "phone": "+90 542 265 85 21",
+    "gallery": "https://www.etstur.com/Italyan-Pansiyonu-Casa-Di-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9REpJXzA3MDc_20210706173756.jpg",
+    "alias": "İtalyan Pansiyonu Casa di Datça",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-2198",
+    "name": "Güneş Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. Azmakbaşı Mevkii 85. Sok. No:19-19/1-19/2",
+    "phone": "+90 533 475 02 84",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2201",
+    "name": "Esenada Oteli",
+    "type": "otel",
+    "address": "İskele Mah Atatürk Cad. No:95",
+    "phone": "+90 549 265 15 88",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2204",
+    "name": "Kaya Guest House",
+    "type": "otel",
+    "address": "Datça Mah. Sardunya Sok. No:3",
+    "phone": "+90 532 176 46 24",
+    "gallery": "https://www.etstur.com/Kaya-Guest-House-Eski-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Kaya_Guest_House_Eski_Dat_a_202407061653236__DSC6322_min.jpg",
+    "alias": "Kaya Guest House Eski Datça",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-2208",
+    "name": "Melinda Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No: 64/A",
+    "phone": "+90 532 655 52 66",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2209",
+    "name": "Maya Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. 64/1 Sok. No:1",
+    "phone": "+90 530 208 05 70",
+    "gallery": "https://www.etstur.com/Maya-Otel-Apart",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/sei6sv7ri2zhogscvm8z.jpg",
+    "alias": "Maya Otel & Apart",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2211",
+    "name": "Otel Tropicana",
+    "type": "otel",
+    "address": "İskele Mah. 36. Sok. No:2",
+    "phone": "+90 538 879 44 97",
+    "gallery": "https://www.etstur.com/Hotel-Tropicana-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9MjA5MkhvdGVsLVRyb3BpY2FuYV9EYXRjYV9UdXJraXllLW1pbg_20230404001211.jpg",
+    "alias": "Hotel Tropicana Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2221",
+    "name": "Palamutbükü Pansiyon",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. No: 38",
+    "phone": "+90 535 398 84 96",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2224",
+    "name": "Luna Otel",
+    "type": "otel",
+    "address": "İskele Mah. Koru Cad. No:15/1",
+    "phone": "+90 533 248 46 11",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2228",
+    "name": "Çağla Apart",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. 43/1",
+    "phone": "+90 553 436 64 22",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2229",
+    "name": "Derin Mavi Apart Otel",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:126",
+    "phone": "+90 531 430 60 20",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2230",
+    "name": "Duman's Apart",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. No:37/1",
+    "phone": "+90 533 214 69 58",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2231",
+    "name": "Bal Badem Bungalov",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:35",
+    "phone": "+90 541 248 14 32",
+    "gallery": "https://www.etstur.com/Bal-Badem-Bungalov",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/hzoc7bh9qqbysrfoxul3.jpg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2232",
+    "name": "Derin Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:190",
+    "phone": "+90 505 689 41 22",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2235",
+    "name": "Artolive Datça Pansiyon",
+    "type": "pansiyon",
+    "address": "Hızırşah Mah. Hızırşah Sok. No:314",
+    "phone": "+90 532 228 00 96",
+    "area": "Hızırşah"
+  },
+  {
+    "number": "2022-48-2236",
+    "name": "Tahir Ağa Pansiyon",
+    "type": "pansiyon",
+    "address": "İSKELE MAH. 87. SOK. No: 9",
+    "phone": "+90 544 579 81 05",
+    "gallery": "https://www.etstur.com/Tahir-Aga-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9aGF2dXotMw_20210715161913.jpg",
+    "alias": "Tahir Ağa Otel",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2242",
+    "name": "Hoppala Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sk. No:27",
+    "phone": "+90 532 544 49 95",
+    "gallery": "https://www.etstur.com/Hoppala-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Hoppala_Pansiyon_202507191525554_version_1_uuid_6E2E6003_94BA_4E87_8061_6B8F80069953_mode_compatible_noloc_0.jpeg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2243",
+    "name": "Tunç Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. Buxerolles Sok. No:13",
+    "phone": "+90 543 892 80 25",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2245",
+    "name": "Palm Bay Beach Otel",
+    "type": "otel",
+    "address": "Emecik Mah. Emecik Küme Evleri No:442",
+    "phone": "+90 532 739 79 17",
+    "gallery": "https://www.etstur.com/Palm-Bay-Beach-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Palm_Bay_Beach_Hotel_202503071718450_IB662073.jpg",
+    "alias": "Palm Bay Beach Hotel",
+    "area": "Emecik"
+  },
+  {
+    "number": "2022-48-2252",
+    "name": "Arzu Apart",
+    "type": "apart otel",
+    "address": "İskele Mah. 89. Sok. No:9",
+    "phone": "+90 546 578 22 76",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2254",
+    "name": "Huzur Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. Atatürk Cad. No:66/1",
+    "phone": "+90 542 325 43 79",
+    "gallery": "https://www.etstur.com/Huzur-Royal-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9REpJXzA0MDM_20230803112856.jpg",
+    "alias": "Huzur Royal Otel",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2255",
+    "name": "Datça Suites Apart",
+    "type": "pansiyon",
+    "address": "İskele Mah. Vatan Cad. No:48",
+    "phone": "+90 532 655 49 02",
+    "gallery": "https://www.etstur.com/Datca-Suites-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Dat_a_Suites_Hotel_202504011636075_1_jpg.jpg",
+    "alias": "Datça Suites Hotel",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2256",
+    "name": "Köyevi Apart",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:50/1",
+    "phone": "+90 530 114 25 55",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2257",
+    "name": "İskele Apart",
+    "type": "pansiyon",
+    "address": "İskele Mah. 66. Sok. No:8",
+    "phone": "+90 537 377 57 97",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2262",
+    "name": "Olgun Kıyı Pansiyon Ve Restaurant",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Kümeevleri Sok. No:309/1",
+    "phone": "+90 533 383 95 16",
+    "gallery": "https://www.etstur.com/Kiyi-Suites-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/K_y_Suites_Palamutb_k__202506192031406__DSC8754.jpg",
+    "alias": "Kıyı Suites Palamutbükü",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2266",
+    "name": "Palamutbükü Sahil Otel",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:121",
+    "phone": "+90 542 616 70 96",
+    "gallery": "https://www.etstur.com/Palamutbuku-Sahil-Butik-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Palamutb_k_Sahil_Butik_Otel_202607122321572_DSCF2982.jpg",
+    "alias": "Palamutbükü Sahil Butik Otel",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2269",
+    "name": "Sempati Apart",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ova Bükü Sok. No: 53",
+    "phone": "+90 535 227 03 56",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2270",
+    "name": "Gülhan Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. Buxeroles Sok. No:2",
+    "phone": "+90 543 590 99 54",
+    "gallery": "https://www.etstur.com/Gulhan-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Gulhan_Otel_20240404225235_1.png",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2274",
+    "name": "Datça Deniz Otel",
+    "type": "otel",
+    "address": "İskele Mah. Cumhuriyet Meydanı No:4",
+    "phone": "+90 554 635 91 48",
+    "gallery": "https://www.etstur.com/Datca-Deniz-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Dat_a_Deniz_Otel_202507181501076_IMG_1657.jpeg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2275",
+    "name": "Arslan Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok.No:25/A",
+    "phone": "+90 541 406 98 83",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2276",
+    "name": "Deniz Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. No:18",
+    "phone": "+90 539 664 76 21",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2284",
+    "name": "Beyaz Konak Evleri",
+    "type": "pansiyon",
+    "address": "İskele Mah. 63. Sok. No: 39",
+    "phone": "+90 532 655 49 07",
+    "gallery": "https://www.etstur.com/Beyaz-Konak-Evleri",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Beyaz_Konak_Evleri_202507111600492_COS_4052_1030x684_1.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2285",
+    "name": "Boğaziçi Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. Yanık Harman Sok. No:1",
+    "phone": "+90 252 000 00 00",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2309",
+    "name": "Datça House Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sokak No:41",
+    "phone": "+90 530 937 44 94",
+    "gallery": "https://www.etstur.com/Datca-House-Butik-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9SU1HXzM3Nzg_20230702143818.jpeg",
+    "alias": "Datça House Butik Otel",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2327",
+    "name": "Menekşe Apart",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:117/1",
+    "phone": "+90 555 712 98 21",
+    "area": "Cumalı"
+  },
+  {
+    "number": "2022-48-2329",
+    "name": "Veziroğlu Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Köyü",
+    "phone": "+90 537 293 12 59",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2337",
+    "name": "Nefes Apart",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No: 271",
+    "phone": "+90 506 614 69 20",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2351",
+    "name": "Çümen Apart",
+    "type": "apart otel",
+    "address": "Reşadiye Mah. Küme 8 Küme Evleri No:15",
+    "phone": "+90 539 923 97 97",
+    "area": "Reşadiye",
+    "website": "https://www.cumenapart.com/",
+    "photo": "https://static.wixstatic.com/media/b0a786_8f218002e68d4efeb5c8f02a065547ad~mv2.jpeg/v1/fill/w_353,h_628,q_90,enc_avif,quality_auto/b0a786_8f218002e68d4efeb5c8f02a065547ad~mv2.jpeg",
+    "gallery": "https://www.cumenapart.com/"
+  },
+  {
+    "number": "2022-48-2354",
+    "name": "Ogün +1 Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Küme Evleri No:38/A-B",
+    "phone": "+90 542 687 30 34",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2355",
+    "name": "Eski Datça Pansiyon",
+    "type": "pansiyon",
+    "address": "Datça Mah. Can Yücel Sok. No:5",
+    "phone": "+90 532 061 27 15",
+    "gallery": "https://www.etstur.com/Eski-Datca-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9V2hhdHNBcHAtSW1hZ2UtMjAyMi0wNS0xOC1hdC0xMS41Ny40OC0oMik_20220520151326.jpeg",
+    "area": "Datça"
+  },
+  {
+    "number": "2022-48-2356",
+    "name": "Emre Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. 62/1 Sok. No:4",
+    "phone": "+90 505 363 23 65",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2357",
+    "name": "Emre Apart Otel",
+    "type": "otel",
+    "address": "İskele Mah. 62/1 Sok. No:3/B",
+    "phone": "+90 507 624 28 28",
+    "gallery": "https://www.etstur.com/Emre-Otel-10-Oda",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/trseelme3p9pymgip6zb.jpg",
+    "alias": "Emre Otel 10 Oda",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2358",
+    "name": "Datça Martı Suites Apart",
+    "type": "pansiyon",
+    "address": "İskele Mah. 51. Sok. No:27",
+    "phone": "+90 535 945 70 45",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2359",
+    "name": "Datça Kılıç Otel",
+    "type": "pansiyon",
+    "address": "İskele Mah. 62/1 Sok. No:8",
+    "phone": "+90 252 712 93 32",
+    "gallery": "https://www.etstur.com/Datca-Kilic-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9RWtyYW4tQWxpbnRpc2k_20220328145518.PNG",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2360",
+    "name": "Bük Otel",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:122",
+    "phone": "+90 532 068 49 39",
+    "gallery": "https://www.etstur.com/Buk-Butik-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/B_k_Butik_Otel_202507181542225_89c84bd7_5911_43d2_b463_4978efaf68de.jpg",
+    "alias": "Bük Butik Otel",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2361",
+    "name": "Aydeniz Apart",
+    "type": "pansiyon",
+    "address": "İskele Mah. Ali Osman Çetiner Cad. No:7",
+    "phone": "+90 533 712 73 43",
+    "gallery": "https://www.etstur.com/Aydeniz-Apart-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/nfiy5c6enh2khzgiqkyl.jpg",
+    "alias": "Aydeniz Apart Otel",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2362",
+    "name": "Avlu Otel",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Küme Evleri No:287/4-5",
+    "phone": "+90 532 498 62 80",
+    "gallery": "https://www.etstur.com/Avlu-Otel-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9Mg_20220719091554.jpg",
+    "alias": "Avlu Otel Palamutbükü",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2364",
+    "name": "Mavi-Beyaz Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Küme Evleri No:121",
+    "phone": "+90 532 337 03 00",
+    "gallery": "https://www.etstur.com/Mavi-Beyaz-Otel-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Mavi_Beyaz_Otel_Palamutb_k__202608101157570_DJI_20260713064513_0552_D.jpg",
+    "alias": "Mavi Beyaz Otel Palamutbükü",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2388",
+    "name": "Ova Otel",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:54",
+    "phone": "+90 532 364 41 84",
+    "gallery": "https://www.etstur.com/Ova-Otel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Ova_Otel_202603241305085_b391ed3ea72aad1143d752535a3fc3df.png",
+    "alias": "Ova Otel Datça",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2399",
+    "name": "Şato Triopia Otel",
+    "type": "otel",
+    "address": "Yaka Mah. Yaka Küme Evleri No:45",
+    "phone": "+90 535 438 57 42",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2405",
+    "name": "Kızılbük Ahşap Evleri",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sk. No:36",
+    "phone": "+90 533 328 00 25",
+    "area": "Mesudiye",
+    "website": "https://www.kizilbukahsapevleri.com/",
+    "photo": "https://www.kizilbukahsapevleri.com/wp-content/uploads/2022/03/galeri-5.jpg",
+    "gallery": "https://www.kizilbukahsapevleri.com/"
+  },
+  {
+    "number": "2022-48-2411",
+    "name": "D.M Residence",
+    "type": "apart otel",
+    "address": "İskele Mah. Osman Akkaraca Sok. No:2",
+    "phone": "+90 541 274 12 77",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2420",
+    "name": "Dostlar Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. Küme Evler No:69",
+    "phone": "+90 543 895 86 70",
+    "area": "Yaka"
+  },
+  {
+    "number": "2022-48-2423",
+    "name": "Meltem Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. No:9",
+    "phone": "+90 545 450 27 36",
+    "gallery": "https://www.etstur.com/Meltem-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9RjFBOTk3MjMtRjFDQy00NzU1LUIyRjgtRkY5N0ZERUE2QjIy_20220812140221.jpeg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2022-48-2437",
+    "name": "Fora",
+    "type": "otel",
+    "address": "İskele Mah. Ali Osman Çetiner Cad. No:9",
+    "phone": "+90 252 712 48 00",
+    "gallery": "https://www.etstur.com/Fora-Apart-Otel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/qfqcwskftegigltr2q2w.jpg",
+    "alias": "Fora Apart Otel Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2022-48-2468",
+    "name": "Ilgın Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Sok. No:51",
+    "phone": "+90 538 742 60 09",
+    "gallery": "https://www.etstur.com/Ilgin-PansiyonRestaurant",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Ilg_n_Pansiyon_Restaurant_202606081941352_3.jpeg",
+    "alias": "Ilgın Pansiyon&Restaurant",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2023-48-2467",
+    "name": "Defne Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sk. No:108",
+    "phone": "+90 544 725 51 67",
+    "gallery": "https://www.etstur.com/Defne-Apart-Otel-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/cex7wnyafi1nxolcxdm5.jpg",
+    "alias": "Defne Apart Otel Palamutbükü",
+    "area": "Yaka",
+    "website": "https://defneapart.com/"
+  },
+  {
+    "number": "2024-48-2481",
+    "name": "The Green Goose Hotel",
+    "type": "pansiyon",
+    "address": "İskele Mah. Osman Akkaraca Sk. No:10/A",
+    "phone": "+90 530 545 00 48",
+    "gallery": "https://www.etstur.com/The-Green-Goose-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9OTg_20230622214849.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "2024-48-2487",
+    "name": "Eski Datça Otel",
+    "type": "pansiyon",
+    "address": "Datça Mah. Gazi Mustafa Kemal Cad. No:3/1",
+    "phone": "+90 530 233 89 23",
+    "gallery": "https://www.etstur.com/Eski-Datca-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Eski_Dat_a_Otel_202504211855256_IMG_6413.jpg",
+    "area": "Datça"
+  },
+  {
+    "number": "2024-48-2488",
+    "name": "Zephyros Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Döşeme Sk. No:56",
+    "phone": "+90 555 540 82 86",
+    "gallery": "https://www.etstur.com/Zephyros-Hotel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/jnq9tmalu3syelkgwtdy.jpg",
+    "alias": "Zephyros Hotel Datça",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2024-48-2504",
+    "name": "Aydeniz Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mahallesi Hayıtbükü Küme Evleri No:47/1-2 Datça/Muğla",
+    "phone": "+90 533 712 73 43",
+    "gallery": "https://www.etstur.com/Aydeniz-Otel-Hayitbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/veo57ls27ugqrrvaxc8t.jpg",
+    "alias": "Aydeniz Otel Hayıtbükü",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2024-48-2509",
+    "name": "Doada",
+    "type": "otel",
+    "address": "İSKELE MAH. OSMAN AKKARACA SK. No:/30 DATÇA",
+    "phone": "+90 252 712 30 40",
+    "gallery": "https://www.etstur.com/Doada-Hotel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ibtmd9imyjhglaug05my.jpg",
+    "alias": "Doada Hotel Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "2024-48-2516",
+    "name": "Olimpos Otel",
+    "type": "otel",
+    "address": "İskele Mahallesi Park Caddesi No:12 Datça/MUĞLA",
+    "phone": "+90 532 415 30 22",
+    "area": "İskele"
+  },
+  {
+    "number": "2025-48-2517",
+    "name": "Ege Pansiyon Kafe",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. no:41 Datça/MUĞLA",
+    "phone": "+90 533 439 93 60",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "2025-48-2520",
+    "name": "Han Royal",
+    "type": "otel",
+    "address": "İSKELE MAH. PİR SULTAN ABDAL SK. No:/5 A DATÇA",
+    "phone": "+90 533 930 81 93",
+    "area": "İskele"
+  },
+  {
+    "number": "2051",
+    "name": "Otel Mare",
+    "type": "otel",
+    "address": "İskele Mah. Hürriyet Cad. No:29 48900 Datça-Muğla",
+    "phone": "+90 252 712 32 11",
+    "gallery": "https://www.etstur.com/Hotel-Mare-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/znzvj3yl0s62ahk35pvj.jpg",
+    "alias": "Hotel Mare Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "20614",
+    "name": "Bademli Konak Otel",
+    "type": "ozel konaklama tesisi",
+    "address": "İskele Mah. 94.Sok. No:5",
+    "phone": "+90 252 712 24 74",
+    "area": "İskele",
+    "website": "https://bademlikonak.com/konak/",
+    "photo": "https://bademlikonak.com/wp-content/uploads/2020/05/dis_cephe_2.jpg",
+    "gallery": "https://bademlikonak.com/konak/"
+  },
+  {
+    "number": "20704",
+    "name": "Dadya Bora Otel",
+    "type": "otel",
+    "address": "Emecik Mah. Emecik Küme Evleri No:411",
+    "phone": "+90 530 609 03 59",
+    "gallery": "https://www.etstur.com/Dadya-Bora-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9REFEWUFCT1JBLUJBSENFLTItY29weQ_20220625201750.jpg",
+    "alias": "Dadya Bora Hotel",
+    "area": "Emecik"
+  },
+  {
+    "number": "20961",
+    "name": "Zeyt Inn Hotel",
+    "type": "ozel konaklama tesisi",
+    "address": "Datça Mah. Karani Sok. No:2/A-1",
+    "phone": "+90 536 035 48 00",
+    "gallery": "https://www.hotelprice.com/tr/zeyt-inn-hotel-datca",
+    "photo": "https://images.odamax.com/img/1024x768/odamax/image/upload/ZmlsZU5hbWU9S2FwYWsy_20230613170420.jpg",
+    "alias": "Zeyt Inn Hotel Datça",
+    "area": "Datça",
+    "website": "https://zeytinn.com.tr/hakkimizda/"
+  },
+  {
+    "number": "21001",
+    "name": "Flamingo Beach House",
+    "type": "pansiyon",
+    "address": "Kızılay Mah. Kızılay Sok. No.597",
+    "phone": "+90 532 423 88 16"
+  },
+  {
+    "number": "21026",
+    "name": "Green Garden Datça",
+    "type": "ozel konaklama tesisi",
+    "address": "Kızlan Mah. Kızlan Sok. No:395",
+    "phone": "+90 501 255 02 03",
+    "gallery": "https://www.etstur.com/green-garden-datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9REpJXzAwMzU_20230714183249.jpg",
+    "area": "Kızlan"
+  },
+  {
+    "number": "21233",
+    "name": "Ekinoks Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. Sabahattin Ali Sok. No: 1/A-A1",
+    "phone": "+90 552 779 26 46",
+    "gallery": "https://www.etstur.com/Ekinoks-Butik-Otel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Ekinoks_Otel_20230617125029_0.jpg",
+    "alias": "Ekinoks Butik Otel",
+    "area": "İskele"
+  },
+  {
+    "number": "21768",
+    "name": "Oliva Casa Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Küme Evler No:66/1",
+    "phone": "+90 535 230 02 02",
+    "gallery": "https://www.etstur.com/Oliva-Casa-Apart-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/hshn3fyywdjnl4hpyu2n.jpg",
+    "alias": "Oliva Casa Apart Hotel",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "22122",
+    "name": "Dalya Resort Aqua & Spa Hotel",
+    "type": "otel",
+    "address": "İskele Mah. 28.Sokak No:6/1-2-3",
+    "phone": "+90 552 531 80 00",
+    "gallery": "https://www.etstur.com/Dalya-Resort-Aqua-Spa-Hotel",
+    "photo": "https://images.etstur.com/imgproxy/resize/800x450/files/images/hotelImages/etsrooms/1100/Dalya_Resort_Aqua___Spa_Hotel_20250530125041_0.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "22141",
+    "name": "Damyan Çiftliği",
+    "type": "pansiyon",
+    "address": "Karaköy Mah. Karaköy Kümeevleri. No:449/1",
+    "phone": "+90 532 220 28 58",
+    "area": "Karaköy"
+  },
+  {
+    "number": "22191",
+    "name": "Palaia Hotel",
+    "type": "ozel konaklama tesisi",
+    "address": "İskele Mah. 137/1 Sok. No:4 İskele Mah. Pirsultan Abdal Sok. No:5/A",
+    "gallery": "https://www.etstur.com/Palaia-Hotel-Datca-Adult-Only",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Palaia_Hotel_Datca_20240227115511_0.jpg",
+    "alias": "Palaia Hotel Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "22563",
+    "name": "Datça Deniz Kızı Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. 190.Sokak No:32/1-2-3",
+    "phone": "+90 536 222 70 95",
+    "area": "İskele"
+  },
+  {
+    "number": "22610",
+    "name": "Öksu Apart Otel",
+    "type": "apart otel",
+    "address": "Emecik Mah. Emecik Küme Evleri No:413 Datça/Muğla",
+    "area": "Emecik"
+  },
+  {
+    "number": "22669",
+    "name": "Meltem Pansiyon",
+    "type": "pansiyon",
+    "address": "Datça Mah. Gazi Mustafa Kemal Cad. No:5/A",
+    "phone": "+90 545 889 67 25",
+    "area": "Datça"
+  },
+  {
+    "number": "22683",
+    "name": "Bağlaryüzü Pansiyon",
+    "type": "pansiyon",
+    "address": "Yazı Mah. Yazı Küme Evleri No:372",
+    "phone": "+90 535 567 04 48",
+    "area": "Yazı"
+  },
+  {
+    "number": "22800",
+    "name": "Datça Masal Gibi",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Küme Evleri No:31",
+    "phone": "+90 532 330 00 19",
+    "gallery": "https://www.etstur.com/Datca-Masal-Gibi",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/urqpjdgvi74ufcfkdist.jpg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "22904",
+    "name": "Payam Guest House",
+    "type": "pansiyon",
+    "address": "İskele Mah. 294 Sokak No:25",
+    "phone": "+90 530 343 12 33",
+    "gallery": "https://www.etstur.com/Payam-Guest-House",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/50e433e22082fcc067beac665a0ddbf9.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "22910",
+    "name": "Saklı Yaz Datça Otel",
+    "type": "otel",
+    "address": "İskele Mah. 24.Sok. No:9/1",
+    "phone": "+90 505 656 48 48",
+    "gallery": "https://www.etstur.com/Sakli-Yaz-Datca-Adult-Only",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9SUVQXzM4MDMta29weWE_20230405154817.jpg",
+    "alias": "Saklı Yaz Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "23023",
+    "name": "Pier Marine Otel",
+    "type": "otel",
+    "address": "İskele Mah. Sabiha Gökcen Cad. No:22",
+    "phone": "+90 252 502 32 23",
+    "area": "İskele",
+    "website": "https://www.piermarineotel.com/",
+    "photo": "https://www.piermarineotel.com/wp-content/uploads/2026/01/Datca-Pier-Marine-Hotel-Manzara.webp",
+    "gallery": "https://www.piermarineotel.com/"
+  },
+  {
+    "number": "23053",
+    "name": "Derin Bahçe Pansiyon",
+    "type": "pansiyon",
+    "address": "Kızlan Mah.Kızlan Küme Evleri No: 477/A",
+    "phone": "+90 542 515 71 50",
+    "area": "Kızlan"
+  },
+  {
+    "number": "23062",
+    "name": "Mavi Kelebek Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Döşeme Küme Evler No: 247 A/B/C/D",
+    "phone": "+90 532 366 29 80",
+    "gallery": "https://www.etstur.com/Mavi-Kelebek-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/gqd8pufyphywtjs9el3y.jpg",
+    "alias": "Mavi Kelebek Datça",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "23161",
+    "name": "Özgüm Suite",
+    "type": "pansiyon",
+    "address": "İskele Mahallesi Halil Aşkın Caddesi No: 20",
+    "phone": "+90 506 044 39 98",
+    "gallery": "https://www.etstur.com/Ozgum-Suite-Otel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/_zg_m_Suite_Otel_Dat_a_202506121327316_WhatsApp_Image_2025_06_12_at_13_19_45_2_.jpeg",
+    "alias": "Özgüm Suite Otel Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "23212",
+    "name": "Tulu Datça",
+    "type": "pansiyon",
+    "address": "Yaka Mahallesi Kumyer Sokak No:121",
+    "phone": "+90 545 959 80 96",
+    "gallery": "https://www.etstur.com/Tulu-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/TULU_DAT_A_202406061731579_4.JPG",
+    "area": "Yaka"
+  },
+  {
+    "number": "23444",
+    "name": "Kuruyanos Ağaç Evleri",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah.Hayıtbükü Küme Evleri No:57/1",
+    "phone": "+90 532 474 98 18",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "23593",
+    "name": "W.Antic Pansiyon",
+    "type": "pansiyon",
+    "address": "Hızırşah Mahallesi Hızırşah Küme Evleri No:307",
+    "phone": "+90 532 256 65 96",
+    "gallery": "https://www.etstur.com/W.-Antic-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/W_Antic_Pansiyon_202603161407270_WhatsApp_Image_2026_03_12_at_19_51_31_1_.jpeg",
+    "alias": "W. Antic Pansiyon",
+    "area": "Hızırşah"
+  },
+  {
+    "number": "23676",
+    "name": "Datça Hayalperest",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Yaka Küme Evleri No:460/A-B",
+    "area": "Yaka"
+  },
+  {
+    "number": "23683",
+    "name": "Datça Polat Pansiyon",
+    "type": "pansiyon",
+    "address": "Emecik Mah. Emecik Küme Evleri No:385-1-2-3-4-5-6-7",
+    "area": "Emecik"
+  },
+  {
+    "number": "23719",
+    "name": "Villa Kantarlı",
+    "type": "pansiyon",
+    "address": "İskele Mahallesi Halide Edip Adıvar Caddesi No:50",
+    "phone": "+90 532 489 00 48",
+    "gallery": "https://www.etstur.com/Villa-Kantarli-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Villa_Kantarl_Dat_a_202608161243140_BF14EEBF_D256_45A0_B345_55A1242D6EAD_1_201_a.jpeg",
+    "alias": "Villa Kantarlı Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "23741",
+    "name": "Taş Konak Eski Datça",
+    "type": "pansiyon",
+    "address": "Datça Mahallesi Gazi Mustafa Kemal Caddesi No:18",
+    "gallery": "https://www.etstur.com/Tas-Konak-Eski-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Ta_Konak_Eski_Dat_a_202603271143577_4481b71d.webp",
+    "area": "Datça"
+  },
+  {
+    "number": "23857",
+    "name": "Delphi Apart Otel",
+    "type": "apart otel",
+    "address": "Emecik Mahallesi Emecik Küme Evleri No:412",
+    "phone": "+90 536 778 65 18",
+    "area": "Emecik"
+  },
+  {
+    "number": "23922",
+    "name": "Karaincir Sevgi Pansiyon",
+    "type": "pansiyon",
+    "address": "Emecik Mah. Emecik Küme Evleri No:279",
+    "area": "Emecik"
+  },
+  {
+    "number": "24036",
+    "name": "Akkuş Palamutbükü Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mahallesi Palamutbükü Kümeevleri No:56/1",
+    "phone": "+90 535 398 84 96",
+    "area": "Yaka"
+  },
+  {
+    "number": "24041",
+    "name": "Palamutbükü Deniz Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mahallesi Palamutbükü Küme Evleri No:221/1-2",
+    "gallery": "https://www.etstur.com/Deniz-Otel-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Deniz_Otel_Palamutb_k__202508041822582_Deniz_Apart_Otel_Palamutbuku_01_Genel.jpg",
+    "alias": "Deniz Otel Palamutbükü",
+    "area": "Yaka"
+  },
+  {
+    "number": "24059",
+    "name": "Datça Şato Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. Hürriyet Cad. No:30",
+    "phone": "+90 530 796 00 48",
+    "gallery": "https://www.etstur.com/Datca-Sato-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9aW5kZXg_20221212160906.png",
+    "area": "İskele"
+  },
+  {
+    "number": "24084",
+    "name": "Gaia Temple",
+    "type": "pansiyon",
+    "address": "Mesudiye Mahallesi Döşeme Küme Evleri No:176",
+    "gallery": "https://www.etstur.com/Gaia-Temple",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Gaia_Temple_202505211250518_WhatsApp_Image_2025_03_26_at_22_06_11.jpeg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "24096",
+    "name": "Elit Otel",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Küme Evleri No:92 Datça/Muğla",
+    "phone": "+90 535 465 27 56",
+    "gallery": "https://www.etstur.com/Elit-Deniz-Palamutbuku",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Elit_Deniz_Palamutb_k__202501292012222_otel_d_8_mp.jpg",
+    "alias": "Elit Deniz Palamutbükü",
+    "area": "Yaka"
+  },
+  {
+    "number": "24108",
+    "name": "Hayalim Taşev",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Küme Evleri No:35/1",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "24116",
+    "name": "My Bungalov",
+    "type": "pansiyon",
+    "address": "Mesudiye Mahallesi Ovabükü Küme Evleri No:187",
+    "phone": "+90 541 584 61 90",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "24165",
+    "name": "Palamutbükü Reis Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mahallesi Palamutbükü Küme Evleri No:56",
+    "gallery": "https://www.etstur.com/Palamutbuku-Reis-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Palamutb_k_Reis_pansiyon_202506251842356_20250616_185435.jpg",
+    "area": "Yaka"
+  },
+  {
+    "number": "24167",
+    "name": "Kastro Tireli Pansiyon",
+    "type": "pansiyon",
+    "address": "Emecik Mahallesi Emecik Küme Evleri No:357",
+    "area": "Emecik"
+  },
+  {
+    "number": "24408",
+    "name": "Tarihi Knidos Pansiyonu",
+    "type": "pansiyon",
+    "address": "Yazı Mah. Yazı Küme Evleri No:366/A-B",
+    "area": "Yazı"
+  },
+  {
+    "number": "24537",
+    "name": "Sempati Ağaç Evleri",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok.No:4",
+    "phone": "+90 542 783 72 02",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "24567",
+    "name": "Eski Kapı Datça",
+    "type": "pansiyon",
+    "address": "Datça Mah. Müzreki Sok. No:44/A-B-C-D",
+    "phone": "+90 540 428 48 48",
+    "area": "Datça"
+  },
+  {
+    "number": "24596",
+    "name": "Berke Pansiyon Cafe",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah.Hayıtbükü Sok.No:29",
+    "phone": "+90 538 080 46 35",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "24780",
+    "name": "Merhaba Suits",
+    "type": "pansiyon",
+    "address": "Cumalı Mah. Palamutbükü Sok. No:86 Datça/Muğla",
+    "gallery": "https://www.etstur.com/Merhaba-Suits",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Merhaba_Suits_202607021747556_1_4_.jpeg",
+    "area": "Cumalı"
+  },
+  {
+    "number": "24942",
+    "name": "Riga Pansiyon",
+    "type": "pansiyon",
+    "address": "Hızırsah Mah. Hızırsah Küme Evleri No:343/A Datça/Muğla",
+    "area": "Hızırşah"
+  },
+  {
+    "number": "25068",
+    "name": "Derin Ada Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. No:67 Datça/Muğla",
+    "phone": "+90 533 447 54 22",
+    "gallery": "https://www.etstur.com/Derin-Ada-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Derin_Ada_Pansiyon_202607051814490_WhatsApp_Image_2026_07_05_at_17_59_22_1_.jpeg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "25073",
+    "name": "Mavi Lotus Pansiyon",
+    "type": "pansiyon",
+    "address": "Yaka Mah. Palamutbükü Sok. No:42/A Datça/Muğla",
+    "gallery": "https://www.etstur.com/Mavi-Lotus-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Mavi_Lotus_Pansiyon_202507221246387_IMG_1321.jpeg",
+    "area": "Yaka"
+  },
+  {
+    "number": "25124",
+    "name": "Karaincir Ege Pansiyon",
+    "type": "pansiyon",
+    "address": "Emecik Mah. Emecik Sok. No:414/1-2-3-4 Datça/Muğla",
+    "phone": "+90 505 156 09 93",
+    "area": "Emecik"
+  },
+  {
+    "number": "25305",
+    "name": "Kocca Ev",
+    "type": "pansiyon",
+    "address": "Datça Mah. Kuyu Sok. No:1 Datça/Muğla",
+    "gallery": "https://www.etstur.com/Kocca-Ev-Eski-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Kocca_Ev_Pansiyon_202508041251080_IMG_0332.jpg",
+    "alias": "Kocca Ev Eski Datça",
+    "area": "Datça"
+  },
+  {
+    "number": "25417",
+    "name": "Laçin Suit & Pansiyon",
+    "type": "pansiyon",
+    "address": "İskele Mah. 95. Sok. No:4",
+    "phone": "+90 545 712 84 41",
+    "gallery": "https://www.etstur.com/Lacin-Suit-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/La_in_Suit_Pansiyon_202507281622205_dd418ae0_8e25_41c3_84e5_e5e964392129.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "25546",
+    "name": "Olıves Tree",
+    "type": "pansiyon",
+    "address": "İskele Mah. Bademli Cad. No:31/1",
+    "gallery": "https://www.etstur.com/Datca-Olives-Tree",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Olives_Tree_202510282035544_IMG_5306.jpg",
+    "alias": "Datça Olives Tree",
+    "area": "İskele"
+  },
+  {
+    "number": "25551",
+    "name": "Kasapoğlu Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Ovabükü Küme Evleri No:20 Datça/Muğla",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "25667",
+    "name": "Datça Sarı Evleri",
+    "type": "pansiyon",
+    "address": "<font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333px;\">İSKELE MAH. NURİ KOLCU SOK. NO:6</span></font>",
+    "phone": "+90 554 839 17 48",
+    "gallery": "https://www.etstur.com/Sari-Apart-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9cmVzaW1fMjAyMi0wOC0xOF8xMjI1NDc4MjA_20220818122604.png",
+    "alias": "Sarı Apart Datça",
+    "area": "İskele"
+  },
+  {
+    "number": "25743",
+    "name": "Mam's Eski Datça",
+    "type": "pansiyon",
+    "address": "<font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333px;\">DATÇA MAH. YAĞHANE SOK. NO:2/1</span></font>",
+    "gallery": "https://www.etstur.com/Mams-Datca-Boutique-Hotel",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Mams_Dat_a_Boutique_Hotel_202509041422541_mamss.jpg",
+    "alias": "Mams Datça Boutique Hotel",
+    "area": "Datça"
+  },
+  {
+    "number": "25790",
+    "name": "Dilek Hanım Konağı",
+    "type": "pansiyon",
+    "address": "<div style=\"\"><font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333px;\">DATÇA MAH. GAZİ MUSTAFA KEMAL CAD.</span></font></div><div style=\"\"><font face=\"Arial, Verdana\"><span style=\"font-size: 13.3333px;\">NO:15/C-A1-A2-B1-B2-D DATÇA/MUĞLA</span></font></div>",
+    "gallery": "https://www.etstur.com/Dilek-Hanim-Konagi",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Dilek_Han_m_Kona__202507131323270_EC498F4D_8567_4E23_B836_A538ADCD7D0D.jpg",
+    "area": "Datça"
+  },
+  {
+    "number": "26032",
+    "name": "Kilya Datça",
+    "type": "pansiyon",
+    "address": "İskele Mah. 85.Sok. No:20 Datça",
+    "phone": "+90 531 408 48 01",
+    "gallery": "https://www.etstur.com/Kilya-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/K_LYA_DAT_A_202509121233097_d1.jpg",
+    "area": "İskele"
+  },
+  {
+    "number": "26125",
+    "name": "Garavilla Eski Datça",
+    "type": "pansiyon",
+    "address": "Datça Mah. Küme 2 Evleri No:30 Datça",
+    "phone": "+90 539 511 80 31",
+    "area": "Datça"
+  },
+  {
+    "number": "26154",
+    "name": "Casa Dadya Pansiyon",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah.Ovabükü Sok.No.42/1-2-3-4 Datça",
+    "phone": "+90 532 015 12 90",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "26245",
+    "name": "Gocakapı Taşevler",
+    "type": "pansiyon",
+    "photo": "https://gocakapi.com/wp-content/uploads/2022/04/1-scaled.jpg",
+    "gallery": "https://gocakapi.com/odalarimiz/",
+    "website": "https://gocakapi.com/odalarimiz/",
+    "area": "Cumalı",
+    "address": "Cumalı Mah. Küme Evler No:116/A",
+    "phone": "+90 505 185 10 20"
+  },
+  {
+    "number": "26257",
+    "name": "Erdemirtaş Pansiyon",
+    "type": "pansiyon",
+    "photo": "https://www.erdemirtaspansiyon.com/images/gallery/15.jpg",
+    "gallery": "https://www.erdemirtaspansiyon.com/",
+    "website": "https://www.erdemirtaspansiyon.com/",
+    "area": "Mesudiye",
+    "address": "Mesudiye Mah. No:191, Ovabükü",
+    "phone": "+90 544 540 71 04"
+  },
+  {
+    "number": "26275",
+    "name": "Melisa Pansiyon Zeytincik",
+    "type": "pansiyon"
+  },
+  {
+    "number": "26340",
+    "name": "La Sereine",
+    "type": "pansiyon",
+    "address": "PMV7+CX Datça, Muğla",
+    "gallery": "https://www.etstur.com/La-Sereine-Pansiyon",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/La_Sereine_Pansiyon_202506111834314_DSC_0051.jpg",
+    "alias": "La Sereine Pansiyon"
+  },
+  {
+    "number": "26405",
+    "name": "Little House Datça",
+    "type": "pansiyon"
+  },
+  {
+    "number": "26438",
+    "name": "Belfin Pansiyon",
+    "type": "pansiyon"
+  },
+  {
+    "number": "26541",
+    "name": "Pamilyon Sahil Evleri",
+    "type": "pansiyon"
+  },
+  {
+    "number": "26542",
+    "name": "Feray Pansiyon",
+    "type": "pansiyon"
+  },
+  {
+    "number": "26543",
+    "name": "Palamutbükü Uygar Pansiyon",
+    "type": "pansiyon",
+    "photo": "https://uygarpansiyon.com/images/uygarpansiyon2.jpg",
+    "gallery": "https://uygarpansiyon.com/index.html",
+    "website": "https://uygarpansiyon.com/index.html",
+    "area": "Yaka",
+    "address": "Yaka Mah. Palamutbükü Sk."
+  },
+  {
+    "number": "26822",
+    "name": "Dirik Surf Club",
+    "type": "otel",
+    "address": "Kızlan, gebekum mevkii no : 479, 48900 Datça/Muğla",
+    "gallery": "https://www.etstur.com/Dirik-Surf--Beach-Club-Hotel-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Dirik_Surf_Club_Hotel_Datca_20230702175949_0.JPG",
+    "alias": "Dirik Surf & Beach Club Hotel Datça",
+    "area": "Kızlan"
+  },
+  {
+    "number": "26919",
+    "name": "Patiska Eski Datça",
+    "type": "pansiyon"
+  },
+  {
+    "number": "27120",
+    "name": "Datça Mania",
+    "type": "pansiyon",
+    "address": "Mesudiye Mah. Hayıtbükü Sok. No:56",
+    "gallery": "https://www.etstur.com/Datca-Mania",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Datcamania_Apart_Hotel_20240117105611_0.jpg",
+    "area": "Mesudiye"
+  },
+  {
+    "number": "27394",
+    "name": "Just Datça",
+    "type": "pansiyon",
+    "address": "Datça Mahallesi Yağhane Sokak No: 4",
+    "gallery": "https://www.etstur.com/Just-Datca",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/JUST_DAT_A_202605192127172_IMG_20260519_WA0037.jpg",
+    "area": "Datça"
+  },
+  {
+    "number": "27434",
+    "name": "Ayyıldız Palamutbükü",
+    "type": "pansiyon"
+  },
+  {
+    "number": "27466",
+    "name": "Ramada Resort By Wyndham Datça",
+    "type": "otel",
+    "website": "https://www.wyndhamhotels.com/ramada/mugla-turkiye/ramada-resort-datca",
+    "photo": "https://www.wyndhamhotels.com/is/image/WyndhamProd/60878_exterior_view_1?wid=1600&op_usm=3%2C0.3&fit=constrain&resMode=sharp2&bfc=on&network=on",
+    "gallery": "https://www.wyndhamhotels.com/ramada/mugla-turkiye/ramada-resort-datca"
+  },
+  {
+    "number": "27543",
+    "name": "Anayelken",
+    "type": "pansiyon"
+  },
+  {
+    "number": "27560",
+    "name": "Feri Surf Club",
+    "type": "otel",
+    "photo": "https://ferisurfclubhotel.com/wp-content/uploads/2024/07/k1.jpg",
+    "gallery": "https://ferisurfclubhotel.com/",
+    "website": "https://ferisurfclubhotel.com/",
+    "phone": "+90 531 104 77 46"
+  },
+  {
+    "number": "48-11217",
+    "name": "Madran Evi",
+    "type": "rental",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Madran_Evi_202511281754585_ChatGPT_Image_Nov_28_2025_05_54_39_PM.png",
+    "gallery": "https://www.etstur.com/Madran-Evi",
+    "address": "Reşadiye Mahallesi Koca Ev Sokak No:5 Datça",
+    "area": "Reşadiye"
+  },
+  {
+    "number": "48-12034",
+    "name": "Gülhiz Evi",
+    "type": "rental",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/G_lhiz_Evi_202606291227543_12accb13_1fc1_4c9d_8778_ddde7521a375_1_.jpg",
+    "gallery": "https://www.etstur.com/Gulhiz-Evi",
+    "address": "Datça Mah. Camii Sok. Dış Kapı:5",
+    "area": "Datça"
+  },
+  {
+    "number": "48-12036",
+    "name": "Badem Evi",
+    "type": "rental",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Badem_Evi_202601132246298_8fef0ddf_b839_4fef_a142_d180ea9502a1.jpg",
+    "gallery": "https://www.etstur.com/Badem-Evi",
+    "address": "Datça Mahallesi Kıyı Sokak DIş Kapı: 3B",
+    "area": "Datça"
+  },
+  {
+    "number": "48-12348",
+    "name": "Zeytin Evi",
+    "type": "rental",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Zeytin_Evi_202601191402420_b5cf2be8_4503_4a69_91b0_3b45a83ca3d3.jpg",
+    "gallery": "https://www.etstur.com/Zeytin-Evi",
+    "address": "Datça Mahallesi Kuyu Sok. Dış Kapı:2",
+    "area": "Datça"
+  },
+  {
+    "number": "48-1309",
+    "name": "Mesudiye Villa White Apart Otel",
+    "type": "rental",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/pg8j4k0dynjxemm4qlam.jpg",
+    "gallery": "https://www.etstur.com/Mesudiye-Villa-White-Apart-Otel",
+    "address": "mesudiye ovabükü :78"
+  },
+  {
+    "number": "48-13809",
+    "name": "Petra Evleri",
+    "type": "rental",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Petra_Evleri_202608111530558_5.png",
+    "gallery": "https://www.etstur.com/Petra-Evleri",
+    "address": "MFQV+5F Datça, Muğla"
+  },
+  {
+    "number": "48-1574",
+    "name": "La Vida Hotel Datca",
+    "type": "rental",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/La_Vida_Hotel_Datca_202606121637496_IMG_2789.JPG",
+    "gallery": "https://www.etstur.com/La-Vida-Hotel-Datca",
+    "address": "MHJ6+5C Datça, Muğla iskele mahallesi Dr. Turgut Dündar Cad. No:14 AAi",
+    "area": "İskele"
+  },
+  {
+    "number": "48-2368",
+    "name": "Ertem Apart",
+    "type": "rental",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Ertem_Apart_202606081848315_20180725_130823.jpg",
+    "gallery": "https://www.etstur.com/Ertem-Apart",
+    "address": "Ahmet Taner Kışlalı Bulvarı 46"
+  },
+  {
+    "number": "48-3012",
+    "name": "Ayaz Butik Otel",
+    "type": "rental",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/rv7lbwcea4gingocrueu.jpg",
+    "gallery": "https://www.etstur.com/Ayaz-Butik-Otel",
+    "address": "Yaka köyü mahallesi, palamutbükü sokak, no:55 , Datça/Muğla"
+  },
+  {
+    "number": "G_26605",
+    "name": "Kairos Valley Wellness Longevity",
+    "type": "application",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Kairos_Valley_202610201120547_5_B_y_k_.jpg",
+    "gallery": "https://www.etstur.com/Kairos-Valley-Wellness-Longevity--12",
+    "address": "QJ3R+39 Datça, Muğla"
+  },
+  {
+    "number": "G_26992",
+    "name": "Venüs Pansiyon Datça",
+    "type": "application",
+    "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/ZmlsZU5hbWU9Mg_20230718153219.jpg",
+    "gallery": "https://www.etstur.com/Venus-Pansiyon-Datca",
+    "address": "İskele Mahallesi, Deniz Caddesi, No:8",
+    "area": "İskele"
+  }
+]

@@ -175,13 +175,13 @@ export const guides: Guide[] = [
   },
   {
     slug: 'datcada-nerede-kalinir', groups: ['stays', 'plans'], photo: 'eski-datca', source: see,
-    tr: copy('Datça’da nerede kalınır? Merkez, Eski Datça ve bükler', 'Akşam yürüyüşünü, sabah yüzmesini ve günlük ulaşımını düşünerek sana uygun bölgeyi seç.',
+    tr: copy('Datça’da nerede kalınır? Merkez, Eski Datça ve bükler', 'Datça otellerini, apartları ve pansiyonları mahalleye göre bul. Tesis fotoğraflarını, adresleri ve iletişim bilgilerini incele.',
       ['Merkez ve Eski Datça', 'Akşam yemeğinden sonra kıyıda dolaşmak istiyorsan İskele çevresindeki konaklamalara bak. Taş evlerin arasında uyanmak için Eski Datça’yı seçebilirsin. Eski Datça’dan plaj günü için ayrıca ulaşım gerekir.'],
       ['Koya yakın bir oda', 'Palamutbükü veya Mesudiye koylarında ilanı açıp plaj ile oda arasındaki gerçek yürüyüş yoluna bak. Kahvaltı, otopark ve iptal koşullarını karşılaştır. Araçsızsan dönüş seferi ve akşam yemeği seçenekleri de fiyat kadar önemli olabilir.']),
-    en: copy('Where to stay in Datça: town, village or bay?', 'Choose a base around your evenings, your first swim of the morning and how you will travel.',
+    en: copy('Where to stay in Datça: town, village or bay?', 'Find hotels, apartments and guesthouses by neighbourhood. Browse property photos, addresses and contact details.',
       ['Central Datça and the old village', 'Look around İskele for evening walks by the water after dinner. For a stay among traditional stone houses, consider Eski Datça. You will need to travel from the old village for a day on the beach.'],
       ['A room by a bay', 'In Palamutbükü or the Mesudiye bays, map the actual walk between your room and the beach. Compare breakfast, parking and cancellation terms. Without a car, return buses and nearby evening meals may matter as much as the nightly rate.']),
-    ru: copy('Где остановиться в Датче: центр, деревня или бухта', 'Выберите жильё с учётом вечерних прогулок, утреннего купания и поездок по полуострову.',
+    ru: copy('Где остановиться в Датче: центр, деревня или бухта', 'Найдите отели, апартаменты и пансионы по району. Посмотрите фотографии, адреса и контакты.',
       ['Центр и старая деревня', 'Для вечерних прогулок у воды после ужина присмотритесь к району Искеле. Если хочется пожить среди каменных домов, подойдёт Старая Датча. Оттуда до пляжа понадобится транспорт.'],
       ['Номер у бухты', 'В Паламутбюкю и бухтах Месудие посмотрите на карте реальный пеший путь от жилья до воды. Сравните условия завтрака, парковки и отмены. При поездке без машины узнайте, где можно поужинать и когда отправляется последний автобус.'])
   },

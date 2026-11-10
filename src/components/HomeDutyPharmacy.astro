@@ -1,0 +1,69 @@
+---
+import { localePath } from '../lib/i18n';
+import type { Locale } from '../lib/paths';
+import pharmacies from '../lib/pharmacies.json';
+import roster from '../../public/data/pharmacy-duty.json';
+import Icon from './Icon.astro';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const copy = {
+  tr: { title: 'Bugünün nöbetçi eczanesi', active: 'Şu an nöbetçi', upcoming: 'Bugün başlayacak nöbet', map: 'Haritada aç', source: 'Muğla Eczacı Odasının nöbet listesini aç' },
+  en: { title: 'Today’s duty pharmacy', active: 'On duty now', upcoming: 'Scheduled for today', map: 'Open on map', source: 'Check the Muğla Chamber of Pharmacists’ roster' },
+  ru: { title: 'Дежурная аптека на сегодня', active: 'Сейчас дежурит', upcoming: 'Дежурство начнётся сегодня', map: 'На карте', source: 'Проверить список Палаты фармацевтов Муглы' },
+}[locale];
+const directory = localePath('/datca-saglik-rehberi', locale);
+---
+<section class="home-duty" aria-label={copy.title} data-home-duty data-shifts={JSON.stringify(roster.shifts)} data-active={copy.active} data-upcoming={copy.upcoming}>
+  <div class="container duty-inner">
+    <div class="duty-heading"><span aria-hidden="true">E</span><h2>{copy.title}</h2></div>
+    <div class="duty-choices" aria-live="polite">
+      {pharmacies.map(place => <a hidden data-duty-id={place.id} href={directory + '?konum=' + place.id + '#konum-haritasi'}>
+        <span class="duty-info"><strong>{place.name}</strong><small data-hours></small></span>
+        <span class="map-action"><Icon name="pin" size={16}/>{copy.map}</span>
+      </a>)}
+      <a class="roster-link" data-duty-source href={roster.source}>{copy.source} ↗</a>
+    </div>
+  </div>
+</section>
+<script>
+  import { formatDutyHours, watchDuty } from '../scripts/watch-pharmacy-duty';
+  const strip = document.querySelector<HTMLElement>('[data-home-duty]')!;
+  const links = strip.querySelectorAll<HTMLAnchorElement>('[data-duty-id]');
+  const source = strip.querySelector<HTMLElement>('[data-duty-source]')!;
+  watchDuty(view => {
+    let shown = 0;
+    for (const link of links) {
+      const shift = view.shifts.find(s => s.id === link.dataset.dutyId);
+      link.hidden = !shift;
+      if (!shift) continue;
+      shown++;
+      const status = view.status === 'active' ? strip.dataset.active : strip.dataset.upcoming;
+      link.querySelector('[data-hours]')!.textContent = status + ' · ' + formatDutyHours(shift, document.documentElement.lang);
+    }
+    source.hidden = shown > 0 && shown === view.shifts.length;
+    strip.toggleAttribute("data-single", shown === 1 && source.hidden);
+  }, JSON.parse(strip.dataset.shifts!));
+</script>
+<style>
+  .home-duty { background: #f3eee4; border-block: 1px solid var(--line); }
+  .duty-inner,.duty-heading,.duty-choices a,.map-action { display: flex; align-items: center; }
+  .duty-inner { position: relative; gap: 24px; }
+  .home-duty[data-single] .duty-choices a:not([hidden])::before { content: ""; position: absolute; inset: 0; }
+  .duty-heading { gap: 10px; }
+  .duty-heading > span { background: #ac2636; color: white; border-radius: 4px; padding: 4px 7px; font: 700 17px/1 sans-serif; }
+  .duty-heading h2 { margin: 0; font: 600 15px/1.3 var(--sans); }
+  .duty-choices { flex: 1; }
+  .duty-choices a { flex-wrap: wrap; justify-content: space-between; gap: 3px 12px; min-height: 48px; padding-block: 6px; }
+  .duty-info { display: flex; gap: 3px 14px; align-items: baseline; flex-wrap: wrap; }
+  .duty-info strong { font-size: 17px; }
+  .duty-info small { font-size: 13px; color: var(--muted); }
+  .map-action,.roster-link { gap: 5px; font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 750px) {
+    .duty-inner { display: block; padding-block: 8px; }
+    .duty-heading h2 { font-size: 13px; }
+    .duty-heading > span { padding: 3px 5px; font-size: 13px; }
+    .duty-info { display: grid; }
+    .duty-choices a { padding-bottom: 1px; }
+  }
+</style>

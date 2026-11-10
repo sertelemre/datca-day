@@ -343,9 +343,9 @@
     "Photographs were selected from Wikimedia Commons after checking each file's licence. Photographer and original-file links appear below. Images were resized and converted to WebP. Adaptations of CC BY-SA photographs retain the same applicable licence.",
     "Фотографии выбраны на Wikimedia Commons после проверки лицензии каждого файла. Ниже указаны авторы и ссылки на оригиналы. Изображения изменены по размеру и преобразованы в WebP. Адаптации фотографий CC BY-SA распространяются по той же соответствующей лицензии."
   ],
-  "Fotoğraflar bağımsız kaynaklardan seçilir; gerçek konumları, yazarları ve kullanım lisansları kaydedilir. Özel bir işletmeye ait olmayan bölge fotoğrafını o işletmenin görüntüsü olarak etiketlemeyiz.": [
-    "We select photographs from independent sources and record their actual locations, photographers and licences. A regional photograph is not labelled as a picture of a specific business.",
-    "Мы выбираем фотографии из независимых источников и указываем реальные места съёмки, авторов и лицензии. Снимок региона не обозначается как фотография конкретного заведения."
+  "Gezi fotoğraflarının konumunu, fotoğrafçısını ve lisansını kaydediyoruz. Konaklama kartlarında tesisin veya konaklama kataloğunun yayımladığı fotoğraf önizlemesini gösteriyoruz. Karttaki galeri bağlantısı fotoğrafın kaynağını açar.": [
+    "We record the location, photographer and licence for our travel photography. Accommodation cards show photo previews published by the property or a hotel catalogue. Each gallery link opens its source.",
+    "Мы указываем место съёмки, автора и лицензию пейзажных снимков. В карточках жилья показаны превью фотографий, опубликованных объектом или каталогом. Ссылка на галерею ведёт к источнику."
   ],
   "Fotoğrafı kapat": [
     "Close photograph",
@@ -423,9 +423,9 @@
     "A STORY AROUND EVERY CORNER",
     "В КАЖДОМ УГОЛКЕ — СВОЯ ИСТОРИЯ"
   ],
-  "Harita, feribot, resmî kurum ve kaynak bağlantıları farklı sitelere açılır. Bu hizmetlerin kendi gizlilik koşulları geçerlidir. Rehber fotoğrafları ve yazı tipleri bu projeden yerel olarak sunulur; görsellerin yazar ve lisans bilgileri": [
-    "Maps, ferries, official bodies and reference links open external websites with their own privacy policies. Guide photographs and fonts are served locally by this project. Photographer and licence information is available in",
-    "Ссылки на карты, паромы, учреждения и источники открывают внешние сайты с собственными правилами конфиденциальности. Фотографии и шрифты загружаются локально из этого проекта. Авторы и лицензии изображений указаны в"
+  "Harita, feribot, resmî kurum ve kaynak bağlantıları farklı sitelere açılır. Konaklama kartlarındaki fotoğraflar tesisin veya kartta belirtilen kataloğun görsel sunucusundan yüklenir. Bu sağlayıcılar IP adresini ve tarayıcı bilgilerini alabilir. Yerel olarak sunduğumuz Datça manzaralarının yazar ve lisans bilgileri": [
+    "Map, ferry, institutional and source links open external sites. Accommodation photos load from the property or catalogue image servers linked on each card. These providers can receive your IP address and browser information. Credits and licences for the locally hosted Datça landscape photos are available in",
+    "Ссылки на карты, паромы, учреждения и источники ведут на внешние сайты. Фото жилья загружаются с серверов объекта или каталога, указанного в карточке. Эти сайты могут получить ваш IP-адрес и сведения о браузере. Авторы и лицензии пейзажей Датчи, размещённых на нашем сайте, указаны на"
   ],
   "Henüz bir eşleşme yok.": [
     "No matches yet.",

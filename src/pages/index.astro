@@ -8,6 +8,7 @@ const localize = (path: string) => localePath(path, locale);
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 import Card from '../components/Card.astro';
+import HomeDutyPharmacy from '../components/HomeDutyPharmacy.astro';
 import WeatherWidget from '../components/WeatherWidget.astro';
 import TopicDirectory from '../components/TopicDirectory.astro';
 import { findArticle, findCategory } from '../lib/content';
@@ -30,6 +31,7 @@ const menu = [
 ];
 ---
 <Layout title={t("Datça Tatil Rehberi: Koylar, Turlar ve Yerel Bilgiler")} description={t("Datça’yı yerinden keşfet. Saklı koylar, güzel kasabalar, tekne turları ve tatilini kolaylaştıran yerel rehberler.")}>
+ <HomeDutyPharmacy locale={locale}/>
  <section class="home-hero">
   <div class="hero-image"><img src="/images/hero-datca.webp" srcset="/images/hero-datca-640.webp 640w, /images/hero-datca.webp 1650w" sizes="100vw" alt={t("Knidos kıyısında turkuaz bir koy")} width="1600" height="695" fetchpriority="high"/><div class="hero-shade"></div></div>
   <div class="hero-content container"><span class="hero-eyebrow"><span></span> {t("DATÇA’NIN TATİL KAPISI")}</span><h1>{t("Datça’yı")}<br/><em>{t("keşfet.")}</em></h1><p>{t("Saklı koylar, sıcacık kasabalar, hiç bitmesin dediğin günler.")}<br class="desktop-break"/> {t("Kıyı rotaları ve güncel bilgilerle kendi tatilini kur.")}</p><a href="#kesfet" class="button button-light">{t("Datça’yı keşfet")} <Icon name="arrow" size={19}/></a></div>

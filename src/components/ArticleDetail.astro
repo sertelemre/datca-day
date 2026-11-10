@@ -7,6 +7,7 @@ import { photoCaption } from '../lib/photo-caption';
 import type { Article,Category } from '../lib/types';
 import Card from './Card.astro';
 import Icon from './Icon.astro';
+import StayDirectory from './StayDirectory.astro';
 import BudgetPlanner from './BudgetPlanner.astro';
 import LocalServices from './LocalServices.astro';
 import PlaceDirectory from './PlaceDirectory.astro';
@@ -23,6 +24,7 @@ const cover=photos.find(photo=>photo.file===article.image);
 const dateLabel=new Intl.DateTimeFormat(locale,{day:'numeric',month:'long',year:'numeric'}).format(new Date(article.date));
 const readingTime=Math.max(1,Math.ceil(article.content.split(/\s+/).length/180));
 const outline=articleOutline(article.content);
+const isStayDirectory=article.slug==='datcada-nerede-kalinir';
 const isPharmacy=article.slug==='datca-nobetci-eczane';
 const directoryPlaces = placesForGuide(article.slug);
 const isFood=article.slug==='datcada-ne-yenir';
@@ -50,7 +52,7 @@ const tocEntries=[...outline.headings,
         </div>
       </div>
     </header>
-    {directoryPlaces.length ? <PlaceDirectory places={directoryPlaces} locale={locale}/> : isPharmacy ? <LocalServices slug={article.slug}/> : <figure class="article-cover">
+    {isStayDirectory ? <StayDirectory locale={locale}/> : directoryPlaces.length ? <PlaceDirectory places={directoryPlaces} locale={locale}/> : isPharmacy ? <LocalServices slug={article.slug}/> : <figure class="article-cover">
       <img src={article.image} srcset={article.image.replace('.webp','-640.webp')+' 640w, '+article.image+' 1200w'} sizes="(max-width:700px) 100vw, 1050px" alt={photoCaption(article.image,locale)} width="1050" height="550" fetchpriority="high"/>
       <figcaption><span><Icon name="pin" size={14}/>{photoCaption(article.image,locale)}</span>{cover && <small><a href={cover.source}>{cover.author}</a> · <a href={cover.licenseUrl}>{cover.license}</a></small>}</figcaption>
     </figure>}
@@ -59,7 +61,7 @@ const tocEntries=[...outline.headings,
       <article class="article-prose" id="article-content"><div set:html={outline.html}/>
         {article.visitStops?.length && <section class="visit-stops" aria-labelledby="visit-plan"><h2 id="visit-plan">{t("Üç duraklı gezi planı")}</h2><ol>{article.visitStops.map(stop=><li>{stop}</li>)}</ol></section>}
         {article.faqs?.length && <section class="article-faq" aria-labelledby="faq-heading"><h2 id="faq-heading">{t("Sık sorulan sorular")}</h2>{article.faqs.map(faq=><details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>}
-        {isFood && <BudgetPlanner/>}<OfficialLinks slug={article.slug}/>{!isPharmacy && <LocalServices slug={article.slug}/>}</article>
+        {isFood && <BudgetPlanner/>}<OfficialLinks slug={article.slug}/>{!isPharmacy && !isStayDirectory && <LocalServices slug={article.slug}/>}</article>
       <aside class="article-sidebar">
         <section class="article-toc" aria-label={t("Yazı içindekiler")}>
           <p class="sidebar-label">{t("BU REHBERDE")}</p>
