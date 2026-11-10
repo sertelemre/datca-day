@@ -31,9 +31,9 @@
     "Private clinics",
     "Частные клиники"
   ],
-  "Taksi ve sağlık haritalarını görüntülediğinde tarayıcın harita görüntülerini OpenStreetMap sunucularından alır. Yol tarifi bağlantısı Google Haritalar’da açılır.": [
-    "Your browser loads map tiles from OpenStreetMap when you view the taxi or health directory map. Directions open in Google Maps.",
-    "При просмотре карты такси или медицинских учреждений браузер загружает карту с серверов OpenStreetMap. Маршруты открываются в Google Картах."
+  "Taksi, sağlık ve konaklama haritalarını görüntülediğinde tarayıcın harita görüntülerini OpenStreetMap sunucularından alır. Yol tarifi bağlantısı Google Haritalar’da açılır.": [
+    "Your browser loads map tiles from OpenStreetMap when you view the taxi, health or accommodation map. Directions open in Google Maps.",
+    "При просмотре карты такси, медицинских учреждений или жилья браузер загружает карту с серверов OpenStreetMap. Маршруты открываются в Google Картах."
   ],
   "Öneri paylaşmak için": [
     "To share a suggestion, use",

@@ -1,0 +1,42 @@
+---
+import { stayMapCopy } from '../lib/stay-map-copy';
+import type { Locale } from '../lib/paths';
+import Icon from './Icon.astro';
+interface Props { locale: Locale }
+const l = stayMapCopy[Astro.props.locale];
+---
+<section class="stay-map" id="konaklama-haritasi" data-stay-map hidden aria-labelledby="stay-map-title" data-count={l.mapped} data-cluster={l.cluster} data-directions={l.directions} data-plus={l.plus} data-minus={l.minus}>
+  <header><div><h3 id="stay-map-title"><Icon name="pin" size={22}/>{l.title}</h3><p>{l.hint}</p></div><button type="button" data-fit>{l.overview}</button></header>
+  <div class="map-frame"><div data-canvas class="canvas" aria-label={l.title}></div>
+    <aside class="selected" aria-labelledby="stay-selection" data-selected hidden>
+      <div class="selected-top"><span>{l.details}</span><button data-dismiss type="button" aria-label={l.close}><Icon name="close" size={18}/></button></div>
+      <div data-content></div><p data-unmapped hidden>{l.unknown}</p>
+    </aside>
+  </div>
+  <div class="map-foot"><p data-count-label aria-live="polite"></p><a class="map-credit" href="https://docs.overturemaps.org/attribution/#places" target="_blank" rel="noopener noreferrer">Overture Maps · Meta</a><p data-tile-error hidden>{l.error}</p></div>
+</section>
+<style>
+  .stay-map { margin:8px 0 25px; scroll-margin-top:16px; }
+  .stay-map header,.selected-top,.map-foot {display:flex;align-items:center;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;}
+  .stay-map header {margin-bottom:12px;}
+  .stay-map h3 {display:flex;align-items:center;gap:8px;font:500 clamp(24px,3vw,34px)/1.2 var(--serif);margin:0;}
+  .stay-map header p,.map-foot,.selected p {margin:4px 0;color:var(--muted);font-size:14px;line-height:1.5;}
+  .stay-map button {border:1px solid var(--line);border-radius:5px;background:var(--paper);color:var(--green);min-height:44px;padding:7px 12px;font:600 13px/1.2 var(--sans);cursor:pointer;}
+  .map-frame {display:flex;isolation:isolate;align-items:stretch;overflow:hidden;border:1px solid var(--line);border-radius:9px;background:var(--paper);}
+  .canvas {height:clamp(320px,50vh,480px);min-width:0;flex:1;background:#e6ece2;}
+  .selected {width:min(33%,310px);padding:14px;max-height:clamp(320px,50vh,480px);overflow:auto;border-left:1px solid var(--line);scroll-margin-top:12px;}
+  .selected-top {font-size:12px;font-weight:650;margin-bottom:6px;}
+  .selected-top button {border:0;min-width:40px;display:grid;place-items:center;}
+  .selected [data-content] {display:grid;gap:7px;}
+  .selected :global(img) {width:100%;height:auto;aspect-ratio:1.91;object-fit:cover;border-radius:5px;}
+  .selected :global(h4) {font:500 25px/1.14 var(--serif);margin:2px 0;overflow-wrap:anywhere;}
+  .selected :global(address) {font-style:normal;font-size:14px;line-height:1.45;}
+  .selected :global(a) {font-size:14px;display:inline-flex;align-items:center;gap:5px;width:fit-content;text-decoration:underline;text-underline-offset:3px;}
+  .map-foot {margin-top:5px;font-size:13px;}
+  .map-credit {text-decoration:underline;text-underline-offset:2px;}
+  .canvas :global(.stay-pin),.canvas :global(.stay-cluster) {display:grid;place-items:center;border-radius:50%;font:bold 15px/1 sans-serif;box-shadow:0 1px 5px #18362f75;}
+  .canvas :global(.stay-pin) {background:#245445;color:white;border:2px solid white;}
+  .canvas :global(.stay-pin.is-picked) {background:#ae4a25;outline:3px solid white;z-index:950!important;}
+  .canvas :global(.stay-cluster) {background:#e4efdf;color:#164236;border:2px solid #50745d;}
+  @media(max-width:650px){.map-frame{display:block;}.selected{width:100%;max-height:none;border-left:0;border-top:1px solid var(--line);}.selected :global(img){max-height:170px;}}
+</style>

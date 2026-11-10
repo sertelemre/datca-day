@@ -38,8 +38,9 @@ html[lang=ru]{--sans:'Noto Sans',Arial,sans-serif}
 @media(max-width:360px){.header-actions{gap:3px}.header-inner .wordmark{font-size:24px}.header-icon{width:28px}.language-switch a{padding-inline:3px}}
 .wordmark{font-family:'DM Sans',Arial,sans-serif}
 
+.header-actions .plan-button{background:transparent;color:var(--green);border-color:#a6b3a9;gap:10px;padding:9px 14px;min-height:44px}.header-actions .plan-button:hover,.header-actions .plan-button:focus-visible{background:#ecf0e9;border-color:var(--green);transform:none}
 .mobile-language-switch{display:none}
-@media(max-width:800px){.header-actions>.language-switch,.header-actions .plan-button{display:none}.mobile-language-switch{display:flex;width:max-content;margin-bottom:12px}}
+@media(max-width:800px){.header-actions>.language-switch,.header-actions .plan-button{display:none}.mobile-language-switch{display:inline-grid;grid-auto-flow:column;grid-auto-columns:1fr;align-items:stretch;gap:3px;padding:3px;margin:0 0 12px;max-width:100%}.mobile-language-switch a{display:grid;place-items:center;min-width:52px;min-height:44px;padding:0 8px;font-size:13px;line-height:1;font-weight:650}.mobile-language-switch a:focus-visible{outline:2px solid var(--green);outline-offset:1px}}
 
 @media(max-width:560px){.home-hero{height:auto;min-height:610px;display:flex;flex-direction:column}.hero-content{padding-bottom:36px}.hero-bottom{position:relative;bottom:auto;padding-bottom:24px;margin-top:auto}}
 
