@@ -1,0 +1,1699 @@
+{
+  "routes": [
+    {
+      "slug": "datca-eski-datca-resadiye-9-1",
+      "code": "9-1",
+      "title": "Datça - Eski Datça Reşadiye",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-1-datca-eski-datca-resadiye-234",
+      "sourceUpdated": "2026-10-30T16:46:12+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Eski Datça Reşadiye ( Hastane)",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "07:50",
+                "09:00",
+                "10:15",
+                "11:30",
+                "12:45",
+                "13:45",
+                "14:50",
+                "16:00",
+                "17:15",
+                "18:30",
+                "19:45",
+                "21:00",
+                "22:00"
+              ]
+            },
+            {
+              "from": "Eski Datça Reşadiye",
+              "times": [
+                "07:20",
+                "08:15",
+                "09:30",
+                "10:45",
+                "12:00",
+                "13:15",
+                "14:20",
+                "15:20",
+                "16:30",
+                "17:45",
+                "19:00",
+                "20:15",
+                "21:30"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "07:50",
+                "09:00",
+                "10:15",
+                "11:30",
+                "12:45",
+                "13:45",
+                "14:50",
+                "16:00",
+                "17:15",
+                "18:30",
+                "19:45",
+                "21:00",
+                "22:00"
+              ]
+            },
+            {
+              "from": "Eski Datça Reşadiye",
+              "times": [
+                "07:20",
+                "08:15",
+                "09:30",
+                "10:45",
+                "12:00",
+                "13:15",
+                "14:20",
+                "15:20",
+                "16:30",
+                "17:45",
+                "19:00",
+                "20:15",
+                "21:30"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:45",
+                "11:00",
+                "13:45",
+                "16:15",
+                "18:45",
+                "21:15"
+              ]
+            },
+            {
+              "from": "Eski Datça Reşadiye",
+              "times": [
+                "09:15",
+                "11:30",
+                "14:15",
+                "16:45",
+                "19:15"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ozbel-kargi-9-2",
+      "code": "9-2",
+      "title": "Özbel - Kargı",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-2-ozbel-kargi-235",
+      "sourceUpdated": "2026-10-30T16:46:30+03:00",
+      "checked": "2026-11-10",
+      "via": "Özbel - Kargı (Cumhuriyet Meydanı)",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Özbel",
+              "times": [
+                "07:40",
+                "08:45",
+                "10:00",
+                "11:15",
+                "12:30",
+                "13:45",
+                "15:00",
+                "16:15",
+                "17:30",
+                "18:45",
+                "20:00",
+                "21:15"
+              ]
+            },
+            {
+              "from": "Kargı",
+              "times": [
+                "07:10",
+                "08:15",
+                "09:30",
+                "10:45",
+                "12:00",
+                "13:15",
+                "14:30",
+                "15:45",
+                "17:00",
+                "18:15",
+                "19:30",
+                "20:45",
+                "21:45"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Özbel",
+              "times": [
+                "07:40",
+                "08:45",
+                "10:00",
+                "11:15",
+                "12:30",
+                "13:45",
+                "15:00",
+                "16:15",
+                "17:30",
+                "18:45",
+                "20:00",
+                "21:15"
+              ]
+            },
+            {
+              "from": "Kargı",
+              "times": [
+                "07:10",
+                "08:15",
+                "09:30",
+                "10:45",
+                "12:00",
+                "13:15",
+                "14:30",
+                "15:45",
+                "17:00",
+                "18:15",
+                "19:30",
+                "20:45",
+                "21:45"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Özbel",
+              "times": [
+                "10:15",
+                "12:45",
+                "15:30",
+                "18:00",
+                "20:30"
+              ]
+            },
+            {
+              "from": "Kargı",
+              "times": [
+                "09:45",
+                "12:15",
+                "15:00",
+                "17:30",
+                "20:00"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-mesudiye-9-3",
+      "code": "9-3",
+      "title": "Datça - Mesudiye",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-3-datca-mesudiye-231",
+      "sourceUpdated": "2026-10-30T17:08:18+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Hızırşah - Hayıtbükü - Ovabükü - Mesudiye",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "09:00",
+                "12:00",
+                "15:00",
+                "17:00",
+                "18:30"
+              ],
+              "annotations": {
+                "12:00": "İşaretli sefer saatlerinde Döşeme - Damarası Mahallesine girer.",
+                "17:00": "İşaretli sefer saatlerinde Döşeme - Damarası Mahallesine girer."
+              }
+            },
+            {
+              "from": "Mesudiye",
+              "times": [
+                "07:15",
+                "10:00",
+                "13:00",
+                "16:00",
+                "19:30"
+              ],
+              "annotations": {
+                "07:15": "İşaretli sefer saatlerinde Döşeme - Damarası Mahallesine girer.",
+                "16:00": "İşaretli sefer saatlerinde Döşeme - Damarası Mahallesine girer."
+              }
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "09:00",
+                "12:00",
+                "15:00",
+                "17:00"
+              ]
+            },
+            {
+              "from": "Mesudiye",
+              "times": [
+                "07:15",
+                "10:00",
+                "13:00",
+                "16:00",
+                "18:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:30",
+                "10:30",
+                "18:30"
+              ]
+            },
+            {
+              "from": "Mesudiye",
+              "times": [
+                "09:30",
+                "12:30",
+                "20:00"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-hizirsah-9-3",
+      "code": "9-3",
+      "title": "Datça - Hızırşah",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-3-datca-hizirsah-232",
+      "sourceUpdated": "2026-10-30T17:08:41+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Hızırşah",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "09:00",
+                "12:00",
+                "15:00",
+                "17:00",
+                "18:30"
+              ]
+            },
+            {
+              "from": "Hızırşah",
+              "times": [
+                "07:45",
+                "10:30",
+                "13:30",
+                "16:30",
+                "20:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "09:00",
+                "12:00",
+                "15:00",
+                "17:00"
+              ]
+            },
+            {
+              "from": "Hızırşah",
+              "times": [
+                "07:45",
+                "10:30",
+                "13:30",
+                "16:30",
+                "18:30"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:30",
+                "10:30",
+                "18:30"
+              ]
+            },
+            {
+              "from": "Hızırşah",
+              "times": [
+                "10:00",
+                "13:00",
+                "20:30"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-aktur-9-4",
+      "code": "9-4",
+      "title": "Datça - Aktur",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-4-datca-aktur-237",
+      "sourceUpdated": "2026-10-14T16:53:47+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Aktur (Periliköşk - Karaincir - Emecik)",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:15",
+                "10:30",
+                "13:00",
+                "16:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Aktur",
+              "times": [
+                "07:30",
+                "09:15",
+                "11:45",
+                "14:30",
+                "17:00"
+              ],
+              "annotations": {
+                "07:30": "İşaretli sefer saatlerinde Emecik Mahallesine girer.",
+                "11:45": "İşaretli sefer saatlerinde Emecik Mahallesine girer.",
+                "17:00": "İşaretli sefer saatlerinde Emecik Mahallesine girer."
+              }
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:15",
+                "10:30",
+                "13:00",
+                "16:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Aktur",
+              "times": [
+                "07:30",
+                "09:15",
+                "11:45",
+                "14:30",
+                "17:00"
+              ],
+              "annotations": {
+                "07:30": "İşaretli sefer saatlerinde Emecik Mahallesine girer.",
+                "11:45": "İşaretli sefer saatlerinde Emecik Mahallesine girer.",
+                "17:00": "İşaretli sefer saatlerinde Emecik Mahallesine girer."
+              }
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:15",
+                "13:00",
+                "17:00"
+              ]
+            },
+            {
+              "from": "Aktur",
+              "times": [
+                "10:00",
+                "15:00"
+              ],
+              "annotations": {
+                "10:00": "İşaretli sefer saatlerinde Emecik Mahallesine girer.",
+                "15:00": "İşaretli sefer saatlerinde Emecik Mahallesine girer."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-karaincir-9-4",
+      "code": "9-4",
+      "title": "Datça - Karaincir",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-4-datca-karaincir-238",
+      "sourceUpdated": "2026-10-14T16:54:08+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Karaincir (Aktur - Emecik)",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:15",
+                "10:30",
+                "13:00",
+                "16:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Karaincir",
+              "times": [
+                "07:45",
+                "09:15",
+                "12:00",
+                "14:45",
+                "17:15"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:15",
+                "10:30",
+                "13:00",
+                "16:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Karaincir",
+              "times": [
+                "07:45",
+                "09:15",
+                "12:00",
+                "14:45",
+                "17:15"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:15",
+                "13:00",
+                "17:00"
+              ]
+            },
+            {
+              "from": "Karaincir",
+              "times": [
+                "10:15",
+                "15:15"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-palamutbuku-9-5",
+      "code": "9-5",
+      "title": "Datça - Palamutbükü",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-5-datca-palamutbuku-78",
+      "sourceUpdated": "2026-10-23T13:41:06+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Palamutbükü (Hızırşah Yol Ayrımı - Mesudiye Yol Ayrımı - Zeytincik - Örencik - Sındı - Yaka - Kumyer)",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:45",
+                "10:30",
+                "12:00",
+                "13:30",
+                "15:00",
+                "16:00",
+                "17:00",
+                "17:45"
+              ]
+            },
+            {
+              "from": "Palamutbükü",
+              "times": [
+                "07:30",
+                "07:35",
+                "08:30",
+                "09:30",
+                "12:00",
+                "12:05",
+                "13:00",
+                "15:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:45",
+                "10:30",
+                "12:00",
+                "15:00",
+                "16:00",
+                "17:00"
+              ]
+            },
+            {
+              "from": "Palamutbükü",
+              "times": [
+                "07:30",
+                "07:35",
+                "09:30",
+                "12:00",
+                "13:00",
+                "15:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "12:00",
+                "17:00"
+              ]
+            },
+            {
+              "from": "Palamutbükü",
+              "times": [
+                "09:30",
+                "16:00"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-belen-9-5",
+      "code": "9-5",
+      "title": "Datça - Belen",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-5-datca-belen-76",
+      "sourceUpdated": "2026-10-23T13:40:44+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Belen (Hızırşah Yol Ayrımı - Mesudiye Yol Ayrımı - Zeytincik - Örencik - Sındı - Yaka - Kumyer - Palamutbükü - Çeşme - Cumalı - Yazıköy )",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:45",
+                "10:30",
+                "12:00",
+                "13:30",
+                "15:00",
+                "16:00",
+                "17:00",
+                "17:45"
+              ]
+            },
+            {
+              "from": "Belen",
+              "times": [
+                "07:15",
+                "07:20",
+                "08:15",
+                "09:15",
+                "11:45",
+                "11:55",
+                "12:45",
+                "14:45"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:45",
+                "10:30",
+                "12:00",
+                "15:00",
+                "16:00",
+                "17:00"
+              ]
+            },
+            {
+              "from": "Belen",
+              "times": [
+                "07:15",
+                "07:20",
+                "09:15",
+                "11:45",
+                "12:45",
+                "14:45"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "12:00",
+                "17:00"
+              ]
+            },
+            {
+              "from": "Belen",
+              "times": [
+                "09:15",
+                "15:45"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "belen-mentese-9-6",
+      "code": "9-6",
+      "title": "Belen - Menteşe",
+      "kind": "intercity",
+      "source": "https://ulasim.muttas.com.tr/hat/9-6-belen-mentese-228",
+      "sourceUpdated": "2025-05-08T17:05:11+03:00",
+      "checked": "2026-11-10",
+      "via": "Belen - Menteşe (Palamutbükü-Kumyer-Yaka-Sındı-Zeytincik-Hızırşah Yol Ayrımı-Datça-Aktur-Hisarönü-Marmaris-Çamlı-Çetibeli-Gökova Kavşağı-Akyaka Kavşağı-Kızılağaç-Ula Kavşağı-Menteşe",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Belen",
+              "times": [
+                "07:00"
+              ]
+            },
+            {
+              "from": "Menteşe",
+              "times": [
+                "15:30"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-karakoy-9-8",
+      "code": "9-8",
+      "title": "Datça - Karaköy",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-8-datca-karakoy-290",
+      "sourceUpdated": "2026-09-29T09:15:52+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Karaköy (Körmen) (Yeni Sanayi)",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:15",
+                "10:00",
+                "12:00",
+                "14:00",
+                "16:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Karaköy",
+              "times": [
+                "07:45",
+                "08:50",
+                "10:50",
+                "12:50",
+                "14:50",
+                "16:50"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:15",
+                "10:00",
+                "12:00",
+                "14:00",
+                "16:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Karaköy",
+              "times": [
+                "07:45",
+                "08:50",
+                "10:50",
+                "12:50",
+                "14:50",
+                "16:50"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:30",
+                "17:45"
+              ]
+            },
+            {
+              "from": "Karaköy",
+              "times": [
+                "08:00",
+                "17:00"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-kizlan-9-9",
+      "code": "9-9",
+      "title": "Datça - Kızlan",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-9-datca-kizlan-68",
+      "sourceUpdated": "2026-11-10T12:12:59+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Kızlan (Uşaklılar - Billurkent - Raykent )",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:05",
+                "10:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "16:00",
+                "17:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Kızlan",
+              "times": [
+                "07:30",
+                "08:00",
+                "09:00",
+                "11:00",
+                "12:45",
+                "15:00",
+                "17:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:05",
+                "10:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "16:00",
+                "17:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Kızlan",
+              "times": [
+                "07:30",
+                "08:00",
+                "09:00",
+                "11:00",
+                "12:45",
+                "15:00",
+                "17:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "10:00",
+                "14:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Kızlan",
+              "times": [
+                "09:00",
+                "13:00",
+                "17:00"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-golmar-9-9",
+      "code": "9-9",
+      "title": "Datça - Gölmar",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-9-datca-golmar-65",
+      "sourceUpdated": "2026-11-10T12:14:15+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça - Gölmar (Uşaklılar - Billurkent - Raykent )",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:05",
+                "10:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "16:00",
+                "17:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Gölmar",
+              "times": [
+                "07:45",
+                "08:45",
+                "10:45",
+                "12:30",
+                "13:45",
+                "14:45",
+                "16:45"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "08:05",
+                "10:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "16:00",
+                "17:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Gölmar",
+              "times": [
+                "07:45",
+                "08:45",
+                "10:45",
+                "12:30",
+                "13:45",
+                "14:45",
+                "16:45"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "10:00",
+                "14:00",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Gölmar",
+              "times": [
+                "08:45",
+                "12:45",
+                "16:45"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cumhuriyet-meydani-hizirsah-9-11",
+      "code": "9-11",
+      "title": "Cumhuriyet Meydanı - Hızırşah",
+      "kind": "local",
+      "source": "https://ulasim.muttas.com.tr/hat/9-11-cumhuriyet-meydani-hizirsah-394",
+      "sourceUpdated": "2025-09-26T16:26:55+03:00",
+      "checked": "2026-11-10",
+      "via": "Cumhuriyet Meydanı - İskele Mah - Otogar (İskele Mahallesi - Çomarlık - Hastane - Hızırşah)",
+      "days": []
+    },
+    {
+      "slug": "datca-mentese-48-15",
+      "code": "48-15",
+      "title": "Datça - Menteşe",
+      "kind": "intercity",
+      "source": "https://ulasim.muttas.com.tr/hat/48-15-datca-mentese-416",
+      "sourceUpdated": "2025-05-08T17:06:33+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça-Reşadiye-Billurkent-Özil-Aktur-Hisarönü-Marmaris-Taşhan-Çamlı-Çetibeli-Gökçe-Akçapınar-GökovaKavşağı-AkyakaKavşağı-Kızılağaç-UlaKavşağı-GülağzıKavşağı-Menteşe",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "06:00"
+              ]
+            },
+            {
+              "from": "Menteşe",
+              "times": [
+                "14:45"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datca-marmaris-48-16",
+      "code": "48-16",
+      "title": "Datça - Marmaris",
+      "kind": "intercity",
+      "source": "https://ulasim.muttas.com.tr/hat/48-16-datca-marmaris-432",
+      "sourceUpdated": "2026-11-02T14:31:00+03:00",
+      "checked": "2026-11-10",
+      "via": "Datça-Reşadiye-Billurkent-Özil-Aktur-Hisarönü-Marmaris",
+      "days": [
+        {
+          "label": "Hafta İçi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "06:00",
+                "07:00",
+                "08:15",
+                "09:30",
+                "10:45",
+                "12:00",
+                "13:15",
+                "15:00",
+                "16:15",
+                "17:30"
+              ]
+            },
+            {
+              "from": "Marmaris",
+              "times": [
+                "09:00",
+                "10:15",
+                "11:30",
+                "12:45",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:30",
+                "20:30"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "07:00",
+                "08:15",
+                "09:30",
+                "10:45",
+                "12:00",
+                "13:15",
+                "15:00",
+                "16:15",
+                "17:30"
+              ]
+            },
+            {
+              "from": "Marmaris",
+              "times": [
+                "09:00",
+                "10:30",
+                "12:00",
+                "13:30",
+                "15:00",
+                "16:15",
+                "17:30",
+                "19:00",
+                "20:30"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Datça",
+              "times": [
+                "07:00",
+                "08:15",
+                "09:30",
+                "10:45",
+                "12:00",
+                "13:15",
+                "15:00",
+                "16:15",
+                "17:30"
+              ]
+            },
+            {
+              "from": "Marmaris",
+              "times": [
+                "09:00",
+                "10:30",
+                "12:00",
+                "13:30",
+                "15:00",
+                "16:15",
+                "17:30",
+                "19:00",
+                "20:30"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "marmaris-otogar-dalaman-havalimani-48-26",
+      "code": "48-26",
+      "title": "Marmaris Otogar - Dalaman Havalimanı",
+      "kind": "airport",
+      "source": "https://ulasim.muttas.com.tr/hat/48-26-marmaris-otogar-dalaman-havalimani-440",
+      "sourceUpdated": "2026-11-09T10:46:41+03:00",
+      "checked": "2026-11-10",
+      "via": "Marmaris Otogar - Dalaman Havalimanı",
+      "days": [
+        {
+          "label": "Salı 10.11.2026",
+          "date": "2026-11-10",
+          "directions": [
+            {
+              "from": "Marmaris Otogar",
+              "times": [
+                "03:15",
+                "07:00",
+                "14:15",
+                "18:30"
+              ],
+              "annotations": {
+                "03:15": "Pazartesi'yi Salı'ya bağlayan gece saatidir."
+              }
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "flight": true
+            }
+          ]
+        },
+        {
+          "label": "Çarşamba 11.11.2026",
+          "date": "2026-11-11",
+          "directions": [
+            {
+              "from": "Marmaris Otogar",
+              "times": [
+                "07:00",
+                "14:15",
+                "18:00",
+                "21:30"
+              ],
+              "annotations": {
+                "07:00": "Salı'yı Çarşamba'ya bağlayan gece saatidir."
+              }
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "flight": true
+            }
+          ]
+        },
+        {
+          "label": "Perşembe 12.11.2026",
+          "date": "2026-11-12",
+          "directions": [
+            {
+              "from": "Marmaris Otogar",
+              "times": [
+                "03:00",
+                "07:00",
+                "14:15",
+                "17:30"
+              ],
+              "annotations": {
+                "03:00": "Çarşamba'yı Perşembe'ye bağlayan gece saatidir."
+              }
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "flight": true
+            }
+          ]
+        },
+        {
+          "label": "Cuma 13.11.2026",
+          "date": "2026-11-13",
+          "directions": [
+            {
+              "from": "Marmaris Otogar",
+              "times": [
+                "05:00",
+                "12:30",
+                "17:30"
+              ],
+              "annotations": {
+                "05:00": "Perşembe'yi Cuma'ya bağlayan gece saatidir."
+              }
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "flight": true
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi 14.11.2026",
+          "date": "2026-11-14",
+          "directions": [
+            {
+              "from": "Marmaris Otogar",
+              "times": [
+                "03:30",
+                "07:00",
+                "12:30",
+                "17:30"
+              ],
+              "annotations": {
+                "03:30": "Cuma'yı Cumartesi'ye bağlayan gece saatidir."
+              }
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "flight": true
+            }
+          ]
+        },
+        {
+          "label": "Pazar 15.11.2026",
+          "date": "2026-11-15",
+          "directions": [
+            {
+              "from": "Marmaris Otogar",
+              "times": [
+                "06:30",
+                "12:30",
+                "17:30",
+                "21:30"
+              ],
+              "annotations": {
+                "06:30": "Cumartesi'yi Pazar'a bağlayan gece saatidir."
+              }
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "flight": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "bodrum-datca-48-48",
+      "code": "48-48",
+      "title": "Bodrum - Datça",
+      "kind": "ferry",
+      "source": "https://ulasim.muttas.com.tr/hat/48-48-bodrum-datca-371",
+      "sourceUpdated": "2026-10-30T09:12:31+03:00",
+      "checked": "2026-11-10",
+      "via": "Bodrum - Datça",
+      "days": [
+        {
+          "label": "Pazartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Bodrum",
+              "times": [
+                "09:00"
+              ]
+            },
+            {
+              "from": "Datça",
+              "times": [
+                "16:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Salı",
+          "date": null,
+          "directions": [
+            {
+              "from": "Bodrum",
+              "times": [
+                "09:00"
+              ]
+            },
+            {
+              "from": "Datça",
+              "times": [
+                "16:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Çarşamba",
+          "date": null,
+          "directions": [
+            {
+              "from": "Bodrum",
+              "times": [
+                "09:00"
+              ]
+            },
+            {
+              "from": "Datça",
+              "times": [
+                "16:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Perşembe",
+          "date": null,
+          "directions": [
+            {
+              "from": "Bodrum",
+              "times": [
+                "09:00"
+              ]
+            },
+            {
+              "from": "Datça",
+              "times": [
+                "16:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cuma",
+          "date": null,
+          "directions": [
+            {
+              "from": "Bodrum",
+              "times": [
+                "09:00"
+              ]
+            },
+            {
+              "from": "Datça",
+              "times": [
+                "16:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Cumartesi",
+          "date": null,
+          "directions": [
+            {
+              "from": "Bodrum",
+              "times": [
+                "09:00"
+              ]
+            },
+            {
+              "from": "Datça",
+              "times": [
+                "16:00"
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pazar",
+          "date": null,
+          "directions": [
+            {
+              "from": "Bodrum",
+              "times": [
+                "09:00"
+              ]
+            },
+            {
+              "from": "Datça",
+              "times": [
+                "16:00"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "marmaris-dalaman-havas",
+      "code": "Havaş",
+      "title": "Marmaris - Dalaman Havalimanı",
+      "kind": "airport",
+      "source": "https://havas.net/otobus-hizmetleri#bus-service-2",
+      "sourceUpdated": null,
+      "checked": "2026-11-10",
+      "via": "Marmaris - Gökova - Köyceğiz - Ortaca - Dalaman - Dalaman Havalimanı",
+      "days": [
+        {
+          "label": "2026-11-10",
+          "date": "2026-11-10",
+          "directions": [
+            {
+              "from": "Marmaris",
+              "times": [
+                "06:00",
+                "07:30",
+                "17:30",
+                "19:30"
+              ]
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "note": "Dalaman Havalimanına inen iç hat uçuşları için servis düzenlenmektedir."
+            }
+          ]
+        },
+        {
+          "label": "2026-11-11",
+          "date": "2026-11-11",
+          "directions": [
+            {
+              "from": "Marmaris",
+              "times": [
+                "03:15",
+                "13:00",
+                "17:30",
+                "18:30"
+              ]
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "note": "Dalaman Havalimanına inen iç hat uçuşları için servis düzenlenmektedir."
+            }
+          ]
+        },
+        {
+          "label": "2026-11-12",
+          "date": "2026-11-12",
+          "directions": [
+            {
+              "from": "Marmaris",
+              "times": [
+                "06:00",
+                "13:15",
+                "15:45",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "note": "Dalaman Havalimanına inen iç hat uçuşları için servis düzenlenmektedir."
+            }
+          ]
+        },
+        {
+          "label": "2026-11-13",
+          "date": "2026-11-13",
+          "directions": [
+            {
+              "from": "Marmaris",
+              "times": [
+                "03:15",
+                "07:00",
+                "14:15",
+                "18:30"
+              ]
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "note": "Dalaman Havalimanına inen iç hat uçuşları için servis düzenlenmektedir."
+            }
+          ]
+        },
+        {
+          "label": "2026-11-14",
+          "date": "2026-11-14",
+          "directions": [
+            {
+              "from": "Marmaris",
+              "times": [
+                "06:00",
+                "07:30",
+                "14:15",
+                "18:00"
+              ]
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "note": "Dalaman Havalimanına inen iç hat uçuşları için servis düzenlenmektedir."
+            }
+          ]
+        },
+        {
+          "label": "2026-11-15",
+          "date": "2026-11-15",
+          "directions": [
+            {
+              "from": "Marmaris",
+              "times": [
+                "03:15",
+                "07:30",
+                "14:15",
+                "18:30"
+              ]
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "note": "Dalaman Havalimanına inen iç hat uçuşları için servis düzenlenmektedir."
+            }
+          ]
+        },
+        {
+          "label": "2026-11-16",
+          "date": "2026-11-16",
+          "directions": [
+            {
+              "from": "Marmaris",
+              "times": [
+                "03:15",
+                "07:00",
+                "14:15",
+                "18:30"
+              ]
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "note": "Dalaman Havalimanına inen iç hat uçuşları için servis düzenlenmektedir."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

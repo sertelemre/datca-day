@@ -1,0 +1,10 @@
+---
+import { ui } from '../lib/ui';
+import { getLocale } from '../lib/i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+
+import Layout from '../layouts/Layout.astro';
+import ContactPage from '../components/ContactPage.astro';
+---
+<Layout title={t("Öneri, düzeltme ve rehbere katkı")} description={t("datca.day rehberleri için kaynaklı düzeltme ve rota önerisi paylaş. Rezervasyon ve yerel hizmetler için ilgili resmî kanala ulaş.")}><ContactPage/></Layout>

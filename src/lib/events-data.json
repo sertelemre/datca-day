@@ -1,0 +1,321 @@
+{
+  "attempted": "2026-11-10",
+  "checks": [
+    {
+      "id": "belediye",
+      "status": "ok",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "karia",
+      "status": "ok",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "tsf",
+      "status": "ok",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "taf",
+      "status": "ok",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "biletinial-kultur",
+      "status": "ok",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "biletinial-amfi",
+      "status": "ok",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "biletix-kultur",
+      "status": "ok",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "biletix-amfi",
+      "status": "ok",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "bubilet-kultur",
+      "status": "ok",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "bubilet-amfi",
+      "status": "ok",
+      "checked": "2026-11-10"
+    }
+  ],
+  "events": [
+    {
+      "id": "4f11a4bbdb17",
+      "title": "Mahallemiz Eşrafından",
+      "start": "2026-11-07",
+      "end": "2026-11-07",
+      "time": "19:30",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://datcakariatiyatrozamani.com/#program",
+      "ticket": "https://biletino.com/tr/e-1cxf/mahallemiz-esrafindan/",
+      "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2026/mahallemiz-esrafindan.png",
+      "sourceId": "karia",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "7164f066f6d0",
+      "title": "Geri Dönüşüm Atölyesi Yeni Dönemi Başlıyor",
+      "start": "2026-11-13",
+      "end": "2027-03-26",
+      "time": "09:30",
+      "venue": "Kadın ve Gençlik Merkezi",
+      "category": "arts",
+      "url": "https://datca.bel.tr/etkinlikler/geri-donusum-atolyesi-yeni-donemi-basliyor",
+      "poster": "https://datca.bel.tr/storage/events/20261106-092536-krp8zri1.png",
+      "schedule": "friday",
+      "closeTime": "12:30",
+      "sourceId": "belediye",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "d6a7090446b4",
+      "title": "24 Kasım Öğretmenler Günü Satranç Turnuvası",
+      "start": "2026-11-21",
+      "end": "2026-11-22",
+      "venue": "Datça",
+      "category": "sport",
+      "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
+      "sourceId": "tsf",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "1644f557323c",
+      "title": "Apsolit",
+      "start": "2026-12-05",
+      "end": "2026-12-05",
+      "time": "19:30",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://datcakariatiyatrozamani.com/#program",
+      "ticket": "https://biletino.com/tr/e-1cxg/apsolit/",
+      "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2026/apsolit.png",
+      "sourceId": "karia",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "65d9eb75554c",
+      "title": "Yükleniyor",
+      "start": "2026-12-10",
+      "end": "2026-12-10",
+      "time": "20:30",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://biletinial.com/tr-tr/tiyatro/yukleniyor",
+      "closeTime": "21:55",
+      "poster": "https://b6s54eznn8xq.merlincdn.net/Uploads/Films/yukleniyor-2026928137294f918a26568946f29d73d02081b3ee56.jpeg",
+      "sourceId": "biletinial-kultur",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "6d60cbb7bb2c",
+      "title": "Datça Karma Takımlar Satranç Turnuvası",
+      "start": "2026-12-19",
+      "end": "2026-12-20",
+      "venue": "Datça",
+      "category": "sport",
+      "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
+      "sourceId": "tsf",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "1068217ebc06",
+      "title": "Gong",
+      "start": "2027-01-09",
+      "end": "2027-01-09",
+      "time": "19:30",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://datcakariatiyatrozamani.com/#program",
+      "ticket": "https://biletino.com/tr/e-1cxh/gong/",
+      "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2026/gong.png",
+      "sourceId": "karia",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "5cbab98bddfd",
+      "title": "Karma Takımlar Satranç Turnuvası",
+      "start": "2027-01-16",
+      "end": "2027-01-17",
+      "venue": "Datça",
+      "category": "sport",
+      "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
+      "sourceId": "tsf",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "fa1d5da63585",
+      "title": "21. Uluslararası Datça Açık Deniz Kış Yüzme Maratonu",
+      "start": "2027-01-16",
+      "end": "2027-01-16",
+      "venue": "Taşlık Plajı, Datça",
+      "category": "sport",
+      "url": "https://datca.bel.tr/etkinlikler/21-uluslararasi-datca-acik-deniz-kis-yuzme-maratonu",
+      "poster": "https://datca.bel.tr/storage/events/20260814-170339-MW1A2STP.png",
+      "sourceId": "belediye",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "4b5ae7734180",
+      "title": "8. Uluslararası Badem Çiçeği Festivali",
+      "start": "2027-02-04",
+      "end": "2027-02-07",
+      "venue": "Datça Merkez",
+      "category": "festival",
+      "url": "https://datca.bel.tr/etkinlikler/8-uluslararasi-badem-cicegi-festivali",
+      "poster": "https://datca.bel.tr/storage/events/20260921-142624-sRNoCfkZ.png",
+      "sourceId": "belediye",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "9669fbe2a1a5",
+      "title": "Havva",
+      "start": "2027-02-13",
+      "end": "2027-02-13",
+      "time": "19:30",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://datcakariatiyatrozamani.com/#program",
+      "ticket": "https://biletino.com/e-1dh0",
+      "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/havva.png",
+      "sourceId": "karia",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "e91e0ac769b4",
+      "title": "7-8 Yaş Çocuk Satranç Turnuvası",
+      "start": "2027-02-21",
+      "end": "2027-02-21",
+      "venue": "Datça",
+      "category": "sport",
+      "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
+      "sourceId": "tsf",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "be391e1e9ee3",
+      "title": "Zuhal",
+      "start": "2027-03-06",
+      "end": "2027-03-06",
+      "time": "19:30",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://datcakariatiyatrozamani.com/#program",
+      "ticket": "https://biletino.com/e-1dh4",
+      "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/zuhal.png",
+      "sourceId": "karia",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "fd81c22ae1a5",
+      "title": "18 Mart Çanakkale Zaferi Ve Şehitleri Anma Satranç Turnuvası",
+      "start": "2027-03-20",
+      "end": "2027-03-21",
+      "venue": "Datça",
+      "category": "sport",
+      "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
+      "sourceId": "tsf",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "8a22fd012f55",
+      "title": "Abdullah, Konuş!",
+      "start": "2027-04-03",
+      "end": "2027-04-03",
+      "time": "19:30",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://datcakariatiyatrozamani.com/#program",
+      "ticket": "https://biletino.com/e-1dh5",
+      "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/abdullah-konus.png",
+      "sourceId": "karia",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "b8500ec6cc1f",
+      "title": "KEŞİFRUN DATÇA - 10K",
+      "poster": "https://kosu.taf.org.tr/uploads/yarisma_kapak/kapak_191_0ead136d3d6ae804.jpg",
+      "start": "2027-04-04",
+      "end": "2027-04-04",
+      "time": "10:00",
+      "venue": "Yazı – Knidos, Datça",
+      "category": "sport",
+      "url": "https://kosu.taf.org.tr/kesifrun-datca-10k?id=191&lang=tr",
+      "sourceId": "taf",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "96c18e86a84f",
+      "title": "23 Nisan Ulusal Egemenlik Ve Çocuk Bayramı Satranç Turnuvası",
+      "start": "2027-04-19",
+      "end": "2027-04-21",
+      "venue": "Datça",
+      "category": "sport",
+      "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
+      "sourceId": "tsf",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "63e68b5cd19c",
+      "title": "Metamorfoz",
+      "start": "2027-05-08",
+      "end": "2027-05-08",
+      "time": "19:30",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://datcakariatiyatrozamani.com/#program",
+      "ticket": "https://biletino.com/e-1dh9",
+      "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/metamorfoz.png",
+      "sourceId": "karia",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "6b5e6fff5d2a",
+      "title": "19 Mayıs Gençlik Ve Spor Bayramı Satranç Turnuvası",
+      "start": "2027-05-10",
+      "end": "2027-05-12",
+      "venue": "Datça",
+      "category": "sport",
+      "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
+      "sourceId": "tsf",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "e0da3e1ba2e8",
+      "title": "Babalar Günü Satranç Turnuvası",
+      "start": "2027-06-19",
+      "end": "2027-06-20",
+      "venue": "Datça",
+      "category": "sport",
+      "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
+      "sourceId": "tsf",
+      "checked": "2026-11-10"
+    },
+    {
+      "id": "aeb7e3a15051",
+      "title": "30 Ağustos Zafer Bayramı Satranç Turnuvası",
+      "start": "2027-08-28",
+      "end": "2027-08-29",
+      "venue": "Datça",
+      "category": "sport",
+      "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
+      "sourceId": "tsf",
+      "checked": "2026-11-10"
+    }
+  ],
+  "archive": []
+}

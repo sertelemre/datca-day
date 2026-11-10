@@ -1,0 +1,14 @@
+---
+import { ui } from '../lib/ui';
+import { getLocale, localePath } from '../lib/i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+const localize = (path: string) => localePath(path, locale);
+
+import Icon from './Icon.astro';
+import BrandLogo from './BrandLogo.astro';
+import { getContent } from '../lib/i18n';
+const { categories } = getContent(locale);
+const catPath = (slug:string) => categories.find(c=>c.slug===slug)?.path || localize('/rehber');
+---
+<footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><BrandLogo href={localize("/")} label={t("datca.day ana sayfa")} footer /><p>{t("Denize çıkan yollar, keşfedilecek kasabalar.")}<br/>{t("Datça’da kendine ait bir gün.")}</p><a class="text-link" href={localize("/hakkimizda")}>{t("Rehberin arkasındaki yaklaşım")} <Icon name="arrow" size={14}/></a></div><div class="footer-col"><h3>{t("Birlikte keşfedelim")}</h3><a href={catPath('datca-cevresi')}>{t("Datça ve çevresi")}</a><a href={catPath('datca-koylari')}>{t("Koylar ve plajlar")}</a><a href={catPath('gunluk-turlar')}>{t("Turlar ve aktiviteler")}</a><a href={catPath('datca-orman-kamplari')}>{t("Doğa ve kamp")}</a></div><div class="footer-col"><h3>{t("Tatiline yardımcı")}</h3><a href={localize("/datcada-nerede-kalinir")}>{t("Konaklama")}</a><a href={localize("/ulasim")}>{t("Ulaşım rehberi")}</a><a href={localize("/rehber")}>{t("Tüm rehberler")}</a><a href={localize("/etkinlikler")}>{t("Etkinlikler")}</a><a href={localize("/tatil-planim")}>{t("Tatil planım")}</a></div><div class="footer-col"><h3>{t("Rehber hakkında")}</h3><a href={localize("/iletisim")}>{t("Öneri ve düzeltme")}</a><a href={localize("/fotograf-galerisi")}>{t("Fotoğraf galerisi")}</a><a href={localize("/fotograf-kaynaklari")}>{t("Fotoğraf kaynakları")}</a><a href={localize("/hakkimizda")}>{t("Yayın ilkeleri")}</a><span>{t("Datça, Muğla · Türkiye")}</span></div></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} datca.day</span><span>{t("Bir gün deniz. Bir gün keşif.")} <span class="small-sun">✺</span></span><div><a href={localize("/gizlilik")}>{t("Gizlilik")}</a><a href={localize("/site-haritasi")}>{t("Site haritası")}</a></div></div></footer>

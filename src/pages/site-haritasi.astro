@@ -1,0 +1,12 @@
+---
+import { ui } from '../lib/ui';
+import { getLocale, localePath } from '../lib/i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+
+import Layout from '../layouts/Layout.astro';
+import { getContent } from '../lib/i18n';
+const { articles, categories } = getContent(locale);
+---
+<Layout title={t("Datça rehber dizini ve site haritası")} description={t("Datça koyları, kasabaları, turlar, konaklama ve ulaşım rehberlerinin tamamını konu başlıklarıyla bul. Kendi keşif rotanı oluştur.")}><section class="container section"><span class="eyebrow">{t("TÜM YOLLAR BİR ARADA")}</span><h1 style="font-size:60px;margin:15px 0 35px">{t("Datça rehber dizini")}</h1><h2 style="font-size:34px;margin-bottom:20px">{t("Kategoriler")}</h2><ul class="sitemap-list">{categories.map(c=><li><a href={c.path}>{c.name}</a></li>)}</ul><h2 style="font-size:34px;margin:40px 0 20px">{t("Rehberler ve sayfalar")}</h2><ul class="sitemap-list"><li><a href={localePath('/etkinlikler', locale)}>{t('Datça etkinlik takvimi')}</a></li>{['/ulasim','/datca-hava-durumu','/fotograf-galerisi'].map((path,i)=><li><a href={localePath(path, locale)}>{t(['Sefer saatleri','Hava durumu','Fotoğraf galerisi'][i])}</a></li>)}{articles.map(a=><li><a href={a.path}>{a.title}</a></li>)}</ul></section></Layout>
+<style>.sitemap-list{columns:3;list-style:none;padding:0}.sitemap-list li{break-inside:avoid;padding:7px 0;font-size:12px}.sitemap-list a:hover{color:var(--orange)}@media(max-width:700px){.sitemap-list{columns:1}}</style>

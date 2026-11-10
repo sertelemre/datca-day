@@ -1,0 +1,11 @@
+---
+import { ui } from '../lib/ui';
+import { getLocale, localePath } from '../lib/i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+const localize = (path: string) => localePath(path, locale);
+
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+---
+<Layout noindex title={t("Bu rota henüz keşfedilmedi")}><section class="container section empty-panel"><span class="eyebrow">{t("404 · KÜÇÜK BİR YOL AYRIMI")}</span><h1 style="font-size:55px;margin:20px 0">{t("Bu yol başka bir yere çıktı.")}</h1><p>{t("Aradığın sayfayı bulamadık. Yeni bir keşfe ana sayfadan başlayabilirsin.")}</p><a class="button" href={localize("/")}>{t("Datça’ya dön")} <Icon name="arrow"/></a></section></Layout>

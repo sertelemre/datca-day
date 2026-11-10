@@ -1,0 +1,592 @@
+export interface Copy {
+  title: string
+  summary: string
+  sections: { heading: string; text: string }[]
+}
+
+export interface Guide {
+  slug: string
+  groups: string[]
+  photo: string
+  source: { url: string; label: string }
+  tr: Copy
+  en: Copy
+  ru: Copy
+}
+
+export function copy(title: string, summary: string, ...sections: [string, string][]): Copy {
+  return { title, summary, sections: sections.map(([heading, text]) => ({ heading, text })) }
+}
+
+const coast = { label: 'Muğla İl Kültür ve Turizm Müdürlüğü', url: 'https://mugla.ktb.gov.tr/TR-296372/nereye-gidilir.html' }
+const see = { label: 'GoTürkiye · Datça', url: 'https://goturkiye.com/tr/datca/gor' }
+const weekend = { label: 'GoTürkiye · Datça', url: 'https://goturkiye.com/tr/datca/48-saatte-datca' }
+const buses = { label: 'MUTTAŞ · Datça', url: 'https://ulasim.muttas.com.tr/hatlar/datca' }
+
+export const guides: Guide[] = [
+  {
+    slug: 'eski-datca', groups: ['places', 'history'], photo: 'eski-datca', source: see,
+    tr: copy('Eski Datça: taş sokaklarda bir yürüyüş', 'Can Yücel Sokağı çevresinde avlu kapıları, küçük atölyeler ve kahve molalarıyla örülü bir mahalle yürüyüşü.',
+      ['Can Yücel Sokağı çevresinde', 'Eski Datça denizden içeride kalır. Taş döşeli sokaklardan birine sap, gölgeli bir masada soluklan ve dönüşte farklı bir sokağı dene. Şairin yaşadığı evin önünden geçerken komşuların kapı önlerini açık bırak.'],
+      ['Sahille birleştirmek istersen', 'Yürüyüşe kapalı, rahat bir ayakkabıyla başla. Aynı gün yüzmek istersen havlunu da yanına al ve yürüyüşten sonra Datça merkezdeki Taşlık’a geç. Otobüs kullanıyorsan dönüş durağını mahalleye girmeden işaretle.']),
+    en: copy('Eski Datça: a walk through the old village', 'Follow the stone lanes around Can Yücel Street, stopping for open workshops, colourful courtyard gates and a coffee.',
+      ['Around Can Yücel Street', 'The old village sits inland. Pick a cobbled side street, pause at a shaded table and return by a different lane. The poet Can Yücel once lived here. Leave doorways clear when you stop to take a photograph.'],
+      ['From village to beach', 'Wear comfortable shoes for the uneven stones. If you want a swim afterwards, take a towel and finish at Taşlık in central Datça. Mark your return bus stop before you start wandering.']),
+    ru: copy('Старая Датча: прогулка по каменным улочкам', 'Во дворах вокруг улицы Джана Юджеля встречаются мастерские, цветущие кусты и маленькие кафе.',
+      ['По следам поэта', 'Старая Датча расположена в глубине полуострова. Сверните с главной улицы в мощёный переулок и вернитесь другой дорогой. Здесь жил поэт Джан Юджель. Останавливаясь для фотографии, оставляйте свободным вход в жилые дома.'],
+      ['После прогулки', 'Для неровной брусчатки пригодится удобная обувь. Если захочется искупаться, возьмите полотенце и отправляйтесь на пляж Ташлык в центре Датчи. Обратную автобусную остановку удобно отметить на карте заранее.'])
+  },
+  {
+    slug: 'palamutbuku', groups: ['places', 'beaches', 'sea'], photo: 'palamutbuku', source: coast,
+    tr: copy('Palamutbükü: sahilden balıkçı barınağına', 'Yarımadanın batısında uzun bir kıyı, çakıl ve kumun karıştığı bir plaj ve küçük teknelerin yanaştığı bir barınak.',
+      ['Önce kıyıda yürü', 'Palamutbükü, Yaka ve Cumalı’nın denize açıldığı yerde. Sahil boyunca yürüyüp suya nereden gireceğine karar ver. Kıyıda çakıllar olduğundan deniz ayakkabısı işe yarayabilir.'],
+      ['Öğleden sonrayı açık bırak', 'Balıkçı barınağı tarafında kısa bir gezintiyle günü tamamlayabilirsin. Knidos’a devam edeceksen ören yerinin son giriş saatine bakıp plajdan ayrılacağın zamanı geriye doğru hesapla.']),
+    en: copy('Palamutbükü: from the beach to the fishing harbour', 'A long stretch of sand and shingle meets a small fishing harbour on the western side of the peninsula.',
+      ['Walk before you swim', 'Palamutbükü is where the villages of Yaka and Cumalı reach the sea. Follow the shore to find a spot you like. Water shoes can make the pebbly stretches easier on your feet.'],
+      ['Leave the afternoon open', 'Finish with a walk by the fishing boats. If you plan to continue to Knidos, check the last admission time first and work backwards to decide when to leave the beach.']),
+    ru: copy('Паламутбюкю: от пляжа до рыбацкой гавани', 'На западе полуострова длинный песчано-галечный пляж тянется к небольшой гавани с рыбацкими лодками.',
+      ['Пройдитесь вдоль воды', 'Здесь к морю выходят окрестности деревень Яка и Джумалы. Прогуляйтесь по берегу и выберите место для купания. На участках с галькой может пригодиться обувь для воды.'],
+      ['Планы на вторую половину дня', 'Завершите прогулку у рыбацких лодок. Если собираетесь дальше в Книд, заранее посмотрите время последнего входа и решите, когда пора уезжать с пляжа.'])
+  },
+  {
+    slug: 'ovabuku', groups: ['places', 'beaches'], photo: 'ovabuku', source: coast,
+    tr: copy('Ovabükü: Mesudiye’nin uzun plajı', 'Mesudiye’nin en geniş koyunda kıyıya paralel bir yürüyüşü, deniz molasıyla birleştir.',
+      ['Kumsal boyunca', 'Çantanı ilk gördüğün yere bırakmadan sahilin iki yönüne de göz at. Ovabükü’nde yürüyüşe ayıracak uzun bir kıyı var. Yanına su alıp öğle molan için sahilde bir buluşma noktası seçebilirsin.'],
+      ['Komşu koya geçerken', 'Hayıtbükü de Mesudiye’de. İkisini aynı güne koyacaksan yürüyüşü Ovabükü’ne, yemek molasını ikinci koya ayırabilirsin. Araçsız gezerken güncel Mesudiye seferlerinde gidiş ve dönüş yönlerini ayrı kontrol et.']),
+    en: copy('Ovabükü: the long beach of Mesudiye', 'Spend an unhurried day walking the length of the largest bay in Mesudiye and stopping for a swim.',
+      ['Along the shore', 'Before settling down, look in both directions. There is plenty of shoreline for a walk at Ovabükü. Pack water and agree on a landmark for meeting up before lunch.'],
+      ['Pair it with a second bay', 'Neighbouring Hayıtbükü is also part of Mesudiye. Try Ovabükü for the walk and the next bay for lunch. Without a car, check both directions of the Mesudiye bus timetable for your travel date.']),
+    ru: copy('Овабюкю: длинный пляж Месудие', 'Посвятите день прогулке вдоль самой большой бухты Месудие и выберите место для купания по дороге.',
+      ['У кромки воды', 'Прежде чем раскладывать вещи, осмотрите берег в обе стороны. В Овабюкю длинный пляж для прогулки. Возьмите воду и договоритесь, у какого ориентира встретитесь к обеду.'],
+      ['Две бухты за день', 'Соседняя Хаытбюкю тоже относится к Месудие. Можно пройтись по Овабюкю и оставить обед на вторую остановку. Если едете автобусом, проверьте прямые и обратные рейсы на нужную дату.'])
+  },
+  {
+    slug: 'hayitbuku', groups: ['places', 'beaches', 'stays'], photo: 'hayitbuku', source: coast,
+    tr: copy('Hayıtbükü: Mesudiye’de deniz kenarında bir gün', 'Küçük bir koyda sabah yüzmesi, sahilde öğle yemeği ve yakındaki pansiyonlara kısa bir yürüyüş.',
+      ['Sabahı koyda geçir', 'Hayıtbükü’nün sahilinde küçük işletmeler sıralanır. Suyun o günkü durumuna kıyıdan bak, havlunu sereceğin yeri seç ve öğle yemeğine kadar başka bir yere yetişmek zorunda kalmadan denizin tadını çıkar.'],
+      ['Geceyi burada geçirmek', 'Mesudiye’de aile pansiyonları ve apartlar bulunur. Rezervasyon sırasında odanın hangi koyda olduğunu haritada işaretlet. Aynı mahalle adını taşıyan iki adres sahile farklı mesafelerde olabilir.']),
+    en: copy('Hayıtbükü: a day by the water in Mesudiye', 'Take a morning swim, stop for lunch and explore the guesthouses around this small Mesudiye bay.',
+      ['Spend the morning in the bay', 'Small businesses line the waterfront. Take a look at the water conditions, find a place for your towel and leave the rest of the morning free for swimming.'],
+      ['Staying overnight', 'Mesudiye has family-run guesthouses and apartments. Ask the host to mark the property on a map when you book. Two addresses in the same neighbourhood can be quite different distances from the water.']),
+    ru: copy('Хаытбюкю: день у моря в Месудие', 'Утреннее купание, обед у воды и прогулка мимо небольших пансионов в бухте Хаытбюкю.',
+      ['Утро на пляже', 'Вдоль берега расположены небольшие кафе и пансионы. Посмотрите, какое сегодня море, найдите место для полотенца и оставьте утро свободным для купания.'],
+      ['Если хочется остаться', 'В Месудие сдают апартаменты, есть и семейные пансионы. При бронировании попросите хозяина показать место на карте. Два адреса с одинаковым названием района могут находиться на разном расстоянии от воды.'])
+  },
+  {
+    slug: 'knidos-antik-kenti', groups: ['history', 'places', 'tours'], photo: 'knidos',
+    source: { label: 'Müze · Knidos', url: 'https://muze.gov.tr/urun-detay?CatalogNo=WEB-KND02-01-009' },
+    tr: copy('Knidos Antik Kenti: iki liman arasında', 'Yarımadanın ucunda antik limanları, denize bakan tiyatroyu ve teraslar boyunca uzanan kenti keşfet.',
+      ['Manzarayı limandan oku', 'Kıyıdan başlayıp önce iki limanın ve onları ayıran ince kara parçasının yerini bul. Küçük tiyatronun basamaklarından bakınca denizle teraslar arasına kurulan kentin düzeni daha kolay anlaşılıyor.'],
+      ['Dönüş yoluna zaman ayır', 'Knidos yolu virajlıdır. Su ve şapkanı yanına al, açık alanı günün serin kısmında dolaş. Bilet koşullarını ve son giriş saatini gezi günü müzenin resmî sayfasından kontrol et.']),
+    en: copy('Ancient Knidos: a city between two harbours', 'Explore a theatre overlooking the water and the terraces of an ancient port at the tip of the peninsula.',
+      ['Read the landscape from the port', 'Start at the water and pick out the two harbours and the narrow strip of land between them. Seen from the small theatre, the city’s position between the sea and the hillside terraces makes sense.'],
+      ['Allow time for the drive back', 'The road to Knidos winds through the peninsula. Bring water and a hat and walk the exposed site during a cooler part of the day. Check ticket conditions and last admission on the official museum page.']),
+    ru: copy('Античный Книд: город между двумя гаванями', 'На оконечности полуострова сохранились театр с видом на море и террасы древнего портового города.',
+      ['Начните у гавани', 'Найдите две гавани и узкую полоску суши между ними. С небольшого театра хорошо видно, как древние строители расположили город между берегом и террасами на склоне.'],
+      ['Запас времени на обратный путь', 'В Книд ведёт извилистая дорога. Возьмите воду и головной убор, а прогулку по открытому склону оставьте на прохладную часть дня. Уточните условия покупки билета и время последнего входа на официальном сайте музея.'])
+  },
+  {
+    slug: 'kargi-koyu', groups: ['beaches', 'nature'], photo: 'kargi', source: coast,
+    tr: copy('Kargı Koyu: merkeze yakın bir deniz molası', 'Datça merkezden fazla uzaklaşmadan küçük bir koya inip taşlı kıyıdan suya girebilirsin.',
+      ['Kıyıya inerken', 'Kargı’nın hem plajı hem de deniz tabanı taşlı. Deniz ayakkabısı ve küçük bir mat getirmek kıyıda geçirdiğin zamanı rahatlatır. Kısa bir yüzmeden sonra merkeze dönmek için öğleden sonranı boş bırakabilirsin.'],
+      ['Araçsız bir öğleden sonra', 'Gidiş için Özbel–Kargı hattını incele. Dönüşte hangi yöndeki duraktan bineceğini ve son seferi koya vardığında belirle.']),
+    en: copy('Kargı Bay: a swim close to town', 'Head out from central Datça for a dip off a stony beach, with time left for an evening in town.',
+      ['At the water’s edge', 'The beach and seabed at Kargı are stony. Water shoes and a small mat will make your visit more comfortable. For a half day out, leave time to return to the centre after your swim.'],
+      ['An afternoon without a car', 'Look up the Özbel–Kargı bus route before setting out. On arrival, find the stop for the trip home and check the last departure.']),
+    ru: copy('Бухта Каргы: купание недалеко от центра', 'От центра Датчи недалеко до каменистой бухты, откуда удобно вернуться в город к вечеру.',
+      ['У моря', 'В Каргы каменистые берег и дно. Обувь для купания и небольшой коврик сделают отдых удобнее. Если у вас всего полдня, оставьте время на прогулку в центре после пляжа.'],
+      ['Поездка без машины', 'Посмотрите расписание линии Özbel–Kargı. По прибытии отметьте нужную остановку для обратной поездки и время последнего автобуса.'])
+  },
+  {
+    slug: 'kizlan-yel-degirmenleri', groups: ['places', 'history'], photo: 'kizlan', source: weekend,
+    tr: copy('Kızlan yel değirmenleri: yarımadanın rüzgârı', 'Datça’ya yaklaşırken denizden biraz içeri sap ve Kızlan’ın yel değirmenlerine zaman ayır.',
+      ['Değirmenleri dışarıdan keşfet', 'Değirmenleri çevrelerindeki açık manzarayla birlikte görmek için biraz geriden bak. Fotoğraf için yol üzerinde durmak yerine yürüyerek ulaşabileceğin uygun bir noktada araçtan in.'],
+      ['Aynı güne ne sığar?', 'Sabah Kızlan’a uğrayıp öğleden sonrayı Datça merkezde geçirebilirsin. Otobüs kullanıyorsan Kızlan hattındaki köy durağıyla değirmenler arasındaki yürüyüşü ayrıca planla.']),
+    en: copy('Kızlan windmills: a stop above the coast', 'Turn inland on the approach to Datça for a short visit to the windmills of Kızlan.',
+      ['See the mills in their setting', 'Stand a little way back to see the mills against the open landscape. Choose a suitable place to park and approach on foot so you have time to frame the view.'],
+      ['Make it a half day', 'Visit Kızlan in the morning and spend the afternoon in central Datça. If taking the bus, check the walking route from your Kızlan stop to the windmills before setting off.']),
+    ru: copy('Ветряные мельницы Кызлана', 'Сверните от побережья по пути в Датчу, чтобы рассмотреть мельницы и открытый пейзаж Кызлана.',
+      ['Пешком к мельницам', 'Отойдите немного подальше, чтобы увидеть мельницы на фоне окрестностей. Для фотографий удобнее оставить автомобиль в подходящем для парковки месте и подойти пешком.'],
+      ['Маршрут на полдня', 'Кызлан можно посетить утром и провести вторую половину дня в центре Датчи. Если едете автобусом, заранее посмотрите путь от деревенской остановки до мельниц.'])
+  },
+  {
+    slug: 'datca-limani', groups: ['places', 'sea'], photo: 'datca-liman', source: see,
+    tr: copy('Datça Limanı: İskele’den Taşlık’a yürüyüş', 'Merkezde tekne sesleriyle başlayan kıyı yürüyüşünü Sevgi Yolu ve Ilıca Gölü çevresine uzat.',
+      ['İskele’den başla', 'Limandaki tekneleri izledikten sonra kıyıyı takip et. Kumluk tarafında bir yemek molası verebilir veya Taşlık yönüne dönüp Ilıca Gölü’ne kadar yürüyebilirsin. İkisini de yapmak için gün batımından önce çık.'],
+      ['Tekneye bineceksen', 'Buluşacağın teknenin adını ve konumunu önceden iste. Bodrum feribotuna binecek yolcular yarımadanın kuzeyindeki Körmen’e gider. İlçe merkezinde liman diye tarif edilen yer farklıdır.']),
+    en: copy('Datça harbour: a walk from İskele to Taşlık', 'Start among the boats in the town centre and follow the waterfront towards Sevgi Yolu and Lake Ilıca.',
+      ['Start in İskele', 'Pause by the boats, then follow the seafront. Try the Kumluk side for a meal or head towards Taşlık and Lake Ilıca. Set off before sunset if you want time for both.'],
+      ['Meeting a boat', 'Ask for the boat’s name and an exact meeting point. For the ferry to Bodrum, travel to Körmen on the north of the peninsula, a separate harbour from the waterfront in town.']),
+    ru: copy('Гавань Датчи: от Искеле до Ташлыка', 'Начните у лодок в центре города и пройдите вдоль набережной к прогулочной улице Севги-Йолу и озеру Ылыджа.',
+      ['Начало в Искеле', 'От гавани можно пойти в сторону Кумлука, где удобно пообедать, или к Ташлыку и озеру Ылыджа. Если хочется пройти в обе стороны, выходите до заката.'],
+      ['Если вас ждёт катер', 'Узнайте название судна и точку встречи на карте. Паром в Бодрум отправляется из другой гавани, Кёрмен, на северной стороне полуострова.'])
+  },
+  {
+    slug: 'datca-tekne-turu', groups: ['tours', 'sea'], photo: 'datca-tekne',
+    source: { label: 'GoTürkiye · Datça', url: 'https://goturkiye.com/tr/datca/dokun' },
+    tr: copy('Datça tekne turu: hangi limandan, hangi koylara?', 'Tekne seçerken kalkış noktasını, yüzme molalarını ve rüzgâra göre değişebilen programı birlikte değerlendir.',
+      ['Kalkış yerini kararlaştır', 'Datça merkezden çıkan bir tekne ile Palamutbükü’nden kalkan bir tekne günü farklı kıyılarda geçirebilir. Gitmek istediğin koyun adını söyle ve o günkü rotaya dahil olup olmadığını işletmeciye sor.'],
+      ['Teknede geçecek saatler', 'Yüzme merdivenini, gölgeli oturma yerini ve öğle yemeğinin fiyata dahil olup olmadığını öğren. Bir çocukla gidiyorsan uygun bedende can yeleği bulunmasını rezervasyon sırasında teyit et.']),
+    en: copy('Boat trips in Datça: choosing a port and route', 'Compare departure points, swimming stops and the day’s forecast before choosing your boat.',
+      ['Choose the departure point', 'Boats leaving central Datça and boats based at Palamutbükü may explore different stretches of coast. Tell the operator which bay interests you and ask whether conditions allow a stop there that day.'],
+      ['Time on board', 'Ask about the swim ladder, shaded seating and whether lunch is included. If travelling with a child, confirm that a life jacket in the right size is available when you book.']),
+    ru: copy('Прогулки на катере в Датче', 'Проверьте порт отправления, остановки для купания и прогноз ветра, прежде чем выбрать маршрут.',
+      ['Откуда отправляется катер', 'Суда из центра Датчи и из Паламутбюкю могут посещать разные участки побережья. Назовите интересующую вас бухту и спросите, входит ли она в программу с учётом погоды в день поездки.'],
+      ['Время на борту', 'Уточните, есть ли лестница для спуска в воду, места в тени и входит ли обед в стоимость. Если едете с ребёнком, при бронировании уточните наличие спасательного жилета нужного размера.'])
+  },
+  {
+    slug: 'bodrum-datca-feribotu', groups: ['transport', 'sea', 'tours'], photo: 'kormen',
+    source: { label: 'MUTTAŞ · Bodrum–Datça', url: 'https://ulasim.muttas.com.tr/hat/48-48-bodrum-datca-371' },
+    tr: copy('Bodrum–Datça feribotu: Körmen’den geçiş', 'Bodrum’dan yarımadaya deniz yoluyla gelmek ya da Datça’dan ayrılmak için liman ile merkez arasındaki ulaşımı da planla.',
+      ['Bilet üzerindeki liman', 'Datça tarafındaki feribot iskelesi Karaköy’de, Körmen Limanı’ndadır. Merkezdeki konaklamana geçeceksen araç transferini veya Karaköy hattının saatini geminin varışıyla birlikte düşün.'],
+      ['Aracınla geçerken', 'Seçtiğin tarihte araç kabulünü, bilet türünü ve limanda bulunman gereken saati işletmeciden öğren. Rüzgâr seferi etkileyebildiği için dönüş gününe sıkışık bir uçuş bağlantısı koyma.']),
+    en: copy('The Bodrum–Datça ferry via Körmen', 'Plan the crossing and the connection between the ferry terminal and your accommodation in town.',
+      ['Find the terminal', 'On the Datça side, the ferry uses Körmen harbour at Karaköy. Check onward transport to the centre when booking. Compare the Karaköy bus times with the ferry’s arrival, or arrange a pickup.'],
+      ['Taking a vehicle', 'Check vehicle space, ticket class and the required check-in time for your sailing. Wind can affect the crossing, so allow extra time if you have a flight to catch afterwards.']),
+    ru: copy('Паром Бодрум — Датча через Кёрмен', 'Спланируйте не только переправу, но и дорогу между паромной пристанью и жильём в Датче.',
+      ['Где находится пристань', 'Со стороны Датчи паром приходит в порт Кёрмен в Каракёе. Сверьте рейсы автобуса в центр со временем прибытия судна или заранее договоритесь о встрече.'],
+      ['Если вы с машиной', 'Уточните наличие мест для вашего транспорта, категорию билета и время регистрации. Ветер может повлиять на рейс, поэтому оставьте запас времени, если после парома предстоит перелёт.'])
+  },
+  {
+    slug: 'karya-yolu', groups: ['nature', 'tours'], photo: 'knidos',
+    source: { label: 'GoTürkiye · Karia Yolu', url: 'https://goturkiye.com/tr/walking/karia-yolu' },
+    tr: copy('Karia Yolu: Datça’da bir günlük yürüyüş', 'Yarımadadan geçen uzun yürüyüş yolunun bir bölümünü, bitiş noktasından dönüşünü de düşünerek seç.',
+      ['Haritayı dönüşten başlayarak oku', 'Karia Yolu’nun ana bölümlerinden biri Datça Yarımadası’nı izler. Bir günlük gezi için başlangıç ve bitişi ayrı ayrı belirle. Parkurun mesafesi kadar toplam yükselişe, yol yüzeyine ve gün ışığının süresine de bak.'],
+      ['Suyunu ve haritanı hazırla', 'Çevrimdışı çalışan güncel bir parkur haritası indir. Su alabileceğin yerin açık olduğunu önceden doğrula ve yanında yeterli su taşı. Sıcak veya kuvvetli rüzgârlı bir güne kısa bir gidiş-dönüş daha iyi sığabilir.']),
+    en: copy('The Carian Trail: a day walk in Datça', 'Choose a section of the long-distance route with a clear end point and a way back to town.',
+      ['Plan from the finish', 'One of the main sections of the Carian Trail follows the Datça Peninsula. Mark both ends of your chosen stretch. Look at elevation gain, terrain and available daylight as well as distance.'],
+      ['Water and navigation', 'Download a current trail map for offline use. Confirm that any planned water stop is open and carry enough water from the start. A shorter out-and-back walk can work better on a hot or windy day.']),
+    ru: copy('Карийская тропа: однодневный поход по Датче', 'Выберите участок длинной тропы и заранее решите, как вернуться в город из конечной точки.',
+      ['Начните с точки финиша', 'Один из основных участков Карийской тропы проходит по полуострову Датча. Отметьте начало и конец маршрута, посмотрите набор высоты, тип покрытия и продолжительность светового дня.'],
+      ['Карта и вода', 'Скачайте актуальную карту для работы без интернета. Уточните, открыт ли запланированный пункт пополнения воды, и сразу возьмите достаточный запас. В жару или сильный ветер выбирайте короткий маршрут с возвращением тем же путём.'])
+  },
+  {
+    slug: 'datca-kamp-rehberi', groups: ['nature', 'stays'], photo: 'kargi',
+    source: { label: 'Doğa Koruma ve Milli Parklar · Kovanlık', url: 'https://ekotaban.tarimorman.gov.tr/alan/277' },
+    tr: copy('Datça’da kamp: geceyi nerede geçirmeli?', 'Kıyıda geçireceğin günü ve gece kalacağın kamp yerini ayrı planlayarak yarımadaya hazırlan.',
+      ['Kovanlık çevresinde bir gün', 'Marmaris–Datça yolu üzerindeki Kovanlık Tabiat Parkı, yarımadaya gelirken bir doğa molası için düşünülebilir. Parka gitmeden önce açık alanları ve ziyaret koşullarını resmî park bilgisinden kontrol et.'],
+      ['Çadır kuracağın yeri ayırt', 'Geceleme için çadır veya karavan kabul eden bir işletmeyle doğrudan konuş. Varış saati, içme suyu, duş, gölge ve yemek hazırlama kurallarını sor. Park ziyaretini ve kamp rezervasyonunu takviminde ayrı göster.']),
+    en: copy('Camping in Datça: planning an overnight stay', 'Plan your days on the coast and reserve a suitable place to pitch your tent for the night.',
+      ['A stop near Kovanlık', 'Kovanlık Nature Park lies on the Marmaris–Datça road and can be a nature stop on the way to the peninsula. Check the official park information for visitor conditions and areas open to the public.'],
+      ['Book your pitch', 'Contact a campsite that accommodates your tent or camper. Ask about arrival time, drinking water, showers, shade and cooking rules. Make separate arrangements for the park visit and the overnight stay.']),
+    ru: copy('Кемпинг в Датче: как выбрать место для ночёвки', 'Наметьте места для дневных прогулок и заранее найдите подходящую стоянку для палатки.',
+      ['Остановка у Кованлыка', 'Природный парк Кованлык находится на дороге из Мармариса в Датчу. Перед остановкой проверьте на официальной странице правила посещения и доступные участки парка.'],
+      ['Забронируйте стоянку', 'Свяжитесь с кемпингом, который принимает палатки или автодома. Уточните время заезда, наличие питьевой воды, душа и тени, а также правила приготовления еды. Посещение парка и ночёвку планируйте отдельно.'])
+  },
+  {
+    slug: 'datcada-nerede-kalinir', groups: ['stays', 'plans'], photo: 'eski-datca', source: see,
+    tr: copy('Datça’da nerede kalınır? Merkez, Eski Datça ve bükler', 'Akşam yürüyüşünü, sabah yüzmesini ve günlük ulaşımını düşünerek sana uygun bölgeyi seç.',
+      ['Merkez ve Eski Datça', 'Akşam yemeğinden sonra kıyıda dolaşmak istiyorsan İskele çevresindeki konaklamalara bak. Taş evlerin arasında uyanmak için Eski Datça’yı seçebilirsin. Eski Datça’dan plaj günü için ayrıca ulaşım gerekir.'],
+      ['Koya yakın bir oda', 'Palamutbükü veya Mesudiye koylarında ilanı açıp plaj ile oda arasındaki gerçek yürüyüş yoluna bak. Kahvaltı, otopark ve iptal koşullarını karşılaştır. Araçsızsan dönüş seferi ve akşam yemeği seçenekleri de fiyat kadar önemli olabilir.']),
+    en: copy('Where to stay in Datça: town, village or bay?', 'Choose a base around your evenings, your first swim of the morning and how you will travel.',
+      ['Central Datça and the old village', 'Look around İskele for evening walks by the water after dinner. For a stay among traditional stone houses, consider Eski Datça. You will need to travel from the old village for a day on the beach.'],
+      ['A room by a bay', 'In Palamutbükü or the Mesudiye bays, map the actual walk between your room and the beach. Compare breakfast, parking and cancellation terms. Without a car, return buses and nearby evening meals may matter as much as the nightly rate.']),
+    ru: copy('Где остановиться в Датче: центр, деревня или бухта', 'Выберите жильё с учётом вечерних прогулок, утреннего купания и поездок по полуострову.',
+      ['Центр и старая деревня', 'Для вечерних прогулок у воды после ужина присмотритесь к району Искеле. Если хочется пожить среди каменных домов, подойдёт Старая Датча. Оттуда до пляжа понадобится транспорт.'],
+      ['Номер у бухты', 'В Паламутбюкю и бухтах Месудие посмотрите на карте реальный пеший путь от жилья до воды. Сравните условия завтрака, парковки и отмены. При поездке без машины узнайте, где можно поужинать и когда отправляется последний автобус.'])
+  },
+  {
+    slug: 'dalamandan-datcaya-ulasim', groups: ['transport', 'plans'], photo: 'datca-merkez',
+    source: { label: 'MUTTAŞ · Dalaman Havalimanı', url: 'https://ulasim.muttas.com.tr/hat/48-26-marmaris-otogar-dalaman-havalimani-440' },
+    tr: copy('Dalaman Havalimanı’ndan Datça’ya ulaşım', 'Toplu taşımada Marmaris aktarmasını, özel transferde son varış adresini uçağın inişine göre planla.',
+      ['Marmaris otogarında aktarma', 'MUTTAŞ’ın 48-26 hattı Dalaman Havalimanı ile Marmaris Otogarı arasında çalışır. Oradan Datça yönünde 48-16 hattına bak. İki seferin çalışma gününü, bagaj süresini ve otogardaki beklemeyi ayrı hesapla.'],
+      ['Son durağı belirle', 'Datça merkez, Eski Datça veya Palamutbükü rezervasyonlarında yolculuk aynı yerde bitmez. Transfer teklifi alırken tesisin adresini ver. Otobüsle geleceksen son bölümdeki yerel hattı uçak biletini almadan önce kontrol et.']),
+    en: copy('Getting from Dalaman Airport to Datça', 'Compare a two-leg public transport trip via Marmaris with a transfer to your exact accommodation.',
+      ['Changing at Marmaris bus station', 'MUTTAŞ route 48-26 connects Dalaman Airport and Marmaris bus station. From there, check route 48-16 towards Datça. Check the operating day for both legs and allow time for luggage collection and the change.'],
+      ['Check where the journey ends', 'Central Datça, Eski Datça and Palamutbükü are different destinations. Give the full property address when asking for a transfer quote. For a bus journey, check the final local connection before booking your flight.']),
+    ru: copy('Из аэропорта Даламан в Датчу', 'Сравните поездку с пересадкой в Мармарисе и трансфер прямо к адресу вашего жилья.',
+      ['Пересадка на автовокзале', 'Маршрут MUTTAŞ 48-26 связывает аэропорт Даламан с автовокзалом Мармариса. Дальше смотрите маршрут 48-16 в сторону Датчи. Уточните дни движения обоих рейсов и оставьте время на багаж и пересадку.'],
+      ['Последний участок пути', 'Центр Датчи, Старая Датча и Паламутбюкю расположены в разных местах. При запросе трансфера сообщите полный адрес жилья. Если едете автобусом, сверьте последнюю местную пересадку до покупки авиабилета.'])
+  },
+  {
+    slug: 'datcada-ne-yenir', groups: ['food'], photo: 'eski-datca',
+    source: { label: 'Muğla İl Kültür ve Turizm Müdürlüğü', url: 'https://mugla.ktb.gov.tr/TR-296375/ne-yenir.html' },
+    tr: copy('Datça’da ne yenir? Badem, yerel sofra ve bütçe', 'Pazardan alınan bir avuç bademden yöresel tatlılara, yarımadada tadabileceğin lezzetleri keşfet.',
+      ['Menüde ne aramalı?', 'Yöresel bir öğün için mürdümük çorbasını sor. Tatlıda bademli inciri dene. İncirin içine badem yerleştirilip fırınlanarak hazırlanan bu tatlı, bademi dalından sofraya kadar takip etmenin güzel bir yolu.'],
+      ['Hesabı önceden bil', 'Sahilde balık seçerken fiyatın porsiyona mı kiloya mı ait olduğunu, seçtiğin balığın ağırlığını ve mezelerin fiyatını öğren. Pazarda alışveriş yaparken de paket büyüklüğü yerine kilo fiyatlarını karşılaştır.']),
+    en: copy('What to eat in Datça: almonds and local dishes', 'Look for local pulses, almond-filled figs and fresh market produce as you explore the peninsula.',
+      ['What to look for on the menu', 'Ask about mürdümük çorbası, a traditional local pulse soup. For dessert, try bademli incir, figs stuffed with almonds and baked. It is an especially good way to taste one of the peninsula’s signature crops.'],
+      ['Working out the bill', 'When choosing fish, ask whether it is priced by the kilo or by the portion. Check the weight of your fish and the prices of meze before ordering. In a market, compare prices by weight across different pack sizes.']),
+    ru: copy('Что попробовать в Датче: миндаль и местные блюда', 'На полуострове стоит попробовать суп из местных бобовых, инжир с миндалём и сезонные продукты с рынка.',
+      ['Что искать в меню', 'Спросите про mürdümük çorbası, традиционный суп из бобовых. На десерт закажите bademli incir, запечённый инжир с миндальной начинкой. В этом блюде хорошо чувствуется вкус местного миндаля.'],
+      ['Как посчитать заказ', 'Выбирая рыбу, уточните, указана ли цена за килограмм или за порцию. До заказа спросите вес рыбы и стоимость закусок. На рынке сравнивайте цену за единицу веса, особенно если упаковки разного размера.'])
+  },
+  {
+    slug: 'datcada-uc-gun', groups: ['plans'], photo: 'knidos', source: weekend,
+    tr: copy('Datça’da üç gün: liman, koylar ve Knidos', 'Üç günü üç bölgeye ayırarak yolda geçecek zamanı azalt ve her gün için bir ana durak seç.',
+      ['İlk gün merkezde', 'Valizi bıraktıktan sonra İskele’den Taşlık’a yürü. Öğleden sonra Eski Datça’ya geç. Kısa bir sokak yürüyüşünden sonra akşam yemeğini mahallede yiyebilir veya limana dönebilirsin.'],
+      ['İkinci gün Mesudiye’de', 'Sabah Hayıtbükü’ne in, öğleden sonrayı Ovabükü’nün uzun sahilinde geçir. Otobüsle geldiysen koylar arasında ve akşam merkeze dönüş için iki ayrı bağlantıyı kontrol et.'],
+      ['Üçüncü gün batıya', 'Knidos’a sabah gidip terasları gez. Dönüşte Palamutbükü’nde yüzmeye zaman ayır. Son gün yola çıkacaksan uzun Knidos gezisini ortadaki güne almak daha rahat olabilir.']),
+    en: copy('Three days in Datça: harbour, bays and Knidos', 'Give each day its own part of the peninsula and save time on the winding roads.',
+      ['Day one in town', 'Leave your bags, then walk from İskele to Taşlık. In the afternoon explore Eski Datça. Have dinner in the village or return to the harbour for the evening.'],
+      ['Day two in Mesudiye', 'Start in Hayıtbükü and spend the afternoon walking the long shore at Ovabükü. If travelling by bus, check the connections between the two bays and back to town.'],
+      ['Day three out west', 'Visit the terraces of Knidos in the morning and swim at Palamutbükü on the way back. If you have an early departure, move this longer excursion to the middle day.']),
+    ru: copy('Три дня в Датче: гавань, бухты и Книд', 'Посвятите каждый день отдельной части полуострова, чтобы меньше времени провести в дороге.',
+      ['День первый в городе', 'Оставьте вещи и пройдитесь от Искеле до Ташлыка. После обеда отправляйтесь в Старую Датчу. Поужинать можно там же или на обратном пути у гавани.'],
+      ['День второй в Месудие', 'Начните с Хаытбюкю, а вторую половину дня проведите на длинном пляже Овабюкю. Для поездки без машины заранее проверьте транспорт между бухтами и обратно в центр.'],
+      ['День третий на западе', 'Утром осмотрите террасы Книда, а по пути назад искупайтесь в Паламутбюкю. При раннем отъезде перенесите этот дальний маршрут на середину поездки.'])
+  },
+  {
+    slug: 'cocuklarla-datca', groups: ['plans', 'beaches'], photo: 'hayitbuku', source: coast,
+    tr: copy('Çocuklarla Datça: kısa yollar ve rahat molalar', 'Karaincir’de bir plaj sabahı veya şehir merkezinde kısa bir yürüyüş etrafında ailece kolay bir gün kur.',
+      ['Bir koy seç', 'Emecik tarafındaki Karaincir ince kumlu ve sığ kıyısıyla tanınır. Gitmeden o günkü denizi ve gölge imkanını öğren. Kıyı koşullarını varınca yeniden değerlendir ve yüzme molalarını çocuğuna göre kısa tut.'],
+      ['Çanta ve dönüş', 'Islak giysi için ayrı bir torba, içecek ve güneşten korunma malzemelerini kolay ulaşılabilen bir çantaya koy. Bir yetişkin yorulan çocukla erken dönerse buluşacağınız yeri önceden seçin.']),
+    en: copy('Datça with children: short outings and easy breaks', 'Build a family day around a morning at Karaincir or a short walk in the town centre.',
+      ['Pick one bay', 'Karaincir near Emecik is known for fine sand and shallow water. Check shade and sea conditions before leaving and assess the water again on arrival. Plan short swimming breaks to suit your child.'],
+      ['Packing and getting back', 'Keep drinks, sun protection and a separate bag for wet clothes within reach. Agree on a meeting point in case one adult needs to leave the beach early with a tired child.']),
+    ru: copy('Датча с детьми: короткие поездки и остановки', 'Устройте семейное утро на пляже Караинджир или выберите короткую прогулку в центре города.',
+      ['Выберите одну бухту', 'Караинджир в районе Эмеджик известен мелким песком и пологим заходом. Узнайте, есть ли тень, и оцените состояние моря на месте. Предусмотрите короткие перерывы между купаниями.'],
+      ['Что взять и где встретиться', 'Держите под рукой воду, защиту от солнца и отдельный пакет для мокрой одежды. Договоритесь о месте встречи на случай, если один из взрослых уйдёт с уставшим ребёнком раньше.'])
+  },
+  {
+    slug: 'sezon-disinda-datca', groups: ['plans', 'nature'], photo: 'eski-datca', source: see,
+    tr: copy('Sezon dışında Datça: badem çiçekleri ve köyler', 'Kış sonunda badem ağaçları, kıyı yürüyüşleri ve değişken havaya uyarlanabilen kısa rotalar.',
+      ['Çiçek zamanını yakalamak', 'Datça’da bademler kış bitmeden çiçek açabilir. Tam zaman yıldan yıla değişir. Ziyaretini çiçekler için ayarlıyorsan mahalledeki konaklama yerinden güncel durumu öğren, festival düşünüyorsan belediyenin programına bak.'],
+      ['Rüzgârlı bir gün', 'Uzun bir tekne gezisi yerine kıyıda kısa bir yürüyüş veya Eski Datça’da kahve molası planlayabilirsin. Yola çıkmadan önce yemek yiyeceğin yerin açık olduğunu ve dönüş ulaşımını doğrula.']),
+    en: copy('Datça out of season: almond blossom and village walks', 'Look for late-winter blossom and short routes you can adapt to a change in the weather.',
+      ['Timing the blossom', 'Almond trees can bloom in Datça before winter ends. The timing varies each year. Ask a local host about the orchards before making a special trip, and check the municipality’s programme for any festival dates.'],
+      ['A windy-day alternative', 'Swap a long boat trip for a short waterfront walk or coffee in Eski Datça. Call ahead about food and check your transport back before leaving town.']),
+    ru: copy('Датча вне сезона: цветение миндаля и деревни', 'В конце зимы ищите цветущий миндаль и выбирайте короткие прогулки, которые легко менять по погоде.',
+      ['Когда цветёт миндаль', 'В Датче миндаль может зацвести ещё до конца зимы. Точные сроки меняются каждый год. Если едете ради цветения, спросите о садах у местных хозяев, а даты фестиваля проверьте у муниципалитета.'],
+      ['Если поднялся ветер', 'Вместо долгой морской прогулки пройдитесь по набережной или зайдите в кафе в Старой Датче. Перед выездом уточните, открыто ли место для обеда и как вы доберётесь обратно.'])
+  },
+  {
+    slug: 'datca-nobetci-eczane', groups: ['health'], photo: 'datca-merkez',
+    source: { label: 'Muğla Eczacı Odası', url: 'https://www.muglaeczaciodasi.org.tr/nobetci-eczaneler' },
+    tr: copy('Datça nöbetçi eczane bilgisine nasıl ulaşılır?', 'Bugün açık eczanenin adını, adresini ve nöbet aralığını Muğla Eczacı Odası’nın listesinden kontrol et.',
+      ['İlçeyi ve tarihi doğrula', 'Resmî nöbet listesini açıp Datça satırını bul. Saat gece yarısını geçtiğinde başlangıç ve bitiş tarihleri farklı olabilir. Bulunduğun saatin yazılan aralıkta kaldığını kontrol et.'],
+      ['Yola çıkmadan önce', 'Listelenen telefon numarasını kullanarak adresi ve o saatte hizmet verildiğini teyit edebilirsin. Koylardan geleceksen eczanenin mahalle adını da haritada kontrol et.']),
+    en: copy('Finding the duty pharmacy in Datça', 'Use the Muğla Chamber of Pharmacists’ roster for the name, address and duty hours of the local pharmacy.',
+      ['Check the district and date', 'Open the official roster and find the Datça entry. An overnight shift can span two dates. Check that the time you plan to visit falls inside the displayed hours.'],
+      ['Before you leave', 'Use the phone number shown to confirm the address and opening time. If you are coming from a bay, check the neighbourhood name on the map before travelling.']),
+    ru: copy('Как найти дежурную аптеку в Датче', 'В расписании Палаты фармацевтов Муглы указаны название, адрес и время дежурства аптеки.',
+      ['Район и даты', 'Откройте официальный список и найдите строку Datça. Ночная смена может начинаться и заканчиваться в разные даты. Проверьте, попадает ли время вашего визита в этот интервал.'],
+      ['Перед поездкой', 'По указанному номеру телефона можно уточнить адрес и время работы. Если вы едете из одной из бухт, проверьте на карте название района, где находится аптека.'])
+  },
+  {
+    slug: 'taslik-plaji', groups: ['beaches', 'places'], photo: 'datca-sahil', source: { label: 'Datça Kaymakamlığı', url: 'https://datca.gov.tr/turizm' },
+    tr: copy('Taşlık Plajı ve Ilıca Gölü', 'Aynı sabah denizi ve tatlı su gölünü görmek için merkezde Sevgi Yolu’nu izle.',
+      ['Denizle göl arasında', 'Taşlık’a havlunla yürüyebileceğin bir gün ayır. Sevgi Yolu üzerinde Ilıca Gölü’ne uğrayıp ördekleri kıyıdan izle. Ardından eşyalarını toplayıp deniz tarafında uygun bir yere geç.'],
+      ['Akşama doğru', 'Yüzdükten sonra üstünü değiştirmek ve limana yürümek için hafif bir çanta yeterli olur. Şehir dışına otobüsle döneceksen son seferi sahile inmeden kontrol et.']),
+    en: copy('Taşlık Beach and Lake Ilıca', 'Follow Sevgi Yolu for sea and fresh water on one morning walk in town.',
+      ['Between lake and sea', 'Set aside a morning for Taşlık and bring a towel. Stop at Lake Ilıca on Sevgi Yolu to watch the ducks from the bank, then find your spot on the seaward side.'],
+      ['Towards evening', 'Pack a change of clothes so you can walk to the harbour after swimming. If your accommodation is outside town, check the last bus before settling on the beach.']),
+    ru: copy('Пляж Ташлык и озеро Ылыджа', 'За одну утреннюю прогулку по Севги-Йолу можно увидеть и море, и пресное озеро.',
+      ['Между озером и морем', 'Возьмите полотенце и отправляйтесь к Ташлыку. По пути остановитесь у озера Ылыджа и понаблюдайте за утками с берега. Затем перейдите к морю и найдите место для купания.'],
+      ['Ближе к вечеру', 'Захватите сменную одежду для прогулки к гавани после купания. Если живёте за пределами центра, посмотрите расписание последнего автобуса до выхода на пляж.'])
+  },
+  {
+    slug: 'kumluk-plaji', groups: ['beaches', 'food'], photo: 'datca-merkez',
+    source: {label: 'GoTürkiye · Datça', url: 'https://goturkiye.com/tr/datca/dokun'},
+    tr: copy('Kumluk Plajı: merkezde deniz ve akşam yemeği', 'Datça merkezinde, yüzme molasından akşam sofrasına yürüyerek geçebileceğin bir kıyı.',
+      ['Gündüz için', 'Kumluk’u merkezde az zamanın kaldığı güne ayırabilirsin. Önce kıyıyı gözden geçir, havlu için yerini seç. Daha uzun bir yürüyüş istersen yüzmeyi bitirince limana doğru devam et.'],
+      ['Sahilde sofra kurulduğunda', 'Akşam yemeği için denize yakın masa isteyenler rezervasyonda konumu sorabilir. Menüye, balığın nasıl fiyatlandığına ve varsa servis ücretine oturmadan bak.']),
+    en: copy('Kumluk Beach: a swim and dinner in town', 'In central Datça you can walk from a dip in the sea straight to an evening meal.',
+      ['During the day', 'Keep Kumluk for a day when you have only a few hours in town. Walk the shore first to choose a place for your towel. After swimming, continue towards the harbour if you feel like a longer stroll.'],
+      ['Dinner by the water', 'If you want a table close to the water, ask where it is when reserving. Check the menu, how the fish is priced and any service charge before sitting down.']),
+    ru: copy('Пляж Кумлук: купание и ужин в центре', 'В центре Датчи от места для купания до вечернего ужина можно дойти пешком.',
+      ['Днём', 'Оставьте Кумлук на день, когда в центре есть только несколько свободных часов. Пройдите вдоль берега, выберите место и после купания продолжите прогулку к гавани.'],
+      ['За ужином', 'Если хотите столик у воды, уточните его расположение при бронировании. Посмотрите меню, цену рыбы и условия обслуживания до заказа.'])
+  },
+  {
+    slug: 'karaincir-koyu', groups: ['beaches'], photo: 'datca-koylari', source: coast,
+    tr: copy('Karaincir Koyu: Emecik tarafında kumlu kıyı', 'Datça’ya doğudan gelirken merkezden önce karşına çıkan, ince kumu ve sığ kıyısıyla bilinen bir koy.',
+      ['Plajda yer seçimi', 'İlk olarak denize girişin kendine en uygun olduğu bölüme bak. Rüzgâr ve dalga gün içinde değişebilir. Gölgeye ihtiyacın varsa yanına şemsiye al veya kıyıdaki işletmelere o günkü imkanları sor.'],
+      ['Yoldan kısa sapma', 'Karaincir ile merkezden batıya doğru uzanan bükler farklı yönlerde kalır. Karaincir’i Marmaris yolundan geldiğin veya doğuya döndüğün güne eklemek geri dönüş mesafesini azaltır.']),
+    en: copy('Karaincir Bay: a sandy beach near Emecik', 'Approaching from the east, you reach this fine-sand bay before the town centre.',
+      ['Choose your stretch', 'Walk along the water to find an entry point that suits you. Wind and waves can change during the day. Bring shade or ask the businesses on the shore what is available that day.'],
+      ['A stop on the eastern road', 'Karaincir is on the opposite side of town from the western bays. Add it to the day you arrive from Marmaris or travel back east to avoid retracing the same road.']),
+    ru: copy('Бухта Караинджир: песчаный берег у Эмеджика', 'На подъезде с востока эта бухта с мелким песком и пологим берегом встретится раньше центра Датчи.',
+      ['Выберите место', 'Пройдитесь вдоль кромки воды и найдите удобный для вас вход. Ветер и волна меняются. Захватите зонт или уточните у пляжного заведения, есть ли тень в день поездки.'],
+      ['Остановка по дороге', 'Караинджир расположен по другую сторону города от западных бухт. Сюда удобно заехать по пути из Мармариса или при отъезде на восток.'])
+  },
+  {
+    slug: 'akvaryum-koyu', groups: ['beaches', 'sea'], photo: 'datca-koylari',
+    source: {label: 'GoTürkiye · Datça', url: 'https://goturkiye.com/tr/datca/dokun'},
+    tr: copy('Akvaryum Koyu: Palamutbükü çevresinde yüzme molası', 'Haritada Palamutbükü yakınındaki Akvaryum’u işaretleyip kara veya denizden kısa bir ziyaret düzenle.',
+      ['Doğru konumu seç', 'Akvaryum adı farklı kıyılarda da kullanılır. Haritadan Palamutbükü çevresindeki konumu kaydet. Kıyı yolundan ineceksen araç bırakmaya uygun yeri ve dönüşte yürüyeceğin yolu önceden belirle.'],
+      ['Tekneyle uğrarken', 'Teknede bu ismi gördüğünde haritadaki konumunu sor. Yüzme molasının süresi ve rüzgâra bağlı rota değişikliği ihtimali, koyda ne yapabileceğini belirler.']),
+    en: copy('Akvaryum Bay: a swim near Palamutbükü', 'Pin the Akvaryum near Palamutbükü before choosing a visit from the shore or by boat.',
+      ['Find the right pin', 'Several Turkish bays share the name Akvaryum. Save the location near Palamutbükü. If arriving by road, plan where you can park and how you will walk back to the vehicle.'],
+      ['Coming by boat', 'Ask the skipper to point out the advertised Akvaryum on a map. The length of the swim stop and the chance of a route change with the wind determine what you can do there.']),
+    ru: copy('Бухта Акварьюм около Паламутбюкю', 'Отметьте на карте нужную бухту и выберите, как добраться к ней: с берега или на лодке.',
+      ['Точка на карте', 'Название Акварьюм встречается у разных бухт. Сохраните точку рядом с Паламутбюкю. Если едете на машине, наметьте удобное место для парковки и обратный путь пешком.'],
+      ['С воды', 'Попросите капитана показать на карте, какая именно бухта указана в программе. Уточните продолжительность остановки и возможные изменения из-за ветра.'])
+  },
+  {
+    slug: 'kurubuk', groups: ['beaches', 'nature'], photo: 'datca-koylari',
+    source: {label: 'Datça Kaymakamlığı', url: 'https://datca.gov.tr/turizm'},
+    tr: copy('Kurubük: güney kıyısında manzara molası', 'Ovabükü ile Palamutbükü arasında kıyı boyunca ilerlerken Kurubük’e ayrı bir durak ayır.',
+      ['Kıyı yolunda', 'Aracı durdurabileceğin uygun bir yer bulduğunda koya yukarıdan bak. İnişin zemini ve dönüşteki mesafe sana uygun görünüyorsa su ve havlunu alıp sahile geç.'],
+      ['Molayı kısa tutmak istersen', 'Yürüyüşü ve denize girmeyi sonraki koya bırakıp burada yalnızca manzara için durabilirsin. Virajlı kıyı yolunda fotoğrafı yürüyerek ulaştığın güvenli bir noktadan çek.']),
+    en: copy('Kurubük: a viewpoint on the southern coast', 'Leave time for a stop at Kurubük as you follow the coast between Ovabükü and Palamutbükü.',
+      ['On the coast road', 'Find a suitable place to park and look down into the bay. Check that the way down and the walk back suit you before taking your water and towel to the shore.'],
+      ['For a shorter stop', 'You can save the swim for the next bay and pause here for the view. On the winding coastal road, park first and approach a suitable viewpoint on foot.']),
+    ru: copy('Курубюк: видовая остановка на южном побережье', 'Оставьте время на Курубюк по пути вдоль берега между Овабюкю и Паламутбюкю.',
+      ['По прибрежной дороге', 'Найдите подходящее место для остановки и посмотрите на бухту сверху. Перед спуском с полотенцем и водой оцените покрытие и длину обратного подъёма.'],
+      ['Короткая остановка', 'Можно ограничиться видом сверху, а искупаться в следующей бухте. На извилистой дороге сначала припаркуйтесь и пройдите к месту съёмки пешком.'])
+  },
+  {
+    slug: 'resadiye', groups: ['places', 'history'], photo: 'eski-datca',
+    source: {label: 'Datça Belediyesi', url: 'https://datca.bel.tr/sayfa/belediye-tarihcesi'},
+    tr: copy('Reşadiye: Datça’nın ilk ilçe merkezi', 'İskele sahilinden içeride kalan Reşadiye, ilçenin idari merkezinin kıyıya taşınmasından önceki Datça’yı anlatır.',
+      ['Köyün geçmişi', 'Datça 1928’de ilçe olduğunda merkezi Reşadiye’ydi. İdari merkez 1947’de İskele’ye taşındı. Aynı gün iki mahalleyi gezmek, yarımadada yaşamın kıyıya nasıl yöneldiğini görmenin bir yolu.'],
+      ['Yürüyüşe bağla', 'Reşadiye gezisini Eski Datça’yla birleştirip yürüyüş zamanını bu iki mahalle arasında paylaştırabilirsin. Merkezden otobüsle geliyorsan Eski Datça–Reşadiye hattındaki durağını işaretle.']),
+    en: copy('Reşadiye: Datça’s first district centre', 'This inland neighbourhood offers another chapter in the town’s history, before the administrative centre moved to the coast.',
+      ['An inland centre', 'Reşadiye was the district centre when Datça became a district in 1928. The administration moved to İskele in 1947. Visit both to see the contrast between the inland settlement and the waterfront.'],
+      ['Combine two walks', 'Pair Reşadiye with Eski Datça and split your walking time between the two neighbourhoods. From town, mark your stop on the Eski Datça–Reşadiye bus route.']),
+    ru: copy('Решадие: первый районный центр Датчи', 'В этом квартале в глубине полуострова можно познакомиться с историей Датчи до переноса администрации к побережью.',
+      ['Прежний центр', 'Когда в 1928 году Датча получила статус района, его центром стало Решадие. В 1947 году администрацию перевели в Искеле. Две остановки за день покажут, как различаются старое поселение и город у воды.'],
+      ['Две прогулки', 'Объедините Решадие со Старой Датчей. Из центра к ним идёт автобус через Eski Datça в Reşadiye. Отметьте нужные остановки на карте.'])
+  },
+  {
+    slug: 'hizirsah-kultur-evi', groups: ['places', 'history'], photo: 'mesudiye', source: coast,
+    tr: copy('Hızırşah: cami ve kültür evi arasında', 'Beylikler döneminin izleri ile 19. yüzyıldan dönüştürülmüş bir yapıyı aynı köy gezisinde gör.',
+      ['İki yapı, iki dönem', 'Hızırşah Camii tek kubbeli bir beylikler dönemi yapısıdır. Köydeki eski kilise ise restore edilerek kültür evine dönüştürülmüştür. Cami ziyaretini ibadet saatlerine göre düzenle.'],
+      ['Kültür evine uğramadan', 'Yapıyı içeriden görmek veya bir etkinliğe katılmak istiyorsan belediye duyurularından o günün programını kontrol et. Gidişte köy içindeki durağı, dönüş için de son seferi sor.']),
+    en: copy('Hızırşah: a mosque and a village cultural centre', 'Two buildings tell different chapters of local history on a visit to Hızırşah.',
+      ['Two periods in one village', 'The single-domed mosque dates to the period of the Anatolian principalities. A nineteenth-century church has been restored as a cultural centre. Time a visit to the mosque around prayers.'],
+      ['Before visiting the centre', 'Check municipal announcements for openings and any performance or exhibition on your date. If coming by bus, identify the village stop and the last departure back.']),
+    ru: copy('Хызыршах: мечеть и культурный центр', 'Два здания разных эпох рассказывают историю деревни Хызыршах.',
+      ['Две эпохи', 'Однокупольная мечеть относится ко времени анатолийских княжеств. Церковь XIX века после реставрации стала культурным центром. Для посещения мечети выбирайте время между молитвами.'],
+      ['Культурная программа', 'Для осмотра внутри, выставки или концерта проверьте муниципальную афишу на вашу дату. Если приезжаете автобусом, уточните остановку и последний обратный рейс.'])
+  },
+  {
+    slug: 'mesudiye', groups: ['places', 'stays'], photo: 'mesudiye', source: coast,
+    tr: copy('Mesudiye: üç koy arasında bir tatil', 'Hayıtbükü, Ovabükü ve Kızılbük aynı mahallede olsa da üçünde kalmanın günlük düzeni farklı.',
+      ['Kıyı seçimi', 'Yürüyüş için uzun bir sahil arıyorsan önce Ovabükü’ne bak. Daha küçük bir koyda birkaç gün geçirmek için Hayıtbükü veya Kızılbük’teki konaklamaların tam konumunu karşılaştır.'],
+      ['Mahalle adı yetmez', 'Mesudiye adresli bir pansiyon için rezervasyondan önce plaja, durağa ve en yakın açık akşam yemeği seçeneğine yürüyüş yolunu sor. Haritada kuş uçuşu mesafe yerine gerçek yolu takip et.']),
+    en: copy('Mesudiye: staying among three bays', 'Hayıtbükü, Ovabükü and Kızılbük belong to one neighbourhood, with different settings for a stay.',
+      ['Choose the shore', 'Look at Ovabükü for longer walks beside the water. For a smaller bay, compare the actual positions of accommodation around Hayıtbükü and Kızılbük.'],
+      ['Ask for a precise address', 'For any guesthouse listed under Mesudiye, map the walk to the beach, bus stop and nearest evening meal. Follow the real walking route instead of relying on straight-line distance.']),
+    ru: copy('Месудие: отдых между тремя бухтами', 'Хаытбюкю, Овабюкю и Кызылбюк входят в один район, но подходят для разных вариантов отдыха.',
+      ['Выбор берега', 'Для долгих прогулок вдоль воды присмотритесь к Овабюкю. Если предпочитаете небольшую бухту, сравните расположение жилья в Хаытбюкю и Кызылбюке.'],
+      ['Точный адрес', 'Попросите хозяина пансиона с адресом Mesudiye указать дорогу до пляжа, остановки и ближайшего места для ужина. Смотрите путь пешком, а не только расстояние по прямой.'])
+  },
+  {
+    slug: 'yazikoy', groups: ['places', 'transport'], photo: 'mesudiye', source: buses,
+    tr: copy('Yazıköy: yarımadanın batısında bir durak', 'Yazıköy ve Belen yönünü batıdaki kıyı gezisine eklerken seferin hangi yerleşime kadar gittiğine bak.',
+      ['Palamutbükü’nden sonra', 'Datça’dan batıya giden 9-5 hattında Palamutbükü ve Belen gibi farklı bitişler bulunur. Cumalı ve Yazıköy tarafına geçmek için Belen yönündeki durak listesini aç, tarihi ve yönü kontrol et.'],
+      ['Knidos’a devam edersen', 'Köyü ziyaret etmekle ören yerine ulaşmak yolculuğun ayrı parçalarıdır. Devam aracını ve dönüş saatini önceden teyit et. Araban varsa köy molasını gezi dönüşüne de bırakabilirsin.']),
+    en: copy('Yazıköy: a village stop in the west', 'When adding Yazıköy and Belen to a day out west, check exactly where your bus terminates.',
+      ['Beyond Palamutbükü', 'Route 9-5 from Datça has different destinations, including Palamutbükü and Belen. To travel towards Cumalı and Yazıköy, look up the stops on the Belen service for the correct day and direction.'],
+      ['On to Knidos', 'The village visit and the trip to the ruins are separate legs. Confirm onward transport and your way back. With a car, consider the village as a stop after visiting the archaeological site.']),
+    ru: copy('Языкёй: остановка на западе полуострова', 'Добавляя Языкёй и Белен к поездке на запад, проверьте конечную остановку нужного рейса.',
+      ['Дальше Паламутбюкю', 'У маршрута 9-5 из Датчи есть разные конечные, включая Паламутбюкю и Белен. Для поездки через Джумалы и Языкёй смотрите список остановок рейса в Белен на нужный день.'],
+      ['Дальше к Книду', 'Дорогу из деревни к руинам и обратный транспорт планируйте отдельно. Если вы за рулём, можно остановиться в деревне на обратном пути после посещения Книда.'])
+  },
+  {
+    slug: 'burgaz-oren-yeri', groups: ['history', 'places'], photo: 'datca-sahil', source: coast,
+    tr: copy('Burgaz: Datça merkezinin yanı başında arkeoloji', 'Tekir Burnu’ndaki Knidos’tan ayrı bir yer olan Burgaz, yarımadanın erken liman yerleşimini anlatır.',
+      ['İki konumu ayır', 'Burgaz arkeolojik alanı bugünkü merkezin kuzeydoğusundadır. Kentin evleri, sokakları ve liman izleri üzerine yürütülen kazılar eski yerleşimin düzenini ortaya koyar. Batı uçtaki Knidos biletini ararken haritanda iki yeri ayrı işaretle.'],
+      ['Kazı alanı ziyareti', 'Araştırma ve koruma çalışmaları nedeniyle erişilebilen kısımlar değişebilir. Gezi öncesinde turizm danışmadan açık ziyaret alanlarını sor, saha sınırları ve bilgilendirme levhalarını izle.']),
+    en: copy('Burgaz: archaeology just outside Datça', 'Burgaz preserves evidence of an early port settlement close to town, at a separate site from Knidos on Cape Tekir.',
+      ['Two distinct locations', 'Burgaz lies north-east of central Datça. Excavations study houses, streets and harbour remains that reveal the layout of the early settlement. Pin it separately from the ruins of Knidos at the western tip.'],
+      ['Visiting an excavation', 'Access can change with research and conservation work. Ask the tourism office which areas are open to visitors and follow signs and boundaries at the site.']),
+    ru: copy('Бургаз: археология рядом с Датчей', 'Рядом с городом сохранились следы раннего портового поселения, которое находится отдельно от Книда на мысе Текир.',
+      ['Две разные точки', 'Бургаз лежит к северо-востоку от центра Датчи. Археологи изучают здесь дома, улицы и остатки гаваней. Отметьте его на карте отдельно от руин Книда на западной оконечности полуострова.'],
+      ['Во время раскопок', 'Доступ зависит от исследований и консервации находок. До поездки узнайте в туристическом бюро, какие места открыты, и следуйте обозначенным границам.'])
+  },
+  {
+    slug: 'gebekum', groups: ['nature', 'places'], photo: 'kizlan', source: coast,
+    tr: copy('Gebekum: Kızlan kıyısında fosil kumullar', 'Rüzgârın biçimlendirdiği bu kıyıda kumul yüzeyine ve üzerindeki bitkilere, izin verilen geçişlerden bak.',
+      ['Peyzajı okumak', 'Kızlan sınırlarında yer alan Gebekum’daki fosil kumullar eski kıyıların izlerini taşır. Göreceğin manzarayı anlamak için bugünkü su çizgisiyle gerideki kum tepelerini birlikte izle.'],
+      ['Nereden yürümeli?', 'Araç ve bisikleti kumullara çıkarmadan uygun yerde bırak. Kıyıya ulaşmak için mevcut yolları ve yerindeki koruma işaretlerini takip et. Bitkiler arasında yeni bir iz açmadan da fotoğraf için güzel bir açı bulabilirsin.']),
+    en: copy('Gebekum: fossil dunes on the Kızlan coast', 'Observe the wind-shaped shoreline and dune vegetation from permitted access routes.',
+      ['Reading the landscape', 'The fossil dunes at Gebekum in Kızlan hold traces of earlier shorelines. Look at the present waterline together with the dunes farther back to see how the landscape fits together.'],
+      ['Where to walk', 'Leave vehicles and bikes off the dunes. Follow established access routes and conservation signs. Frame photographs from the path to avoid making new tracks through vegetation.']),
+    ru: copy('Гебекум: древние дюны побережья Кызлана', 'Посмотрите на берег, созданный ветром, и растительность дюн с разрешённых проходов.',
+      ['Следы прежнего берега', 'Ископаемые дюны Гебекума в Кызлане хранят след прежних береговых линий. Сравните современную кромку воды с грядами в глубине побережья.'],
+      ['Где пройти', 'Оставьте транспорт за пределами дюн. Пользуйтесь существующими подходами и учитывайте природоохранные указатели. Снимайте с тропы, сохраняя растительный покров.'])
+  },
+  {
+    slug: 'datca-pazari', groups: ['food', 'places'], photo: 'datca-merkez',
+    source: {label: 'Muğla İl Kültür ve Turizm Müdürlüğü', url: 'https://mugla.ktb.gov.tr/TR-296374/alisveris.html'},
+    tr: copy('Datça pazarı: üretici tezgâhlarında bir sabah', 'İskele ve Özbel tarafındaki pazarları gezerken bademi, balı ve mevsim sebzelerini üreticiden sor.',
+      ['Hangi pazara gitmeli?', 'İl turizm müdürlüğü İskele’de Pazar Sokağı’nı ve Özbel’deki yerel üretici pazarını tarif ediyor. Günler ve kurulum yerleri değişebileceğinden kaldığın yerde ziyaret tarihine göre hangisinin kurulduğunu öğren.'],
+      ['Nasıl alışveriş yapmalı?', 'Bademin hasat ve kavrulma zamanını, balın hangi çiçekten veya ağaçtan geldiğini sor. Eve taşırken kavanozları ayrı sar, taze ürünleri ise gezinin sonunda al.']),
+    en: copy('Datça markets: a morning among the producers', 'Look for almonds, honey and seasonal vegetables at the markets around İskele and Özbel.',
+      ['Which market?', 'The provincial tourism office lists Pazar Street in İskele and a producers’ market in Özbel. Confirm the location and day for your visit locally before setting out with your shopping bag.'],
+      ['At the stalls', 'Ask when almonds were harvested and roasted, or which flowers or trees supplied a honey harvest. Wrap jars separately for the journey home and buy fresh produce near the end of your walk.']),
+    ru: copy('Рынки Датчи: утро у местных производителей', 'В Искеле и Озбеле ищите миндаль, мёд и сезонные овощи на торговых рядах.',
+      ['Куда отправиться', 'Управление туризма указывает улицу Pazar в Искеле и рынок производителей в Озбеле. Перед походом уточните, где и в какой день рынок будет работать во время вашей поездки.'],
+      ['Что спросить', 'Узнайте, когда миндаль собрали и обжарили, а у пасечника спросите, с каких растений собран мёд. Оберните банки отдельно и покупайте свежие продукты в конце прогулки.'])
+  },
+  {
+    slug: 'arabasiz-datca', groups: ['transport', 'plans'], photo: 'datca-merkez', source: buses,
+    tr: copy('Arabasız Datça: otobüsle köy ve plaj rotaları', 'Eski Datça, Kargı ve Mesudiye’ye merkezden giden hatlarla her güne tek yön seç.',
+      ['Hangi hat nereye gider?', 'MUTTAŞ listesinde Eski Datça–Reşadiye için 9-1, Kargı için 9-2, Mesudiye üzerinden Hayıtbükü ve Ovabükü için 9-3 hatlarını bulabilirsin. Bazı hat numaralarının kısa ve uzun güzergâhları olduğundan son durağa da bak.'],
+      ['İki günü böl', 'İlk gün şehir içi yürüyüşü ve Eski Datça’yı, ikinci gün bir Mesudiye koyunu seç. Her ayağın son dönüşünü ayrı kaydet. Plajdan çıkışını son araca yetişmek için gereken yürüyüş payını ekleyerek planla.']),
+    en: copy('Datça without a car: buses to villages and beaches', 'Use one direction per day to explore Eski Datça, Kargı and the Mesudiye bays from town.',
+      ['Routes from the centre', 'On the MUTTAŞ list, look for 9-1 for Eski Datça–Reşadiye, 9-2 for Kargı and 9-3 towards Mesudiye for Hayıtbükü and Ovabükü. Some route numbers have branches, so check the terminus too.'],
+      ['A two-day split', 'Combine a walk in town with Eski Datça on day one. Pick a Mesudiye bay on day two. Save the last return time for each leg and allow for the walk back to the bus stop.']),
+    ru: copy('Датча без машины: автобусы к деревням и пляжам', 'Выбирайте одно направление в день для поездок из центра в Старую Датчу, Каргы и Месудие.',
+      ['Номера маршрутов', 'В списке MUTTAŞ ищите 9-1 для Eski Datça–Reşadiye, 9-2 для Kargı и 9-3 в сторону Mesudiye для бухт Хаытбюкю и Овабюкю. У некоторых линий несколько вариантов, поэтому смотрите и конечную остановку.'],
+      ['План на два дня', 'В первый день объедините набережную со Старой Датчей, а во второй выберите одну бухту Месудие. Запишите время последнего обратного рейса и прибавьте время от пляжа до остановки.'])
+  },
+  {
+    slug: 'datcada-erisilebilir-tatil', groups: ['plans', 'transport', 'stays'], photo: 'datca-sahil',
+    source: {label: 'MUTTAŞ · Bodrum–Datça', url: 'https://ulasim.muttas.com.tr/hat/48-48-bodrum-datca-371'},
+    tr: copy('Datça’da erişilebilir tatil planı', 'Konaklamaya, feribota ve plaja giden yolu adım adım sorarak kendi hareket ihtiyaçlarına uygun bir gün kur.',
+      ['Limandan odaya', 'MUTTAŞ, Bodrum–Datça feribotlarının engelli erişimine uygun olduğunu belirtiyor. Kendi ekipmanının geçişi için seçtiğin seferin biniş düzenini ve Körmen’de seni karşılayacak aracı önceden teyit et.'],
+      ['Tesiste neyi sormalı?', 'Konaklama yerinden girişteki eşiklerin, duşun ve odadan plaja giden yolun güncel fotoğrafını iste. Kum veya çakıl üzerinde ilerlemen gerekecek mesafeyi ve plajdaki erişim imkanlarının o tarihte kullanımda olup olmadığını sor.']),
+    en: copy('Planning an accessible stay in Datça', 'Check each part of the journey from boat to room to beach against your own access requirements.',
+      ['From ferry to front door', 'MUTTAŞ describes its Bodrum–Datça ferries as accessible. Confirm boarding arrangements for your equipment on the selected sailing and organise the onward journey from Körmen.'],
+      ['Questions for a property', 'Ask for current photos of thresholds, the shower and the path from your room to the beach. Check how much sand or shingle you need to cross and which beach facilities are in operation on your dates.']),
+    ru: copy('Доступный отдых в Датче: что уточнить заранее', 'Проверьте каждый отрезок пути от парома до номера и пляжа с учётом ваших потребностей.',
+      ['От пристани до отеля', 'MUTTAŞ указывает, что паромы Бодрум — Датча доступны для пассажиров с ограниченной мобильностью. Уточните условия посадки с вашим оборудованием и транспорт после прибытия в Кёрмен.'],
+      ['Вопросы о жилье', 'Попросите свежие фотографии порогов, душа и пути от номера к пляжу. Выясните, где придётся передвигаться по песку или гальке и какие приспособления доступны в даты визита.'])
+  },
+  {
+    slug: 'palamutbukunden-knidos-tekne-turu', groups: ['tours', 'sea', 'history'], photo: 'datca-tekne',
+    source: {label: 'Ballı Tour · Palamutbükü', url: 'https://ballitour.com/'},
+    tr: copy('Palamutbükü’nden Knidos’a tekneyle', 'Antik limanı denizden görmek için Palamutbükü kalkışlı programı ve karaya çıkma süresini kontrol et.',
+      ['Kalkış ve dönüş', 'Ballı Tour kendi programında Palamutbükü Limanı’nı kalkış noktası olarak gösteriyor. Merkezde kalıyorsan sabah limana nasıl gideceğini ve tekne dönünce hangi araçla ayrılacağını kalkıştan önce planla.'],
+      ['Karada ne kadar zaman var?', 'Rezervasyonda Knidos’a o gün gidilip gidilmediğini, karaya çıkılıp çıkılmadığını ve ören yeri biletinin ayrıca alınıp alınmadığını sor. Uzun bir kazı alanı gezisi istiyorsan programdaki serbest süreyi öğren.']),
+    en: copy('From Palamutbükü to Knidos by boat', 'Check the programme and time ashore before choosing a cruise to see the ancient harbour from the water.',
+      ['Departure and return', 'Ballı Tour lists Palamutbükü harbour as its departure point. If you are staying in town, plan your morning connection and your ride back after the boat returns.'],
+      ['Time at the site', 'Ask whether the day’s route reaches Knidos, whether passengers can go ashore and whether an archaeological site ticket is extra. Check the free time if exploring the ruins is your main interest.']),
+    ru: copy('Из Паламутбюкю в Книд на лодке', 'Чтобы увидеть древнюю гавань с воды, уточните программу и сколько времени остаётся на берегу.',
+      ['Отправление и возвращение', 'Ballı Tour указывает отправление из гавани Паламутбюкю. Если живёте в центре Датчи, продумайте утреннюю дорогу в порт и обратную поездку после возвращения судна.'],
+      ['Посещение руин', 'Уточните, дойдёт ли судно до Книда в выбранный день, предусмотрена ли высадка и отдельно ли оплачивается вход. Если хотите осмотреть раскопки, спросите длительность свободного времени.'])
+  },
+  {
+    slug: 'datcada-ruzgar-sorfu', groups: ['tours', 'sea'], photo: 'datca-sahil',
+    source: {label: 'Datça Belediyesi · Windsurf ve Yelken Okulu', url: 'https://www.datca.bel.tr/haberler/ruzgari-arkasina-alan-gencler-denizle-bulusuyor'},
+    tr: copy('Datça’da rüzgâr sörfü: ilk dersini planla', 'Sörf için ders yeri, rüzgâr durumu ve ekipman seçeneklerini deneyimine göre konuş.',
+      ['Eğitim seçenekleri', 'Datça Belediyesi’nin Windsurf ve Yelken Okulu yarımadadaki eğitim seçeneklerinden biridir. Başlangıç dersi veya kurs ararken yaş grubunu, ders dilini, yerini ve bireysel katılıma uygun tarihleri sor.'],
+      ['Rüzgâr değişirse', 'Dersin ertelenmesi halinde yeni saat veya ücret koşulunu öğren. Yanına alman gerekenleri ve can yeleğiyle uygun beden ekipmanın derse dahil olup olmadığını kayıt sırasında netleştir.']),
+    en: copy('Windsurfing in Datça: planning a first lesson', 'Choose an instructor, location and equipment suited to your experience and the wind on the day.',
+      ['Finding a lesson', 'The municipal Windsurf and Sailing School is one training option in Datça. Ask about age groups, instruction language, meeting point and availability for individual visitors.'],
+      ['If the wind changes', 'Check the rescheduling or payment terms if conditions change. Find out what to bring and whether a life jacket and equipment in your size are included.']),
+    ru: copy('Виндсёрфинг в Датче: первое занятие', 'Выберите место и снаряжение с учётом опыта и ветра в день урока.',
+      ['Где учиться', 'В Датче работает муниципальная школа виндсёрфинга и парусного спорта. Узнайте возрастную группу, язык обучения, место встречи и возможность индивидуального посещения в ваши даты.'],
+      ['При перемене ветра', 'Спросите об условиях переноса занятия и возврата оплаты. Узнайте, что взять с собой и включены ли жилет и оборудование подходящего размера.'])
+  },
+  {
+    slug: 'datcada-kano-sup', groups: ['tours', 'sea'], photo: 'datca-sahil',
+    source: {label: 'UCPA Türkiye · Datça', url: 'https://ucpa.com.tr/destinasyonlar/datca/'},
+    tr: copy('Datça’da kano ve SUP: kürekle kıyı gezisi', 'Oturarak kano veya ayakta kürek arasında seçim yaparken süreyi, dönüş yönünü ve refakati sor.',
+      ['Programı seç', 'UCPA Türkiye Datça programlarında SUP ve kano seçenekleri yer alıyor. İlk kez deneyeceksen kıyıda kısa bir eğitim verilen, eğitmenin eşlik ettiği bir seansın uygunluğunu sor.'],
+      ['Gün batımı seansı', 'Güneşin battığı saatten sonra merkeze nasıl döneceğini önceden planla. Operatörden rüzgâr nedeniyle iptal koşullarını, eşyalarını nerede bırakacağını ve kuru kıyafete ne zaman ulaşabileceğini öğren.']),
+    en: copy('Kayaking and paddleboarding in Datça', 'Compare a seated kayak with a stand-up paddleboard and ask about the return route and supervision.',
+      ['Pick a session', 'UCPA Türkiye lists both SUP and kayaking in its Datça programmes. For a first outing, ask about a guided session with a shore briefing.'],
+      ['A sunset session', 'Plan your ride back after dark. Ask about wind-related cancellations, where belongings stay and when you can change into dry clothes after landing.']),
+    ru: copy('Каяк и SUP на побережье Датчи', 'Сравните прогулку сидя в каяке и стоя на доске и уточните сопровождение на воде.',
+      ['Выбор занятия', 'В программах UCPA Türkiye в Датче есть каяк и SUP. Для первой попытки спросите про выход с инструктором и вводный инструктаж на берегу.'],
+      ['Прогулка на закате', 'Заранее договоритесь о возвращении после наступления темноты. Уточните условия отмены при ветре, место для вещей и возможность переодеться на берегу.'])
+  },
+  {
+    slug: 'datcada-bisiklet', groups: ['nature', 'tours'], photo: 'kizlan',
+    source: {label: 'DADADOSK · Datça', url: 'https://www.dadadosk.org/'},
+    tr: copy('Datça’da bisiklet: mesafeden önce profili oku', 'Köy yollarında sürüşü planlarken tırmanış, rüzgâr ve dönüş saatini aynı haritada düşün.',
+      ['Başlangıç noktasını kur', 'Datça’daki doğa sporları kulübü DADADOSK bisiklet etkinlikleriyle de ilgileniyor. Yerel bir sürüşe katılacaksan buluşma noktasını, yol tipini ve grubun temposunu sor. Tek başına sürüşte aynı bilgileri haritadan çalış.'],
+      ['Tek yönü hesaplama', 'Bir koyun inişinde kaybettiğin yüksekliği dönüşte yeniden çıkman gerekebilir. İlk gezide kısa bir gidiş-dönüş seç, su alacağın yeri ve bisiklet arızasında dönebileceğin noktayı belirle.']),
+    en: copy('Cycling in Datça: read the elevation profile first', 'Take climbs, wind and the return leg into account when choosing a village road.',
+      ['Where to start', 'Local outdoor sports club DADADOSK includes cycling among its activities. For a group ride, ask about the meeting point, road surface and pace. Check the same details on a map before a solo ride.'],
+      ['Allow for the return', 'A long descent into a bay may become a climb on the way home. For a first visit, choose a short out-and-back and identify a water stop and somewhere to arrange pickup if the bike needs repairs.']),
+    ru: copy('Датча на велосипеде: сначала профиль высот', 'При выборе дороги к деревне учитывайте подъёмы, ветер и время для обратного пути.',
+      ['Откуда начать', 'Местный спортивный клуб DADADOSK занимается в том числе велопоездками. Для заезда с группой уточните точку встречи, покрытие и темп. Перед самостоятельной поездкой проверьте те же данные на карте.'],
+      ['Обратный подъём', 'Спуск в бухту может стать затяжным подъёмом на обратном пути. Для первой поездки выберите короткий маршрут, отметьте, где пополнить воду и откуда можно забрать велосипед при поломке.'])
+  },
+  {
+    slug: 'datca-bademi', groups: ['food'], photo: 'mesudiye',
+    source: {label: 'GoTürkiye · Datça', url: 'https://goturkiye.com/datca/taste'},
+    tr: copy('Datça bademi: çeşidini sorarak alışveriş', 'Nurlu bademden fırınlanmış bademli incire, aynı ürünün yarımadadaki farklı tatlarına bak.',
+      ['Tezgâhta ne sormalı?', 'Datça’da Nurlu adıyla karşılaşabilirsin. Satıcıya hangi çeşidi sunduğunu, bademin nerede yetiştiğini ve hasat yılını sor. Çiğ, kavrulmuş ve kabuklu bademleri ayrı ayrı değerlendir.'],
+      ['Eve götürmek için', 'Tadımlık birkaç küçük paket, sevdiğin çeşidi bulmana yardımcı olur. Paketli ürünün içerik ve saklama etiketini oku. Yöresel bir tatlı ararsan bütün incirle bademi bir araya getiren bademli inciri sor.']),
+    en: copy('Datça almonds: buying by variety', 'Taste the peninsula’s almonds as fresh kernels, roasted nuts and the filling in a baked fig.',
+      ['At the stall', 'Nurlu is one variety you may see by name. Ask which type is on sale, where it grew and the harvest year. Compare raw and roasted kernels separately from almonds still in the shell.'],
+      ['Taking a taste home', 'Try small quantities to find a favourite. Read the ingredients and storage label on packaged products. For a local sweet, ask for bademli incir, a fig filled with almonds.']),
+    ru: copy('Миндаль Датчи: как выбирать по сорту', 'Попробуйте орех с полуострова сырым, обжаренным и в виде начинки запечённого инжира.',
+      ['На прилавке', 'Здесь встречается сорт Nurlu. Спросите название сорта, место выращивания и год сбора. Сравнивайте сырой и жареный миндаль отдельно от орехов в скорлупе.'],
+      ['Что привезти домой', 'Небольшие порции помогут выбрать любимый вкус. На упакованных продуктах прочтите состав и условия хранения. Из местных сладостей попросите bademli incir, инжир с миндалём.'])
+  },
+  {
+    slug: 'datcada-apart-ve-pansiyon', groups: ['stays', 'food'], photo: 'palamutbuku',
+    source: {label: 'Defne Apart · Palamutbükü', url: 'https://defneapart.com/'},
+    tr: copy('Datça’da apart mı pansiyon mu?', 'Kendi yemeğini hazırlamak, kahvaltıyı konaklamaya eklemek ve birkaç gün aynı koyda kalmak için seçenekleri karşılaştır.',
+      ['Mutfak kullanacaksan', 'Palamutbükü’ndeki Defne Apart mutfaklı konaklama sunan bir örnek. Ayıracağın odanın mutfağında ocak, buzdolabı ve kişi sayına uygun ekipman olup olmadığını sor. Market yolunu haritada kontrol et.'],
+      ['İki teklifin toplamını bul', 'Pansiyondan kahvaltının ve temizliğin hangi günlerde dahil olduğunu öğren. Apart için alışveriş ulaşımını, varsa ek temizlik ücretini ve giriş saatini hesaba kat. İptal koşullarını aynı tarihler üzerinden karşılaştır.']),
+    en: copy('Apartments or guesthouses in Datça?', 'Compare a kitchen of your own with breakfast and housekeeping when staying in one bay for several days.',
+      ['If you plan to cook', 'Defne Apart in Palamutbükü is one example of self-catering accommodation. Ask what is in the kitchen of the exact unit you plan to book, including hob, fridge and utensils. Map the route to the nearest shop.'],
+      ['Compare the total cost', 'Ask a guesthouse which breakfasts and cleaning services are included. For an apartment, include grocery transport, any cleaning fee and check-in time. Compare cancellation terms for the same dates.']),
+    ru: copy('Апартаменты или пансион в Датче?', 'Для нескольких дней у одной бухты сравните собственную кухню с включёнными завтраками и уборкой.',
+      ['Если собираетесь готовить', 'Например, в Defne Apart в Паламутбюкю предлагают жильё с кухней. Уточните наличие плиты, холодильника и посуды именно в выбранной категории. Посмотрите, как далеко магазин.'],
+      ['Сравните полную стоимость', 'В пансионе спросите, какие завтраки и уборка входят в цену. Для апартаментов учтите дорогу за покупками, плату за уборку и время заселения. Сравнивайте правила отмены на одинаковые даты.'])
+  },
+  {
+    slug: 'domuzbuku', groups: ['beaches', 'sea', 'nature'], photo: 'datca-tekne', source: coast,
+    tr: copy('Domuzbükü: denizden ulaşılan bir koy', 'Güney kıyısında karayolu bağlantısı olmayan bu koyu tekne programına göre ziyaret et.',
+      ['Koya nasıl gidilir?', 'Domuzbükü’ne denizden ulaşılır. Datça veya Mesudiye tarafında bir tekneyle konuşurken gidiş ve dönüşün aynı rezervasyonda olup olmadığını ve kıyıya çıkma biçimini sor.'],
+      ['Günübirlik çanta', 'Koydaki hizmetlere güvenmeden içme suyu ve ihtiyaç duyacağın eşyayı hazırla. Tekneden ayrılmadan önce geri alınacağın yeri ve saati netleştir, eşyalarını kuru tutacak bir çanta kullan.']),
+    en: copy('Domuzbükü: a bay reached by sea', 'Plan around the boat schedule for this south-coast bay without a road connection.',
+      ['Getting to the bay', 'Access to Domuzbükü is by sea. Ask boat operators in Datça or Mesudiye whether your return trip is included and how passengers get ashore.'],
+      ['Packing for the day', 'Bring drinking water and personal essentials. Before leaving the boat, confirm where and when it will collect you and protect your belongings in a dry bag.']),
+    ru: copy('Домузбюкю: бухта с доступом по морю', 'К бухте на южном берегу нет автомобильной дороги, поэтому поездка зависит от расписания лодки.',
+      ['Как добраться', 'В Домузбюкю попадают по морю. У перевозчика в Датче или Месудие спросите, входит ли возвращение в заказ и как проходит высадка на берег.'],
+      ['Что взять с собой', 'Возьмите питьевую воду и личные вещи. Перед высадкой уточните время и точное место обратной посадки и держите вещи в непромокаемом мешке.'])
+  },
+  {
+    slug: 'datcada-mavi-yolculuk', groups: ['sea', 'tours', 'stays'], photo: 'kormen',
+    source: {label: 'GoTürkiye · Mavi Yolculuk', url: 'https://goturkiye.com/tr/branding/basin-bultenleri/turkiyenin-en-guzel-mavi-sularindaki-yolculugunuzun-keyfini-cikarin'},
+    tr: copy('Datça’da mavi yolculuk: teknede birkaç gece', 'Gökova tarafında veya güney kıyısında koyları gezmek için biniş limanı, geceleme düzeni ve karaya çıkışları karşılaştır.',
+      ['Hangi kıyıyı gezeceksin?', 'Gökova Körfezi, Bodrum ve Datça yarımadaları arasındadır. Datça’nın güneyindeki Palamutbükü ve Hayıtbükü’nü görmek istiyorsan programda bu kıyının yer aldığını kontrol et. Başlangıç ve bitiş limanı farklı olabilir.'],
+      ['Kamarayı seçerken', 'Teklifin özel tekneye mi kabine mi ait olduğunu, öğünleri, liman giderlerini ve transferleri sor. Gecelerin karada veya demirde nasıl geçtiğini, rüzgârla değişen rotada hangi karaya çıkışların mümkün olduğunu öğren.']),
+    en: copy('A blue cruise around Datça: staying on board', 'Compare coastlines, embarkation ports and cabin arrangements for several nights on the water.',
+      ['Which side of the peninsula?', 'The Gulf of Gökova lies between the Bodrum and Datça peninsulas. For Palamutbükü or Hayıtbükü, check for the southern coast in your itinerary. A cruise can start and finish in different ports.'],
+      ['Booking a cabin', 'Check whether a quote covers a whole boat or a cabin, plus meals, port costs and transfers. Ask about overnight anchorages and which stops ashore may change if the wind shifts.']),
+    ru: copy('Морской круиз у Датчи: несколько ночей на борту', 'Сравните побережья, порты посадки и условия в каютах перед несколькими днями в море.',
+      ['Какой берег выбрать', 'Залив Гёкова находится между полуостровами Бодрум и Датча. Чтобы увидеть Паламутбюкю и Хаытбюкю, ищите в программе южный берег. Порты начала и окончания круиза могут различаться.'],
+      ['Какие расходы учесть', 'Уточните, указана цена за судно или каюту, входят ли питание, портовые сборы и трансфер. Спросите про ночёвки на якоре и как ветер может изменить высадки на берег.'])
+  },
+  {
+    slug: 'datcada-dalis', groups: ['tours', 'sea'], photo: 'datca-tekne',
+    source: {label: 'Uçanbalık Dalış Merkezi', url: 'https://www.ucanbalik.com/'},
+    tr: copy('Datça’da dalış: tanıtım dalışı mı kurs mu?', 'Merkezle görüşürken tatiline sığabilecek süreyi, deneyim düzeyini ve programın içeriğini netleştir.',
+      ['İlk başvuruda', 'Datça’da çalışan Uçanbalık gibi bir merkezden bilgi alırken sertifikanı veya başlangıç seviyesinde olduğunu belirt. Tatilindeki boş günleri söyle ve tek seans ile sertifika kursunun sürelerini ayrı ayrı öğren.'],
+      ['Seyahat programına yerleştir', 'Eğitmenle buluşma yeri, kıyı veya tekne çıkışı, ders dili ve katılım koşullarını konuş. Yakında uçağa bineceksen uçuş saatini merkeze önceden bildir ve uygun programı eğitmeninle belirle.']),
+    en: copy('Diving in Datça: introductory session or course?', 'Discuss experience, available days and programme details with a dive centre before booking.',
+      ['Your first enquiry', 'When contacting a local centre such as Uçanbalık, mention your certification or that you are new to diving. Give your available dates and ask for separate timings for a single session and a certification course.'],
+      ['Fit it into the trip', 'Confirm the meeting point, shore or boat departure, teaching language and entry requirements with your instructor. Share any upcoming flight time so the instructor can advise on a suitable schedule.']),
+    ru: copy('Дайвинг в Датче: пробное погружение или курс', 'Обсудите с дайв-центром свой опыт, свободные дни и программу до бронирования.',
+      ['Первый запрос', 'Обращаясь в местный центр, например Uçanbalık, сообщите свой сертификат или скажите, что вы новичок. Назовите даты и сравните длительность отдельного занятия и курса с сертификацией.'],
+      ['Как вписать в поездку', 'Уточните место встречи, выход с берега или с судна, язык занятий и условия участия. Если предстоит перелёт, заранее сообщите инструктору время вылета и согласуйте график.'])
+  },
+  {
+    slug: 'bencik-koyu', groups: ['sea', 'nature'], photo: 'datca-koylari', source: coast,
+    tr: copy('Bencik Koyu: yarımadanın dar kıstağı', 'Hisarönü Körfezi tarafındaki koyu, deniz yolculuğunda Datça ile Marmaris arasındaki konumuyla tanı.',
+      ['Haritada nerede?', 'Bencik’in bir yakası Datça’ya, diğeri Marmaris’e bağlı. Yarımadanın daraldığı bu bölümde kuzeydeki Gökova ile güneydeki Hisarönü farklı deniz rotalarına açılır. Tekne programında hangi kıyının izlendiğine bak.'],
+      ['Tekneden bir mola', 'Koyun adı programda geçiyorsa yalnızca seyir mi planlandığını, demirleme veya karaya çıkma olup olmadığını kaptana sor. Geceyi teknede geçireceksen başka bir koyun seçilmesi durumunda ertesi günkü programı da öğren.']),
+    en: copy('Bencik Bay: the narrow waist of the peninsula', 'Place this Gulf of Hisarönü anchorage on the map between Datça and Marmaris.',
+      ['Where the land narrows', 'One side of Bencik belongs to Datça and the other to Marmaris. On this narrow section, the Gulf of Gökova to the north and Hisarönü to the south lead to different cruising routes. Check which coast your boat follows.'],
+      ['A stop by boat', 'If Bencik appears in a programme, ask if it means a sail past, an anchorage or time ashore. For an overnight trip, find out how a change of anchorage might affect the next day.']),
+    ru: copy('Бухта Бенджик у узкого перешейка', 'Найдите бухту залива Хисарёню на карте между Датчей и Мармарисом.',
+      ['Где сужается полуостров', 'Один берег Бенджика относится к Датче, другой к Мармарису. На севере от этого узкого участка лежит залив Гёкова, на юге — Хисарёню. При выборе круиза проверьте, по какой стороне пойдёт судно.'],
+      ['Остановка с воды', 'Если Бенджик указан в программе, спросите, предусмотрен ли проход мимо, якорная стоянка или высадка. При ночном круизе уточните, как смена места стоянки повлияет на следующий день.'])
+  },
+  {
+    slug: 'kizilbuk', groups: ['beaches', 'nature'], photo: 'mesudiye', source: coast,
+    tr: copy('Kızılbük: Mesudiye’nin küçük koyu', 'Hayıtbükü çevresinde kalıyorsan bir sabahı komşu Kızılbük kıyısına ayır.',
+      ['Koyun adını kaydet', 'Kızılbük, Mesudiye’nin Hayıtbükü ve Ovabükü ile birlikte anılan üç koyundan biri. Hayıtbükü’ndeki odandan yürümek istiyorsan başlangıç ve bitişi haritada ayrı işaretle ve yolun yayaya uygunluğunu kaldığın yerde sor.'],
+      ['Bir sabah için', 'Yanına su ve havlu al, kıyıya geldiğinde nerede mola vereceğini seç. Öğle yemeğini başka koyda planladıysan dönüş yolunu güneş ve sıcağı da düşünerek erkene bırak.']),
+    en: copy('Kızılbük: a smaller bay in Mesudiye', 'When staying near Hayıtbükü, set aside a morning for its neighbouring shore.',
+      ['Locate the bay', 'Kızılbük is one of the three Mesudiye bays alongside Hayıtbükü and Ovabükü. If thinking of walking from your room, mark both ends and ask your host about pedestrian access.'],
+      ['For a morning visit', 'Take water and a towel, then pick a spot once you see the shore. If you plan lunch elsewhere, allow time for the walk back before the hottest part of the day.']),
+    ru: copy('Кызылбюк: небольшая бухта Месудие', 'Если вы живёте в Хаытбюкю, выделите утро для прогулки к соседней бухте.',
+      ['Найдите нужный берег', 'Кызылбюк — одна из трёх бухт Месудие вместе с Хаытбюкю и Овабюкю. Собираясь пешком от жилья, отметьте начало и конец пути и спросите у хозяина про удобный пешеходный подход.'],
+      ['Утро в бухте', 'Возьмите воду и полотенце, а место выберите уже на берегу. Если обед намечен в другом месте, оставьте достаточно времени, чтобы вернуться до сильной жары.'])
+  },
+  {
+    slug: 'emecik-apollon-kutsal-alani', groups: ['history', 'places'], photo: 'datca-koylari', source: coast,
+    tr: copy('Emecik’te Apollon Kutsal Alanı', 'Yarımadanın doğusundaki Sarı Liman çevresinde, Knidos gezisinden farklı bir arkeoloji hikâyesi var.',
+      ['Kazılarda ne bulundu?', 'Emecik’teki kutsal alandan adak figürinleri ve seramikler çıkarılmıştır. Buluntular, buranın antik çağdaki deniz bağlantılarını ve Apollon kültünü anlamaya yardımcı olur.'],
+      ['Ziyaretini planlarken', 'Alanı haritada Emecik tarafında işaretle. Aktif kazı ve koruma alanlarında erişim değişebileceğinden turizm danışmaya açık ziyaret olanağını sor. Bölgeden çıkarılan eserleri görmek için Marmaris Müzesi’nin koleksiyonunu da inceleyebilirsin.']),
+    en: copy('The sanctuary of Apollo at Emecik', 'Near Sarı Liman on the eastern peninsula, archaeological finds tell a different story from the ruins at Knidos.',
+      ['What was found?', 'Votive figurines and pottery were recovered from the sanctuary at Emecik. The finds shed light on ancient maritime connections and the worship of Apollo.'],
+      ['Planning a visit', 'Mark Emecik on your map. Ask the tourism office about access before visiting an excavation or conservation area. For finds from the region, also look into the collection at Marmaris Museum.']),
+    ru: copy('Святилище Аполлона у Эмеджика', 'Окрестности Сары-Лимана на востоке полуострова раскрывают другую страницу древней истории, кроме руин Книда.',
+      ['Что нашли археологи', 'В святилище Эмеджика обнаружены вотивные фигурки и керамика. Находки помогают изучать культ Аполлона и морские связи древнего поселения.'],
+      ['Перед посещением', 'Отметьте Эмеджик на карте. Поскольку в зонах раскопок и охраны доступ может меняться, узнайте у туристического бюро, что открыто. С местными находками можно познакомиться и в коллекции музея Мармариса.'])
+  },
+]

@@ -1,0 +1,18 @@
+---
+import { ui } from '../lib/ui';
+import { getLocale, localePath } from '../lib/i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+const localize = (path: string) => localePath(path, locale);
+
+import Icon from './Icon.astro';
+import './secondary.css';
+---
+
+<div class="saved-page detail-container">
+  <nav class="detail-breadcrumb" aria-label={t("Sayfa yolu")}><a href={localize("/")}>datca.day</a><Icon name="chevron" size={12} /><span>{t("Kaydettiklerim")}</span></nav>
+  <header class="saved-heading"><div><p class="detail-eyebrow">{t("SANA ÖZEL BİR DATÇA")}</p><h1>{t("Biriktirdiğin")}<br /><em>{t("güzel yerler.")}</em></h1><p>{t("Sevdiğin rehberler burada. Kalbine dokunan yerleri kaydet,")}<br class="desktop-break" /> {t("bir sonraki keşfin için kendine bir rota çiz.")}</p></div><span class="saved-heading-icon" aria-hidden="true"><Icon name="heart" size={68} /></span></header>
+  <div class="saved-toolbar"><p><strong id="saved-count">0</strong> <span id="saved-count-label">{t("kaydedilmiş rehber", {n:0})}</span></p><button type="button" id="saved-clear" hidden>{t("Tümünü temizle")} <Icon name="close" size={15} /></button></div>
+  <div class="secondary-card-grid saved-grid" id="saved-grid"></div>
+  <section class="saved-empty" id="saved-empty"><div class="saved-empty-icon"><Icon name="compass" size={38} /></div><p class="detail-eyebrow">{t("İLK KEŞFİNİ BEKLİYOR")}</p><h2>{t("Her rota bir merakla başlar.")}</h2><p>{t("Bir rehberdeki kalp simgesine dokun.")}<br />{t("İlham veren yerler, istediğinde dönmek için burada kalsın.")}</p><a href={localize("/kesfet/")}>{t("Datça’yı keşfet")} <Icon name="arrow" size={18} /></a><span>{t("Kaydettiklerin bu tarayıcıda saklanır.")}</span></section>
+</div>

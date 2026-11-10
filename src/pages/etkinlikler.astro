@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DatcaEvents from '../components/DatcaEvents.astro';
+import { getLocale } from '../lib/i18n';
+import { ui } from '../lib/ui';
+const locale=getLocale(Astro.url.pathname);
+const t=ui(locale);
+---
+<Layout title={t('Datça etkinlik takvimi')} description={t('Konser, tiyatro, sinema ve yerel etkinlikler. Duyuruları kaynaklarıyla birlikte keşfet.')}><DatcaEvents locale={locale}/></Layout>

@@ -1,0 +1,23 @@
+---
+import { ui } from '../lib/ui';
+import { getLocale } from '../lib/i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+
+import Icon from './Icon.astro';
+import { primaryCategory } from '../lib/content';
+import type { Article } from '../lib/types';
+interface Props { article: Article; variant?: string; }
+const { article, variant = 'standard' } = Astro.props;
+const category = primaryCategory(article);
+const categoryLabel = category?.name || '';
+const titleLabel = article.title;
+---
+<article class:list={['travel-card', `card-${variant}`]} data-article-card data-search={`${article.title} ${article.excerpt} ${category?.name || ''}`} data-date={article.date} data-category={article.categories.join(',')}>
+  <div class="card-photo">
+    <a href={article.path} tabindex="-1" aria-hidden="true"><img src={article.image || '/images/hero-datca.webp'} alt={article.imageAlt || article.title} srcset={article.image.replace('.webp','-640.webp')+' 640w, '+article.image+' 1200w'} sizes="(max-width:600px) 92vw, (max-width:900px) 46vw, 370px" loading="lazy" width="640" height="450" /></a>
+    {category && <span class="photo-label">{categoryLabel}</span>}
+    <button class="save-button" data-save={article.path} data-title={article.title} data-image={article.image} aria-label={t("{title} kaydet", {title:article.title})} aria-pressed="false"><Icon name="heart" size={19}/></button>
+  </div>
+  <div class="card-copy"><span class="eyebrow card-location"><Icon name="pin" size={13}/>{t("DATÇA VE ÇEVRESİ")}</span><h3><a href={article.path}>{titleLabel}</a></h3><p>{article.excerpt}</p><a class="card-link" href={article.path}>{t("Keşfet")} <Icon name="arrow" size={17}/></a></div>
+</article>

@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import { getLocale } from '../lib/i18n';
+import { photos } from '../lib/photos';
+import { photoCaption } from '../lib/photo-caption';
+import { ui } from '../lib/ui';
+const locale=getLocale(Astro.url.pathname),t=ui(locale);
+const description=t('Knidos kıyılarından Eski Datça sokaklarına yarımadayı fotoğraflarla gez. Kareleri büyüt, yer adlarını ve fotoğrafçıları keşfet.');
+const images=photos.map(photo=>({src:photo.file,alt:photoCaption(photo.file,locale)}));
+---
+<Layout title={t('Fotoğraflarla Datça')} description={description}><section class="container section"><h1>{t('Fotoğraflarla Datça')}</h1><p>{description}</p><GalleryGrid images={images}/></section></Layout>
+<style>h1{font-size:clamp(40px,6vw,68px)}p{max-width:650px;color:var(--muted);margin:20px 0 30px}</style>

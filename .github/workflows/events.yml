@@ -1,0 +1,32 @@
+name: Refresh Datça event calendar
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: datca-content-updates
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node --test scripts/events/*.test.mjs
+      - run: node scripts/events/update.mjs
+      - run: npm run build
+      - name: Commit refreshed public schedule
+        run: |
+          git add src/lib/events-data.json
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Refresh Datça event calendar'
+          git push origin HEAD:main

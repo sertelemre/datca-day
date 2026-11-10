@@ -1,0 +1,24 @@
+---
+import { ui } from '../lib/ui';
+import { getLocale, localePath } from '../lib/i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+const localize = (path: string) => localePath(path, locale);
+
+import Icon from './Icon.astro';
+import ContactForm from './ContactForm.astro';
+import './secondary.css';
+---
+<div class="contact-page detail-container">
+ <nav class="detail-breadcrumb" aria-label={t("Sayfa yolu")}><a href={localize("/")}>datca.day</a><Icon name="chevron" size={12}/><span>{t("Öneri ve düzeltme")}</span></nav>
+ <section class="contact-intro"><div class="contact-heading"><p class="detail-eyebrow">{t("REHBERİ BİRLİKTE GELİŞTİRELİM")}</p><h1>{t("Bir yer, bir fikir,")}<br/><em>{t("yeni bir not.")}</em></h1><p>{t("Bir rota değiştiğinde, işletme kapandığında veya bir bilgi güncellenmesi gerektiğinde rehber de değişmeli. Sayfa bağlantısı ve doğrulanabilir kaynakla önerini paylaşabilirsin.")}</p><div class="contact-local-label"><span></span> {t("datca.day · Bağımsız gezi rehberi")}</div></div><div class="contact-illustration" aria-hidden="true"><svg viewBox="0 0 400 330" fill="none"><circle cx="270" cy="96" r="45" fill="#eb754f"/><path d="M0 207 105 143 167 218 230 160 337 220 400 183v147H0Z" fill="#9aae91"/><path d="M0 234c37-13 63 9 102 0s67-10 99 1 65 5 100-5 76 11 99 0v100H0Z" fill="#c3d9d4"/><path d="m225 234 28 35h57l21-35H225Z" fill="#183b34"/><path d="M282 161v73m-6-64-39 57h39v-57Z" stroke="#183b34" stroke-width="2" fill="#faf8f2"/></svg><span>{t("BİR GÜN DE DATÇA.")}</span></div></section>
+ <ContactForm />
+ <section class="contact-methods" aria-label={t("İletişim seçenekleri")}><article class="contact-method"><div class="contact-method-icon"><Icon name="compass" size={26}/></div><span class="sidebar-label">{t("SEYAHAT BİLGİSİ")}</span><h2>{t("Güncel duyurular")}</h2><p>{t("Yerel hizmetler ve belediye duyuruları için Datça Belediyesi’nin resmî kanallarına başvur.")}</p><a href="https://datca.bel.tr/" target="_blank" rel="noopener noreferrer">{t("Belediye sitesi")} <Icon name="external" size={17}/></a></article><article class="contact-method"><div class="contact-method-icon"><Icon name="phone" size={26}/></div><span class="sidebar-label">{t("ACİL DURUM")}</span><h2>112</h2><p>{t("Acil yardım gerektiğinde Türkiye’de 112 Acil Çağrı Merkezi’ni ara. Rehberin öneri kanalı acil yardım hizmeti değildir.")}</p><a href="tel:112">{t("112’yi ara")} <Icon name="arrow" size={18}/></a></article></section>
+ <section class="contact-editorial"><div><p class="detail-eyebrow">{t("AÇIK BİR YAYIN POLİTİKASI")}</p><h2>{t("Bilgiyi kontrol et,")}<br/>{t("rotanı rahat kur.")}</h2></div><div><p>{t("datca.day konaklama, tur veya ulaşım rezervasyonu satmaz. Ücret, sefer ve işletme koşulları ilgili hizmet sağlayıcısından doğrulanır. Fotoğrafların yazar ve lisans bilgileri ayrıca yayımlanır.")}</p><a href={localize("/hakkimizda")}>{t("Yayın ilkelerini oku")} <Icon name="arrow" size={18}/></a></div></section>
+</div>
+
+<style>
+  .contact-methods{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-method p{max-width:440px}
+  @media(max-width:560px){.contact-methods{grid-template-columns:minmax(0,1fr)}}
+</style>

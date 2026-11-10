@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WeatherWidget from '../components/WeatherWidget.astro';
+import { getLocale } from '../lib/i18n';
+import { ui } from '../lib/ui';
+const t=ui(getLocale(Astro.url.pathname));
+---
+<Layout title={t('Datça hava durumu ve 7 günlük tahmin')} description={t('Datça merkez için sıcaklık, hissedilen sıcaklık, yağış olasılığı ve rüzgâr tahminini gün gün incele.')}><section class="container section"><h1>{t('Datça hava durumu')}</h1><WeatherWidget/></section></Layout>
+<style>section{max-width:900px}h1{font-size:clamp(40px,6vw,68px);margin-bottom:30px}</style>

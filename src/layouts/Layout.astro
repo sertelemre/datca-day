@@ -1,0 +1,75 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
+import Icon from '../components/Icon.astro';
+import { getContent, getLocale, localePath, alternatePaths, ogLocales, pagePath } from '../lib/i18n';
+import { ui } from '../lib/ui';
+import '../styles/global.css';
+import { getEventSearchEntries } from '../lib/search';
+interface Props { title: string; description?: string; image?: string; article?: boolean; canonicalPath?: string; noindex?:boolean; }
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+const localize = (path:string) => localePath(path, locale);
+const { articles } = getContent(locale);
+const { title, description = t('Datça’nın en güzel koylarını, gezi rotalarını, günlük turlarını ve yerel rehberlerini keşfet. Tatiline biraz Datça kat.'), image, article = false, canonicalPath, noindex=false } = Astro.props;
+const canonical = new URL(canonicalPath ? localize(canonicalPath) : pagePath(Astro.url.pathname), Astro.site);
+const variants = noindex ? [] : alternatePaths(canonical.pathname);
+const currentArticle = articles.find(a=>a.path === pagePath(Astro.url.pathname));
+const isArticle = article && !!currentArticle && !currentArticle.canonicalPath && !noindex;
+const socialImage = new URL((image || '/images/hero-datca.webp').replace('/images/','/images/social/').replace('.webp','.jpg'), Astro.site);
+const socialImageAlt = currentArticle?.imageAlt || t('Datça Yarımadası');
+const pageTitle = `${title} | datca.day`;
+const organization = {'@type':'Organization','@id':`${Astro.site}#organization`,name:'datca.day',url:Astro.site?.href,logo:{'@type':'ImageObject',url:new URL('/icon-512.png',Astro.site).href,width:512,height:512}};
+const websiteSchema={'@context':'https://schema.org','@graph':[
+ organization,
+ {'@type':'WebSite','@id':`${Astro.site}#website`,name:'datca.day',url:Astro.site?.href,inLanguage:['tr','en','ru'],description:t('Datça için bağımsız gezi ve tatil planlama rehberi'),publisher:{'@id':organization['@id']}}
+]};
+// Ownership tokens come from each provider's account; omit unset values.
+const verifications = [
+ {name:'google-site-verification',value:import.meta.env.GOOGLE_SITE_VERIFICATION},
+ {name:'msvalidate.01',value:import.meta.env.BING_SITE_VERIFICATION},
+ {name:'yandex-verification',value:import.meta.env.YANDEX_SITE_VERIFICATION},
+].filter(entry=>entry.value?.trim());
+const searchIndex = articles.map(({title,path,basePath,excerpt,image,imageAlt,categories,noindex})=>({title,path,basePath:basePath || path,excerpt:excerpt.slice(0,180),image,imageAlt,categories,searchable:!noindex}));
+const eventSearchIndex = getEventSearchEntries(locale);
+---
+<!doctype html>
+<html lang={locale} prefix="og: https://ogp.me/ns# article: https://ogp.me/ns/article#">
+<head>
+ <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <title>{pageTitle}</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/>
+ <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large'}/>
+ {verifications.map(entry=><meta name={entry.name} content={entry.value.trim()}/>)}
+ {variants.map(variant=><link rel="alternate" hreflang={variant.locale} href={new URL(variant.path,Astro.site)}/>)}
+ {variants.length > 0 && <link rel="alternate" hreflang="x-default" href={new URL(variants.find(v=>v.locale==='tr')!.path,Astro.site)}/>}
+ <meta property="og:title" content={pageTitle}/><meta property="og:description" content={description}/>
+ <meta property="og:type" content={isArticle ? 'article' : 'website'}/><meta property="og:locale" content={ogLocales[locale]}/>
+ {variants.filter(v=>v.locale!==locale).map(v=><meta property="og:locale:alternate" content={ogLocales[v.locale]}/>)}
+ <meta property="og:site_name" content="datca.day"/><meta property="og:url" content={canonical}/>
+ <meta property="og:image" content={socialImage}/><meta property="og:image:secure_url" content={socialImage}/>
+ <meta property="og:image:type" content="image/jpeg"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+ <meta property="og:image:alt" content={socialImageAlt}/>
+ {isArticle && currentArticle && <><meta property="article:published_time" content={currentArticle.date}/><meta property="article:modified_time" content={currentArticle.updatedDate || currentArticle.date}/><meta property="article:author" content={new URL(localize('/hakkimizda'),Astro.site)}/></>}
+ <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={pageTitle}/><meta name="twitter:description" content={description}/><meta name="twitter:image" content={socialImage}/><meta name="twitter:image:alt" content={socialImageAlt}/>
+ <meta name="application-name" content="datca.day"/><meta name="apple-mobile-web-app-title" content="datca.day"/>
+ <meta name="theme-color" content="#183b34"/>
+ <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico"/>
+ <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png"/>
+ <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png"/>
+ <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg"/>
+ <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+ <link rel="manifest" href="/site.webmanifest"/>
+ <link rel="preload" href={locale==='ru' ? '/fonts/noto-sans-cyrillic.woff2' : '/fonts/dm-sans-latin.woff2'} as="font" type="font/woff2" crossorigin/>
+ <script type="application/ld+json" set:html={JSON.stringify(websiteSchema).replace(/</g,'\\u003c')}/><slot name="head"/>
+</head>
+<body>
+ <a href="#main" class="skip-link">{t('İçeriğe geç')}</a><Header/><main id="main"><slot/></main><Footer/><Analytics/>
+ <dialog class="search-dialog" id="search-dialog"><div class="search-dialog-top"><span class="eyebrow">{t('BİR SONRAKİ KEŞFİN')}</span><button class="header-icon" data-close-search aria-label={t('Aramayı kapat')}><Icon name="close"/></button></div>
+ <form class="modal-search" action={localize('/arama')}><Icon name="search" size={25}/><input id="modal-search-input" type="search" name="q" placeholder={t('Bir yer, bir deneyim, bir rehber…')} autocomplete="off" aria-label={t("datca.day'de ara")}/></form>
+ <p class="search-hint">{t('Datça’yı merak ettiğin yerden keşfet.')}</p><div id="search-results" aria-live="polite"></div>
+ <div class="search-suggestions"><span>{t('Biraz ilham:')}</span>{['Knidos',t('Tekne'),t('Plaj'),t('Kamp')].map(q=><button data-search-suggestion={q}>{q}<Icon name="arrow" size={14}/></button>)}</div></dialog>
+ <div class="toast" id="save-toast" role="status" aria-live="polite"></div><script id="search-index" type="application/json" set:html={JSON.stringify(searchIndex).replace(/</g,'\\u003c')}/><script id="event-search-index" type="application/json" set:html={JSON.stringify(eventSearchIndex).replace(/</g,'\\u003c')}/><script src="../scripts/site.ts"></script>
+</body>
+</html>
+<style is:global>.search-entry-icon{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--line);border-radius:5px;color:var(--accent-text)}.search-event-result>span:nth-child(2){min-width:0}.search-event-result strong{overflow-wrap:anywhere}.search-event-result small{line-height:1.65}.search-event-result .search-kind{color:var(--accent-text);font-size:12px;margin-bottom:3px}.event-search-page-list .search-entry-icon{width:38px;height:38px}</style>

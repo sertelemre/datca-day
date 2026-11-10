@@ -1,0 +1,115 @@
+---
+import Icon from './Icon.astro';
+import WeatherScene from './WeatherScene.astro';
+import { getLocale, localePath } from '../lib/i18n';
+import { getWeatherCopy } from '../lib/weather-copy';
+
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
+const copy = getWeatherCopy(locale);
+---
+<section class:list={['weather-widget', compact ? 'weather-compact' : 'weather-full']} data-weather-widget data-weather-kind="unknown" data-weather-locale={locale} data-weather-compact={String(compact)} aria-label={copy.title}>
+  <div class="weather-stage">
+    <WeatherScene/>
+    <button class="weather-motion" data-weather-motion type="button" aria-label={copy.pauseAnimation} title={copy.pauseAnimation} aria-pressed="false"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button>
+    <div class="weather-summary">
+      <span class="weather-kicker">{compact ? copy.compactTitle : copy.eyebrow}</span>
+      {!compact && <h2>{copy.title}</h2>}
+      <div class="weather-readout" data-weather-content hidden>
+        <span class="weather-date" data-weather-date></span>
+        <div class="weather-temperature"><strong data-weather-temperature></strong><span>°C</span></div>
+        <p class="weather-condition" data-weather-condition></p>
+        <p class="weather-range" data-weather-range></p>
+      </div>
+      <p class="weather-status" data-weather-status role="status">{copy.loading}</p>
+      <button class="weather-retry" data-weather-retry type="button" hidden>{copy.retry} <Icon name="arrow" size={15}/></button>
+      {compact && <a class="weather-detail-link" href={localePath('/datca-hava-durumu', locale)}>{copy.forecast} <Icon name="arrow" size={16}/></a>}
+    </div>
+    {!compact && <span class="weather-location"><Icon name="pin" size={14}/> Datça, Muğla <span>36.728° N · 27.686° E</span></span>}
+  </div>
+  {!compact && <div class="weather-forecast" data-weather-content hidden>
+    <div class="weather-forecast-heading"><h3>{copy.forecast}</h3><span>{copy.selectDay} <Icon name="down" size={14}/></span></div>
+    <div class="weather-days" data-weather-days role="group" aria-label={copy.selectDay}></div>
+    <dl class="weather-stats" aria-live="polite" aria-atomic="true">
+      <div><dt data-weather-primary-label>{copy.feelsLike}</dt><dd data-weather-primary></dd></div>
+      <div><dt data-weather-wind-label>{copy.wind}</dt><dd data-weather-wind></dd></div>
+      <div><dt data-weather-secondary-label>{copy.humidity}</dt><dd data-weather-secondary></dd></div>
+      <div><dt>{copy.rainChance}</dt><dd data-weather-rain></dd></div>
+    </dl>
+  </div>}
+  <footer class="weather-footer">
+    <span><span data-weather-updated></span>{copy.source}: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></span>
+    {!compact && <a href="https://www.mgm.gov.tr/meteoUYARI/" target="_blank" rel="noopener noreferrer">{copy.mgmLink} <Icon name="external" size={12}/></a>}
+  </footer>
+  {!compact && <p class="weather-note">{copy.modelNote}</p>}
+  <noscript><p class="weather-noscript">{copy.noScript} <a href="https://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?il=MUGLA&ilce=DATCA">MGM · Datça</a></p><style>[data-weather-status]{display:none}</style></noscript>
+</section>
+<script src="../scripts/weather.ts"></script>
+
+<style>
+  .weather-widget{min-width:0;border:1px solid var(--line);border-radius:12px;background:var(--paper);overflow:hidden;color:var(--green)}
+  .weather-stage{position:relative;isolation:isolate;background:linear-gradient(115deg,#f4f5e9,#e1f0e9);overflow:hidden}
+  .weather-summary{position:relative;z-index:1;pointer-events:none}
+  .weather-summary a,.weather-summary button{pointer-events:auto}
+  .weather-motion{position:absolute;right:12px;top:12px;z-index:2;width:30px;height:30px;display:grid;place-items:center;background:#fffdf8c9;border:1px solid #183b3420;border-radius:50%;color:var(--green);padding:0}
+  .weather-motion:hover{background:var(--paper);border-color:var(--green)}
+  .weather-widget[data-weather-paused] :global(.weather-scene *){animation-play-state:paused!important}
+  .weather-kicker{display:block;font-size:11px;font-weight:600;letter-spacing:1.3px;text-transform:uppercase}
+  .weather-date{display:block;font-size:12px;color:var(--muted);margin-top:16px}
+  .weather-temperature{display:flex;align-items:flex-start;line-height:1;margin-top:7px;gap:5px}
+  .weather-temperature strong{font-weight:500;font-size:84px;letter-spacing:-6px;line-height:1}
+  .weather-temperature>span{font-size:23px;padding-top:10px}
+  .weather-condition{font-size:17px;font-weight:500;line-height:1.4;margin-top:8px;max-width:65%}
+  .weather-range{font-size:12px;color:var(--muted);margin-top:7px;line-height:1.6}
+  .weather-status{font-size:13px;line-height:1.6;max-width:230px;margin:20px 0}
+  .weather-retry{display:inline-flex;align-items:center;gap:10px;color:var(--green);background:var(--paper);border:1px solid var(--green);border-radius:4px;padding:7px 10px;font-size:12px;margin-bottom:14px}
+  .weather-detail-link{display:inline-flex;align-items:center;gap:18px;border-bottom:1px solid #183b3450;font-size:12px;font-weight:500;margin-top:15px;padding-bottom:3px}
+  .weather-detail-link:hover{color:var(--accent-text)}
+  .weather-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 26px 0;font-size:11px;color:var(--muted);line-height:1.6}
+  .weather-footer a{text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;gap:6px}
+  .weather-note{padding:9px 26px 20px;font-size:11px;color:var(--muted);line-height:1.7}
+  .weather-noscript{font-size:12px;padding:16px}
+  .weather-noscript a{text-decoration:underline}
+  .weather-compact .weather-stage{min-height:207px}
+  .weather-compact .weather-summary{padding:20px 23px 17px;min-height:207px}
+  .weather-compact .weather-temperature strong{font-size:54px;letter-spacing:-3px}
+  .weather-compact .weather-temperature>span{font-size:17px;padding-top:7px}
+  .weather-compact .weather-date{font-size:11px;margin-top:10px}
+  .weather-compact .weather-condition{font-size:13px;margin-top:4px;max-width:62%}
+  .weather-compact .weather-range{font-size:11px;margin-top:5px}
+  .weather-compact .weather-detail-link{margin-top:11px}
+  .weather-compact .weather-footer{padding:8px 23px;font-size:10px}
+  .weather-compact .weather-status{max-width:62%;min-height:87px;margin:16px 0 0}
+  .weather-full{margin:0 0 40px}
+  .weather-full .weather-stage{min-height:350px}
+  .weather-full .weather-summary{padding:33px 38px 48px}
+  .weather-full .weather-summary h2{font-size:38px;margin-top:10px;max-width:70%}
+  .weather-full .weather-status{min-height:155px;padding-top:25px}
+  .weather-location{position:absolute;z-index:1;bottom:18px;right:24px;display:flex;align-items:center;gap:5px;font-size:11px;color:var(--green)}
+  .weather-location>span{margin-left:9px;opacity:.65;font-size:10px}
+  .weather-forecast{padding:25px 26px 0}
+  .weather-forecast-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}
+  .weather-forecast-heading h3{font-size:16px;font-weight:500}
+  .weather-forecast-heading>span{font-size:12px;display:flex;align-items:center;gap:7px;color:var(--muted)}
+  .weather-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+  .weather-days :global(button){min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:13px 5px;border:1px solid var(--line);border-radius:7px;background:transparent;color:var(--green);transition:background .2s,border-color .2s,transform .2s;font-size:12px;line-height:1.5}
+  .weather-days :global(button:hover){background:#eef2e8;border-color:#99b3a2;transform:translateY(-2px)}
+  .weather-days :global(button[aria-pressed=true]){background:var(--green);color:var(--paper);border-color:var(--green)}
+  .weather-days :global(.weather-day-name){font-weight:600}
+  .weather-days :global(.weather-day-date){font-size:10px;opacity:.7}
+  .weather-days :global(svg){width:27px;height:27px;margin:7px 0;color:var(--accent-text)}
+  .weather-days :global(button[aria-pressed=true] svg){color:#f5c89a}
+  .weather-days :global(.weather-day-range){white-space:nowrap;font-size:12px;font-weight:500}
+  .weather-days :global(.weather-day-range small){font-size:11px;opacity:.65;margin-left:5px;font-weight:400}
+  .weather-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:23px 0 21px;margin:0;border-bottom:1px solid var(--line);gap:12px}
+  .weather-stats>div:not(:first-child){border-left:1px solid var(--line);padding-left:18px}
+  .weather-stats dt{font-size:11px;color:var(--muted);line-height:1.5}
+  .weather-stats dd{font-size:23px;font-weight:500;line-height:1.4;margin:6px 0 0;white-space:nowrap}
+  [data-weather-kind=rain] .weather-stage,[data-weather-kind=drizzle] .weather-stage,[data-weather-kind=cloudy] .weather-stage,[data-weather-kind=fog] .weather-stage{background:linear-gradient(115deg,#eef2ed,#cadbda)}
+  [data-weather-kind=thunderstorm] .weather-stage{background:linear-gradient(115deg,#e7ece7,#aabec0)}
+  [data-weather-kind=snow] .weather-stage{background:linear-gradient(115deg,#f4f7f3,#d6e8eb)}
+  [data-weather-kind=clear-night] .weather-stage,[data-weather-kind=partly-cloudy-night] .weather-stage{background:linear-gradient(115deg,#f0f1eb,#ccdce0)}
+  @media(max-width:700px){.weather-full .weather-summary{padding:27px 24px 57px}.weather-full .weather-summary h2{font-size:31px;max-width:80%}.weather-full .weather-stage{min-height:340px}.weather-location{left:24px;right:auto;bottom:16px}.weather-location>span{display:none}.weather-forecast{padding:22px 17px 0}.weather-days{gap:6px;grid-template-columns:repeat(4,minmax(0,1fr))}.weather-days :global(button){padding:10px 4px}.weather-days :global(svg){margin:3px 0;width:24px;height:24px}.weather-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding-top:23px}.weather-stats>div:nth-child(3){border-left:0;padding-left:0}.weather-stats dd{font-size:22px}.weather-footer{padding:14px 17px 0}.weather-note{padding:10px 17px 20px}.weather-condition{max-width:75%;font-size:16px}.weather-temperature strong{font-size:76px}}
+  @media(prefers-reduced-motion:reduce){.weather-days :global(button){transition:none}.weather-days :global(button:hover){transform:none}}
+</style>

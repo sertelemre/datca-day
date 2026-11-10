@@ -1,0 +1,188 @@
+---
+import Icon from './Icon.astro';
+import {events, calendarEvents, archivedIds, eventSources, checks, lastAttempt, type DatcaEvent} from '../lib/events';
+import {eventText, eventLabels, eventNotes} from '../lib/event-copy';
+import {dateLabel, hasEnded} from '../lib/event-dates';
+import {eventPath, type Locale} from '../lib/paths';
+
+interface Props { locale?: Locale; event?: DatcaEvent; }
+const {locale = 'tr', event} = Astro.props;
+const t = (tr:string,en:string,ru:string) => eventText(locale,[tr,en,ru]);
+const label = (key:string) => eventText(locale,eventLabels[key]);
+const home = locale === 'tr' ? '/' : '/' + locale + '/';
+const calendar = {tr:'/etkinlikler',en:'/en/events',ru:'/ru/sobytiya'}[locale];
+const date = (day:string) => dateLabel(day,locale);
+const sourcesHeading = t('Etkinlik kaynakları','Event sources','Источники афиши');
+const verified = t('Kaynak kontrolü','Source checked','Проверено');
+const calendarTitle = t('Datça etkinlik takvimi','Datça events calendar','Афиша Датчи');
+const getSource = (id:string) => eventSources.find(source => source.id === id)!;
+const checkMap = new Map(checks.map(check => [check.id,check]));
+const categories = [...new Set(calendarEvents.map(item => item.category))];
+const range = (item:DatcaEvent) => (item.start === item.end ? date(item.start) : date(item.start) + ' – ' + date(item.end));
+const timeLabel = (item:DatcaEvent) => [item.schedule === 'friday' ? t('Her cuma','Every Friday','По пятницам') : '',[item.time,item.closeTime].filter(Boolean).join('–')].filter(Boolean).join(' · ');
+const notes = event && eventNotes(event);
+const additionalSource = event && /yüzme maratonu/i.test(event.title) ? getSource('yuzme') : event && /badem çiçeği/i.test(event.title) ? getSource('badem') : undefined;
+const groups = ['public','organizer','tickets','local'];
+const list = event ? [] : calendarEvents;
+const ended = !!event && hasEnded(event);
+const withdrawn = !!event && archivedIds.has(event.id);
+const archived = ended || withdrawn;
+const pastLabel = t('Bu etkinlik sona erdi.','This event has ended.','Это событие завершилось.');
+const withdrawnLabel = t('Bu duyuru arşivde. Güncel program için kaynağı kontrol et.','This announcement is archived. Check the source for the current programme.','Объявление в архиве. Актуальное расписание уточняйте у источника.');
+const archiveHeading = t('Etkinlik arşivi','Event archive','Архив событий');
+const history = event ? [] : events.filter(item => hasEnded(item) || archivedIds.has(item.id)).sort((a,b) => b.start.localeCompare(a.start));
+
+const dayBadge = new Intl.DateTimeFormat(locale,{day:'numeric',month:'short',timeZone:'Europe/Istanbul'});
+const structured = event && (!withdrawn || ended) && {
+  '@context':'https://schema.org','@type':'Event',name:event.title,
+  url:new URL(eventPath(event,locale),Astro.site || Astro.url).href, sameAs:event.url,
+  location:{'@type':'Place',name:event.venue,address:{'@type':'PostalAddress',addressLocality:'Datça',addressRegion:'Muğla',addressCountry:'TR'}},
+  image:event.poster, description:notes ? eventText(locale,notes) : undefined,
+  ...(event.schedule === 'friday'
+    ? {eventSchedule:{'@type':'Schedule',startDate:event.start,endDate:event.end,repeatFrequency:'P1W',byDay:'https://schema.org/Friday',startTime:event.time,endTime:event.closeTime,scheduleTimezone:'Europe/Istanbul'}}
+    : {startDate:event.time ? event.start + 'T' + event.time + ':00+03:00' : event.start,endDate:event.closeTime ? event.end + 'T' + event.closeTime + ':00+03:00' : event.end !== event.start ? event.end : undefined})
+};
+---
+{structured && <script type="application/ld+json" set:html={JSON.stringify(structured).replace(/</g,'\\u003c')}/>}
+<div class="events-page">
+{event ? <section class="container events-intro">
+  <nav class="breadcrumbs" aria-label={t('Sayfa yolu','Breadcrumbs','Навигация')}><a href={home}>datca.day</a><Icon name="chevron" size={13}/><a href={calendar}>{calendarTitle}</a></nav>
+  <div class="events-heading">
+    <div><span class="eyebrow">{label(event.category)}</span>
+      <h1>{event.title}</h1>
+      <p class="event-archive-notice" data-detail-status data-end={event.end} data-close={event.closeTime} data-ended-label={pastLabel} hidden={!archived}><strong>{archiveHeading}</strong><span>{ended ? pastLabel : withdrawnLabel}</span></p>
+      <p><Icon name="calendar" size={18}/> <time datetime={event.start}>{range(event)}</time>{event.time && ' · ' + timeLabel(event)}</p>
+      <p><Icon name="pin" size={18}/> {event.venue}</p>
+      {notes && !withdrawn && <p data-current-notes hidden={ended}>{eventText(locale,notes)}</p>}
+      <a class="button" href={event.url} target="_blank" rel="noopener noreferrer">{t('Etkinlik duyurusu','Event announcement','Объявление')} <Icon name="external" size={16}/></a>
+    </div>
+    <aside class="events-note">
+      {event.poster && <img class="detail-poster" src={event.poster} alt={event.title} loading="lazy" decoding="async" referrerpolicy="no-referrer"/>}
+      <h2>{t('Etkinlik bilgileri','Event information','О событии')}</h2>
+      <p><a class="text-link" href={event.url} target="_blank" rel="noopener noreferrer">{getSource(event.sourceId)?.name || new URL(event.url).hostname} <Icon name="external" size={14}/></a></p>
+      {event.ticket && !withdrawn && <p data-ticket-link hidden={ended}><a class="text-link" href={event.ticket} target="_blank" rel="noopener noreferrer">{t('Bilet bilgisi','Ticket information','Информация о билетах')} <Icon name="external" size={14}/></a></p>}
+      {additionalSource && <p><a class="text-link" href={additionalSource.url} target="_blank" rel="noopener noreferrer">{additionalSource.name} <Icon name="external" size={14}/></a></p>}
+      <p>{verified} · {date(event.checked)}</p>
+      <small>{t('Saatler Türkiye saatine göredir.','Times are local to Türkiye.','Время указано местное.')}</small>
+    </aside>
+  </div>
+</section> : null}
+{event ? <div class="container events-back"><a class="text-link" href={calendar}>{calendarTitle} <Icon name="arrow" size={16}/></a></div> : <>
+<section class="container events-calendar" data-datca-calendar>
+  <header class="calendar-title"><h1>{calendarTitle}</h1><p aria-live="polite"><span data-count>{list.filter(item => !hasEnded(item)).length}</span> {t('etkinlik','events','· событий')}</p></header>
+  <div class="event-filters calendar-filters" data-controls hidden>
+    <label>{t('Tarih','Date','Дата')}<select data-period><option value="upcoming">{t('Yaklaşanlar','Upcoming','Предстоящие')}</option><option value="today">{t('Bugün','Today','Сегодня')}</option><option value="week">{t('Önümüzdeki 7 gün','Next 7 days','Ближайшие 7 дней')}</option><option value="past">{t('Son 7 gün','Past 7 days','Прошедшие 7 дней')}</option></select></label>
+    <label>{t('Etkinlik türü','Event type','Тип события')}<select data-category-select><option value="">{t('Tüm türler','All types','Все типы')}</option>{categories.map(key => <option value={key}>{label(key)}</option>)}</select></label>
+  </div>
+  <div class="events-grid">{list.map(item => <article class="event-card" data-event data-start={item.start} data-end={item.end} data-close={item.closeTime} data-kind={item.category} data-schedule={item.schedule} hidden={hasEnded(item)}>
+    <div class="event-media">
+      <span class="event-date-badge" aria-hidden="true"><Icon name="calendar" size={30}/>{dayBadge.format(new Date(item.start + 'T12:00:00Z'))}</span>
+      {item.poster && <img src={item.poster} width="640" height="400" alt={item.title} loading="lazy" decoding="async" referrerpolicy="no-referrer" data-event-poster/>}
+    </div>
+    <div class="event-card-body"><div class="event-card-top"><span>{label(item.category)}</span></div><h2 class="event-name"><a href={eventPath(item,locale)}>{item.title}</a></h2>
+    <div class="event-date"><Icon name="calendar" size={18}/><div><time datetime={item.start}>{range(item)}</time>{item.time && <small>{timeLabel(item)}</small>}</div></div>
+    <div class="event-location"><Icon name="pin" size={18}/><strong>{item.venue}</strong></div>
+    <div class="event-source"><a href={item.url} target="_blank" rel="noopener noreferrer">{getSource(item.sourceId)?.name || new URL(item.url).hostname} <Icon name="external" size={14}/></a>
+    <small>{verified} · {date(item.checked)}</small></div></div>
+  </article>)}</div>
+  <div class="events-empty" data-empty hidden={list.some(item => !hasEnded(item))}><h2>{t('Bu seçim için etkinlik bulunamadı.','No events match this selection.','По вашему запросу событий нет.')}</h2><a class="text-link" href="#etkinlik-kaynaklari">{sourcesHeading} <Icon name="down" size={16}/></a></div>
+  {history.length > 0 && <details class="event-history"><summary>{archiveHeading} ({history.length})</summary><ul>{history.map(item => <li><time datetime={item.start}>{range(item)}</time><a href={eventPath(item,locale)}>{item.title}</a></li>)}</ul></details>}
+</section>
+<section class="events-sources-wrap" id="etkinlik-kaynaklari"><div class="container events-sources">
+  <div class="events-section-heading"><div><span class="eyebrow">{t('DUYURULARIN İZİNDE','FOLLOW THE ANNOUNCEMENTS','СЛЕДИМ ЗА АНОНСАМИ')}</span><h2>{sourcesHeading}</h2></div><span>{eventSources.length} {t('kaynak sayfası','source pages','страницы источников')}</span></div>
+  <p class="events-source-intro">{t('Otomatik taranan takvimler ve ayrıca inceleyebileceğin yerel duyuru sayfaları. Bilet ve seans bilgisi için ilgili mekânın programına git.','Browse automatically checked calendars and additional local announcement pages. Use the venue’s programme for ticket and session details.','Здесь собраны календари с автоматической проверкой и дополнительные местные источники. Билеты и расписание сеансов уточняйте у площадки.')}</p>
+  <p class="source-checked">{t('Son tarama','Latest check','Последняя проверка')} · <time datetime={lastAttempt}>{date(lastAttempt)}</time>. {t('Saatler Türkiye saatine göredir.','Times are local to Türkiye.','Время указано местное.')}</p>
+  <div class="event-source-grid">{groups.map(group => <details class="source-card" open={group === 'public'}><summary><h3>{label(group)}</h3><span class="source-expand"><Icon name="plus" size={20}/></span></summary>
+    <ul>{eventSources.filter(source => source.kind === group).map(source => {
+      const check = checkMap.get(source.id);
+      return <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.name} <Icon name="external" size={13}/></a><small>{label(source.topic === 'local' ? 'localTopic' : source.topic)} · {source.adapter ? t('Otomatik takvim','Automatic calendar','Автопроверка') : t('Duyuru sayfası','Announcement page','Страница объявлений')}{check?.checked && ' · ' + date(check.checked)}{check?.status === 'error' && ' · ' + t('Son tarama başarısız','Last check failed','Последняя проверка не удалась')}</small></li>;
+    })}</ul>
+  </details>)}</div>
+</div></section></>}
+</div>
+<script>
+  import {todayInDatca,offsetDay,fallsWithin,hasEnded} from '../lib/event-dates';
+  const detail = document.querySelector<HTMLElement>('[data-detail-status]');
+  if (detail && hasEnded({end:detail.dataset.end!, closeTime:detail.dataset.close})) {
+    detail.hidden = false;
+    detail.querySelector('span')!.textContent = detail.dataset.endedLabel!;
+    for (const node of document.querySelectorAll<HTMLElement>('[data-ticket-link],[data-current-notes]')) node.hidden = true;
+  }
+  const calendar = document.querySelector<HTMLElement>('[data-datca-calendar]');
+  if (calendar) {
+    for (const image of calendar.querySelectorAll<HTMLImageElement>('[data-event-poster]')) {
+      const revealBadge = () => { image.hidden = true; };
+      image.addEventListener('error',revealBadge,{once:true});
+      if (image.complete && !image.naturalWidth) revealBadge();
+    }
+    const period = calendar.querySelector<HTMLSelectElement>('[data-period]')!;
+    const category = calendar.querySelector<HTMLSelectElement>('[data-category-select]')!;
+    const cards = [...calendar.querySelectorAll<HTMLElement>('[data-event]')];
+    function apply() {
+      const today = todayInDatca();
+      const span:Record<string,[string,string]> = {upcoming:[today,'9999-12-31'],today:[today,today],week:[today,offsetDay(today,6)],past:[offsetDay(today,-7),today]};
+      const [from,to] = span[period.value] || span.upcoming;
+      let count = 0;
+      for (const card of cards) {
+        const {kind,start,end,schedule,close} = card.dataset;
+        const past = hasEnded({end:end!,closeTime:close});
+        card.hidden = (category.value !== '' && kind !== category.value) || (period.value === 'past' ? !past : past) || !fallsWithin(start!,end!,schedule,from,to);
+        if (!card.hidden) count++;
+      }
+      calendar!.querySelector<HTMLElement>('[data-count]')!.textContent = String(count);
+      calendar!.querySelector<HTMLElement>('[data-empty]')!.hidden = count > 0;
+    }
+    period.addEventListener('change',apply);
+    category.addEventListener('change',apply);
+    calendar.querySelector<HTMLElement>('[data-controls]')!.hidden = false;
+    apply();
+  }
+</script>
+
+<style>
+
+  .events-intro{padding-top:46px;padding-bottom:38px}.events-heading{display:grid;grid-template-columns:1fr 340px;gap:70px;align-items:center}.events-heading h1{font-size:clamp(46px,5.4vw,72px);line-height:1.06;margin:18px 0 25px;letter-spacing:-1.8px}.events-heading>div>p{color:var(--muted);font-size:17px;line-height:1.85;max-width:610px;margin-bottom:20px}.events-note{background:var(--cream);border:1px solid var(--line);border-radius:7px;padding:27px}.events-note>svg{color:var(--orange)}.events-note h2{font-size:29px;margin:14px 0 12px;line-height:1.1}.events-note p{font-size:14px;line-height:1.75;color:var(--muted)}.events-note dl{margin:20px 0 16px}.events-note dl>div+div{margin-top:13px}.events-note dt{font-size:12px;color:var(--muted)}.events-note dd{margin:4px 0 0;font-size:14px}.events-note small{font-size:12px;color:var(--muted)}.events-warning{display:flex;gap:10px;align-items:flex-start;border-left:3px solid var(--orange);background:var(--cream);padding:14px 18px;margin-top:32px;font-size:14px;line-height:1.65}.events-warning svg{flex-shrink:0;margin-top:2px}.events-warning[hidden]{display:none}.events-calendar{padding-top:24px;padding-bottom:66px}.events-section-heading{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;flex-wrap:wrap}.events-section-heading h2{font-size:42px;margin-top:12px}.events-section-heading>p,.events-source-count{font-size:14px;color:var(--muted);margin-bottom:7px}.event-filters{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-end;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:21px 0;margin:24px 0}.event-filters[hidden]{display:none}.event-filters>div{display:flex;flex-direction:column;gap:7px;min-width:225px}.event-filters label,.event-category-filter>span{font-size:13px}.event-filters select{background:var(--paper);color:var(--green);border:1px solid var(--line);border-radius:4px;padding:10px 34px 10px 12px;min-height:46px;max-width:100%}.event-filter-reset{border:0;background:none;padding:12px 0;min-height:46px;text-decoration:underline;text-underline-offset:4px;color:var(--muted);font-size:14px;cursor:pointer}.events-small-note{font-size:13px;color:var(--muted);margin:20px 0}.events-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:28px}.event-card{border:1px solid var(--line);border-radius:7px;padding:24px;display:flex;flex-direction:column;min-width:0;background:var(--paper)}.event-card[hidden]{display:none}.event-card-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}.event-card-top>span{letter-spacing:.6px;text-transform:uppercase}.event-status{background:var(--cream);color:var(--accent-text);padding:4px 8px;border-radius:3px;font-weight:500;font-size:12px}.event-card .event-name{font-family:var(--serif);font-size:29px;line-height:1.15;font-weight:700;margin:16px 0 21px;overflow-wrap:anywhere}.event-date,.event-location{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.7;margin-bottom:14px}.event-date>svg,.event-location>svg{flex-shrink:0;margin-top:3px;color:var(--orange)}.event-date small{display:block;color:var(--muted);font-size:12px}.event-location strong{font-weight:500;display:block}.event-location span{font-size:13px;color:var(--muted);display:block}.event-description{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:15px}.event-price{font-size:13px;margin-bottom:15px}.event-source{border-top:1px solid var(--line);margin-top:auto;padding-top:15px}.event-source>a{font-size:13px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;color:var(--accent-text)}.event-source small{font-size:12px;color:var(--muted);display:block;margin-top:8px;line-height:1.6}.event-cancelled h3{text-decoration:line-through;text-decoration-color:var(--line)}.events-empty{border:1px dashed var(--line);border-radius:7px;padding:45px 24px;text-align:center;margin-top:28px;background:var(--cream)}.events-empty[hidden]{display:none}.events-empty-icon{display:inline-flex;border:1px solid var(--line);border-radius:50%;width:65px;height:65px;align-items:center;justify-content:center;color:var(--orange)}.events-empty h2{font-size:35px;margin:19px 0 13px}.events-empty p{font-size:16px;line-height:1.85;color:var(--muted);max-width:680px;margin:0 auto 20px}.events-empty .text-link{justify-content:center}.events-sources-wrap{background:var(--cream);border-top:1px solid var(--line)}.events-sources{padding-top:55px;padding-bottom:64px;scroll-margin-top:100px}.events-source-intro{max-width:830px;font-size:16px;line-height:1.9;color:var(--muted);margin:18px 0 23px}.events-coverage{border:1px solid var(--line);border-radius:5px;display:flex;align-items:flex-start;gap:14px;padding:19px 22px;background:var(--paper);margin-bottom:27px}.events-coverage>svg{flex-shrink:0;margin-top:3px;color:var(--orange)}.events-coverage strong{display:block;font-size:14px;margin-bottom:5px;font-weight:500}.events-coverage span{font-size:14px;line-height:1.8;color:var(--muted)}.event-source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;align-items:start}.source-card{background:var(--paper);border:1px solid var(--line);border-radius:5px;min-width:0}.source-card summary{display:flex;justify-content:space-between;gap:20px;padding:22px;list-style:none;cursor:pointer;align-items:center}.source-card summary::-webkit-details-marker{display:none}.source-kind{font-size:12px;color:var(--muted);line-height:1.7;display:block}.source-card h3{font-family:var(--serif);font-size:25px;line-height:1.25;font-weight:500;margin:7px 0}.source-status{font-size:12px;color:var(--muted)}.source-expand{display:flex;flex-shrink:0;transition:transform .15s}.source-card[open] .source-expand{transform:rotate(45deg)}.source-details{border-top:1px solid var(--line);padding:20px 22px}.source-details>p{font-size:14px;line-height:1.8;color:var(--muted)}.source-details dl{margin:18px 0}.source-details dl>div{display:grid;grid-template-columns:1fr 1.15fr;gap:15px;margin-bottom:10px;font-size:13px;line-height:1.6}.source-details dt{color:var(--muted)}.source-details dd{margin:0;overflow-wrap:anywhere}.source-check-message{background:var(--cream);padding:10px 12px;margin-bottom:15px}.source-details .source-stale{color:var(--accent-text);font-size:13px;margin:12px 0}.source-stale[hidden]{display:none}.source-links{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px}.source-links a{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--accent-text);text-decoration:underline;text-underline-offset:4px}.events-submit{border-top:1px solid var(--line);margin-top:38px;padding-top:29px;display:flex;justify-content:space-between;align-items:center;gap:25px}.events-submit h3{font-family:var(--serif);font-size:29px;font-weight:500;margin-bottom:8px}.events-submit p{font-size:14px;line-height:1.8;color:var(--muted);max-width:680px}.events-submit .button{flex-shrink:0}.events-page a:focus-visible,.events-page summary:focus-visible,.events-page button:focus-visible,.events-page select:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+  @media(max-width:1050px){.events-heading{gap:35px;grid-template-columns:1fr 310px}.events-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.events-heading h1{font-size:56px}.events-note{padding:23px}.events-heading>div>p{font-size:16px}}
+  .event-stale{font-size:13px;line-height:1.7;color:var(--accent-text);background:var(--cream);padding:10px 12px;margin-top:13px}.event-stale[hidden]{display:none}
+  @media(max-width:750px){.events-heading{grid-template-columns:1fr;gap:28px}.events-heading h1{font-size:54px}.events-note{max-width:none}.events-note dl{display:grid;grid-template-columns:1fr 1fr;gap:16px}.events-note dl>div+div{margin:0}.event-source-grid{grid-template-columns:1fr}.events-calendar{padding-bottom:45px}.events-submit{align-items:flex-start;flex-direction:column}.events-section-heading h2{font-size:37px}.events-sources{padding-top:42px;padding-bottom:45px}.event-filters>div{min-width:0;flex:1}.event-filter-reset{width:100%;text-align:left;padding-top:0;min-height:35px}.events-warning{margin-top:24px}}
+  @media(max-width:560px){.events-intro{padding-top:32px;padding-bottom:25px}.events-heading h1{font-size:46px;letter-spacing:-1px}.events-grid{grid-template-columns:1fr;gap:17px}.event-filters{gap:16px}.event-filters>div{flex-basis:100%}.events-calendar{padding-top:15px}.events-section-heading{gap:13px}.events-section-heading h2{font-size:33px}.events-section-heading>p{margin-bottom:0}.events-empty{padding:32px 21px}.events-empty h2{font-size:29px}.events-note dl{grid-template-columns:1fr}.source-card summary{padding:19px}.source-card h3{font-size:24px}.source-details{padding:19px}.source-details dl>div{grid-template-columns:1fr;gap:2px;margin-bottom:14px}.events-coverage{padding:17px;gap:11px}}
+  .events-page h1,.events-page h2,.events-page h3,.events-heading h1 em{font-weight:700}
+  .event-filters>.event-category-filter{flex-basis:100%;min-width:0;order:2;gap:10px}
+  .event-category-options{display:flex;flex-wrap:wrap;gap:8px}
+  .event-category-options button{border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--green);padding:9px 15px;min-height:44px;font-size:14px;line-height:1.4;cursor:pointer}
+  .event-category-options button:hover{border-color:var(--green);background:var(--cream)}
+  .event-category-options button[aria-pressed=true]{border-color:var(--green);background:var(--green);color:var(--paper);font-weight:700}
+  .event-card,.cinema-card{padding:0;overflow:hidden}
+  .event-past{border-style:dashed;background:var(--cream)}
+  .event-past :global([data-event-media]){filter:grayscale(.8);opacity:.7}
+  .event-ended{background:var(--line);color:var(--green)}
+  .event-ended[hidden]{display:none}
+  .event-card-body{display:flex;flex-direction:column;flex:1;min-width:0;padding:24px}
+  @media(max-width:560px){.event-card-body{padding:21px}}
+  @media(max-width:750px){.event-category-options{gap:7px}.event-category-options button{padding:9px 13px}}
+
+  .event-media{position:relative;display:grid;place-items:center;aspect-ratio:16/9;overflow:hidden;background:var(--cream);border-bottom:1px solid var(--line)}.event-date-badge{display:grid;gap:10px;place-items:center;font:600 clamp(32px,3vw,46px)/1 var(--serif);color:var(--green)}.event-date-badge svg{color:var(--orange)}.event-media img{position:absolute;inset:0;background:var(--cream);width:100%;height:100%;object-fit:contain}
+  .events-page [hidden]{display:none}.event-archive-notice{border-left:3px solid var(--orange);padding:12px 18px;background:var(--cream)}.event-archive-notice strong,.event-archive-notice span{display:block}.event-archive-notice strong{color:var(--green)}
+  .event-history{margin-top:32px;border:1px solid var(--line);border-radius:6px;padding:16px 20px}.event-history summary{color:var(--green);cursor:pointer;font-weight:600}.event-history ul{list-style:none;padding:0;margin:12px 0 0}.event-history li{border-top:1px solid var(--line);padding:10px 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 16px}.event-history time{font-size:13px;color:var(--muted)}.event-history a{font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  .events-back{padding-bottom:60px}.event-filters label{display:grid;gap:8px}.event-category-filter{min-width:0;border:0;padding:0;margin:0}.event-category-filter legend{font-size:13px;margin-bottom:8px}
+  .source-card ul{list-style:none;margin:0;padding:0 22px 12px}.source-card li{border-top:1px solid var(--line);padding:12px 0}.source-card li a{color:var(--green);font-size:15px;line-height:1.5}.source-card li a:hover{text-decoration:underline}.source-card li small{display:block;color:var(--muted);font-size:12px;margin-top:5px}
+  .events-note p+p{margin-top:14px}.events-note small{display:block;margin-top:14px}.event-filters{align-items:start}.events-calendar [hidden]{display:none}.events-heading h1{overflow-wrap:anywhere}
+  .calendar-title{display:flex;align-items:baseline;gap:12px 24px;flex-wrap:wrap;margin-top:18px}
+  .calendar-title h1{font-size:clamp(36px,5vw,64px);letter-spacing:-.04em;line-height:1.05;margin:0}
+  .calendar-title p,.source-checked{font-size:14px;color:var(--muted);margin:0}
+  .source-checked{margin:0 0 22px}.detail-poster{width:100%;max-height:330px;object-fit:contain}
+  .calendar-filters{display:grid;grid-template-columns:repeat(2,minmax(0,230px));gap:12px;padding:12px 0 16px;margin:16px 0 0;border-top:0}
+  .calendar-filters label{min-width:0;gap:3px}.calendar-filters select{width:100%;min-height:44px;font-size:15px}
+  @media(max-width:600px){
+    .calendar-title{display:block;margin:8px 0 0}.calendar-title h1{font-size:clamp(32px,8vw,42px)}.calendar-title p{margin:6px 0 0;font-size:13px}
+    .calendar-filters{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0 0 12px;margin:10px 0}
+    .calendar-filters select{padding:7px 5px;font-size:14px}.events-grid{margin-top:12px;grid-template-columns:minmax(0,1fr);gap:10px}
+    .event-card .event-name a::after{content:"";position:absolute;inset:0}.event-card{position:relative;display:grid;grid-template-columns:clamp(68px,21vw,108px) minmax(0,1fr)}
+    .event-media{aspect-ratio:auto;height:100%;border:0;border-right:1px solid var(--line)}
+    .event-date-badge{font-size:clamp(17px,5vw,24px);gap:7px}.event-date-badge svg{width:22px;height:22px}
+    .event-card-body{padding:12px;gap:5px}.event-card-top{font-size:10px}
+    .event-card .event-name{font-size:22px;line-height:1.12;margin:0 0 3px}
+    .event-date,.event-location{font-size:13px;line-height:1.4;margin:0;gap:6px}.event-date>svg,.event-location>svg{width:14px;height:14px}
+    .event-source{display:none}.events-calendar{padding-top:14px}
+  }
+</style>

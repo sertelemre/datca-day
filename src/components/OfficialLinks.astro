@@ -1,0 +1,23 @@
+---
+import { getLocale,localePath } from '../lib/i18n';
+import { ui } from '../lib/ui';
+import Icon from './Icon.astro';
+interface Props {slug:string}
+const {slug}=Astro.props;
+const locale=getLocale(Astro.url.pathname);
+const t=ui(locale);
+const links:Record<string,string[]> = {
+  'eski-datca':['datca-eski-datca-resadiye-9-1'],
+  'palamutbuku':['datca-palamutbuku-9-5'],
+  'ovabuku':['datca-mesudiye-9-3'],
+  'hayitbuku':['datca-mesudiye-9-3'],
+  'kargi-koyu':['ozbel-kargi-9-2'],
+  'bodrum-datca-feribotu':['bodrum-datca-48-48','datca-karakoy-9-8'],
+  'dalamandan-datcaya-ulasim':['marmaris-dalaman-havas','marmaris-otogar-dalaman-havalimani-48-26','datca-marmaris-48-16'],
+  'kizlan-yel-degirmenleri':['datca-kizlan-9-9'],
+};
+import transport from '../lib/transport-data.json';
+const routes=(links[slug] || []).flatMap(id=>transport.routes.filter(route=>route.slug===id));
+---
+{routes.length>0 && <section class="service-links"><h2>{t('Sefer saatleri')}</h2>{routes.map(route=><a href={localePath('/ulasim/'+route.slug,locale)}><Icon name="clock" size={18}/>{route.code} · {route.title}<span>→</span></a>)}</section>}
+<style>.service-links{margin:30px 0}.service-links a{display:flex;align-items:center;gap:12px;min-height:48px;border-bottom:1px solid var(--line);text-decoration:none}.service-links a span{margin-left:auto}</style>

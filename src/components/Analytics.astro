@@ -1,0 +1,79 @@
+---
+import { getLocale, localePath } from '../lib/i18n';
+// GA measurement IDs are public. An explicit empty environment value disables it.
+const measurementId = (import.meta.env.PUBLIC_GA4_MEASUREMENT_ID ?? '').trim();
+if (measurementId && !/^G-[A-Z0-9]+$/.test(measurementId)) throw Error('Invalid GA4 measurement ID');
+const locale = getLocale(Astro.url.pathname);
+const copy = {
+ tr: { title: 'Ziyaret istatistikleri', text: 'İzin verirsen sayfa görüntülemelerini ve bilet, telefon, yol tarifi tıklamalarını Google Analytics ile ölçeriz. İstatistik çerezleri kullanılır. Tercihini istediğin zaman değiştirebilirsin.', yes: 'İzin ver', no: 'İzin verme', settings: 'Çerez tercihleri', privacy: 'Gizlilik bilgileri' },
+ en: { title: 'Visit statistics', text: 'With your permission, Google Analytics measures page views and ticket, phone and directions clicks using analytics cookies. You can change your choice at any time.', yes: 'Allow', no: 'Decline', settings: 'Cookie preferences', privacy: 'Privacy information' },
+ ru: { title: 'Статистика посещений', text: 'С вашего разрешения Google Analytics измеряет просмотры и нажатия на билеты, телефон и маршрут с помощью аналитических cookies. Вы можете изменить выбор в любое время.', yes: 'Разрешить', no: 'Отказаться', settings: 'Настройки cookies', privacy: 'Конфиденциальность' },
+}[locale];
+---
+{measurementId && <div data-analytics-id={measurementId}>
+ <button class="analytics-settings" type="button" data-analytics-settings>{copy.settings}</button>
+ <aside class="analytics-choice" data-analytics-choice aria-label={copy.title} hidden>
+  <strong>{copy.title}</strong><p>{copy.text} <a href={localePath('/gizlilik',locale)}>{copy.privacy}</a></p>
+  <div><button type="button" data-analytics-deny>{copy.no}</button><button type="button" data-analytics-allow>{copy.yes}</button></div>
+ </aside>
+</div>}
+<script>
+ const root = document.querySelector<HTMLElement>('[data-analytics-id]');
+ const id = root?.dataset.analyticsId;
+ // Preview/local visits must never pollute production statistics.
+ if (root && id && location.hostname === 'datca.day') {
+  const banner = root.querySelector<HTMLElement>('[data-analytics-choice]')!;
+  const key = 'datca-analytics-consent-v1';
+  const maxAge = 180 * 24 * 60 * 60 * 1000;
+  let allowed = false, loaded = false;
+  const analyticsWindow = window as Window & { dataLayer?: unknown[] };
+  // Google tag commands use the standard Arguments-object queue format.
+  function gtag(..._args: unknown[]) { (analyticsWindow.dataLayer ||= []).push(arguments); }
+  const page = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href || location.origin + location.pathname;
+  const readChoice = () => { try { const value = JSON.parse(localStorage.getItem(key) || 'null'); return value && typeof value.allowed === 'boolean' && typeof value.at === 'number' && Date.now() - value.at < maxAge && value.at <= Date.now() ? value.allowed as boolean : null; } catch { return null; } };
+  const clearCookies = () => {
+   document.cookie.split(';').forEach(cookie => {
+    const name = cookie.split('=')[0].trim();
+    if (!/^_ga(?:_|$)/.test(name)) return;
+    for (const domain of ['', '; domain=datca.day', '; domain=.datca.day']) document.cookie = `${name}=; Max-Age=0; path=/${domain}; SameSite=Lax; Secure`;
+   });
+  };
+  const apply = (choice: boolean, persist = false) => {
+   allowed = choice;
+   Reflect.set(window, `ga-disable-${id}`, !choice);
+   banner.hidden = true;
+   if (persist) { try { localStorage.setItem(key, JSON.stringify({ allowed: choice, at: Date.now() })); } catch { /* Current-page choice still applies. */ } }
+   if (!choice) { clearCookies(); return; }
+   if (loaded) { gtag('consent', 'update', { analytics_storage: 'granted' }); return; }
+   loaded = true;
+   gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+   gtag('js', new Date());
+   let referrer = '';
+   try { const url = new URL(document.referrer); referrer = url.origin + (url.hostname === 'datca.day' ? url.pathname : '/'); } catch { /* Direct visit. */ }
+   gtag('config', id, { send_page_view: false, page_location: page, page_referrer: referrer, allow_google_signals: false, allow_ad_personalization_signals: false, cookie_expires: 60 * 60 * 24 * 180 });
+   gtag('event', 'page_view', { page_location: page, page_referrer: referrer, page_title: document.title });
+   const script = document.createElement('script'); script.async = true;
+   script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+   document.head.appendChild(script);
+  };
+  const choice = readChoice();
+  if (choice === null) { Reflect.set(window, `ga-disable-${id}`, true); clearCookies(); banner.hidden = false; }
+  else apply(choice);
+  root.querySelector('[data-analytics-allow]')?.addEventListener('click', () => apply(true, true));
+  root.querySelector('[data-analytics-deny]')?.addEventListener('click', () => apply(false, true));
+  root.querySelector('[data-analytics-settings]')?.addEventListener('click', () => { banner.hidden = !banner.hidden; if (!banner.hidden) banner.querySelector('button')?.focus(); });
+  window.addEventListener('storage', event => { if (event.key === key || event.key === null) apply(readChoice() === true); });
+  document.addEventListener('click', event => {
+   if (!allowed || !(event.target instanceof Element)) return;
+   const link = event.target.closest<HTMLAnchorElement>('a[data-track-action]');
+   const action = link?.dataset.trackAction;
+   if (!link || !action || !['ticket', 'phone', 'directions', 'source'].includes(action)) return;
+   // Only editor-defined identifiers are sent; no destination query, phone,
+   // form values, on-site searches or free text enters the event payload.
+   gtag('event', `${action}_click`, { page_location: page, content_id: link.dataset.trackItem || location.pathname, page_language: document.documentElement.lang, transport_type: 'beacon' });
+  });
+ }
+</script>
+<style>
+.analytics-settings{display:block;margin:0 auto 22px;padding:10px 14px;min-height:44px;background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:4px;font-size:12px}.analytics-choice{position:fixed;z-index:80;bottom:18px;right:18px;width:min(440px,calc(100% - 36px));padding:22px;background:var(--paper);color:var(--ink);border:1px solid var(--line);box-shadow:0 8px 40px #183b3429;border-radius:8px}.analytics-choice[hidden]{display:none}.analytics-choice strong{font-size:17px}.analytics-choice p{font-size:13px;line-height:1.7;margin:12px 0 18px}.analytics-choice a{text-decoration:underline}.analytics-choice>div{display:flex;gap:12px}.analytics-choice button{flex:1;padding:10px;min-height:44px;border:1px solid var(--green);border-radius:4px;background:var(--paper);color:var(--green);font-size:13px}.analytics-choice button:hover{background:var(--cream)}
+</style>

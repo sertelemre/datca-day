@@ -1,0 +1,29 @@
+---
+import { ui } from '../lib/ui';
+import { getLocale } from '../lib/i18n';
+const locale = getLocale(Astro.url.pathname);
+const t = ui(locale);
+const initialAmount = new Intl.NumberFormat(locale, {style:'currency',currency:'TRY'}).format(0);
+
+import Icon from './Icon.astro';
+---
+<section class="budget-planner" data-budget-planner aria-labelledby="budget-title"><span class="eyebrow">{t("SENİN TERCİHLERİN, SENİN BÜTÇEN")}</span><h2 id="budget-title">{t("Yeme içme bütçeni hesapla.")}</h2><p>{t("Güncel menülerden kendi tutarlarını gir. Bütün rakamlar aynı para biriminde olmalı; hesap döviz çevirmez.")}</p><form id="budget-form"><div class="budget-basics"><label>{t("Kişi sayısı")}<input type="number" name="people" min="1" max="100" step="1" value="1" required/></label><label>{t("Gün sayısı")}<input type="number" name="days" min="1" max="365" step="1" value="3" required/></label><label>{t("Para birimi")}<select name="currency"><option value="TRY">{t("Türk lirası · TRY")}</option><option value="EUR">{t("Euro · EUR")}</option><option value="USD">{t("Dolar · USD")}</option><option value="GBP">{t("Sterlin · GBP")}</option></select></label></div><div class="budget-amounts">{[{name:'breakfast',label:'Kahvaltı',hint:'Kişi başına günlük'},{name:'lunch',label:'Öğle yemeği',hint:'Kişi başına günlük'},{name:'dinner',label:'Akşam yemeği',hint:'Kişi başına günlük'},{name:'drinks',label:'İçecek ve atıştırmalık',hint:'Kişi başına günlük'},{name:'extra',label:'Diğer harcamalar',hint:'Bütün tatil için toplam'}].map(item=><label>{t(item.label)}<input type="number" name={item.name} min="0" max="10000000" step="0.01" placeholder="0" inputmode="decimal"/><small>{t(item.hint)}</small></label>)}</div><div class="budget-output" role="status" aria-live="polite"><div><span>{t("Kişi başına günlük")}</span><strong id="budget-daily">{initialAmount}</strong></div><div><span>{t("Tatil için toplam")}</span><strong id="budget-total">{initialAmount}</strong></div></div><div class="budget-bottom"><p><Icon name="compass" size={17}/> {t("Girdiğin tutarlarla hesaplanan kişisel plan. Bir fiyat teklifi değildir.")}</p><button type="reset">{t("Hesabı temizle")}</button></div></form></section>
+<script>
+
+ const form=document.querySelector<HTMLFormElement>('#budget-form');
+ if(form){
+  const calculate=()=>{
+   const number=(name:string,min=0,max=10000000)=>{const input=form.elements.namedItem(name) as HTMLInputElement;const n=Number(input?.value);return Number.isFinite(n)?Math.min(max,Math.max(min,n)):min;};
+   const people=Math.floor(number('people',1,100));const days=Math.floor(number('days',1,365));
+   const daily=['breakfast','lunch','dinner','drinks'].reduce((total,key)=>total+number(key),0);
+   const currency=(form.elements.namedItem('currency') as HTMLSelectElement).value;
+   const format=new Intl.NumberFormat(document.documentElement.lang,{style:'currency',currency});
+   document.querySelector('#budget-daily')!.textContent=format.format(daily);
+   document.querySelector('#budget-total')!.textContent=format.format(daily*people*days+number('extra'));
+  };
+  form.addEventListener('input',calculate);form.addEventListener('change',calculate);form.addEventListener('reset',()=>window.setTimeout(calculate,0));calculate();
+ }
+</script>
+<style>
+.budget-planner{margin:40px 0;padding:32px;border:1px solid var(--line);border-radius:8px;background:#eef0e5}.budget-planner h2{margin:12px 0!important;font-size:38px!important}.budget-planner>p{font-size:13px;color:var(--muted)}.budget-basics{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:15px;margin:25px 0}.budget-amounts{display:grid;grid-template-columns:1fr 1fr;gap:20px 15px}.budget-planner label{display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:500}.budget-planner input,.budget-planner select{width:100%;min-width:0;border:1px solid #ccd3c4;padding:12px;border-radius:4px;background:var(--paper);color:var(--green);font:inherit;font-size:14px}.budget-planner input:focus,.budget-planner select:focus{outline:2px solid var(--orange);outline-offset:2px}.budget-planner small{font-size:10px;color:var(--muted);font-weight:400}.budget-output{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px;border-top:1px solid var(--line);padding-top:24px}.budget-output span{font-size:11px}.budget-output strong{display:block;font-family:var(--serif);font-size:34px;line-height:1.3}.budget-bottom{display:flex;align-items:center;gap:15px;margin-top:20px}.budget-bottom p{font-size:10px;color:var(--muted);line-height:1.7;margin:0!important}.budget-bottom p svg{vertical-align:middle}.budget-bottom button{margin-left:auto;border:0;background:none;color:var(--orange);font:inherit;font-size:11px;white-space:nowrap;cursor:pointer}@media(max-width:560px){.budget-planner{padding:22px 18px}.budget-basics{grid-template-columns:1fr 1fr}.budget-basics label:last-child{grid-column:1/-1}.budget-output strong{font-size:28px}.budget-bottom{align-items:flex-start;flex-direction:column}.budget-bottom button{margin-left:0}}
+</style>

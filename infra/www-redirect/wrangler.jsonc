@@ -1,0 +1,10 @@
+{
+  "name": "datca-www-redirect",
+  "main": "index.js",
+  "compatibility_date": "2026-11-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "www.datca.day/*", "zone_name": "datca.day" }],
+  "observability": { "enabled": true, "head_sampling_rate": 0.01 }
+}

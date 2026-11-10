@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleDetail from '../components/ArticleDetail.astro';
+import CategoryListing from '../components/CategoryListing.astro';
+import DatcaEvents from '../components/DatcaEvents.astro';
+import Transport from '../components/Transport.astro';
+import Guide from './rehber.astro';
+import Contact from './iletisim.astro';
+import About from './hakkimizda.astro';
+import Privacy from './gizlilik.astro';
+import Gallery from './fotograf-galerisi.astro';
+import Credits from './fotograf-kaynaklari.astro';
+import Sitemap from './site-haritasi.astro';
+import Saved from './kaydedilenler.astro';
+import Planner from './tatil-planim.astro';
+import EventsPage from './etkinlikler.astro';
+import TransportPage from './ulasim.astro';
+import WeatherPage from './datca-hava-durumu.astro';
+import Explore from './kesfet.astro';
+import Search from './arama.astro';
+import NotFound from './404.astro';
+import { events } from '../lib/events';
+import { placeName } from '../lib/transport';
+import transport from '../lib/transport-data.json';
+import { eventPath,transportPath } from '../lib/paths';
+import { locales,getContent,getLocale,localePath,staticPaths } from '../lib/i18n';
+import { primaryCategory,getRelated,categoryArticles,categoryImage } from '../lib/content';
+import { articleSchema,collectionSchema } from '../lib/seo';
+import type { Article,Category } from '../lib/types';
+import { ui } from '../lib/ui';
+
+interface Props { article?:Article; category?:Category; pageKey?:string; event?:typeof events[number]; route?:typeof transport.routes[number] }
+export function getStaticPaths() {
+  const paths:{params:{path:string};props:Props}[]=[];
+  const add=(path:string,props:Props)=>paths.push({params:{path:path.slice(1)},props});
+  for(const locale of locales) {
+    const content=getContent(locale);
+    for(const article of content.articles) add(article.path,{article});
+    for(const category of content.categories) add(category.path,{category});
+    for(const event of events) add(eventPath(event,locale),{event});
+    for(const route of transport.routes) add(transportPath(route.slug,locale),{route});
+    if(locale!=='tr') for(const pageKey of Object.keys(staticPaths)) if(pageKey!=='/') add(localePath(pageKey,locale),{pageKey});
+  }
+  return paths;
+}
+const {article,category,pageKey,event,route}=Astro.props;
+const helpers:Record<string,typeof Guide>={'/rehber':Guide,'/etkinlikler':EventsPage,'/ulasim':TransportPage,'/datca-hava-durumu':WeatherPage,'/iletisim':Contact,'/hakkimizda':About,'/gizlilik':Privacy,'/fotograf-galerisi':Gallery,'/fotograf-kaynaklari':Credits,'/site-haritasi':Sitemap,'/kaydedilenler':Saved,'/tatil-planim':Planner,'/arama':Search,'/kesfet':Explore,'/404':NotFound};
+const Page=pageKey ? helpers[pageKey] : undefined;
+const locale=getLocale(Astro.url.pathname), t=ui(locale);
+const schema=article ? articleSchema(article,Astro.site!,primaryCategory(article)) : category ? collectionSchema(category,categoryArticles(category),Astro.site!) : null;
+const localDate=(day:string)=>new Intl.DateTimeFormat(locale,{day:'numeric',month:'long',year:'numeric',timeZone:'Europe/Istanbul'}).format(new Date(day+'T12:00:00+03:00'));
+const eventTitle=event && [event.title,localDate(event.start)].join(' · ');
+const title=article?.title || category?.name || eventTitle || (route ? route.code+' · '+placeName(route.title,locale)+' | '+t('Sefer saatleri') : '');
+const eventDescription=event && [event.title,event.venue,event.start,event.time,t('Datça etkinlik takvimi')].filter(Boolean).join(' · ');
+const description=article?.excerpt || category?.description || eventDescription || (route ? t('{line} için yön ve güne göre kalkış saatleri. Seyahatten önce işletmecinin son tarifesini kontrol et.',{line:placeName(route.title,locale)}) : undefined);
+---
+{Page ? <Page/> : <Layout title={title} description={description} image={article?.image || (category ? categoryImage(category) : undefined)} article={!!article}>
+  <Fragment slot="head">{schema && <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g,'\\u003c')}/>}</Fragment>
+  {article && <ArticleDetail article={article} category={primaryCategory(article)} related={getRelated(article)}/>}
+  {category && <CategoryListing category={category} articles={categoryArticles(category)} subcategories={[]}/>}
+  {event && <DatcaEvents locale={locale} event={event}/>}
+  {route && <Transport locale={locale} routeSlug={route.slug}/>}
+</Layout>}
