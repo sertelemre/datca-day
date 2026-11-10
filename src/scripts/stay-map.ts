@@ -54,7 +54,9 @@ export function mountStayMap(root: HTMLElement, cards: HTMLElement[]) {
     link.removeAttribute('data-select-stay');link.removeAttribute('data-map-link');
     if(marker) link.textContent=section.dataset.directions!;
     content.append(link);
-    const source=card.querySelector('a[data-location-source]');if(source) content.append(source.cloneNode(true));
+    for (const source of card.querySelectorAll('a[data-location-source], a[data-contact-source], a.credit')) {
+      content.append(source.cloneNode(true));
+    }
     panel.querySelector<HTMLElement>('[data-unmapped]')!.hidden=!!marker;
     panel.hidden=false;map.invalidateSize({pan:false});
     if(marker) {
