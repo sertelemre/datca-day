@@ -17,7 +17,7 @@ const canonical = new URL(canonicalPath ? localize(canonicalPath) : pagePath(Ast
 const variants = noindex ? [] : alternatePaths(canonical.pathname);
 const currentArticle = articles.find(a=>a.path === pagePath(Astro.url.pathname));
 const isArticle = article && !!currentArticle && !currentArticle.canonicalPath && !noindex;
-const socialImage = new URL((image || '/images/hero-datca.webp').replace('/images/','/images/social/').replace('.webp','.jpg'), Astro.site);
+const socialImage = new URL((image || '/images/hero-datca.webp').replace('/images/','/images/social/amfora/').replace('.webp','.jpg'), Astro.site);
 const socialImageAlt = currentArticle?.imageAlt || t('Datça Yarımadası');
 const pageTitle = `${title} | datca.day`;
 const organization = {'@type':'Organization','@id':`${Astro.site}#organization`,name:'datca.day',url:Astro.site?.href,logo:{'@type':'ImageObject',url:new URL('/icon-512.png',Astro.site).href,width:512,height:512}};
