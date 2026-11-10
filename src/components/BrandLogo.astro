@@ -1,12 +1,28 @@
 ---
-interface Props { href:string; label:string; footer?:boolean }
-const { href,label,footer=false } = Astro.props;
+interface Props {
+  href: string;
+  label: string;
+  footer?: boolean;
+}
+const { href, label, footer = false } = Astro.props;
 ---
-<a class:list={['brand-logo',{'brand-logo-footer':footer}]} href={href} aria-label={label}><img src="/images/wave-sun.png" alt="" width="58" height="37"/><span>datca<b>.</b>day</span></a>
+<a class:list={['brand-logo', { 'brand-logo-footer': footer }]} href={href} aria-label={label}>
+  <img src="/images/datca-day.svg" alt="" width="259" height="64" />
+</a>
+
 <style>
-.brand-logo{display:inline-flex;align-items:center;gap:7px;line-height:1;flex:none;color:#183b34}
-.brand-logo img{width:54px;height:auto}.brand-logo span{font:750 35px/1 var(--sans);letter-spacing:-2px}.brand-logo b{color:#eb754f}
-.brand-logo-footer span{font-size:39px}
-@media(max-width:600px){.brand-logo:not(.brand-logo-footer) img{width:42px}.brand-logo:not(.brand-logo-footer) span{font-size:30px}}
-@media(max-width:374px){.brand-logo:not(.brand-logo-footer){gap:4px}.brand-logo:not(.brand-logo-footer) img{width:30px}.brand-logo:not(.brand-logo-footer) span{font-size:23px}}
+  .brand-logo {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    width: 188px;
+  }
+  .brand-logo img { width: 100%; height: auto; }
+  .brand-logo-footer { width: 210px; }
+  @media (max-width: 600px) {
+    .brand-logo:not(.brand-logo-footer) { width: 156px; }
+  }
+  @media (max-width: 374px) {
+    .brand-logo:not(.brand-logo-footer) { width: 120px; }
+  }
 </style>
