@@ -999,10 +999,11 @@
     "phone": "+90 505 451 14 87",
     "area": "Yaka",
     "coordinates": [
-      36.672696,
-      27.505201
+      36.672597,
+      27.505092
     ],
-    "locationSource": "https://bulotel.com/tesis/kardelen-evleri"
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/327357",
+    "mappedDoor": "357"
   },
   {
     "number": "2022-48-1890",
@@ -2421,6 +2422,14 @@
   {
     "number": "2022-48-2201",
     "name": "Esenada Oteli",
+    "panorama": {
+      "embed": "https://www.google.com/maps/embed?pb=!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRGhtSS1SbmdF!2m2!1d36.722696!2d27.6903608!3f70!4f-15!5f3.5",
+      "source": "https://www.google.com/maps/@36.722696,27.6903608,3a,15y,70h,75t/data=!3m4!1e1!3m2!1sCIHM0ogKEICAgIDhmI-RngE!2e10",
+      "credit": "Everyone Smile TÜRKİYE",
+      "tr": "Esenada Oteli’nin limandan görünümü · Şubat 2023",
+      "en": "Esenada Hotel seen from the harbour · February 2023",
+      "ru": "Вид на отель Esenada со стороны гавани · февраль 2023"
+    },
     "archivePhoto": {
       "source": "https://www.datca-haber.com/makale/gecmis-zaman-olur-ki-1916",
       "tr": "Arşiv fotoğrafı · 1930’larda Esenada ve Datça Limanı",
@@ -2428,14 +2437,16 @@
       "ru": "Архивное фото · Эсенада и гавань Датчи в 1930-е годы"
     },
     "type": "otel",
-    "address": "İskele Mah Atatürk Cad. No:95",
+    "address": "İskele Mahallesi, Atatürk Caddesi No:95, Datça/Muğla",
     "phone": "+90 549 265 15 88",
     "area": "İskele",
     "coordinates": [
-      36.722411,
-      27.690563
+      36.72313,
+      27.690199
     ],
-    "locationSource": "https://www.facebook.com/238400977025056"
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/28283",
+    "contactSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/1/148876",
+    "mappedDoor": "95"
   },
   {
     "number": "2022-48-2204",
@@ -4404,16 +4415,17 @@
     "name": "Pamilyon Sahil Evleri",
     "type": "pansiyon",
     "coordinates": [
-      36.671031,
-      27.503841
+      36.671073,
+      27.503759
     ],
-    "locationSource": "https://www.facebook.com/441546535958984",
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/144241",
     "phone": "+90 252 725 50 94",
-    "address": "Cumalı Mahallesi, Palamutbükü Sokak, Datça/Muğla",
-    "contactSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/6/12253",
+    "address": "Cumalı Mahallesi, Palamutbükü Sokak No:145, Datça/Muğla",
+    "contactSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/1/354062",
     "photo": "https://picproxy.zhilibyli.ru/img/zb/images/hotels/121035/0cace6481149a0022ed9b3ccd6d13980.jpeg?size=m&quality=70",
     "gallery": "https://zhilibyli.ru/turtsiya/datcha/oteli/pamilyon-apart",
-    "area": "Cumalı"
+    "area": "Cumalı",
+    "mappedDoor": "145"
   },
   {
     "number": "26542",

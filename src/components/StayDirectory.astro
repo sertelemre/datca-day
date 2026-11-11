@@ -14,7 +14,8 @@ const labels = {
   en:{title:'Hotels and places to stay in Datça',search:'Property name or area',area:'All neighbourhoods',type:'All property types',photos:'With photos only',contactSource:'Contact details source',gallery:'Photo gallery',map:'Find on map',web:'Property website',more:'Show more properties',reset:'Clear filters',source:'Ministry register',contact:'Muğla Provincial Directorate of Culture and Tourism',asOf:'Records checked',number:'Certificate',application:'Application',count:'properties',hotel:'Hotel',apart:'Aparthotel',guest:'Guesthouse',boutique:'Boutique hotel',special:'Special accommodation',country:'Rural accommodation',camp:'Campsite',motel:'Motel',rental:'Licensed holiday home',pending:'Application on file',scope:'The Ministry lists {certified} certified properties. The directory also includes {rental} holiday homes with published permit numbers and {pending} properties with applications on file.'},
   ru:{title:'Отели и жильё в Датче',search:'Название или район',area:'Все районы',type:'Все типы жилья',photos:'Только с фото',contactSource:'Источник контактов',gallery:'Фотогалерея',map:'Найти на карте',web:'Сайт объекта',more:'Показать ещё объекты',reset:'Сбросить фильтры',source:'Реестр министерства',contact:'Управление культуры и туризма Муглы',asOf:'Дата проверки',number:'Свидетельство',application:'Заявка',count:'объектов',hotel:'Отель',apart:'Апарт-отель',guest:'Пансион',boutique:'Бутик-отель',special:'Особый тип размещения',country:'Загородное жильё',camp:'Кемпинг',motel:'Мотель',rental:'Лицензированное жильё',pending:'Подана заявка',scope:'В реестре министерства {certified} сертифицированных объектов. Также представлены {rental} лицензированных домов для отдыха и {pending} объекта, подавших заявку.'},
 }[locale];
-const spots = data.slice().sort((a,b) => Number(!!(b.photo || b.instagramPost))-Number(!!(a.photo || a.instagramPost)) || Number(kind(b.type)==='hotel')-Number(kind(a.type)==='hotel') || (a.alias || a.name).localeCompare(b.alias || b.name,'tr'));
+const hasPhoto = (spot: typeof data[number]) => Boolean(spot.photo || spot.instagramPost || spot.panorama);
+const spots = data.slice().sort((a,b) => Number(hasPhoto(b))-Number(hasPhoto(a)) || Number(kind(b.type)==='hotel')-Number(kind(a.type)==='hotel') || (a.alias || a.name).localeCompare(b.alias || b.name,'tr'));
 const rentals = spots.filter(spot => spot.type === 'rental').length;
 const pending = spots.filter(spot => spot.type === 'application').length;
 const scope = labels.scope.replace('{certified}', String(spots.length-rentals-pending)).replace('{rental}', String(rentals)).replace('{pending}', String(pending));
@@ -39,9 +40,10 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
       const title = spot.alias || spot.name;
       const pin = spot.coordinates;
       const mapsUrl = stayMapUrl(spot);
-      return <article class="stay" data-stay data-deferred={index >= batchSize || undefined} data-has-photo={!!(spot.photo || spot.instagramPost) || undefined} data-lat={pin?.[0]} data-lon={pin?.[1]} data-number={spot.number} data-area={spot.area} data-kind={kind(spot.type)} data-terms={[spot.name,spot.alias,spot.address,spot.area,spot.number].filter(Boolean).join(' ')}>
-        {(spot.photo || !spot.instagramPost) && <a class="stay-picture" data-select-stay href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={title+' · '+m.details}><img src={spot.photo || placeholder} data-stay-image data-stay-placeholder={!spot.photo || undefined} loading="lazy" decoding="async" referrerpolicy="no-referrer" width="450" height="235" alt={spot.photo ? title : ''}/></a>}
+      return <article class="stay" data-stay data-deferred={index >= batchSize || undefined} data-has-photo={hasPhoto(spot) || undefined} data-lat={pin?.[0]} data-lon={pin?.[1]} data-number={spot.number} data-area={spot.area} data-kind={kind(spot.type)} data-terms={[spot.name,spot.alias,spot.address,spot.area,spot.number].filter(Boolean).join(' ')}>
+        {(spot.photo || !hasPhoto(spot)) && <a class="stay-picture" data-select-stay href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={title+' · '+m.details}><img src={spot.photo || placeholder} data-stay-image data-stay-placeholder={!spot.photo || undefined} loading="lazy" decoding="async" referrerpolicy="no-referrer" width="450" height="235" alt={spot.photo ? title : ''}/></a>}
         {spot.instagramPost && <iframe class="stay-embed" src={'https://www.instagram.com/p/'+spot.instagramPost+'/embed/'} title={title+' · Instagram'} loading="lazy" referrerpolicy="no-referrer" width="400" height="390"></iframe>}
+        {spot.panorama && <iframe class="stay-embed stay-panorama" src={spot.panorama.embed} title={spot.panorama[locale]} loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" width="450" height="235"></iframe>}
         <div class="stay-body">
           <p class="kind">{labels[kind(spot.type)]}{spot.area && <> · {spot.area}</>}</p>
           <h3><a data-select-stay href={mapsUrl}>{title}</a></h3>
@@ -51,6 +53,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
           <div class="stay-links"><a href={mapsUrl} data-map-link data-select-stay={pin ? '' : undefined} target="_blank" rel="noopener noreferrer"><Icon name="pin" size={15}/>{pin ? m.show : labels.map}</a>{spot.website && <a href={spot.website} target="_blank" rel="noopener noreferrer">{labels.web} ↗</a>}</div>
           <small>{spot.locationSource && <><a data-location-source href={spot.locationSource} target="_blank" rel="noopener noreferrer">{spot.mappedDoor ? m.addressSource : m.source} ↗</a> · </>}{spot.contactSource && <><a data-contact-source href={spot.contactSource} target="_blank" rel="noopener noreferrer">{labels.contactSource} ↗</a> · </>}{spot.type==='application'?labels.application:labels.number} {spot.number}</small>
           {spot.gallery && <a class="credit" href={spot.gallery} target="_blank" rel="noopener noreferrer">{labels.gallery} · {photoSource(spot.gallery)} ↗</a>}
+          {spot.panorama && <a class="credit" href={spot.panorama.source} target="_blank" rel="noopener noreferrer">{spot.panorama[locale]} · {spot.panorama.credit} ↗</a>}
           {spot.archivePhoto && <a class="credit" href={spot.archivePhoto.source} target="_blank" rel="noopener noreferrer">{spot.archivePhoto[locale]} · {photoSource(spot.archivePhoto.source)} ↗</a>}
         </div>
       </article>
@@ -161,6 +164,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
   .stay { overflow:hidden; border:1px solid var(--line); border-radius:9px; background:var(--paper); }
   .stay-picture,.stay-picture img { display:block; width:100%; }
   .stay-embed {display:block;width:100%;height:390px;border:0;}
+  .stay-panorama {height:auto;aspect-ratio:1.91;min-height:200px;}
   .stay-picture img { aspect-ratio:1.91; object-fit:cover; height:auto; background:var(--cream); }
   .stays :global(img[data-stay-placeholder]) { object-fit:contain; padding-inline:max(14%, calc((100% - 190px) / 2)); opacity:.17; }
   @media (scripting:enabled) { .stay-grid:not([data-ready]) > [data-deferred] { display:none; } }
