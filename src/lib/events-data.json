@@ -43,12 +43,12 @@
     },
     {
       "id": "bubilet-kultur",
-      "status": "ok",
+      "status": "error",
       "checked": "2026-11-11"
     },
     {
       "id": "bubilet-amfi",
-      "status": "ok",
+      "status": "error",
       "checked": "2026-11-11"
     },
     {
