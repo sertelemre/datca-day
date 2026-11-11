@@ -49,8 +49,8 @@ export const peninsulaGuides: Guide[] = [
   },
   {
     slug: 'hizirsah-ipek-dokuma', groups: ['places', 'history', 'tours'], photo: 'mesudiye',
-    source: {label: 'Özemek İpek Dokuma · Hızırşah', url: 'https://www.datcaipek.com/hizirsah'},
-    tr: copy('Hızırşah’ın eski okulunda ipek dokuma', 'Hızırşah’ın eski okul binasında bu kez ders sıralarının yerini dokuma tezgâhları alıyor. Atölyeye uğramadan önce tezgâh başındaki çalışmayı ne zaman görebileceğini öğrenebilirsin.'),
+    source: {label: 'Özemek İpek Dokuma · Atölye ziyareti', url: 'https://datcaipek.com/ziyaret-randevu'},
+    tr: copy('Hızırşah’ın eski okulunda ipek dokuma', 'Köy meydanından eski taş okula yürüyüp bir şalın tezgâhta nasıl dokunduğunu ustasından dinleyebilirsin. Özemek’te ziyaretler randevuyla yapılıyor. Görebileceğin işler ipek böceğinin mevsimine göre değişiyor.'),
     en: copy('Silk weaving in the old school at Hızırşah', 'Walk from the village square to a workshop where a rural school building has found a new use.',
       ['A loom in an old classroom', 'Özemek describes how the two-classroom stone school became a silk workshop. Arrange a visit directly with the weaver if seeing the loom in operation matters to you. Ask for directions from the village square.'],
       ['Looking at the cloth', 'Ask which stages are done by hand, how the thread is coloured and how a finished piece should be washed. A visit, a hands-on lesson and shopping can require different arrangements.']),
@@ -61,9 +61,7 @@ export const peninsulaGuides: Guide[] = [
   {
     slug: 'hacetevi-tepesi', groups: ['nature', 'history', 'tours'], photo: 'mesudiye',
     source: {label: 'Güney Ege · Hacetevi Tepesi', url: 'https://www.guneyegeturkiye.com/assets/user_files/DatcaKulturRotasi/HaceteviTepesi.pdf'},
-    tr: copy('Hacetevi Tepesi: Hızırşah’tan iki yürüyüş yolu', 'Eski tarım teraslarının arasında yükselen tepede hem bir yürüyüş parkuru hem de yerel bir ziyaret geleneği var.',
-      ['Parkuru seç', 'Kültür rotası belgesi, 356 metrelik tepe için köy meydanından ve Eski Cami tarafından iki yaklaşım tarif ediyor. Yaklaşık 2,7 ve 2,2 kilometrelik bu yolları birleştirirsen toplam mesafeye dönüş bağlantını da ekle. Haritayı önceden indir, güncel işaretleri köyde teyit et.'],
-      ['Tepedeki ziyaret yeri', 'Hacetevi adı zirvedeki taşlık ziyaret yerinden geliyor. Yerel anlatılarda burası rüyaya yatma geleneğiyle anılır. Alanı gezerken taşları yerinde bırak, tarım teraslarının üzerinden kestirme yapmadan patikayı kullan.']),
+    tr: copy('Hızırşah’tan Hacetevi Tepesi’ne iki yürüyüş yolu', 'Köy meydanından çıkan patika eski tarım teraslarına, Eski Cami’den başlayan kol Batır Kalesi yakınlarına uzanır. İki yol, Hızırşah’ta niyet tutmak için ziyaret edilen aynı tepede buluşur.'),
     en: copy('Hacetevi Hill: two routes above Hızırşah', 'Ancient field terraces surround a hilltop with both a walking route and a local tradition of dream seeking.',
       ['Choose an approach', 'The cultural route leaflet describes two approaches to the 356-metre summit, one from the village square and the other near the old mosque. The paths run roughly 2.7 and 2.2 kilometres. Add your return connection, download the map and check the present waymarking locally.'],
       ['The hilltop site', 'The stone site on the summit gives Hacetevi its name. Local accounts associate it with seeking guidance through dreams. Leave the stones undisturbed and follow the path around the field terraces.']),

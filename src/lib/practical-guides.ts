@@ -105,9 +105,7 @@ export const practicalGuides: Guide[] = [
   {
     slug: 'datca-baglari', groups: ['food', 'tours'], photo: 'kizlan',
     source: { label: 'Datça Bağcılık ve Şarapçılık', url: 'https://www.datcasarap.com/hakkimizda' },
-    tr: copy('Datça bağlarına ziyaret: üreticiden randevu', 'Yarımadada bağcılıkla tanışmak için üretim tesisi, ziyaret alanı ve bağ konaklaması arasındaki farkı gözet.',
-      ['Hangi adrese gideceksin?', 'Datça Bağcılık ve Şarapçılık kendi adresini Datça–Marmaris yolu üzerinde veriyor. Bir bağ gezisine katılmak istiyorsan önce ziyaret kabulünü, buluşma noktasını, süreyi ve dili işletmeden öğren.'],
-      ['Koy gezisiyle birleştirme', 'Tadım planlıyorsan dönüş ulaşımını önceden ayarla. Bağ yürüyüşünün mevsime, hava koşullarına ve üretim faaliyetlerine göre yapılıp yapılmadığını ayrıca sor.']),
+    tr: copy('Kızlan’da bir bağ gezisi', 'Değirmenaltı’nda üzüm sıraları, zeytin ağaçları ve bir şaraphane aynı yamaçta buluşur. Şaraphanede üretilen şarapları burada tanıyabilirsin. Bağbozumuna katılmak istersen ziyaret tarihini üzümlerin olgunlaşmasına göre seçmen gerekir.'),
     en: copy('Visiting a vineyard in Datça', 'Check whether your visit is to a winery, a vineyard or vineyard accommodation before you set off.',
       ['Find the meeting point', 'Datça Bağcılık ve Şarapçılık lists its address on the Datça–Marmaris road. Ask the producer about visitor admission, the meeting point, tour duration and language.'],
       ['Combining visits', 'Arrange transport home in advance if planning a tasting. Ask whether a vineyard walk is available in your season and during current production activities.']),
