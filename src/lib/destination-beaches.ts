@@ -91,7 +91,8 @@ export const beachDetails: Record<string, DestinationDetail> = {
         'Koyda küçük teknelerin karaya çekildiği bir bölüm de vardır. Kıyıyı dolaşırken çalışanlara ve teknelerin geçişine yer bırak. Yüzmek için sahilin plaj olarak kullanılan bölümünü seçersen hem denize girişin hem de eşyalarını kıyıdan takip etmen daha kolay olur.',
       ] },
       { heading: 'Kargı’dan geçen eski patikalar', paragraphs: [
-        'Karia Yolu’nun Datça’dan Domuzçukuru’na giden etabı Kargı’dan geçer. Koy çevresinde yürüyüşçülerle karşılaşmanın nedeni budur. Kargı’ya yaya gelmekle buradan Domuzçukuru’na devam etmek farklı uzunlukta planlardır. Sadece sahil yürüyüşü düşünüyorsan dönüşünü merkez yönünde yap. Etaba çıkacaksan patikayı ve yükseklik profilini Karia Yolu haritasından ayrıca incele.',
+        'Karia Yolu’nun 10A etabı Datça merkezden Kargı’ya gelir, ardından yarımadanın sırtlarını aşarak Domuzçukuru’na iner. Rota haritasında Kızılova Sarnıcı ve Siyah Gediği’ni de bulabilirsin. Deniz kenarında başlayıp biten bu yürüyüşün tamamı tek yönde yaklaşık 11 kilometredir. Yol boyunca toplam 350 metre kadar yükselirsin.',
+        'Merkezden yürüyüp Kargı’da yüzmek istiyorsan plajı günün son durağı olarak seçebilirsin. Domuzçukuru’na devam edenlerin ise dönüşlerini yola çıkmadan ayarlaması gerekir. Yürüyüşün o ucunda araç yolu yoktur.',
       ] },
       { heading: 'Kargı’yı merkezle birleştiren öğleden sonra', paragraphs: [
         'Kıyıdaki yeme içme yerleri sayesinde Kargı’ya piknik hazırlamadan da gelebilirsin. Sabah yüzüp öğle yemeğini koyda yemek ya da öğleden sonra kısa bir yüzmeden sonra merkezdeki limana dönmek iki ayrı yarım günlük plan sunar. Yürümeyi seviyorsan yolu tek yönde yürüyüp öbür yönde otobüse binmek de mümkün. Kargı yolu yokuşlu olduğu için dönüşte otobüse binmek özellikle sıcak bir günde rahat ettirir.',
@@ -102,7 +103,7 @@ export const beachDetails: Record<string, DestinationDetail> = {
     routes: ['ozbel-kargi-9-2'],
     stayNote: 'Bizim Ev Datça’nın adresi doğrudan Kargı Koyu’nda. Little House Datça, İskele Mahallesi’nde koyun merkez yönünde kalır. İki tesisin plaja yürüyüşünü konumları üzerinden karşılaştırabilirsin.',
     stayIds: ['2022-48-1522', '26405'],
-    sources: [carianTrail, district, province],
+    sources: [carianTrail, { title: 'Karia Yolu · Datça–Kargı–Domuzçukuru etap kaydı', url: 'https://www.wikiloc.com/hiking-trails/karia-yolu-10a-datca-kargi-domuzcukuru-69339756' }, district, province],
   },
   'cocuklarla-datca': {
     sections: [
@@ -221,8 +222,9 @@ export const beachDetails: Record<string, DestinationDetail> = {
         'Ovabükü’nden batıya doğru kıyı yoluna çıktığında yol su seviyesinden yükselir. Kurubük burada, yamaçların arasında geniş bir kavis çizerek aşağıda kalır. Adı Aktur tarafındaki Kurucabük’e benzer. İki koy yarımadanın farklı kesimlerindedir. Kurubük için bakacağın yerleşimler Mesudiye ve Palamutbükü’dür.',
         'Buraya yalnızca manzara görmek için uğrayanlarla kıyıya inip saatlerce kalanlar aynı yolu kullanır. Yolu ilk kez geçiyorsan önce aracı trafiği aksatmadan bırakabileceğin yeri bul. Koyun kıvrımı en iyi yüksekten görünür. Fotoğraf çekmeyi düşünüyorsan durmak için viraj dışında bir yer seç.',
       ] },
-      { heading: 'Yalı Burnu’ndan görünüm', paragraphs: [
-        'Datçalıların kıyı anlatılarında bu manzaraya bakan çıkıntı Yalı Burnu adıyla geçer. Açık havada karşıya baktığında Sömbeki’yi, yani Simi Adası’nı seçmek mümkün. Kıyının kıvrımını yukarıdan görenlerle aşağıda denize girenlerin fotoğraflarında aynı koyun bambaşka görünmesinin nedeni bu yükseklik farkıdır.',
+      { heading: 'Yalı Burnu’ndan kum tanelerinin arasına', paragraphs: [
+        'Datçalıların kıyı anlatılarında bu manzaraya bakan çıkıntı Yalı Burnu adıyla geçer. Açık havada karşıya baktığında Sömbeki’yi, yani Simi Adası’nı seçmek mümkün. Kıyıya indiğinde ise bu manzaranın gözle seçilmesi güç bir yanı var.',
+        'Alp Alper, Süphan Karaytuğ ve Serdar Sak’ın Datça–Bozburun kıyılarındaki çalışmasında Kurubük ile komşusu Ovabükü de örnek alınan koylar arasında. Araştırmacıların incelediği kopepodlar, kum tanelerinin arasındaki su dolu boşluklarda veya yosunların üzerinde yaşayan küçük kabuklular. Su çekildiğinde geride kalan ıslak kum, bu canlılar için başlı başına bir yaşam alanı.',
       ] },
       { heading: 'Kıyıya inmek için ne ayırmalı?', paragraphs: [
         'Kurubük’te günü, kıyıda bir işletmeye ihtiyaç duymadan geçirecek şekilde hazırlamak yerinde olur. Suyu ve yiyeceği Ovabükü’nde ya da Palamutbükü’nde alabilirsin. Önce yukarıdan inişe bak. Çocuğunla ya da dik yokuşta yürümekte zorlanan biriyle gelmişsen plajdan dönerken aynı yolu çıkacağını hesaba kat.',
@@ -237,7 +239,7 @@ export const beachDetails: Record<string, DestinationDetail> = {
     routes: ['datca-mesudiye-9-3', 'datca-palamutbuku-9-5'],
     stayNote: 'Kurubük’ü günübirlik gezmek için iki yönde de konaklama bulunur. Ova Otel ile Karia Pansiyon doğuda Ovabükü’nde, Badem Otel batıda Palamutbükü’ndedir. Haritadaki yol bağlantısına göre seçim yapabilirsin.',
     stayIds: ['2022-48-2388', '2022-48-1865', '2022-48-1022'],
-    sources: [coastalHistory, { title: 'Muğla Çevre Platformu · Kurubük’te 2018’deki kiralama girişimi', url: 'https://mucep.org/datca-kurubuk-koyu-ihalesi-iptal-edildi/' }, district],
+    sources: [coastalHistory, { title: 'Alper, Karaytuğ ve Sak · Datça–Bozburun kıyılarında yaşayan küçük kabuklular', url: 'https://dergipark.org.tr/tr/download/article-file/116306' }, { title: 'Muğla Çevre Platformu · Kurubük’te 2018’deki kiralama girişimi', url: 'https://mucep.org/datca-kurubuk-koyu-ihalesi-iptal-edildi/' }, district],
   },
   domuzbuku: {
     sections: [
@@ -246,7 +248,8 @@ export const beachDetails: Record<string, DestinationDetail> = {
         'Bir tur seçerken programdaki “yüzme molası” ifadesinin ne anlama geldiğini sor. Bazı programlarda mola tekneden denize girmek içindir. Kıyıya çıkmak veya plajda dolaşmak için süre ayrılmayabilir. Özellikle iyi yüzemeyen biriyle geliyorsan iskeleden mi binileceğini, suya tekneden mi girileceğini önceden bilmek önemli.',
       ] },
       { heading: 'Karia Yolu’nun denize indiği etap', paragraphs: [
-        'Karia Yolu haritalarında bu koy Domuzçukuru adıyla geçer. Karia Yolu’nun Datça–Kargı–Domuzçukuru ve Domuzçukuru–Palamutbükü etapları burada buluşur. Koya kara yoluyla ulaşılamaz. Yaya yaklaşım ise deneyimli yürüyüşçülerin kullandığı uzun mesafeli bir patikayı izler.',
+        'Karia Yolu haritasında Domuzçukuru adıyla işaretlenen koy, Eski Datça’dan ya da Kargı üzerinden yürüyenlerin denize ulaştığı noktadır. Buradan batıya giden 11 numaralı etap, Mesudiye kıyılarını aşarak Palamutbükü’ne varır. İki ucu da deniz seviyesinde olmasına rağmen patika koyların arasındaki yamaçları tekrar tekrar aşar. Yaklaşık 17,5 kilometrelik etabın toplam tırmanışı 740 metreyi bulur.',
+        'Tekne molasında patikanın girişini görmek istiyorsan kaptanın belirttiği saatte kıyıya dönebileceğin kadar ilerle. Etabın tamamını yürümek içinse ayrı bir gün ayırıp dönüş aracını Palamutbükü tarafında planlayabilirsin.',
       ] },
       { heading: 'Güneyden esen rüzgârı hesaba kat', paragraphs: [
         'Koyun denize açılan yüzü güneydedir. Yamaçlar kıyıyı birçok yönden kuşatsa da güneyden rüzgâr geldiğinde teknenin nerede duracağı değişebilir. Karada daha uzun kalmak isteyenler için en uygun turu belirlerken yalnızca kalkış saatini değil, kaptanın bu koyda o gün nasıl mola vermeyi düşündüğünü de öğrenmek yararlı olur.',
@@ -259,7 +262,7 @@ export const beachDetails: Record<string, DestinationDetail> = {
     access: ['Günübirlik ziyaret için Datça Limanı’ndan veya Mesudiye kıyısından kalkan teknelerle görüşebilirsin. İskeleni, teknenin adını ve Domuzbükü’nün o günkü programa dâhil olduğunu teyit et. Harita koyun yerini gösterir. Tekneye bineceğin yer için kaptanın verdiği konumu kullan. Yürüyüş için Karia Yolu’nun resmî etap izini kullan.'],
     stayNote: 'Aşağıdaki tesisler tekne yolculuğundan önce veya sonra kalabileceğin yerlerdir. Datça Sapphire Hotel ve Konak Tuncel Efe merkez limanına, Ogün Pansiyon ise Mesudiye’deki Hayıtbükü kıyısına yakındır. Konaklamayı teknenin kalkacağı yere göre seçebilirsin.',
     stayIds: ['2022-48-1588', '2022-48-1576', '2022-48-2101'],
-    sources: [district, province, carianTrail],
+    sources: [district, province, carianTrail, { title: 'Karia Yolu · Domuzçukuru–Palamutbükü etap kaydı', url: 'https://www.wikiloc.com/hiking-trails/karia-yolu-11-domuzcukuru-palamutbuku-69187305' }],
   },
   kizilbuk: {
     sections: [
@@ -267,8 +270,9 @@ export const beachDetails: Record<string, DestinationDetail> = {
         'Mesudiye’de Hayıtbükü’nün hemen doğusundaki küçük koya hem Kızılbük hem Gabaklar denir. Yarımadada başka Kızılbük adlarına da rastlandığı için buluşma konumunu gönderirken “Gabaklar Plajı, Mesudiye” diye aramak özellikle işe yarar.',
         'Mesudiye’ye gelenlerin sıkça birlikte andığı üç kıyıyı batıdan doğuya sıralarsan önce uzun Ovabükü, sonra kavisli Hayıtbükü ve en son Kızılbük gelir. Kıyılarını adlarıyla eşleştirmenin güzel bir yolu sabah birinde yüzüp diğerine öğleden sonra geçmektir. Kızılbük küçük olduğu için sahili tanımaya kısa bir gezinti yeter.',
       ] },
-      { heading: 'Bir maskelik kıyı gezisi', paragraphs: [
-        'Gabaklar’da su berrak olduğunda deniz gözlüğüyle kıyıya yakın kısmı izleyebilirsin. Kıyıda oturan biriyle geldiysen fazla açılmadan deniz dibini izleyebilir, molanıza birlikte devam edebilirsin. Denizden bakınca koyu sınırlayan yamaçlar ve evlerin arkasındaki yeşillik, kıyıdan gördüğünden farklı bir görünüm alır.',
+      { heading: 'Gabaklar’ın çakılları ve kayalık ucu', paragraphs: [
+        'Yürürken ayaklarının altında kumla küçük çakıllar birbirine karışır. Su durgunsa maskeyle kıyının hemen açığında bu zeminin su altında nasıl devam ettiğini görebilirsin. Biraz dönüp karaya baktığında Hayıtbükü ile arana giren tepenin koyu nasıl çevrelediği de seçilir.',
+        'Kumsalın ucunda kayalar başlar. Bu noktadan sonra kıyı dikleşir, su çizgisini izleyerek bir sonraki koya yürümek mümkün olmaz. Kısa bir kıyı gezisi için kayalıkların başladığı yerde dön. Hayıtbükü’ne geçmek istiyorsan iki koyu karadan birbirine bağlayan yolu kullan.',
       ] },
       { heading: 'Kıyıdan içerideki patikalara', paragraphs: [
         'Gabaklar, Karia Yolu’nun Mesudiye kıyılarından geçtiği kesime yakındır. Burada deniz çantasını bırakıp önüne çıkan ilk patikayı izlemek kısa bir sahil gezintisinden daha uzun bir yürüyüşe dönüşebilir. Kıyıdan biraz uzaklaşmak istiyorsan başlangıç noktanı kaydedip dönüşünü aynı yoldan yapabilirsin. Domuzçukuru’na devam edeceksen resmî etap haritasını açıp yürüyüşe ayrı bir gün ayır.',
@@ -282,7 +286,7 @@ export const beachDetails: Record<string, DestinationDetail> = {
     routes: ['datca-mesudiye-9-3'],
     stayNote: 'Gabaklar Boutique Otel ve Kızılbük Ahşap Evleri bu koy çevresindedir. Her iki tesisin adresinde de Hayıtbükü Sokak adı geçer. Denize inen yolu, oda konumunu ve varsa yemek düzenini tesisle görüşebilirsin.',
     stayIds: ['2022-48-1986', '2022-48-2405'],
-    sources: [mesudiye, carianTrail],
+    sources: [mesudiye, { title: 'inDatça · Kızılbük kıyısı ve kayalıklar', url: 'https://indatca.com/datca-kizilbuk/' }, carianTrail],
   },
   'murdala-koyu': {
     sections: [
@@ -297,7 +301,8 @@ export const beachDetails: Record<string, DestinationDetail> = {
         'Yarımadanın bu tarafında Murdala ile Mersincik sık sık birlikte anılır. İkincisi haritada komşu görünse de iki koy arasında bir sahil caddesi bulunmaz. Tek günlük gezide dinlenmek istiyorsan birini seç. Tekneden yaklaşacaksan da kaptana hangi koyda durulacağını sorarak beklediğin sahille programdaki noktayı eşleştirebilirsin.',
       ] },
       { heading: 'Karia Yolu ve dönüş hazırlığı', paragraphs: [
-        'Karia Yolu’nda kuzey kıyısını izleyen yürüyüşçüler de Murdala’ya uğrar. Yürüyüş etaplarıyla araçla kullanılan yaklaşma yolunu haritada ayrı incele. Koyda geçireceğin süreyi hesaplarken su ve yiyeceği Cumalı’dan itibaren yanında taşıyacağını, aynı toprak yoldan geri çıkacağını düşün. Dönüşü gün ışığına bırakmak yolun taşlı bölümlerini daha rahat görmeni sağlar.',
+        'Murdala’dan geçen Karia Yolu’nun 13 numaralı etabı Knidos’tan başlar, Değirmenbükü üzerinden Mersincik’e uzanır. Knidos ile Mersincik arasındaki yürüyüş tek yönde yaklaşık 18,4 kilometredir. Deniz seviyesine defalarca inip çıkan patikada toplam tırmanış 830 metreyi aşar. Güzergâhı incelerken kıyı çizgisine olduğu kadar bu iniş çıkışlara da bak.',
+        'Yalnızca Murdala’da bir gün geçireceksen karadan dönüşün Cumalı yönündeki toprak yol üzerindendir. Suyunu köyden al, taşlı bölümü gün ışığında geçecek kadar vakit bırak.',
       ] },
     ],
     map: { label: 'Murdala Koyu, Cumalı · kuzey kıyısı', query: '36.74550,27.44870' },
@@ -305,6 +310,6 @@ export const beachDetails: Record<string, DestinationDetail> = {
     routes: ['datca-belen-9-5'],
     stayNote: 'Murdala’yı günübirlik görmek için Cumalı’da kalabilirsin. Gocakapı Taşevler köy merkezinde, Karia Hotel ise Palamutbükü yönündedir. İkisinden de koya varmak için toprak yolu ayrıca geçmen gerekir.',
     stayIds: ['26245', '2022-48-0675'],
-    sources: [district, carianTrail],
+    sources: [district, carianTrail, { title: 'Karia Yolu · Knidos–Mersincik etap kaydı', url: 'https://www.wikiloc.com/hiking-trails/karia-yolu-13-knidos-mersincik-69187725' }],
   },
 };

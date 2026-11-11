@@ -141,15 +141,13 @@ export const guides: Guide[] = [
   {
     slug: 'datca-kamp-rehberi', groups: ['nature', 'stays'], photo: 'kargi',
     source: { label: 'Doğa Koruma ve Milli Parklar · Kovanlık', url: 'https://ekotaban.tarimorman.gov.tr/alan/277' },
-    tr: copy('Datça’da kamp: geceyi nerede geçirmeli?', 'Kıyıda geçireceğin günü ve gece kalacağın kamp yerini ayrı planlayarak yarımadaya hazırlan.',
-      ['Kovanlık çevresinde bir gün', 'Marmaris–Datça yolu üzerindeki Kovanlık Tabiat Parkı, yarımadaya gelirken bir doğa molası için düşünülebilir. Parka gitmeden önce açık alanları ve ziyaret koşullarını resmî park bilgisinden kontrol et.'],
-      ['Çadır kuracağın yeri ayırt', 'Geceleme için çadır veya karavan kabul eden bir işletmeyle doğrudan konuş. Varış saati, içme suyu, duş, gölge ve yemek hazırlama kurallarını sor. Park ziyaretini ve kamp rezervasyonunu takviminde ayrı göster.']),
+    tr: copy('Datça’da kamp için nerede kalınır?', 'Kovanlık’ta bungalov, Aktur’da çadır ve karavan parseli, Hayıtbükü’nde kendi çadırınla kalabileceğin bir kamp var. Güne hangi kıyıda başlamak istediğine göre yerini seçebilirsin.'),
     en: copy('Camping in Datça: planning an overnight stay', 'Plan your days on the coast and reserve a suitable place to pitch your tent for the night.',
-      ['A stop near Kovanlık', 'Kovanlık Nature Park lies on the Marmaris–Datça road and can be a nature stop on the way to the peninsula. Check the official park information for visitor conditions and areas open to the public.'],
-      ['Book your pitch', 'Contact a campsite that accommodates your tent or camper. Ask about arrival time, drinking water, showers, shade and cooking rules. Make separate arrangements for the park visit and the overnight stay.']),
+      ['Bungalows at Kovanlık', 'The national parks authority lists overnight bungalows at Kovanlık Nature Park on the Marmaris–Datça road. The park does not admit day visitors. Contact the park authority about availability and arrival before travelling.'],
+      ['Book your pitch', 'Contact a campsite that accommodates your tent or camper. Ask about arrival time, drinking water, showers, shade and cooking rules. Confirm the pitch reservation directly with the campsite.']),
     ru: copy('Кемпинг в Датче: как выбрать место для ночёвки', 'Наметьте места для дневных прогулок и заранее найдите подходящую стоянку для палатки.',
-      ['Остановка у Кованлыка', 'Природный парк Кованлык находится на дороге из Мармариса в Датчу. Перед остановкой проверьте на официальной странице правила посещения и доступные участки парка.'],
-      ['Забронируйте стоянку', 'Свяжитесь с кемпингом, который принимает палатки или автодома. Уточните время заезда, наличие питьевой воды, душа и тени, а также правила приготовления еды. Посещение парка и ночёвку планируйте отдельно.'])
+      ['Бунгало в Кованлыке', 'В природном парке Кованлык на дороге из Мармариса в Датчу есть бунгало для ночёвки. По информации управления национальных парков, дневное посещение не предусмотрено. Заранее уточните у администрации наличие мест и порядок заезда.'],
+      ['Забронируйте стоянку', 'Свяжитесь с кемпингом, который принимает палатки или автодома. Уточните время заезда, наличие питьевой воды, душа и тени, а также правила приготовления еды. Заранее подтвердите бронирование места в кемпинге.'])
   },
   {
     slug: 'datcada-nerede-kalinir', groups: ['stays', 'plans'], photo: 'eski-datca', source: see,
@@ -215,10 +213,9 @@ export const guides: Guide[] = [
       ['Что взять и где встретиться', 'Держите под рукой воду, защиту от солнца и отдельный пакет для мокрой одежды. Договоритесь о месте встречи на случай, если один из взрослых уйдёт с уставшим ребёнком раньше.'])
   },
   {
-    slug: 'sezon-disinda-datca', groups: ['plans', 'nature'], photo: 'eski-datca', source: see,
-    tr: copy('Sezon dışında Datça: badem çiçekleri ve köyler', 'Kış sonunda badem ağaçları, kıyı yürüyüşleri ve değişken havaya uyarlanabilen kısa rotalar.',
-      ['Çiçek zamanını yakalamak', 'Datça’da bademler kış bitmeden çiçek açabilir. Tam zaman yıldan yıla değişir. Ziyaretini çiçekler için ayarlıyorsan mahalledeki konaklama yerinden güncel durumu öğren, festival düşünüyorsan belediyenin programına bak.'],
-      ['Rüzgârlı bir gün', 'Uzun bir tekne gezisi yerine kıyıda kısa bir yürüyüş veya Eski Datça’da kahve molası planlayabilirsin. Yola çıkmadan önce yemek yiyeceğin yerin açık olduğunu ve dönüş ulaşımını doğrula.']),
+    slug: 'sezon-disinda-datca', groups: ['plans', 'nature'], photo: 'eski-datca',
+    source: {label: 'Güney Ege · Datça Kültür Rotası', url: 'https://www.guneyegeturkiye.com/rota-kategorileri/datca-kultur-rotasi'},
+    tr: copy('Sezon dışında Datça’da köyler, badem çiçeği ve kıyı yürüyüşleri', 'Eski Datça’da taş sokakları gezip akşamüstü Taşlık’a yürüyebilirsin. Kış sonunda Cumalı’da bademlerin çiçeklenmesi, aynı geziye yarımadanın batısını da eklemek için bir sebep.'),
     en: copy('Datça out of season: almond blossom and village walks', 'Look for late-winter blossom and short routes you can adapt to a change in the weather.',
       ['Timing the blossom', 'Almond trees can bloom in Datça before winter ends. The timing varies each year. Ask a local host about the orchards before making a special trip, and check the municipality’s programme for any festival dates.'],
       ['A windy-day alternative', 'Swap a long boat trip for a short waterfront walk or coffee in Eski Datça. Call ahead about food and check your transport back before leaving town.']),
@@ -489,10 +486,9 @@ export const guides: Guide[] = [
       ['Как вписать в поездку', 'Уточните место встречи, выход с берега или с судна, язык занятий и условия участия. Если предстоит перелёт, заранее сообщите инструктору время вылета и согласуйте график.'])
   },
   {
-    slug: 'bencik-koyu', groups: ['sea', 'nature'], photo: 'datca-koylari', source: coast,
-    tr: copy('Bencik Koyu: yarımadanın dar kıstağı', 'Hisarönü Körfezi tarafındaki koyu, deniz yolculuğunda Datça ile Marmaris arasındaki konumuyla tanı.',
-      ['Haritada nerede?', 'Bencik’in bir yakası Datça’ya, diğeri Marmaris’e bağlı. Yarımadanın daraldığı bu bölümde kuzeydeki Gökova ile güneydeki Hisarönü farklı deniz rotalarına açılır. Tekne programında hangi kıyının izlendiğine bak.'],
-      ['Tekneden bir mola', 'Koyun adı programda geçiyorsa yalnızca seyir mi planlandığını, demirleme veya karaya çıkma olup olmadığını kaptana sor. Geceyi teknede geçireceksen başka bir koyun seçilmesi durumunda ertesi günkü programı da öğren.']),
+    slug: 'bencik-koyu', groups: ['sea', 'nature'], photo: 'datca-koylari',
+    source: {label: 'Muğla İl Kültür ve Turizm Müdürlüğü · Bencik Limanı', url: 'https://mugla.ktb.gov.tr/TR-296583/nereye-gidilir.html'},
+    tr: copy('Bencik Koyu ve Balıkaşıran kıstağı', 'Gökova ile Hisarönü körfezlerinin birbirine yaklaştığı yerde Bencik, ince bir su yolu gibi karanın içine sokulur. Karadan kıstağı yürümekle denizden iç koya ulaşmak için farklı rotalar izlenir.'),
     en: copy('Bencik Bay: the narrow waist of the peninsula', 'Place this Gulf of Hisarönü anchorage on the map between Datça and Marmaris.',
       ['Where the land narrows', 'One side of Bencik belongs to Datça and the other to Marmaris. On this narrow section, the Gulf of Gökova to the north and Hisarönü to the south lead to different cruising routes. Check which coast your boat follows.'],
       ['A stop by boat', 'If Bencik appears in a programme, ask if it means a sail past, an anchorage or time ashore. For an overnight trip, find out how a change of anchorage might affect the next day.']),

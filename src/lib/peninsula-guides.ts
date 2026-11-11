@@ -106,9 +106,7 @@ export const peninsulaGuides: Guide[] = [
   {
     slug: 'deveboynu-feneri', groups: ['history', 'nature', 'sea'], photo: 'knidos',
     source: {label: 'Kıyı Emniyeti Genel Müdürlüğü', url: 'https://www.kiyiemniyeti.gov.tr/yer-detay/404/DEVEBOYNU-FENERI'},
-    tr: copy('Deveboynu Feneri: Knidos’un ucundaki ışık', 'Knidos kıyısına bakarken antik limanların ötesindeki fenerin gemilere neden bu kadar yüksekten seslendiğini gör.',
-      ['Kule ve burun', 'Kıyı Emniyeti’nin kaydına göre fener 1931’de kuruldu. Dokuz metrelik kâgir kulesi denizden 104 metre yukarıdadır. Manzaradaki etkisini anlamak için kulenin boyuyla burnun doğal yüksekliğini ayrı düşün.'],
-      ['Karadan veya denizden bakış', 'Fener ve bekçi binası korunan yapılardır. Araziye çıkmayı planlıyorsan güncel geçiş iznini ve dönüş yolunu yerinde sor. Tekneden bakarken körfezdeki modern seyir işaretini kıyıdaki antik yapı kalıntılarından ayırt edebilirsin.']),
+    tr: copy('Knidos’un ötesinde Deveboynu Feneri', 'Deveboynu Feneri’nin ışığı deniz seviyesinden 104 metre yüksekte. Knidos’un limanlarından kayalık burna baktığında dokuz metrelik kulenin denizden nasıl bu kadar yüksek göründüğünü anlayabilirsin.'),
     en: copy('Deveboynu Lighthouse beyond Knidos', 'Look beyond the ancient harbours to the light standing high above the last headland.',
       ['Tower and cape', 'The coastal safety authority dates the lighthouse to 1931. Its nine-metre masonry tower stands 104 metres above sea level. Distinguish the height of the structure from the height of the cape to understand its place in the view.'],
       ['Seeing the light', 'The tower and keeper’s house are protected structures. Check current access and a return route before approaching by land. From the water, distinguish the modern navigation light from the lower archaeological remains along the shore.']),
@@ -117,10 +115,9 @@ export const peninsulaGuides: Guide[] = [
       ['Как посмотреть', 'Башня и дом смотрителя находятся под охраной. Для пешего подхода уточните нынешний доступ и обратный маршрут. С моря хорошо различаются современный навигационный знак наверху и античные руины ниже у воды.'])
   },
   {
-    slug: 'datca-hurmasi', groups: ['nature'], photo: 'datca-koylari', source: localProduce,
-    tr: copy('Datça hurması: yarımadanın doğal palmiye toplulukları', 'Doğu Datça’nın vadi ve dere yataklarında yetişen hurmaları yarımadanın bitki örtüsü içinde tanı.',
-      ['Nerede yetişir?', 'İl turizm müdürlüğü Eksera Vadisi ile Lindos ve Bozan burunları arasındaki vadileri Datça hurmasının görüldüğü alanlar arasında sayar. Ağaçların belirli dere yataklarında toplanması, yarımadayı yalnızca kıyı şeridinden ibaret görmemek için iyi bir neden.'],
-      ['Bitki gözlemi', 'Hurmaları gözlemlemek için bir yerel rehberle kamuya açık bir güzergâh seç. Yaprak veya meyve toplamadan, dar dere yatağına inmeden uzaktan gözlem yapabilirsin. Fotoğrafta ağacın çevresindeki araziyi de göstermek yaşam ortamını anlatır.']),
+    slug: 'datca-hurmasi', groups: ['nature'], photo: 'datca-koylari',
+    source: {label: 'Melih Boydak · Datça hurmasının doğal yayılışı', url: 'https://dergipark.org.tr/tr/pub/tabin/article/1251423'},
+    tr: copy('Datça hurması ve yarımadanın yabani palmiyeleri', 'Girit’te de yetişen Datça hurması, yarımadanın doğusundaki vadilerde kendiliğinden büyür. Aktur’daki bahçe palmiyeleri ile bu yabani ağaçları aynı koruma çalışması bir araya getirmiştir.'),
     en: copy('Datça’s wild palms and their habitat', 'Look inland to the eastern valleys and stream beds to understand the peninsula’s palms.',
       ['Where palms grow', 'The provincial tourism office identifies the Eksera Valley and valleys between the Lindos and Bozan headlands among the palm habitats. Their concentration along particular watercourses highlights a landscape beyond the shore.'],
       ['Observing them', 'Choose a public route with a local guide. View the palms without collecting leaves or fruit or descending into narrow stream beds. Including the surrounding terrain in a photograph helps to show the habitat.']),
@@ -130,10 +127,8 @@ export const peninsulaGuides: Guide[] = [
   },
   {
     slug: 'datca-bozburun-deniz-koruma', groups: ['nature', 'sea'], photo: 'datca-koylari',
-    source: {label: 'Akdeniz Koruma Derneği', url: 'https://akdenizkoruma.org.tr/tr/calismalarimiz/projeler/b/datca-bozburun-ozel-cevre-koruma-bolgesi-ekosistem-restorasyonu-icin-denizel-ve-kulturel-korumanin-butunlestirilmesi-projesi'},
-    tr: copy('Datça-Bozburun: deniz koruma alanını tanı', 'Yüzdüğün koyun altında nelerin izlendiğini öğren ve tekne gününü korunan kıyıya göre planla.',
-      ['Suyun altında izlenen yaşam', 'Akdeniz Koruma Derneği bölgedeki çalışmasında deniz çayırlarını, makroalgleri, balık topluluklarını ve su sıcaklığını izliyor. Su altında gördüğün her bitki aynı değil. Maskeyle bakarken dipteki örtüyü sökmeden ve canlıları eline almadan da farklılıkları fark edebilirsin.'],
-      ['Koy seçerken', 'Koruma bölgesi içinde balıkçılığa kapalı alanlar gibi farklı statüler bulunur. Kaptandan o gün izleyeceği rotayı ve bağlanma düzenini anlatmasını iste. Bir koyun yüzmeye uygun olması orada her etkinliğin serbest olduğu anlamına gelmez.']),
+    source: {label: 'Akdeniz Koruma Vakfı', url: 'https://akdenizkoruma.org.tr/tr/calismalarimiz/projeler/b/datca-bozburun-ozel-cevre-koruma-bolgesi-ekosistem-restorasyonu-icin-denizel-ve-kulturel-korumanin-butunlestirilmesi-projesi'},
+    tr: copy('Datça–Bozburun kıyılarında deniz yaşamı', 'Maskeyle baktığında gördüğün koyu renkli örtü bir deniz çayırı olabilir. Tekneyle bir koya girerken, yüzerken ve olta için yer seçerken bu kıyıyı paylaşan canlıları nasıl gözetebileceğini keşfet.'),
     en: copy('Datça–Bozburun: understanding the protected sea', 'See what is monitored below the surface and plan boat outings around the protected coast.',
       ['Life below the water', 'The Mediterranean Conservation Society’s local project monitors seagrass, macroalgae, fish communities and water temperature. When looking through a mask, observe differences in the seabed cover without disturbing plants or picking up wildlife.'],
       ['Choosing a stop', 'Areas with different designations, including fishing closures, exist within the wider protected area. Ask the skipper about the day’s route and mooring arrangements, and check the rules for a particular activity at your stop.']),

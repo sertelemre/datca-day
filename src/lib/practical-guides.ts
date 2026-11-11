@@ -140,22 +140,18 @@ export const practicalGuides: Guide[] = [
   {
     slug: 'aktur-datca-kamp', groups: ['nature', 'stays'], photo: 'datca-koylari',
     source: { label: 'Ak-Tur · Datça Camping', url: 'https://www.ak-tur.com.tr/tr/datca-camping.html' },
-    tr: copy('Aktur Datça Camping: çadır veya karavanla konaklama', 'Yarımadanın doğusunda bir kamp yeri arıyorsan yer tipini, dönemini ve kabul şartlarını işletmeden öğren.',
-      ['Rezervasyon türünü seç', 'Ak-Tur’un Datça Camping sayfasından başlayarak kendi çadırın veya karavanın için yer olup olmadığını sor. Karavanla geleceksen araç boyutlarını, elektrik bağlantısını ve giriş saatini bildir.'],
-      ['Kovanlık ile aynı güne', 'Kovanlık Tabiat Parkı çevresinde günübirlik gezi de planlayabilirsin. Kamp kaydının hangi alanı kapsadığını, sahile yürüme yolunu ve park ziyareti için geçerli koşulları ayrı kontrol et.']),
+    tr: copy('Aktur’da çadır, karavan ve pansiyonla konaklama', 'Çiftlik kıyısında çadırını kurabileceğin parseller, karavan yerleri ve pansiyon odaları aynı kamp işletmesine bağlı. Hangisini seçtiğin, yanında ne getireceğini ve giriş saatini değiştiriyor.'),
     en: copy('Aktur Datça Camping: tents and campers', 'Check pitch type, season and arrival arrangements with the operator on the eastern peninsula.',
       ['Select a pitch', 'Start with Ak-Tur’s Datça Camping page and ask about space for your own tent or camper. For a vehicle, give its dimensions and ask about electricity and arrival time.'],
-      ['A visit near Kovanlık', 'A day out around Kovanlık Nature Park can fit the same stay. Check the area covered by your campsite reservation, the walking route to the water and current park visitor conditions separately.']),
+      ['Aktur and the neighbouring nature park', 'Ask reception for the route from your pitch to the beach. Nearby Kovanlık Nature Park has separate accommodation and does not admit day visitors, according to the national parks authority.']),
     ru: copy('Aktur Datça Camping: палатки и автодома', 'Узнайте у оператора на востоке полуострова тип стоянки, сезон работы и условия заселения.',
       ['Выбор места', 'На странице Ak-Tur Datça Camping уточните, есть ли место для вашей палатки или автодома. Для машины сообщите размеры и спросите о подключении электричества и времени заезда.'],
-      ['Прогулка у Кованлыка', 'Во время проживания можно отдельно запланировать поездку к природному парку Кованлык. Уточните границы кемпинга, путь к морю и действующие условия посещения парка.'])
+      ['Актур и соседний природный парк', 'Спросите на стойке регистрации, как пройти от вашей стоянки к пляжу. В соседнем природном парке Кованлык есть отдельные бунгало. По информации управления национальных парков, дневное посещение не предусмотрено.'])
   },
   {
     slug: 'datca-hava-ve-ruzgar', groups: ['nature', 'plans', 'sea'], photo: 'hero-datca',
     source: { label: 'Meteoroloji Genel Müdürlüğü · Datça', url: 'https://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?il=Mu%C4%9Fla&ilce=Dat%C3%A7a' },
-    tr: copy('Datça’da hava ve rüzgâr: koy gününü planlamak', 'MGM’nin ilçe tahminini, gideceğin koyun konumu ve deniz programıyla birlikte oku.',
-      ['Yarımadanın iki yanı', 'Bir burnun arkasında veya diğer kıyıda rüzgârın etkisi değişebilir. MGM’de Datça için saatlik tahmine, rüzgâr yönüne ve uyarılara bak. Gitmeden sahildeki işletmeye veya tur kaptanına o anki durumu sor.'],
-      ['Rota değiştirmek', 'Kıyı planı elverişsiz görünüyorsa Eski Datça’da bir yürüyüş veya merkezde bir öğle yemeği seçebilirsin. Feribot ve tur için son kararı seferi düzenleyen işletmenin aynı günkü duyurusundan kontrol et.']),
+    tr: copy('Datça’da koy seçerken hava ve rüzgâr', 'Merkez limanından görünen denizle Körmen’de feribotun karşılaşacağı deniz farklı olabilir. Koy seçerken ilçe tahminini, dalga bilgisini ve dönüş saatini birlikte değerlendirebilirsin.'),
     en: copy('Datça weather and wind: planning a beach day', 'Read the official district forecast alongside the position of your bay and your plans at sea.',
       ['Two sides of the peninsula', 'Conditions can differ around a headland or on the opposite shore. Check the hourly Datça forecast, wind direction and warnings from MGM. Ask a local operator or skipper about current conditions before departure.'],
       ['Changing the day’s plan', 'If a coast day looks unsuitable, walk in Eski Datça or have lunch in town. For ferries and boat tours, check the operator’s same-day service updates.']),
