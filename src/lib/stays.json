@@ -722,7 +722,9 @@
       36.764321,
       27.794704
     ],
-    "locationSource": "https://www.facebook.com/504665856545443"
+    "locationSource": "https://www.facebook.com/504665856545443",
+    "gallery": "https://airporttransfer.me/en/dalaman/dalaman-airport-transfer-to-karakas-apart-pansiyon/",
+    "photo": "https://airporttransfer.me/uploads/hotels/dalaman/datca/karakas-apart-pansiyon.webp"
   },
   {
     "number": "2022-48-1799",
@@ -762,13 +764,16 @@
     "name": "Karadağlı Apart",
     "type": "apart otel",
     "address": "İskele Mah. Halil Aşkın Cad. No:15",
-    "phone": "+90 531 889 08 08",
+    "phone": "+90 531 889 00 08",
     "area": "İskele",
     "coordinates": [
       36.725518,
       27.682681
     ],
-    "locationSource": "https://www.facebook.com/104408332248151"
+    "locationSource": "https://www.facebook.com/104408332248151",
+    "photo": "https://airporttransfer.me/uploads/hotels/dalaman/datca/karadagli-apart.webp",
+    "gallery": "https://airporttransfer.me/en/dalaman/dalaman-airport-transfer-to-karadagli-apart/",
+    "contactSource": "https://www.instagram.com/karadagli_apart/"
   },
   {
     "number": "2022-48-1817",
@@ -1483,7 +1488,9 @@
       36.670156,
       27.502778
     ],
-    "locationSource": "https://yandex.com.tr/maps/org/sef_apart_2/55711188471/"
+    "locationSource": "https://yandex.com.tr/maps/org/sef_apart_2/55711188471/",
+    "gallery": "https://airporttransfer.me/en/dalaman/dalaman-airport-transfer-to-sef-apart-2/",
+    "photo": "https://airporttransfer.me/uploads/hotels/dalaman/palamutbuku/sef-apart-2.webp"
   },
   {
     "number": "2022-48-1958",
@@ -1781,14 +1788,17 @@
     "name": "Yiğitşah Apart",
     "type": "pansiyon",
     "address": "Mesudiye Mah. Ovabükü Sok. No:42/1",
-    "phone": "+90 542 226 41 88",
+    "phone": "+90 543 688 14 94",
     "area": "Mesudiye",
     "coordinates": [
       36.683824,
       27.557539
     ],
     "mappedDoor": "42/1",
-    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/512580"
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/512580",
+    "gallery": "https://www.instagram.com/p/DcLulptDT6K/",
+    "contactSource": "https://www.instagram.com/yigitsahapart/",
+    "instagramPost": "DcLulptDT6K"
   },
   {
     "number": "2022-48-2006",
@@ -2877,7 +2887,9 @@
       27.685267
     ],
     "locationSource": "https://www.facebook.com/110581194594330",
-    "contactSource": "https://yandex.com.tr/maps/org/bogazici_butik_otel/18713828963/"
+    "contactSource": "https://yandex.com.tr/maps/org/bogazici_butik_otel/18713828963/",
+    "gallery": "https://airporttransfer.me/en/dalaman/dalaman-airport-transfer-to-bogazici-butik-otel-datca/",
+    "photo": "https://airporttransfer.me/uploads/hotels/dalaman/datca/bogazici-butik-otel-datca.webp"
   },
   {
     "number": "2022-48-2309",
@@ -2967,7 +2979,9 @@
       36.684919,
       27.572702
     ],
-    "locationSource": "https://www.facebook.com/364553713407060"
+    "locationSource": "https://www.facebook.com/364553713407060",
+    "gallery": "https://airporttransfer.me/en/dalaman/dalaman-airport-transfer-to-ogun-1/",
+    "photo": "https://airporttransfer.me/uploads/hotels/dalaman/palamutbuku/ogun-1.webp"
   },
   {
     "number": "2022-48-2355",
@@ -4351,12 +4365,14 @@
       36.7063,
       27.68557
     ],
-    "locationSource": "https://www.facebook.com/1131948396677088",
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/534932",
     "phone": "+90 535 748 81 64",
-    "address": "Kargı Koyu, Datça/Muğla",
-    "contactSource": "https://www.airbnb.com/rooms/1720179004610287334",
+    "address": "İskele Mahallesi, 15/4 Sokak No:1, Kargı Koyu, Datça/Muğla",
+    "contactSource": "https://www.instagram.com/littlehousedatca/",
     "photo": "https://a0.muscache.com/im/pictures/hosting/Hosting-1720179004610287334/original/43930ceb-c9ba-4b88-83db-4b06838b9075.jpeg?im_w=720&width=720&quality=70&auto=webp",
-    "gallery": "https://www.airbnb.com/rooms/1720179004610287334"
+    "gallery": "https://www.airbnb.com/rooms/1720179004610287334",
+    "area": "İskele",
+    "mappedDoor": "1"
   },
   {
     "number": "26438",
@@ -4382,10 +4398,11 @@
     ],
     "locationSource": "https://www.facebook.com/441546535958984",
     "phone": "+90 252 725 50 94",
-    "address": "Palamutbükü, 48900 Datça/Muğla",
-    "contactSource": "https://www.turgutreisrehberi.com/detay/pamilyon-apart/83086",
+    "address": "Cumalı Mahallesi, Palamutbükü Sokak, Datça/Muğla",
+    "contactSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/6/12253",
     "photo": "https://picproxy.zhilibyli.ru/img/zb/images/hotels/121035/0cace6481149a0022ed9b3ccd6d13980.jpeg?size=m&quality=70",
-    "gallery": "https://zhilibyli.ru/turtsiya/datcha/oteli/pamilyon-apart"
+    "gallery": "https://zhilibyli.ru/turtsiya/datcha/oteli/pamilyon-apart",
+    "area": "Cumalı"
   },
   {
     "number": "26542",
@@ -4626,12 +4643,16 @@
     "type": "rental",
     "photo": "https://images.odamax.com/imgproxy/img/800x600/odamax/image/upload/Petra_Evleri_202608111530558_5.png",
     "gallery": "https://www.etstur.com/Petra-Evleri",
-    "address": "MFQV+5F Datça, Muğla",
+    "address": "Yaka Mahallesi, Kumyer Küme Evleri No:154A, Datça/Muğla",
     "coordinates": [
-      36.687937,
-      27.493688
+      36.688132,
+      27.493647
     ],
-    "locationSource": "https://www.etstur.com/Petra-Evleri"
+    "locationSource": "https://muglacbs.mugla.bel.tr/cbs/rest/services/MAKS_RESMI/MAKS_RESMI/MapServer/0/387300",
+    "area": "Yaka",
+    "phone": "+90 546 657 37 96",
+    "contactSource": "https://www.instagram.com/petraevleri/",
+    "mappedDoor": "154A"
   },
   {
     "number": "48-1574",

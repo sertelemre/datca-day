@@ -1,23 +1,49 @@
 ---
-import { getLocale,localePath } from '../lib/i18n';
-import { ui } from '../lib/ui';
-import Icon from './Icon.astro';
-interface Props {slug:string}
-const {slug}=Astro.props;
-const locale=getLocale(Astro.url.pathname);
-const t=ui(locale);
-const links:Record<string,string[]> = {
-  'eski-datca':['datca-eski-datca-resadiye-9-1'],
-  'palamutbuku':['datca-palamutbuku-9-5'],
-  'ovabuku':['datca-mesudiye-9-3'],
-  'hayitbuku':['datca-mesudiye-9-3'],
-  'kargi-koyu':['ozbel-kargi-9-2'],
-  'bodrum-datca-feribotu':['bodrum-datca-48-48','datca-karakoy-9-8'],
-  'dalamandan-datcaya-ulasim':['marmaris-dalaman-havas','marmaris-otogar-dalaman-havalimani-48-26','datca-marmaris-48-16'],
-  'kizlan-yel-degirmenleri':['datca-kizlan-9-9'],
-};
+import { getLocale, localePath } from '../lib/i18n';
+import { actionText, guideLinks, actionsForGuide } from '../lib/guide-actions';
+import { transportPath } from '../lib/paths';
 import transport from '../lib/transport-data.json';
-const routes=(links[slug] || []).flatMap(id=>transport.routes.filter(route=>route.slug===id));
+import Icon from './Icon.astro';
+
+interface Props { slug: string; source?: string }
+const { slug, source } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
+const copy = {
+  tr: {actions:'Ziyaret bilgileri', route:'Yol tarifi al', map:'Google Haritalar’da bul', phone:'Telefon', hospitalPhone:'Hastane santrali', bus:'Sefer saatleri', emergency:'Acil yardım', booking:'Telefonla randevu', hours:'Hafta içi poliklinik saatleri'},
+  en: {actions:'Visitor information', route:'Get directions', map:'Find on Google Maps', phone:'Phone', hospitalPhone:'Hospital switchboard', bus:'Timetable', emergency:'Emergency help', booking:'Appointments by phone', hours:'Weekday clinic hours'},
+  ru: {actions:'Информация для посетителей', route:'Построить маршрут', map:'Найти на Google Картах', phone:'Телефон', hospitalPhone:'Телефон больницы', bus:'Расписание', emergency:'Экстренная помощь', booking:'Запись по телефону', hours:'Часы приёма по будням'},
+}[locale];
+const data = actionsForGuide(slug);
+const hospital = slug === 'datca-devlet-hastanesi';
+const hospitalPhone = hospital || slug === 'datcada-dis-sagligi';
+const routes = data?.routes?.map(id => transport.routes.find(route => route.slug === id)!);
+const mapHref = data?.coordinates
+  ? 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(data.coordinates)
+  : data?.place && 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(data.place);
 ---
-{routes.length>0 && <section class="service-links"><h2>{t('Sefer saatleri')}</h2>{routes.map(route=><a href={localePath('/ulasim/'+route.slug,locale)}><Icon name="clock" size={18}/>{route.code} · {route.title}<span>→</span></a>)}</section>}
-<style>.service-links{margin:30px 0}.service-links a{display:flex;align-items:center;gap:12px;min-height:48px;border-bottom:1px solid var(--line);text-decoration:none}.service-links a span{margin-left:auto}</style>
+{data && <section class:list={['visit-actions', { practical:data.practical }]} aria-label={copy.actions} data-visit-actions>
+  {(data.address || data.phone) && <div class="facts">
+    {data.address && <address><Icon name="pin" size={19}/>{data.address}</address>}
+    {data.phone && <a href={'tel:'+data.phone.replaceAll(' ','')}><Icon name="phone" size={17}/><span>{hospitalPhone ? copy.hospitalPhone : copy.phone} <strong>{data.phone}</strong></span></a>}
+    {hospital && <a class="emergency" href="tel:112"><Icon name="phone" size={17}/><span>{copy.emergency}<strong>112</strong></span></a>}
+  </div>}
+  <div class="shortcuts">
+    {mapHref && <a href={mapHref}><Icon name="pin" size={16}/>{data.coordinates ? copy.route : copy.map}</a>}
+    {data.links?.map(id => {
+      const [url, label] = guideLinks[id];
+      return <a href={url.startsWith('/') ? localePath(url,locale) : url}><Icon name={id === 'appointment' || id === 'events' ? 'calendar' : id === 'health' || id === 'dental' ? 'pin' : 'arrow'} size={16}/>{actionText(label,locale)}</a>;
+    })}
+    {data.sourceLabel && source && <a href={source}><Icon name="external" size={16}/>{actionText(data.sourceLabel,locale)}</a>}
+  </div>
+  {hospital && <div class="clinic">
+    <div><span>{copy.hours}</span><strong>08.30–12.00 · 13.00–16.30</strong><a href={guideLinks.hours[0]}>{actionText(guideLinks.hours[1],locale)} ↗</a></div>
+    <div><span>{copy.booking}</span><a href="tel:182"><Icon name="phone" size={15}/>182</a></div>
+  </div>}
+  {routes && <div class="routes"><span><Icon name="bus" size={17}/>{copy.bus}</span>{routes.map(route=><a href={transportPath(route.slug,locale)}>{route.code} · {route.title} →</a>)}</div>}
+</section>}
+<style>
+.visit-actions{max-width:950px;margin:0 auto 22px;color:var(--green)}.visit-actions.practical{padding:clamp(17px,3vw,30px);border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+.facts,.shortcuts,.routes,.clinic{display:flex;flex-wrap:wrap;align-items:center;gap:9px 20px}.facts{align-items:flex-start;margin-bottom:14px}.facts address,.visit-actions a,.routes>span{display:inline-flex;align-items:center;gap:7px}.facts address{font-style:normal}.facts a,.facts address{min-height:30px}.facts a>span{display:inline-flex;flex-wrap:wrap;gap:2px 8px}.facts .emergency{color:#912b3e}.facts strong{white-space:nowrap}.facts svg,.shortcuts svg{flex:none}.shortcuts{gap:8px}.shortcuts a{padding:8px 12px;min-height:40px;border:1px solid #a8b9ae;border-radius:5px;text-decoration:none;line-height:1.35}.shortcuts a:hover,.shortcuts a:focus-visible{background:#e8ede5;border-color:var(--green)}
+.visit-actions a{color:var(--green);text-underline-offset:3px;font-size:15px;font-weight:600}.routes:not(:first-child),.clinic{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}.routes>span,.clinic span{color:var(--muted);font-size:14px}.routes a{min-height:32px}.clinic{align-items:flex-start;gap:16px 40px}.clinic>div{display:grid;gap:5px}.clinic a{min-height:28px}.clinic strong{font-size:17px}
+@media(max-width:600px){.facts,.routes{display:grid}.visit-actions{margin-bottom:16px}.shortcuts a{min-height:44px}.clinic{gap:12px 20px}.clinic>div:first-child{width:100%}}
+</style>

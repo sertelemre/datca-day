@@ -1,4 +1,5 @@
 import { guides as travelGuides } from './guides';
+import { actionsForGuide } from './guide-actions';
 import { practicalGuides } from './practical-guides';
 import { directoryGuides, placesForGuide } from './place-directory';
 import { visitNotes } from './visit-notes';
@@ -74,7 +75,7 @@ export function getContent(locale:Locale = 'tr'):SiteContent {
     return {
       id:index+1, slug:guide.slug, basePath:'/'+guide.slug, path:localePath('/'+guide.slug,locale),
       title:copy.title,excerpt:copy.summary, content:copy.sections.map(({heading,text})=>'<h2>'+escape(heading)+'</h2><p>'+escape(text)+'</p>').join(''),
-      image:'/images/'+key+'.webp', imageAlt:photoCaption('/images/'+key+'.webp',locale), date:'2026-11-10', updatedDate:'2026-11-10',
+      image:'/images/'+key+'.webp', imageAlt:photoCaption('/images/'+key+'.webp',locale), date:'2026-11-10', updatedDate: (actionsForGuide(guide.slug) || ['datcada-nerede-kalinir','datca-nobetci-eczane','datca-saglik-rehberi','datca-taksi-duraklari'].includes(guide.slug)) ? '2026-11-11' : '2026-11-10',
       sources:[{title:guide.source.label,url:guide.source.url}],
       searchTerms: placesForGuide(guide.slug).map(place => [place.name,place.address,place.note?.[lang]].filter(Boolean).join(' ')).join(' ') || undefined,
       visitStops:visitNotes[guide.slug]?.[locale]?.stops, faqs:visitNotes[guide.slug]?.[locale]?.faqs,

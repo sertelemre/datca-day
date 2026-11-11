@@ -4,15 +4,15 @@ export const practicalGuides: Guide[] = [
   {
     slug: 'datca-devlet-hastanesi', groups: ['health', 'transport'], photo: 'datca-merkez',
     source: { label: 'Datça Devlet Hastanesi', url: 'https://datcadh.saglik.gov.tr/TR-737081/bize-ulasin.html' },
-    tr: copy('Datça Devlet Hastanesi: adres ve poliklinik ulaşımı', 'Randevu gününde doğru adrese gitmek ve koylardan dönüşünü ayarlamak için hastanenin iletişim sayfasını kullan.',
-      ['Hastaneyi haritada bul', 'Hastanenin verdiği adres Datça Mahallesi, Yüksekokul Caddesi No. 8. İlçe adı ile mahalle aynı olduğundan haritaya hastanenin tam adını yaz. İçeri gireceğin birimi randevu kaydından kontrol et.'],
-      ['Planlı bir ziyaret', 'Koydan merkeze ve merkezden hastaneye gidişi ayrı hesapla. Poliklinik için MHRS’deki saat ve bölüm bilgisini yanında bulundur. Kayıtta hangi belgelerin gerektiğini hastaneye sorabilirsin.']),
-    en: copy('Datça State Hospital: address and outpatient visits', 'Check the hospital’s own contact page when planning a visit from town or one of the bays.',
-      ['Find the right address', 'The hospital lists Datça Mahallesi, Yüksekokul Caddesi No. 8. Enter the full hospital name when navigating as the district and neighbourhood share a name. Check the department on your booking.'],
-      ['For a scheduled visit', 'Allow for both the trip from your bay into town and the onward ride. Keep your appointment time and department details handy. Ask the hospital which documents you need for registration.']),
-    ru: copy('Государственная больница Датчи: как добраться', 'Сверьтесь с официальными контактами больницы перед плановым визитом из города или бухты.',
-      ['Как найти адрес', 'Больница указывает Datça Mahallesi, Yüksekokul Caddesi No. 8. Названия района и квартала совпадают, поэтому введите полное название больницы. Отделение проверьте в записи на приём.'],
-      ['Если приём назначен заранее', 'Учтите отдельно путь из бухты в город и до больницы. Сохраните время приёма и название отделения. Необходимые для регистрации документы уточните в больнице.'])
+    tr: copy('Datça Devlet Hastanesi', 'Hastaneye yol tarifi, santral telefonu, poliklinik randevuları ve hastaneden geçen otobüslerin saatleri.',
+      ['Poliklinik randevusu', 'MHRS’de il olarak Muğla’yı, hastane olarak Datça Devlet Hastanesi’ni ve başvuracağın branşı seç. Telefonla randevu için 182’yi ara.'],
+      ['Hastaneye otobüsle ulaşım', '9-1 Datça–Eski Datça–Reşadiye ve 9-11 Cumhuriyet Meydanı–Hızırşah hatları hastaneden geçer. Hat sayfasında gidiş yönünü ve bineceğin günün kalkış saatlerini seç.']),
+    en: copy('Datça State Hospital', 'Directions, the hospital switchboard, outpatient appointments and timetables for buses serving the hospital.',
+      ['Outpatient appointments', 'In MHRS, select Muğla, then Datça Devlet Hastanesi and the specialty you need. For an appointment by phone in Türkiye, call 182.'],
+      ['Getting there by bus', 'Routes 9-1 (Datça–Eski Datça–Reşadiye) and 9-11 (Cumhuriyet Meydanı–Hızırşah) serve the hospital. Open the timetable for your direction and day of travel.']),
+    ru: copy('Государственная больница Датчи', 'Адрес, телефон больницы, запись в поликлинику и расписание автобусов до больницы.',
+      ['Запись на приём', 'В MHRS выберите провинцию Muğla, затем Datça Devlet Hastanesi и нужную специальность. Для записи по телефону в Турции наберите 182.'],
+      ['Как доехать на автобусе', 'У больницы останавливаются автобусы 9-1 (Datça–Eski Datça–Reşadiye) и 9-11 (Cumhuriyet Meydanı–Hızırşah). На странице маршрута выберите направление и день поездки.'])
   },
   {
     slug: 'datcada-dis-sagligi', groups: ['health'], photo: 'datca-merkez',
@@ -30,28 +30,25 @@ export const practicalGuides: Guide[] = [
   {
     slug: 'datca-otogari', groups: ['transport'], photo: 'datca-merkez',
     source: { label: 'Kamil Koç · Datça Otogar', url: 'https://www.flixbus.com.tr/otobus/datca/datca-otogar' },
-    tr: copy('Datça Otogarı: şehirlerarası otobüsten sonra', 'Şehirlerarası araçtan indiğinde merkez, köy veya koy için sonraki yolculuğu biletteki duraktan başlat.',
-      ['Biletteki durağı kaydet', 'Operatörün Datça-Otogar sayfasında harita bağlantısı bulunur. Biletindeki kalkış veya varış noktasını bu haritayla karşılaştır. Terminalden sonra mahalle minibüsüne bineceksen onun kalkış yerini de ayrı işaretle.'],
-      ['Koylardan sabah dönüşü', 'Palamutbükü veya Hayıtbükü’nde kalıyorsan günün ilk yerel aracı uzun yol otobüsüne yetişmeyebilir. İki saati birlikte kontrol et ve büyük bagajın varsa aktarmada yürümeye pay bırak.']),
-    en: copy('Datça coach station: onward connections', 'Plan the last leg to the centre, village or bay from the stop shown on your coach ticket.',
-      ['Save the ticketed stop', 'The operator’s Datça-Otogar page links to a map. Compare it with the departure or arrival point on your ticket. Mark the local minibus stop separately if you need one after your coach.'],
-      ['Early departures from a bay', 'If staying in Palamutbükü or Hayıtbükü, the first local bus may not connect with an early coach. Check both times and allow for walking with luggage.']),
-    ru: copy('Автовокзал Датчи: пересадки после автобуса', 'Спланируйте путь к центру, деревне или бухте от остановки, указанной в междугороднем билете.',
-      ['Сохраните точку на карте', 'На странице оператора Datça-Otogar есть карта. Сравните её с пунктом отправления или прибытия в билете. Отдельно отметьте остановку местного автобуса, если предстоит пересадка.'],
-      ['Ранний выезд из бухты', 'Первый автобус из Паламутбюкю или Хаытбюкю может не успеть к раннему междугороднему рейсу. Сопоставьте расписания и учтите время на переход с багажом.'])
+    tr: copy('Datça Otogarı', 'Şehirlerarası otobüsler için terminalin konumu, Datça’daki yerel otobüs tarifeleri ve telefonla ulaşabileceğin taksi durakları.',
+      ['Şehirlerarası otobüse binerken', 'Kamil Koç, Datça-Otogar durağını İskele Mahallesi’ndeki Belediye Otogarı No. 6 olarak gösteriyor. Biletinde farklı bir durak belirtilmişse biletteki buluşma noktasına git.']),
+    en: copy('Datça coach station', 'Find the intercity coach terminal, local bus timetables and phone numbers for taxi ranks in Datça.',
+      ['Boarding your coach', 'Kamil Koç lists the Datça-Otogar stop at Belediye Otogarı No. 6 in İskele. If your ticket names a different stop, use the boarding point on the ticket.']),
+    ru: copy('Автовокзал Датчи', 'Расположение междугороднего автовокзала, расписание местных автобусов и телефоны стоянок такси в Датче.',
+      ['Посадка в междугородний автобус', 'У перевозчика Kamil Koç остановка Datça-Otogar находится по адресу Belediye Otogarı No. 6 в районе İskele. Если в билете указана другая остановка, отправляйтесь туда.'])
   },
   {
     slug: 'datca-mugla-kart', groups: ['transport'], photo: 'datca-merkez',
     source: { label: 'MUTTAŞ · Muğla Kart', url: 'https://muttas.com.tr/mugla-kart-dolum-noktalari/' },
-    tr: copy('Datça’da Muğla Kart dolumu ve otobüs ücreti', 'Köy hattına binmeden önce yükleme noktası ile seçtiğin güzergâhın ücretini ayrı kontrol et.',
-      ['Yükleme noktası', 'MUTTAŞ’ın Muğla Kart dolum sayfasında Datça ilçesine bak. Kart basımı, bakiye yükleme ve dolummatik farklı işler olabilir. Satış saatini ve yapacağın işlemi kontrol ederek doğru noktaya git.'],
-      ['Kısa bir konaklama', 'Tek veya birkaç yolculuk yapacaksan güncel kart ve ödeme seçeneklerini hat işletmecisinden öğren. Uzun güzergâhlarda ineceğin köyü belirterek tarifeyi sor ve dönüş için yeterli bakiyeyi önceden ayır.']),
-    en: copy('Muğla Kart in Datça: topping up for the bus', 'Find a top-up point and check the fare for your chosen village route before boarding.',
-      ['Adding credit', 'Search for Datça on the MUTTAŞ Muğla Kart top-up page. Card issuance, adding credit and using a machine are different services. Check the transaction and opening hours before heading out.'],
-      ['For a short stay', 'If you only need a few rides, ask which tickets or payment options are accepted on your service. Specify your destination village when checking the fare and allow for the return trip.']),
-    ru: copy('Muğla Kart в Датче: пополнение транспортной карты', 'Перед поездкой в деревню найдите точку пополнения и проверьте тариф на выбранном маршруте.',
-      ['Пополнение', 'На странице MUTTAŞ найдите район Datça. Оформление карты, пополнение и обслуживание в автомате могут происходить в разных точках. Уточните вид услуги и часы работы.'],
-      ['Для короткой поездки', 'Если нужно всего несколько поездок, спросите о доступных способах оплаты на конкретном рейсе. Назовите деревню назначения для расчёта стоимости и оставьте средства на обратный путь.'])
+    tr: copy('Datça’da Muğla Kart dolum noktaları', 'MUTTAŞ, İskele Mahallesi’nde iki dolum noktası listeliyor. İkisi de Atatürk Caddesi üzerinde.',
+      ['Durak Çayocağı', 'İskele Mahallesi, Atatürk Caddesi No. 84. MUTTAŞ listesindeki Yol Tarifi bağlantısını açmak için ilçe olarak Datça’yı seç.'],
+      ['Çerez Deryası', 'İskele Mahallesi, Atatürk Caddesi No. 9/B. Otobüse binmeden önce karta bakiye yükleyebilirsin.']),
+    en: copy('Muğla Kart top-up points in Datça', 'MUTTAŞ lists two top-up points in İskele, both on Atatürk Caddesi.',
+      ['Durak Çayocağı', 'İskele Mahallesi, Atatürk Caddesi No. 84. Select Datça in the operator’s list for its directions link.'],
+      ['Çerez Deryası', 'İskele Mahallesi, Atatürk Caddesi No. 9/B. You can add credit to your card before boarding the bus.']),
+    ru: copy('Где пополнить Muğla Kart в Датче', 'MUTTAŞ указывает два пункта пополнения в районе Искеле. Оба находятся на улице Atatürk Caddesi.',
+      ['Durak Çayocağı', 'İskele Mahallesi, Atatürk Caddesi No. 84. В списке перевозчика выберите район Datça, чтобы открыть маршрут.'],
+      ['Çerez Deryası', 'İskele Mahallesi, Atatürk Caddesi No. 9/B. Здесь можно пополнить баланс карты перед поездкой.'])
   },
   {
     slug: 'kormen-yat-limani', groups: ['sea', 'transport'], photo: 'kormen',

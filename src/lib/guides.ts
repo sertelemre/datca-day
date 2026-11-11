@@ -253,18 +253,15 @@ export const guides: Guide[] = [
   {
     slug: 'datca-nobetci-eczane', groups: ['health'], photo: 'datca-merkez',
     source: { label: 'Muğla Eczacı Odası', url: 'https://www.muglaeczaciodasi.org.tr/nobetci-eczaneler' },
-    tr: copy('Datça nöbetçi eczane bilgisine nasıl ulaşılır?', 'Bugün açık eczanenin adını, adresini ve nöbet aralığını Muğla Eczacı Odası’nın listesinden kontrol et.',
-      ['İlçeyi ve tarihi doğrula', 'Resmî nöbet listesini açıp Datça satırını bul. Saat gece yarısını geçtiğinde başlangıç ve bitiş tarihleri farklı olabilir. Bulunduğun saatin yazılan aralıkta kaldığını kontrol et.'],
-      ['Yola çıkmadan önce', 'Listelenen telefon numarasını kullanarak adresi ve o saatte hizmet verildiğini teyit edebilirsin. Koylardan geleceksen eczanenin mahalle adını da haritada kontrol et.']),
-    en: copy('Finding the duty pharmacy in Datça', 'Use the Muğla Chamber of Pharmacists’ roster for the name, address and duty hours of the local pharmacy.',
-      ['Check the district and date', 'Open the official roster and find the Datça entry. An overnight shift can span two dates. Check that the time you plan to visit falls inside the displayed hours.'],
-      ['Before you leave', 'Use the phone number shown to confirm the address and opening time. If you are coming from a bay, check the neighbourhood name on the map before travelling.']),
-    ru: copy('Как найти дежурную аптеку в Датче', 'В расписании Палаты фармацевтов Муглы указаны название, адрес и время дежурства аптеки.',
-      ['Район и даты', 'Откройте официальный список и найдите строку Datça. Ночная смена может начинаться и заканчиваться в разные даты. Проверьте, попадает ли время вашего визита в этот интервал.'],
-      ['Перед поездкой', 'По указанному номеру телефона можно уточнить адрес и время работы. Если вы едете из одной из бухт, проверьте на карте название района, где находится аптека.'])
+    tr: copy('Datça nöbetçi eczanesi ve eczane haritası', 'Bugünün nöbetçi eczanesini, nöbet saatlerini ve Datça’daki tüm eczanelerin telefonlarını haritada bul.',
+      ['Gece hangi eczane açık?', 'Nöbet gece yarısından sonra da sürebilir. Eczanenin kartındaki başlangıç ve bitiş saatleri Türkiye saatidir. Telefon numarasına dokunarak eczaneyi arayabilirsin.']),
+    en: copy('Duty pharmacy and pharmacy map of Datça', 'Find today’s duty pharmacy and shift times, plus telephone numbers and directions for all pharmacies in Datça.',
+      ['Which pharmacy is open overnight?', 'A shift can continue past midnight. The start and end times on the pharmacy card are local to Türkiye. Tap its phone number to call.']),
+    ru: copy('Дежурная аптека и карта аптек Датчи', 'Узнайте, какая аптека дежурит сегодня. На карте есть часы дежурства, телефоны и маршруты до аптек Датчи.',
+      ['Какая аптека работает ночью?', 'Дежурство может продолжаться после полуночи. Начало и конец смены указаны по турецкому времени. Нажмите на номер в карточке, чтобы позвонить.'])
   },
   {
-    slug: 'taslik-plaji', groups: ['beaches', 'places'], photo: 'datca-sahil', source: { label: 'Datça Kaymakamlığı', url: 'https://datca.gov.tr/turizm' },
+    slug: 'taslik-plaji', groups: ['beaches', 'places'], photo: 'datca-sahil', source: { label: 'GoTürkiye · Datça plajları', url: 'https://goturkiye.com/tr/datca/dokun' },
     tr: copy('Taşlık Plajı ve Ilıca Gölü', 'Aynı sabah denizi ve tatlı su gölünü görmek için merkezde Sevgi Yolu’nu izle.',
       ['Denizle göl arasında', 'Taşlık’a havlunla yürüyebileceğin bir gün ayır. Sevgi Yolu üzerinde Ilıca Gölü’ne uğrayıp ördekleri kıyıdan izle. Ardından eşyalarını toplayıp deniz tarafında uygun bir yere geç.'],
       ['Akşama doğru', 'Yüzdükten sonra üstünü değiştirmek ve limana yürümek için hafif bir çanta yeterli olur. Şehir dışına otobüsle döneceksen son seferi sahile inmeden kontrol et.']),
@@ -315,7 +312,7 @@ export const guides: Guide[] = [
   },
   {
     slug: 'kurubuk', groups: ['beaches', 'nature'], photo: 'datca-koylari',
-    source: {label: 'Datça Kaymakamlığı', url: 'https://datca.gov.tr/turizm'},
+    source: {label: 'Muğla Çevre Platformu · Kurubük', url: 'https://mucep.org/datca-kurubuk-koyu-ihalesi-iptal-edildi/'},
     tr: copy('Kurubük: güney kıyısında manzara molası', 'Ovabükü ile Palamutbükü arasında kıyı boyunca ilerlerken Kurubük’e ayrı bir durak ayır.',
       ['Kıyı yolunda', 'Aracı durdurabileceğin uygun bir yer bulduğunda koya yukarıdan bak. İnişin zemini ve dönüşteki mesafe sana uygun görünüyorsa su ve havlunu alıp sahile geç.'],
       ['Molayı kısa tutmak istersen', 'Yürüyüşü ve denize girmeyi sonraki koya bırakıp burada yalnızca manzara için durabilirsin. Virajlı kıyı yolunda fotoğrafı yürüyerek ulaştığın güvenli bir noktadan çek.']),

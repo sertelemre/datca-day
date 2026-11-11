@@ -13,6 +13,7 @@ import LocalServices from './LocalServices.astro';
 import PlaceDirectory from './PlaceDirectory.astro';
 import { placesForGuide } from '../lib/place-directory';
 import OfficialLinks from './OfficialLinks.astro';
+import { actionsForGuide } from '../lib/guide-actions';
 import './secondary.css';
 interface Props {article:Article;category?:Category;related:Article[]}
 const {article,category,related:relatedArticles}=Astro.props;
@@ -21,18 +22,20 @@ const t=ui(locale);
 const localize=(path:string)=>localePath(path,locale);
 const topicPath=category?.path || localize('/rehber');
 const cover=photos.find(photo=>photo.file===article.image);
-const dateLabel=new Intl.DateTimeFormat(locale,{day:'numeric',month:'long',year:'numeric'}).format(new Date(article.date));
+const dateLabel=new Intl.DateTimeFormat(locale,{day:'numeric',month:'long',year:'numeric'}).format(new Date(article.updatedDate || article.date));
 const readingTime=Math.max(1,Math.ceil(article.content.split(/\s+/).length/180));
 const outline=articleOutline(article.content);
 const isStayDirectory=article.slug==='datcada-nerede-kalinir';
 const isPharmacy=article.slug==='datca-nobetci-eczane';
 const directoryPlaces = placesForGuide(article.slug);
+const practical = actionsForGuide(article.slug)?.practical;
+const serviceLayout = practical || isPharmacy || isStayDirectory || directoryPlaces.length > 0;
 const isFood=article.slug==='datcada-ne-yenir';
 const tocEntries=[...outline.headings,
   ...(article.visitStops?.length ? [{id:"visit-plan",label:t("Üç duraklı gezi planı"),level:2}] : []),
   ...(article.faqs?.length ? [{id:"faq-heading",label:t("Sık sorulan sorular"),level:2}] : []),...(isFood?[{id:'budget-title',label:t('Yeme içme bütçeni hesapla.'),level:2}]:[])];
 ---
-<div class:list={["article-page",{"service-page":isPharmacy || directoryPlaces.length > 0, "duty-pharmacy-page":isPharmacy}]}><div class="detail-container">
+<div class:list={["article-page",{"service-page":isPharmacy || directoryPlaces.length > 0, "duty-pharmacy-page":isPharmacy, "practical-page":serviceLayout}]}><div class="detail-container">
     <nav class="detail-breadcrumb" aria-label={t("Sayfa yolu")}>
       <a href={localize("/")}>datca.day</a><Icon name="chevron" size={12} />
       {category && <><a href={category.path}>{category.name}</a><Icon name="chevron" size={12} /></>}
@@ -41,28 +44,29 @@ const tocEntries=[...outline.headings,
     <header class="article-heading">
       <a class="detail-eyebrow" href={topicPath}>{category?.name || t('Datça Rehberi')}</a>
       <h1>{article.title}</h1>
-      {article.excerpt && <p class="article-deck">{article.excerpt}</p>}
+      {article.excerpt && article.slug !== 'datca-devlet-hastanesi' && <p class="article-deck">{article.excerpt}</p>}
       <div class="article-byline">
-        <div class="byline-brand" aria-hidden="true"><Icon name="waves" size={20} /></div>
+        {!serviceLayout && <><div class="byline-brand" aria-hidden="true"><Icon name="waves" size={20} /></div>
         <div class="byline-author"><strong>datca.day</strong><span>{dateLabel ? t("Güncellendi · {date}", {date:dateLabel}) : t('Gezi ve tatil rehberi')}</span></div>
-        <span class="byline-divider"></span><span class="reading-time"><Icon name="clock" size={15} /> {t("{n} dk okuma", {n:readingTime})}</span>
+        <span class="byline-divider"></span><span class="reading-time"><Icon name="clock" size={15} /> {t("{n} dk okuma", {n:readingTime})}</span></>}
         <div class="article-heading-actions">
           <button class="detail-icon-button" type="button" data-save={article.path} data-title={article.title} data-image={article.image} aria-label={t("Bu rehberi kaydet")} title={t("Rehberi kaydet")}><Icon name="heart" size={19} /></button>
           <button class="detail-icon-button article-share" type="button" aria-label={t("Sayfa bağlantısını kopyala")} title={t("Bağlantıyı kopyala")}><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m0 0L7 8m5-5 5 5M5 13v7h14v-7" /></svg></button>
         </div>
       </div>
     </header>
-    {isStayDirectory ? <StayDirectory locale={locale}/> : directoryPlaces.length ? <PlaceDirectory places={directoryPlaces} locale={locale}/> : isPharmacy ? <LocalServices slug={article.slug}/> : <figure class="article-cover">
+    <OfficialLinks slug={article.slug} source={article.sources?.[0]?.url}/>
+    {practical ? null : isStayDirectory ? <StayDirectory locale={locale}/> : directoryPlaces.length ? <PlaceDirectory places={directoryPlaces} locale={locale}/> : isPharmacy ? <LocalServices slug={article.slug}/> : <figure class="article-cover">
       <img src={article.image} srcset={article.image.replace('.webp','-640.webp')+' 640w, '+article.image+' 1200w'} sizes="(max-width:700px) 100vw, 1050px" alt={photoCaption(article.image,locale)} width="1050" height="550" fetchpriority="high"/>
       <figcaption><span><Icon name="pin" size={14}/>{photoCaption(article.image,locale)}</span>{cover && <small><a href={cover.source}>{cover.author}</a> · <a href={cover.licenseUrl}>{cover.license}</a></small>}</figcaption>
     </figure>}
-    <details class="article-mobile-toc"><summary>{t('BU REHBERDE')}</summary><nav>{tocEntries.map(e=><a href={'#'+e.id}>{e.label}</a>)}</nav></details>
+    {!serviceLayout && <details class="article-mobile-toc"><summary>{t('BU REHBERDE')}</summary><nav>{tocEntries.map(e=><a href={'#'+e.id}>{e.label}</a>)}</nav></details>}
     <div class="article-body-grid">
       <article class="article-prose" id="article-content"><div set:html={outline.html}/>
         {article.visitStops?.length && <section class="visit-stops" aria-labelledby="visit-plan"><h2 id="visit-plan">{t("Üç duraklı gezi planı")}</h2><ol>{article.visitStops.map(stop=><li>{stop}</li>)}</ol></section>}
         {article.faqs?.length && <section class="article-faq" aria-labelledby="faq-heading"><h2 id="faq-heading">{t("Sık sorulan sorular")}</h2>{article.faqs.map(faq=><details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>}
-        {isFood && <BudgetPlanner/>}<OfficialLinks slug={article.slug}/>{!isPharmacy && !isStayDirectory && <LocalServices slug={article.slug}/>}</article>
-      <aside class="article-sidebar">
+        {isFood && <BudgetPlanner/>}{!practical && !isPharmacy && !isStayDirectory && <LocalServices slug={article.slug}/>}</article>
+      {!serviceLayout && <aside class="article-sidebar">
         <section class="article-toc" aria-label={t("Yazı içindekiler")}>
           <p class="sidebar-label">{t("BU REHBERDE")}</p>
           <nav id="article-toc-links">{tocEntries.map(entry => <a href={`#${entry.id}`} class:list={{'toc-subheading':entry.level === 3}}>{entry.label}</a>)}</nav>
@@ -75,17 +79,17 @@ const tocEntries=[...outline.headings,
           <p>{t("Doğadan lezzete, kıyılardan kültüre. Kendi rotanı oluşturmak için rehberleri keşfet.")}</p>
           <a href={localize("/kesfet/")}>{t("Tüm rehberler")} <Icon name="arrow" size={17} /></a>
         </section>
-      </aside>
+      </aside>}
       <footer class="article-endnote">
         <div class="article-source">
           <Icon name="compass" size={22} />
-          <div><strong>{t("Bilgiyi kaynağından kontrol et.")}</strong><p>{dateLabel && <time datetime={article.updatedDate}>{t("İçerik incelemesi: {date}.", {date:dateLabel})}</time>} {t("Ücretler, çalışma düzeni ve hizmet koşulları değişebilir.")}</p>{article.sources && article.sources.length > 0 && <ul class="article-references">{article.sources.map(source=><li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} <Icon name="external" size={12}/></a></li>)}</ul>}<p><a href={localize("/hakkimizda")}>{t("Yayın ilkeleri")}</a> · <a href={localize("/iletisim")}>{t("Düzeltme öner")}</a></p></div>
+          <div><strong>{t("Bilgiyi kaynağından kontrol et.")}</strong><p>{dateLabel && <time datetime={article.updatedDate}>{t("İçerik incelemesi: {date}.", {date:dateLabel})}</time>} {!serviceLayout && t("Ücretler, çalışma düzeni ve hizmet koşulları değişebilir.")}</p>{article.sources && article.sources.length > 0 && <ul class="article-references">{article.sources.map(source=><li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} <Icon name="external" size={12}/></a></li>)}</ul>}<p><a href={localize("/hakkimizda")}>{t("Yayın ilkeleri")}</a> · <a href={localize("/iletisim")}>{t("Düzeltme öner")}</a></p></div>
         </div>
         <div class="article-end-actions"><span>{t("Sonra okumak için sakla")}</span><button type="button" data-save={article.path} data-title={article.title} data-image={article.image} class="detail-save-button"><Icon name="heart" size={17} /><span>{t("Rehberi kaydet")}</span></button></div>
       </footer>
     </div>
   </div>
-  {relatedArticles.length > 0 && <section class="related-section" data-guide-related><div class="detail-container"><div class="secondary-section-heading"><div><p class="detail-eyebrow">{t("KEŞİF DEVAM EDİYOR")}</p><h2>{t("Bunları da sevebilirsin.")}</h2></div><a href={topicPath}>{t("Daha fazlasını keşfet")} <Icon name="arrow" size={18} /></a></div><div class="secondary-card-grid">{relatedArticles.slice(0, 3).map(item => <Card article={item} />)}</div></div></section>}
+  {!serviceLayout && relatedArticles.length > 0 && <section class="related-section" data-guide-related><div class="detail-container"><div class="secondary-section-heading"><div><p class="detail-eyebrow">{t("KEŞİF DEVAM EDİYOR")}</p><h2>{t("Bunları da sevebilirsin.")}</h2></div><a href={topicPath}>{t("Daha fazlasını keşfet")} <Icon name="arrow" size={18} /></a></div><div class="secondary-card-grid">{relatedArticles.slice(0, 3).map(item => <Card article={item} />)}</div></div></section>}
   <div class="secondary-toast" id="article-share-feedback" role="status" aria-live="polite"></div>
 </div>
 
@@ -139,6 +143,14 @@ const tocEntries=[...outline.headings,
 </script>
 
 <style>
+.practical-page .article-heading{margin:12px auto 16px;position:relative;padding-right:96px}
+.practical-page .article-heading h1{font-size:clamp(34px,5vw,62px);margin:10px 0}
+.practical-page .article-deck{margin:0;font-size:17px;line-height:1.5}
+.practical-page .article-byline{position:absolute;right:0;top:0;padding:0;border:0}
+.practical-page .article-body-grid{display:block;max-width:950px;margin-inline:auto}
+.practical-page .article-prose{max-width:740px}
+@media(max-width:600px){.practical-page .article-heading{padding:0}.practical-page .article-byline{position:static;margin-top:10px}.practical-page .article-heading-actions{margin-left:0}}
+
 .article-mobile-toc{display:none;margin:0 0 24px;border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:16px 18px}.article-mobile-toc summary{font-size:12px;letter-spacing:.8px;color:var(--green);cursor:pointer;min-height:24px}.article-mobile-toc nav{display:grid;gap:0;padding-top:12px}.article-mobile-toc nav a{padding:11px 0;line-height:1.6;font-size:14px;border-top:1px solid var(--line)}.article-mobile-toc .toc-subheading{padding-left:14px;font-size:13px}#article-content :global(h2[id]),#article-content :global(h3[id]){scroll-margin-top:28px}@media(max-width:1000px){.article-mobile-toc{display:block}}
 .service-page .article-heading> .detail-eyebrow{display:none}.service-page .article-heading h1{font-size:clamp(32px,4vw,48px);margin-top:12px}.service-page .article-byline{padding:14px 0}.service-page .article-deck{font-size:15px;line-height:1.8}.service-page .byline-brand{display:none}
 .duty-pharmacy-page .detail-breadcrumb{flex-wrap:wrap}.duty-pharmacy-page .detail-breadcrumb a,.duty-pharmacy-page .detail-breadcrumb>span{white-space:normal;overflow-wrap:anywhere;min-width:0;max-width:100%}

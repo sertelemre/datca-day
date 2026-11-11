@@ -15,7 +15,7 @@ const labels = {
 }[locale];
 const types = {otel:'hotel','apart otel':'apart',pansiyon:'guest','butik otel':'boutique','ozel konaklama tesisi':'special',motel:'motel',camping:'camp','kamping, pansiyon':'camp','kirsal turizm tesisi':'country','ciftlik evi-koy evi':'country',rental:'rental',application:'pending'} as const;
 const kind = (type: string) => types[type as keyof typeof types];
-const spots = data.slice().sort((a,b) => Number(!!b.photo)-Number(!!a.photo) || Number(kind(b.type)==='hotel')-Number(kind(a.type)==='hotel') || (a.alias || a.name).localeCompare(b.alias || b.name,'tr'));
+const spots = data.slice().sort((a,b) => Number(!!(b.photo || b.instagramPost))-Number(!!(a.photo || a.instagramPost)) || Number(kind(b.type)==='hotel')-Number(kind(a.type)==='hotel') || (a.alias || a.name).localeCompare(b.alias || b.name,'tr'));
 const rentals = spots.filter(spot => spot.type === 'rental').length;
 const pending = spots.filter(spot => spot.type === 'application').length;
 const scope = labels.scope.replace('{certified}', String(spots.length-rentals-pending)).replace('{rental}', String(rentals)).replace('{pending}', String(pending));
@@ -41,6 +41,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
       const mapsUrl = pin ? 'https://www.google.com/maps/dir/?api=1&destination='+pin.join(',') : 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(query);
       return <article class="stay" data-stay data-lat={pin?.[0]} data-lon={pin?.[1]} data-number={spot.number} data-area={spot.area} data-kind={kind(spot.type)} data-terms={[spot.name,spot.alias,spot.address,spot.area,spot.number].filter(Boolean).join(' ')}>
         {spot.photo && spot.gallery && <a class="stay-picture" data-select-stay href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={title+' · '+m.details}><img src={spot.photo} loading="lazy" decoding="async" referrerpolicy="no-referrer" width="450" height="235" alt={title}/></a>}
+        {spot.instagramPost && <iframe class="stay-embed" src={'https://www.instagram.com/p/'+spot.instagramPost+'/embed/'} title={title+' · Instagram'} loading="lazy" referrerpolicy="no-referrer" width="400" height="390"></iframe>}
         <div class="stay-body">
           <p class="kind">{labels[kind(spot.type)]}{spot.area && <> · {spot.area}</>}</p>
           <h3><a data-select-stay href={mapsUrl}>{title}</a></h3>
@@ -69,7 +70,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
     const prev = pages.querySelector<HTMLButtonElement>('[data-stay-prev]')!;
     const next = pages.querySelector<HTMLButtonElement>('[data-stay-next]')!;
     const fold = (s:string) => s.toLocaleLowerCase('tr').replaceAll('ı','i').normalize('NFD').replace(/\p{M}/gu,'');
-    const cards = [...root.querySelectorAll<HTMLElement>('[data-stay]')].map(el=>({el,words:fold(el.dataset.terms || ''),photo:!!el.querySelector('img')}));
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-stay]')].map(el=>({el,words:fold(el.dataset.terms || ''),photo:!!el.querySelector('.stay-picture, .stay-embed')}));
     let page = 0;
     const size = 12;
     let shown: HTMLElement[] = [];
@@ -130,6 +131,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
   .stay-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; align-items:start; }
   .stay { overflow:hidden; border:1px solid var(--line); border-radius:9px; background:var(--paper); }
   .stay-picture,.stay-picture img { display:block; width:100%; }
+  .stay-embed {display:block;width:100%;height:390px;border:0;}
   .stay-picture img { aspect-ratio:1.91; object-fit:cover; height:auto; background:var(--cream); }
   .stay-body { padding:16px; display:grid; gap:7px; }
   .stay h3 { font:500 clamp(22px,2vw,27px)/1.12 var(--serif); margin:0; overflow-wrap:anywhere; }

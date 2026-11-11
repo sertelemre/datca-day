@@ -42,10 +42,14 @@ export function mountStayMap(root: HTMLElement, cards: HTMLElement[]) {
     close();
     picked=card;focusBack=trigger;
     const marker=pins.get(card);
-    const picture=card.querySelector<HTMLImageElement>('.stay-picture:not([hidden]) img');
+    const picture=card.querySelector<HTMLImageElement | HTMLIFrameElement>('.stay-picture:not([hidden]) img, .stay-embed');
     const heading=document.createElement('h4');heading.id='stay-selection';heading.tabIndex=-1;
     heading.textContent=card.querySelector('h3')!.textContent;
-    if(picture) {const img=picture.cloneNode(true) as HTMLImageElement;img.loading='eager';content.append(img);}
+    if (picture) {
+      const preview = picture.cloneNode(true) as HTMLImageElement | HTMLIFrameElement;
+      preview.loading = 'eager';
+      content.append(preview);
+    }
     content.append(heading);
     for(const selector of ['address','[data-door-note]','a.phone']) {
       const entry=card.querySelector(selector);if(entry) content.append(entry.cloneNode(true));
