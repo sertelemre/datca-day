@@ -108,9 +108,7 @@ export const experienceGuides: Guide[] = [
   {
     slug:'datca-demokrasi-evi-sergileri',groups:['history','places'],photo:'datca-merkez',
     source:{label:'Datça Belediyesi · Demokrasi Evi sergi duyurusu',url:'https://datca.bel.tr/etkinlikler/bir-fotograf-bir-umut-sergisi-acildi'},
-    tr:copy('Datça Demokrasi Evi’nde sergi ziyareti','Merkezde bir sanat molası için serginin açılışını, gösterim süresini ve ziyaret saatini ayrı kontrol et.',
-      ['Sergi duyurusunu oku','Belediyenin Bir Fotoğraf Bir Umut duyurusu, Demokrasi Evi’nde düzenlenen fotoğraf sergilerine bir örnek. Arşivde gördüğün bir serginin yayın tarihini açılış ve kapanış günleriyle karşılaştır. Geçmiş sergilerin ilanları da arşivde yer alır.'],
-      ['Aynı gün uğrayacaksan','Belediyeden o gün hangi serginin kurulu olduğunu ve salonun ziyaret saatini öğren. Bir açılışa katılmak istiyorsan afişteki tören saati ile normal ziyaret saatini ayır. Sergileri kıyı yürüyüşünden önce görmek, dönüşü daha esnek bırakır.']),
+    tr:copy('Datça Demokrasi Evi’nde bir sergi gezisi', 'Merkezdeki kıyı yürüyüşüne bir sergi ziyareti ekleyebilirsin. Demokrasi Evi’nin programında açılış saatiyle eserleri görebileceğin tarihler ayrı ayrı duyurulur.'),
     en:copy('Visiting exhibitions at Datça’s Democracy House','For an art stop in town, check the opening event, exhibition dates and daily visiting hours separately.',
       ['Read the exhibition notice','The municipality’s Bir Fotoğraf Bir Umut announcement is an example of photography shown at the Democracy House. Compare the notice date with the exhibition’s opening and closing dates. Old announcements remain available in the archive.'],
       ['Dropping in today','Ask the municipality which exhibition is installed and when the room admits visitors. An opening reception may start at a different time from ordinary viewing hours. Visit before your seafront walk to leave the rest of the afternoon flexible.']),
@@ -199,9 +197,7 @@ export const experienceGuides: Guide[] = [
   {
     slug:'datca-kilimleri-ve-nazarliklari',groups:['history','places'],photo:'eski-datca',
     source:{label:'Datça Kaymakamlığı · Yerel dokumalar',url:'https://datca.gov.tr/turizm'},
-    tr:copy('Datça kilimleri ve Çığlı-Çaputlu nazarlıkları','Datça’dan bir dokuma alırken parçanın nerede yapıldığını ve tezgâhla satış yerinin aynı yerde olup olmadığını öğren.',
-      ['Hangi işi arıyorsun?','Kaymakamlık Sındı köyü ve Eski Datça’daki dokuma merkezlerinde kadınların dokuduğu kilimleri, ayrıca Çığlı-Çaputlu Datça nazarlıklarını yöreye özgü ürünler arasında sayıyor. Bir kilimin tamamını, küçük bir dokumayı veya nazarlığı ararken bu adları kullanabilirsin.'],
-      ['Dokumacıyı ziyaret etmek','Bir ürünü tezgahta görmekle dokunduğu yeri ziyaret etmek ayrı plan gerektirir. Satıcıdan yapan kişinin adını, dokuma yerini ve ziyaret kabul edilip edilmediğini sor. Büyükçe bir parça alacaksan ölçüsünü, ağırlığını ve taşıma biçimini yerinde not et.']),
+    tr:copy('Datça kilimleri ve Çığlı-Çaputlu nazarlıklar', 'Sındı ve Eski Datça’nın dokumaları arasında ev için büyük bir kilim de küçük bir nazarlık da bulabilirsin. Parçayı dokuyan kişiden dinlemek, desenine başka türlü bakmayı sağlar.'),
     en:copy('Woven kilims and cloth charms from Datça','Find out who made a piece and whether its loom and the place selling it are in the same village.',
       ['Names to look for','The district governor’s guide names kilims woven by women at weaving centres in Sındı and Eski Datça, and local cloth charms called Çığlı-Çaputlu. These names can help you ask for a full-size rug, a smaller woven piece or a particular charm.'],
       ['Meeting a weaver','Seeing a piece in a shop and visiting a working loom need different arrangements. Ask for the maker’s name and weaving location, then check whether visitors are received. Measure and weigh larger pieces before arranging transport.']),

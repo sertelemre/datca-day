@@ -1,5 +1,6 @@
 ---
 import data from '../lib/stays.json';
+import { stayKind as kind, stayKinds, stayMapUrl, turkishStayLabels } from '../lib/stays';
 import type { Locale } from '../lib/paths';
 import Icon from './Icon.astro';
 import StayMap from './StayMap.astro';
@@ -9,12 +10,10 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const m = stayMapCopy[locale];
 const labels = {
-  tr:{title:'Datça otelleri ve konaklama yerleri',search:'Tesis adı veya bölge',area:'Tüm mahalleler',type:'Tüm tesis türleri',photos:'Yalnızca fotoğraflılar',contactSource:'İletişim bilgisi kaynağı',gallery:'Fotoğraf galerisi',map:'Haritada ara',web:'Tesisin sitesi',more:'Daha fazla tesis göster',reset:'Filtreleri temizle',source:'Bakanlık tesis sorgusu',contact:'Muğla İl Kültür ve Turizm Müdürlüğü',asOf:'Kayıt kontrolü',number:'Belge',application:'Başvuru',count:'tesis',hotel:'Otel',apart:'Apart otel',guest:'Pansiyon',boutique:'Butik otel',special:'Özel konaklama tesisi',country:'Kırsal konaklama',camp:'Kamping',motel:'Motel',rental:'Turizm amaçlı konut',pending:'Başvurusu olan tesis',scope:'Bakanlık listesinde {certified} belgeli tesis var. Rehberde ayrıca ilanında konut izin numarası bulunan {rental} konut ve başvurusu görünen {pending} tesis yer alıyor.'},
+  tr:{title:'Datça otelleri ve konaklama yerleri',search:'Tesis adı veya bölge',area:'Tüm mahalleler',type:'Tüm tesis türleri',photos:'Yalnızca fotoğraflılar',contactSource:'İletişim bilgisi kaynağı',gallery:'Fotoğraf galerisi',map:'Haritada ara',web:'Tesisin sitesi',more:'Daha fazla tesis göster',reset:'Filtreleri temizle',source:'Bakanlık tesis sorgusu',contact:'Muğla İl Kültür ve Turizm Müdürlüğü',asOf:'Kayıt kontrolü',number:'Belge',application:'Başvuru',count:'tesis',...turkishStayLabels,scope:'Bakanlık listesinde {certified} belgeli tesis var. Rehberde ayrıca ilanında konut izin numarası bulunan {rental} konut ve başvurusu görünen {pending} tesis yer alıyor.'},
   en:{title:'Hotels and places to stay in Datça',search:'Property name or area',area:'All neighbourhoods',type:'All property types',photos:'With photos only',contactSource:'Contact details source',gallery:'Photo gallery',map:'Find on map',web:'Property website',more:'Show more properties',reset:'Clear filters',source:'Ministry register',contact:'Muğla Provincial Directorate of Culture and Tourism',asOf:'Records checked',number:'Certificate',application:'Application',count:'properties',hotel:'Hotel',apart:'Aparthotel',guest:'Guesthouse',boutique:'Boutique hotel',special:'Special accommodation',country:'Rural accommodation',camp:'Campsite',motel:'Motel',rental:'Licensed holiday home',pending:'Application on file',scope:'The Ministry lists {certified} certified properties. The directory also includes {rental} holiday homes with published permit numbers and {pending} properties with applications on file.'},
   ru:{title:'Отели и жильё в Датче',search:'Название или район',area:'Все районы',type:'Все типы жилья',photos:'Только с фото',contactSource:'Источник контактов',gallery:'Фотогалерея',map:'Найти на карте',web:'Сайт объекта',more:'Показать ещё объекты',reset:'Сбросить фильтры',source:'Реестр министерства',contact:'Управление культуры и туризма Муглы',asOf:'Дата проверки',number:'Свидетельство',application:'Заявка',count:'объектов',hotel:'Отель',apart:'Апарт-отель',guest:'Пансион',boutique:'Бутик-отель',special:'Особый тип размещения',country:'Загородное жильё',camp:'Кемпинг',motel:'Мотель',rental:'Лицензированное жильё',pending:'Подана заявка',scope:'В реестре министерства {certified} сертифицированных объектов. Также представлены {rental} лицензированных домов для отдыха и {pending} объекта, подавших заявку.'},
 }[locale];
-const types = {otel:'hotel','apart otel':'apart',pansiyon:'guest','butik otel':'boutique','ozel konaklama tesisi':'special',motel:'motel',camping:'camp','kamping, pansiyon':'camp','kirsal turizm tesisi':'country','ciftlik evi-koy evi':'country',rental:'rental',application:'pending'} as const;
-const kind = (type: string) => types[type as keyof typeof types];
 const spots = data.slice().sort((a,b) => Number(!!(b.photo || b.instagramPost))-Number(!!(a.photo || a.instagramPost)) || Number(kind(b.type)==='hotel')-Number(kind(a.type)==='hotel') || (a.alias || a.name).localeCompare(b.alias || b.name,'tr'));
 const rentals = spots.filter(spot => spot.type === 'rental').length;
 const pending = spots.filter(spot => spot.type === 'application').length;
@@ -30,7 +29,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
   <div class="filters" data-stay-controls hidden>
     <label class="search"><Icon name="search" size={18}/><input type="search" data-stay-search placeholder={labels.search} aria-label={labels.search}/></label>
     <select data-stay-area aria-label={labels.area}><option value="">{labels.area}</option>{areas.map(area=><option value={area}>{area}</option>)}</select>
-    <select data-stay-type aria-label={labels.type}><option value="">{labels.type}</option>{[...new Set(Object.values(types))].map(type=><option value={type}>{labels[type]}</option>)}</select>
+    <select data-stay-type aria-label={labels.type}><option value="">{labels.type}</option>{[...new Set(Object.values(stayKinds))].map(type=><option value={type}>{labels[type]}</option>)}</select>
     <label class="with-photos"><input type="checkbox" data-stay-photos/>{labels.photos}</label>
   </div>
   <div class="list-status"><p aria-live="polite" aria-atomic="true"><span data-stay-progress hidden><strong data-stay-visible></strong> / </span><strong data-stay-total>{spots.length}</strong> {labels.count}</p><button data-stay-clear hidden>{labels.reset}</button></div>
@@ -38,9 +37,8 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
   <div class="stay-grid" id="stay-results">
     {spots.map((spot,index)=>{
       const title = spot.alias || spot.name;
-      const query = [title,spot.address,'Datça, Muğla'].filter(Boolean).join(', ');
       const pin = spot.coordinates;
-      const mapsUrl = pin ? 'https://www.google.com/maps/dir/?api=1&destination='+pin.join(',') : 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(query);
+      const mapsUrl = stayMapUrl(spot);
       return <article class="stay" data-stay data-deferred={index >= batchSize || undefined} data-has-photo={!!(spot.photo || spot.instagramPost) || undefined} data-lat={pin?.[0]} data-lon={pin?.[1]} data-number={spot.number} data-area={spot.area} data-kind={kind(spot.type)} data-terms={[spot.name,spot.alias,spot.address,spot.area,spot.number].filter(Boolean).join(' ')}>
         {(spot.photo || !spot.instagramPost) && <a class="stay-picture" data-select-stay href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={title+' · '+m.details}><img src={spot.photo || placeholder} data-stay-image data-stay-placeholder={!spot.photo || undefined} loading="lazy" decoding="async" referrerpolicy="no-referrer" width="450" height="235" alt={spot.photo ? title : ''}/></a>}
         {spot.instagramPost && <iframe class="stay-embed" src={'https://www.instagram.com/p/'+spot.instagramPost+'/embed/'} title={title+' · Instagram'} loading="lazy" referrerpolicy="no-referrer" width="400" height="390"></iframe>}

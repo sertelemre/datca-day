@@ -1,0 +1,76 @@
+---
+import Icon from './Icon.astro';
+import type { DestinationDetail } from '../lib/destination-types';
+import { transportPath } from '../lib/paths';
+import { transportRoutes } from '../lib/transport';
+import stays from '../lib/stays.json';
+import { stayKind, stayMapUrl, turkishStayLabels } from '../lib/stays';
+
+interface Props { detail: DestinationDetail }
+const { detail } = Astro.props;
+const { label, query } = detail.map;
+const mapParams = new URLSearchParams({ q: query, z: '14', hl: 'tr', output: 'embed' });
+const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(query);
+const routes = (detail.routes ?? []).map(slug => {
+  const route = transportRoutes.find(item => item.slug === slug);
+  if (!route) throw new Error('Unknown transport route for ' + label + ': ' + slug);
+  return route;
+});
+const nearbyStays = detail.stayIds.map(number => {
+  const stay = stays.find(item => item.number === number);
+  if (!stay) throw new Error('Unknown accommodation for ' + label + ': ' + number);
+  return stay;
+});
+---
+<section class="visit" aria-labelledby="harita-ve-ulasim">
+  <h2 id="harita-ve-ulasim">Harita ve ulaşım</h2>
+  <figure class="location">
+    <iframe src={'https://maps.google.com/maps?' + mapParams} title={'Konum haritası · ' + label} loading="lazy" referrerpolicy="strict-origin-when-cross-origin" width="720" height="325" allowfullscreen></iframe>
+    <figcaption><span><Icon name="pin" size={16}/>{label}</span><a href={mapUrl} target="_blank" rel="noopener noreferrer">Haritada aç <Icon name="external" size={14}/></a></figcaption>
+  </figure>
+  {detail.access.map(paragraph => <p>{paragraph}</p>)}
+  {routes.length > 0 && <ul class="transport-links" aria-label="İlgili hatların sefer saatleri">{routes.map(route =>
+    <li><a href={transportPath(route.slug,'tr')}><Icon name={route.kind === 'ferry' ? 'boat' : 'bus'} size={17}/>
+      <span>{route.code} · {route.title.replaceAll(' - ', ' – ')}<small>Sefer saatleri</small></span><Icon name="arrow" size={16}/>
+    </a></li>)}</ul>}
+</section>
+<section class="visit" aria-labelledby="bolgede-konaklama">
+  <h2 id="bolgede-konaklama">Bölgede konaklama</h2>
+  <p>{detail.stayNote}</p>
+  <ul class="stay-list">{nearbyStays.map(stay => {
+    const source = stay.website || stay.gallery || stay.locationSource;
+    return <li class="nearby-stay">
+      <span class="kind">{[turkishStayLabels[stayKind(stay.type)], stay.area].filter(Boolean).join(' · ')}</span>
+      <h3>{stay.alias || stay.name}</h3>
+      {stay.address && <address>{stay.address}</address>}
+      <div class="stay-links">
+        {stay.phone && <a href={'tel:' + stay.phone.replace(/[^+\d]/g,'')}><Icon name="phone" size={14}/>{stay.phone}</a>}
+        <a href={stayMapUrl(stay)} target="_blank" rel="noopener noreferrer"><Icon name="pin" size={14}/>Tesis konumu</a>
+        {source && <a href={source} target="_blank" rel="noopener noreferrer">{stay.website ? 'Tesisin sitesi' : 'Tesis bilgileri'}<Icon name="external" size={13}/></a>}
+      </div>
+    </li>;
+  })}</ul>
+  <a class="all-stays" href="/datcada-nerede-kalinir#konaklama-rehberi">Datça’daki tüm konaklama yerleri <Icon name="arrow" size={16}/></a>
+</section>
+<style>
+  .visit { min-width: 0; }
+  .visit .location { margin: 0 0 20px; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; background: var(--paper); }
+  .location iframe { display: block; border: 0; border-radius: 0; width: 100%; height: clamp(240px, 36vw, 330px); background: var(--cream); }
+  .visit .location figcaption { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; padding: 8px 14px; margin: 0; text-align: start; color: var(--green); }
+  .location figcaption span, .visit a { display: inline-flex; align-items: center; gap: 6px; }
+  .visit svg { flex: none; }
+  .visit a { color: var(--green); min-height: 38px; font-size: 14px; font-weight: 600; line-height: 1.45; }
+  .visit .transport-links, .visit .stay-list { list-style: none; padding: 0; }
+  .visit .transport-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .visit .transport-links li { margin: 0; padding: 0; }
+  .transport-links a { gap: 10px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--line); text-decoration: none; }
+  .transport-links small { display: block; font-size: 12px; color: var(--muted); font-weight: 400; }
+  .visit .stay-list { display: grid; gap: 12px; margin: 0 0 10px; }
+  .visit .nearby-stay { padding: 16px 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; margin: 0; }
+  .kind { display: block; color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .visit .nearby-stay h3 { margin: 3px 0 6px; font-size: clamp(23px, 3vw, 29px); }
+  .nearby-stay address { color: var(--muted); font-size: 14px; line-height: 1.5; font-style: normal; }
+  .stay-links { display: flex; flex-wrap: wrap; gap: 0 16px; margin-top: 5px; }
+  .visit .all-stays { min-height: 44px; }
+  @media (max-width: 600px) { .visit a { min-height: 44px; } .visit .nearby-stay { padding: 14px; } }
+</style>

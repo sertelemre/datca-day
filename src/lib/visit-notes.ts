@@ -10,12 +10,12 @@ export const visitNotes: Record<string, Record<Locale, VisitNote>> = {
     tr: {
       stops: [
         'Mahallenin girişinden taş döşeli sokaklara yürü. Rota uzarsa kolayca dönebilmek için geldiğin durağı haritada işaretle.',
-        'Can Yücel Sokağı’na sap. Şairin yaşadığı evin çevresini, komşuların kapılarını açık bırakarak sokaktan gör.',
+        'Can Yücel Sokağı’na sap. Şairin yaşadığı evi sokaktan görebilirsin. Fotoğraf için durduğunda kapı önlerini boş bırak.',
         'Bir yan sokaktan geri dön. Eski taş evlerden birinin avlusunda kahve molası ver veya açık bir el sanatları dükkânına uğra.',
       ],
       faqs: [
         { question: 'Eski Datça’ya merkezden hangi otobüs gider?', answer: 'MUTTAŞ’ın 9-1 Datça–Eski Datça–Reşadiye hattına bak. Giderken dönüş durağının adını da kaydet.' },
-        { question: 'Buradan yürüyüşün sonunda denize girilir mi?', answer: 'Eski Datça içeride kalır. Aynı güne yüzme eklemek için merkezdeki Taşlık veya Kumluk’a ulaşım planla.' },
+        { question: 'Yürüyüşü denizde bitirmek mümkün mü?', answer: 'Eski Datça kıyıdan içeride. Yürüyüşün ardından merkezdeki Taşlık veya Kumluk plajına geçebilirsin.' },
       ],
     },
     en: {
@@ -44,12 +44,12 @@ export const visitNotes: Record<string, Record<Locale, VisitNote>> = {
   'knidos-antik-kenti': {
     tr: {
       stops: [
-        'Ören yerinin girişinde plandan büyük ve küçük limanları bul. İki su alanı arasındaki dar kara şeridinin kenti nasıl böldüğüne bak.',
-        'Açık ziyaret güzergâhını küçük tiyatroya kadar izle. Buradan denizle oturma sıraları arasındaki ilişkiyi görebilirsin.',
+        'Girişteki planda iki limanı bul. Aralarındaki dar kara şeridini kıyıdan izlemek, antik kentin nasıl yerleştiğini anlamayı kolaylaştırır.',
+        'Açık ziyaret güzergâhını küçük tiyatroya kadar izle. Oturma sıralarından bakınca büyük limanı görebilirsin.',
         'Dionysos Terası yönünde devam et. Liman Caddesi’ne uzanan stoanın yerini girişte gördüğün planla karşılaştır.',
       ],
       faqs: [
-        { question: 'Knidos’taki büyük ve küçük tiyatro aynı yapı mı?', answer: 'İki ayrı yapı. Büyük limanın kuzeyindeki küçük tiyatro, kıyı yürüyüşüne eklenebilecek duraktır. Açık alanları girişte kontrol et.' },
+        { question: 'Knidos’taki büyük ve küçük tiyatro aynı yapı mı?', answer: 'Bunlar iki ayrı yapı. Kıyıdan yürüyerek ulaşabileceğin yapı, büyük limanın kuzeyindeki küçük tiyatro. Açık alanları girişte kontrol et.' },
         { question: 'Gün batımı için son giriş saatini nasıl öğrenirim?', answer: 'Knidos’un resmî müze sayfasında o günkü gişe ve kapanış saatlerine bak. Son girişi esas alarak virajlı yol için zaman bırak.' },
       ],
     },
@@ -81,10 +81,10 @@ export const visitNotes: Record<string, Record<Locale, VisitNote>> = {
       stops: [
         'Balıkçı barınağından başla. Kıyıya bağlı küçük tekneleri izleyip plajın uzandığı yöne dön.',
         'Sahil boyunca ilerle. Kum ve çakılın karıştığı kıyıda, suya rahat girebileceğin bölümü yürüyerek seç.',
-        'Yürüyüşü sahildeki lokantalardan birinde bitir. Balık seçiyorsan siparişi vermeden tartılmış fiyatı sor.',
+        'Yürüyüşü sahildeki lokantalardan birinde bitir. Tartıyla satılan bir balık seçtiysen tartıldıktan sonra toplam fiyatını sor.',
       ],
       faqs: [
-        { question: 'Palamutbükü plajı tamamen kum mu?', answer: 'Kum ve çakıl karışıktır. Havlunu sermeden önce kıyının birkaç bölümüne bak. Deniz ayakkabısı çakıllı girişlerde işe yarar.' },
+        { question: 'Palamutbükü Plajı tamamen kum mu?', answer: 'Kum ve çakıl karışıktır. Havlunu sermeden önce kıyının birkaç bölümüne bak. Deniz ayakkabısı çakıllı girişlerde işe yarar.' },
         { question: 'Merkezden hangi seferi seçmeliyim?', answer: 'MUTTAŞ’ta 9-5 hattının Palamutbükü yönünü aç. Aynı numarada Belen’e devam eden seferler de listelenebildiği için duraklarını ve dönüş saatini karşılaştır.' },
       ],
     },
@@ -114,13 +114,13 @@ export const visitNotes: Record<string, Record<Locale, VisitNote>> = {
   hayitbuku: {
     tr: {
       stops: [
-        'Hayıtbükü’nde sahile in ve önce koyun kavisini kıyıdan izle. Havlu bırakacağın yeri dönmeden önce seç.',
+        'Hayıtbükü’nde önce koyun kıvrımını izleyerek sahilde yürü. Suya rahatça girebileceğin bir yerde havlunu ser.',
         'Kumlu plajda bir yüzme molası ver. Gölgeli bir öğle arası için sahil boyunca açık bir yer bul.',
         'İkinci bir koy görmek istersen komşu Kızılbük’e geç. Dönüş için Mesudiye hattındaki durağını önceden belirle.',
       ],
       faqs: [
         { question: 'Bir pansiyonun Mesudiye adresi Hayıtbükü’nde olduğu anlamına gelir mi?', answer: 'Mesudiye, Hayıtbükü’nün yanında Ovabükü ve Kızılbük’ü de kapsar. Rezervasyonda pansiyonun konumunu haritada iste.' },
-        { question: 'Merkezden plaja otobüsle gidebilir miyim?', answer: 'MUTTAŞ 9-3 Datça–Mesudiye güzergâhında Hayıtbükü adı geçer. Seyahat gününde bu güzergâha ait gidiş ve dönüş seferlerini aç.' },
+        { question: 'Merkezden plaja otobüsle gidebilir miyim?', answer: '9-3 Datça–Mesudiye hattı Hayıtbükü’nden geçer. Gitmek istediğin günün gidiş ve dönüş saatlerine aşağıdaki hat bağlantısından bakabilirsin.' },
       ],
     },
     en: {
@@ -149,12 +149,12 @@ export const visitNotes: Record<string, Record<Locale, VisitNote>> = {
   ovabuku: {
     tr: {
       stops: [
-        'Ovabükü sahiline çıktığında geri dönmek istediğin noktayı işaretle. Mesudiye’nin uzun plajı kıyı yürüyüşüne elverişli.',
-        'Su çizgisini takip ederek plajın farklı bir bölümüne yürü. Deniz molanı burada ver ve geldiğin yöne kıyıdan bak.',
+        'Ovabükü’nde sahile ulaştığın yeri aklında tut. Dönüşte aynı yoldan çıkmak istersen uzun plajda yönünü bulman kolaylaşır.',
+        'Su kenarından yürüyüp yüzmek için hoşuna giden bir yerde dur.',
         'Başlangıç noktasına sahil boyunca dön. Bir çay veya öğle yemeğinden sonra dönüş durağına geç.',
       ],
       faqs: [
-        { question: 'Uzun bir sahil yürüyüşü için Hayıtbükü mü Ovabükü mü?', answer: 'Ovabükü, Mesudiye’nin en geniş koyudur ve Datça’nın uzun plajlarından birine sahiptir. Kıyıda yürümek için günün daha büyük kısmını burada ayırabilirsin.' },
+        { question: 'Uzun bir sahil yürüyüşü için Hayıtbükü mü Ovabükü mü?', answer: 'Ovabükü, Mesudiye’nin en geniş koyudur ve Datça’nın uzun plajlarından birine sahiptir. Uzun bir kıyı yürüyüşü için Ovabükü daha elverişli.' },
         { question: 'Otobüste hangi güzergâha bakmalıyım?', answer: 'MUTTAŞ 9-3 Datça–Mesudiye hattında Ovabükü durağını ara. Aynı numaranın farklı son durakları olabildiğinden Hızırşah’ta biten seferle karıştırma.' },
       ],
     },
@@ -225,7 +225,7 @@ export const visitNotes: Record<string, Record<Locale, VisitNote>> = {
       ],
       faqs: [
         { question: 'Kızlan otobüsü beni değirmenlerin kapısında mı bırakır?', answer: '9-9 hattının köy duraklarına bak. Değirmenlerin haritadaki konumuyla durağı karşılaştırıp aradaki yürüyüşü ayrıca planla.' },
-        { question: 'Değirmenlerin içine girmek gerekiyor mu?', answer: 'Yapıları ve yerleşim düzenini dışarıdan görmek için gezi planlayabilirsin. İç mekân için açık olacağını varsaymadan önce erişimi yerinde sor.' },
+        { question: 'Değirmenler içeriden gezilebiliyor mu?', answer: 'Sıra hâlindeki değirmenleri dışarıdan görebilirsin. İçini görmek istediğin yapının ziyarete açık olup olmadığını yerinde sor.' },
       ],
     },
     en: {
@@ -255,8 +255,8 @@ export const visitNotes: Record<string, Record<Locale, VisitNote>> = {
     tr: {
       stops: [
         'Kumluk kıyısından başlayıp İskele’deki yat limanına yürü. Sahilin şehirle buluştuğu bu bölümde tekneleri kıyıdan izle.',
-        'Limandan Taşlık yönüne dön. Sevgi Yolu’nda bir mola verip deniz tarafındaki plaja geç.',
-        'Ilıca Gölü’ne uğra. Kısa bir yürüyüşte hem tuzlu deniz kıyısını hem de tatlı su gölünü görmüş olursun.',
+        'Limandan Taşlık yönüne dön. Sahile vardığında çakıllı plajda yüzme molası verebilirsin.',
+        'Plajın yanı başındaki Ilıca Gölü’ne uğra. Göl kenarı, yürüyüşü bitirmeden dinlenebileceğin bir durak.',
       ],
       faqs: [
         { question: 'Bodrum feribotu bu limandan mı kalkıyor?', answer: 'Bodrum feribotunun Datça tarafındaki limanı Karaköy’deki Körmen’dir. Biletteki terminali kullan ve merkezden oraya ayrı ulaşım planla.' },

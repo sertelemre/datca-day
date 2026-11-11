@@ -1,3 +1,5 @@
+import type { DestinationDetail } from './destination-types';
+
 export interface Article {
   id: number;
   title: string;
@@ -6,6 +8,7 @@ export interface Article {
   excerpt: string;
   searchTerms?: string;
   content: string;
+  destination?: DestinationDetail;
   image: string;
   date: string;
   categories: number[];

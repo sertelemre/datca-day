@@ -13,6 +13,7 @@ import LocalServices from './LocalServices.astro';
 import PlaceDirectory from './PlaceDirectory.astro';
 import { placesForGuide } from '../lib/place-directory';
 import OfficialLinks from './OfficialLinks.astro';
+import DestinationVisit from './DestinationVisit.astro';
 import { actionsForGuide } from '../lib/guide-actions';
 import './secondary.css';
 interface Props {article:Article;category?:Category;related:Article[]}
@@ -23,7 +24,8 @@ const localize=(path:string)=>localePath(path,locale);
 const topicPath=category?.path || localize('/rehber');
 const cover=photos.find(photo=>photo.file===article.image);
 const dateLabel=new Intl.DateTimeFormat(locale,{day:'numeric',month:'long',year:'numeric'}).format(new Date(article.updatedDate || article.date));
-const readingTime=Math.max(1,Math.ceil(article.content.split(/\s+/).length/180));
+const readingText = [article.content.replace(/<[^>]+>/g,' '), ...(article.destination?.access ?? []), article.destination?.stayNote].join(' ');
+const readingTime=Math.max(1,Math.ceil(readingText.trim().split(/\s+/).length/180));
 const outline=articleOutline(article.content);
 const isStayDirectory=article.slug==='datcada-nerede-kalinir';
 const isPharmacy=article.slug==='datca-nobetci-eczane';
@@ -33,7 +35,8 @@ const serviceLayout = practical || isPharmacy || isStayDirectory || directoryPla
 const isFood=article.slug==='datcada-ne-yenir';
 const tocEntries=[...outline.headings,
   ...(article.visitStops?.length ? [{id:"visit-plan",label:t("Üç duraklı gezi planı"),level:2}] : []),
-  ...(article.faqs?.length ? [{id:"faq-heading",label:t("Sık sorulan sorular"),level:2}] : []),...(isFood?[{id:'budget-title',label:t('Yeme içme bütçeni hesapla.'),level:2}]:[])];
+  ...(article.faqs?.length ? [{id:"faq-heading",label:t("Sık sorulan sorular"),level:2}] : []),...(isFood?[{id:'budget-title',label:t('Yeme içme bütçeni hesapla.'),level:2}]:[]),
+  ...(article.destination ? [{id:'harita-ve-ulasim',label:'Harita ve ulaşım',level:2},{id:'bolgede-konaklama',label:'Bölgede konaklama',level:2}] : [])];
 ---
 <div class:list={["article-page",{"service-page":isPharmacy || directoryPlaces.length > 0, "duty-pharmacy-page":isPharmacy, "practical-page":serviceLayout}]}><div class="detail-container">
     <nav class="detail-breadcrumb" aria-label={t("Sayfa yolu")}>
@@ -55,7 +58,7 @@ const tocEntries=[...outline.headings,
         </div>
       </div>
     </header>
-    <OfficialLinks slug={article.slug} source={article.sources?.[0]?.url}/>
+    <OfficialLinks slug={article.slug} source={article.sources?.[0]?.url} hasDestination={!!article.destination}/>
     {practical ? null : isStayDirectory ? <StayDirectory locale={locale}/> : directoryPlaces.length ? <PlaceDirectory places={directoryPlaces} locale={locale}/> : isPharmacy ? <LocalServices slug={article.slug}/> : <figure class="article-cover">
       <img src={article.image} srcset={article.image.replace('.webp','-640.webp')+' 640w, '+article.image+' 1200w'} sizes="(max-width:700px) 100vw, 1050px" alt={photoCaption(article.image,locale)} width="1050" height="550" fetchpriority="high"/>
       <figcaption><span><Icon name="pin" size={14}/>{photoCaption(article.image,locale)}</span>{cover && <small><a href={cover.source}>{cover.author}</a> · <a href={cover.licenseUrl}>{cover.license}</a></small>}</figcaption>
@@ -65,6 +68,7 @@ const tocEntries=[...outline.headings,
       <article class="article-prose" id="article-content"><div set:html={outline.html}/>
         {article.visitStops?.length && <section class="visit-stops" aria-labelledby="visit-plan"><h2 id="visit-plan">{t("Üç duraklı gezi planı")}</h2><ol>{article.visitStops.map(stop=><li>{stop}</li>)}</ol></section>}
         {article.faqs?.length && <section class="article-faq" aria-labelledby="faq-heading"><h2 id="faq-heading">{t("Sık sorulan sorular")}</h2>{article.faqs.map(faq=><details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>}
+        {article.destination && <DestinationVisit detail={article.destination}/>}
         {isFood && <BudgetPlanner/>}{!practical && !isPharmacy && !isStayDirectory && <LocalServices slug={article.slug}/>}</article>
       {!serviceLayout && <aside class="article-sidebar">
         <section class="article-toc" aria-label={t("Yazı içindekiler")}>

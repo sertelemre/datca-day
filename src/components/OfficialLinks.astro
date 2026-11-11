@@ -5,8 +5,8 @@ import { transportPath } from '../lib/paths';
 import transport from '../lib/transport-data.json';
 import Icon from './Icon.astro';
 
-interface Props { slug: string; source?: string }
-const { slug, source } = Astro.props;
+interface Props { slug: string; source?: string; hasDestination?: boolean }
+const { slug, source, hasDestination } = Astro.props;
 const locale = getLocale(Astro.url.pathname);
 const copy = {
   tr: {actions:'Ziyaret bilgileri', route:'Yol tarifi al', map:'Google Haritalar’da bul', phone:'Telefon', hospitalPhone:'Hastane santrali', bus:'Sefer saatleri', emergency:'Acil yardım', booking:'Telefonla randevu', hours:'Hafta içi poliklinik saatleri'},
@@ -21,25 +21,26 @@ const mapHref = data?.coordinates
   ? 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(data.coordinates)
   : data?.place && 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(data.place);
 ---
-{data && <section class:list={['visit-actions', { practical:data.practical }]} aria-label={copy.actions} data-visit-actions>
-  {(data.address || data.phone) && <div class="facts">
+{(data || hasDestination) && <section class:list={['visit-actions', { practical:data?.practical }]} aria-label={copy.actions} data-visit-actions>
+  {(data?.address || data?.phone) && <div class="facts">
     {data.address && <address><Icon name="pin" size={19}/>{data.address}</address>}
     {data.phone && <a href={'tel:'+data.phone.replaceAll(' ','')}><Icon name="phone" size={17}/><span>{hospitalPhone ? copy.hospitalPhone : copy.phone} <strong>{data.phone}</strong></span></a>}
     {hospital && <a class="emergency" href="tel:112"><Icon name="phone" size={17}/><span>{copy.emergency}<strong>112</strong></span></a>}
   </div>}
   <div class="shortcuts">
-    {mapHref && <a href={mapHref}><Icon name="pin" size={16}/>{data.coordinates ? copy.route : copy.map}</a>}
-    {data.links?.map(id => {
+    {hasDestination && <><a href="#harita-ve-ulasim"><Icon name="pin" size={16}/>Harita ve ulaşım</a><a href="#bolgede-konaklama"><Icon name="bed" size={16}/>Bölgede konaklama</a></>}
+    {!hasDestination && mapHref && <a href={mapHref}><Icon name="pin" size={16}/>{data?.coordinates ? copy.route : copy.map}</a>}
+    {data?.links?.map(id => {
       const [url, label] = guideLinks[id];
       return <a href={url.startsWith('/') ? localePath(url,locale) : url}><Icon name={id === 'appointment' || id === 'events' ? 'calendar' : id === 'health' || id === 'dental' ? 'pin' : 'arrow'} size={16}/>{actionText(label,locale)}</a>;
     })}
-    {data.sourceLabel && source && <a href={source}><Icon name="external" size={16}/>{actionText(data.sourceLabel,locale)}</a>}
+    {data?.sourceLabel && source && <a href={source}><Icon name="external" size={16}/>{actionText(data.sourceLabel,locale)}</a>}
   </div>
   {hospital && <div class="clinic">
     <div><span>{copy.hours}</span><strong>08.30–12.00 · 13.00–16.30</strong><a href={guideLinks.hours[0]}>{actionText(guideLinks.hours[1],locale)} ↗</a></div>
     <div><span>{copy.booking}</span><a href="tel:182"><Icon name="phone" size={15}/>182</a></div>
   </div>}
-  {routes && <div class="routes"><span><Icon name="bus" size={17}/>{copy.bus}</span>{routes.map(route=><a href={transportPath(route.slug,locale)}>{route.code} · {route.title} →</a>)}</div>}
+  {!hasDestination && routes && <div class="routes"><span><Icon name="bus" size={17}/>{copy.bus}</span>{routes.map(route=><a href={transportPath(route.slug,locale)}>{route.code} · {route.title} →</a>)}</div>}
 </section>}
 <style>
 .visit-actions{max-width:950px;margin:0 auto 22px;color:var(--green)}.visit-actions.practical{padding:clamp(17px,3vw,30px);border:1px solid var(--line);border-radius:8px;background:var(--paper)}

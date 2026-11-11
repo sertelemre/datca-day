@@ -3,6 +3,7 @@ import { actionsForGuide } from './guide-actions';
 import { practicalGuides } from './practical-guides';
 import { directoryGuides, placesForGuide } from './place-directory';
 import { visitNotes } from './visit-notes';
+import { destinations } from './destinations';
 import articleRoutes from './article-routes.json';
 import { experienceGuides } from './experience-guides';
 import { peninsulaGuides } from './peninsula-guides';
@@ -71,12 +72,17 @@ export function getContent(locale:Locale = 'tr'):SiteContent {
   }));
   const articles = guides.map((guide,index)=>{
     const copy = guide[locale];
+    const destination = locale === 'tr' ? destinations[guide.slug] : undefined;
+    const sections = destination?.sections ?? copy.sections.map(({heading,text}) => ({heading, paragraphs: [text]}));
+    if (!sections.length) throw new Error('Missing guide content: ' + guide.slug + ' (' + locale + ')');
+    const sources = [{title:guide.source.label,url:guide.source.url}, ...(destination?.sources ?? [])];
     const key = guide.photo === 'datca-limani' ? 'datca-liman' : guide.photo;
     return {
       id:index+1, slug:guide.slug, basePath:'/'+guide.slug, path:localePath('/'+guide.slug,locale),
-      title:copy.title,excerpt:copy.summary, content:copy.sections.map(({heading,text})=>'<h2>'+escape(heading)+'</h2><p>'+escape(text)+'</p>').join(''),
-      image:'/images/'+key+'.webp', imageAlt:photoCaption('/images/'+key+'.webp',locale), date:'2026-11-10', updatedDate: (actionsForGuide(guide.slug) || ['datcada-nerede-kalinir','datca-nobetci-eczane','datca-saglik-rehberi','datca-taksi-duraklari'].includes(guide.slug)) ? '2026-11-11' : '2026-11-10',
-      sources:[{title:guide.source.label,url:guide.source.url}],
+      title:copy.title,excerpt:copy.summary, destination, content:sections.map(({heading,paragraphs}) =>
+        '<h2>'+escape(heading)+'</h2>'+paragraphs.map(p=>'<p>'+escape(p)+'</p>').join('')).join(''),
+      image:'/images/'+key+'.webp', imageAlt:photoCaption('/images/'+key+'.webp',locale), date:'2026-11-10', updatedDate: (destination || actionsForGuide(guide.slug) || ['datcada-nerede-kalinir','datca-nobetci-eczane','datca-saglik-rehberi','datca-taksi-duraklari'].includes(guide.slug)) ? '2026-11-11' : '2026-11-10',
+      sources:sources.filter((source,i) => sources.findIndex(item => item.url === source.url) === i),
       searchTerms: placesForGuide(guide.slug).map(place => [place.name,place.address,place.note?.[lang]].filter(Boolean).join(' ')).join(' ') || undefined,
       visitStops:visitNotes[guide.slug]?.[locale]?.stops, faqs:visitNotes[guide.slug]?.[locale]?.faqs,
       categories:guide.groups.map(id=>topics.findIndex(topic=>topic.key===id)+1),

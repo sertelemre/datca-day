@@ -118,9 +118,7 @@ export const practicalGuides: Guide[] = [
   {
     slug: 'datca-acikhava-tiyatrosu', groups: ['places', 'plans'], photo: 'datca-merkez',
     source: { label: 'Biletix · Datça Açıkhava Tiyatrosu', url: 'https://www.biletix.com/mekan/4805A/DIGER/tr' },
-    tr: copy('Datça Açıkhava Tiyatrosu’nda bir akşam', 'İskele’deki açık hava etkinliği için bilet, kapı saati ve konser sonrası ulaşımı birlikte ayarla.',
-      ['Mekân adını kontrol et', 'Biletix’in mekân kaydı tiyatroyu İskele, Atatürk Caddesi üzerinde gösterir. Biletindeki sahne adını kontrol et. Kültür merkezindeki salon etkinlikleri farklı bir adreste gerçekleşebilir.'],
-      ['Gösteriden dönüş', 'Program saatiyle kapı açılışı farklı olabilir. Biletindeki oturma düzenini ve organizatörün güncel giriş şartlarını oku. Köyde kalıyorsan son otobüsü konserin bitiş tahminiyle karşılaştır.']),
+    tr: copy('Datça Açıkhava Tiyatrosu’nda bir akşam', 'İskele Mahallesi’ndeki açık hava sahnesinde bir gösteriye gideceksen biletteki kapı saatini ve çıkışta kalacağın mahalleye nasıl döneceğini birlikte planla.'),
     en: copy('An evening at Datça Open-Air Theatre', 'Plan tickets, doors and your ride after a performance at the open-air venue in İskele.',
       ['Check the venue name', 'Biletix places the theatre on Atatürk Caddesi in İskele. Check the stage on your ticket. An indoor event at a cultural centre may use a different address.'],
       ['After the performance', 'Doors and show time can differ. Read the seating and current entry details from the organiser. If staying in a village, compare the last bus with the expected finishing time.']),
