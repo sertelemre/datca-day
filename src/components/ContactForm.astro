@@ -12,10 +12,10 @@ const t = ui(locale);
     <h2 id="contact-form-heading">{t('Bize yaz.')}</h2>
     <p>{t('Bir önerin, sorun ya da paylaşmak istediğin bir not mu var? Mesajını buradan iletebilirsin.')}</p>
   </div>
-  {import.meta.env.PUBLIC_CONTACT_FORM_URL ? <form
+  <form
     class="contact-form"
     data-contact-form
-    action={import.meta.env.PUBLIC_CONTACT_FORM_URL}
+    action="https://polybase.app/api/v1/public/forms/58522dfba311deceb8699569334a29f58524c775c556dda9"
     method="POST"
     data-sending={t('Gönderiliyor…')}
     data-success={t('Mesajın gönderildi. Bizimle paylaştığın için teşekkürler.')}
@@ -43,7 +43,7 @@ const t = ui(locale);
     </fieldset>
     <p class="contact-form-privacy">{t('Formu gönderdiğinde adın, e-posta adresin ve mesajın Polybase üzerinden iletilir.')} <a href={localePath('/gizlilik', locale)}>{t('Gizlilik')}</a></p>
     <p class="contact-form-status" data-form-status role="status" aria-live="polite" aria-atomic="true"></p>
-  </form> : <div><a class="button" href="https://github.com/sertelemre/datca-day/issues/new" rel="external">{t("GitHub üzerinden öneri paylaş")} <Icon name="external" size={17}/></a></div>}
+  </form>
 </section>
 
 <script>

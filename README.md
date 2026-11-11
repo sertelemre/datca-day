@@ -33,4 +33,4 @@ Konaklama rehberinde (`src/lib/stays.json`) her harita noktası `coordinates: [e
 
 Cloudflare Pages, `sertelemre/datca-day` deposunun `main` dalını izler. Derleme komutu `npm run build && npm run verify`, çıktı dizini `dist`, ana alan adı `datca.day`. `infra/www-redirect` altındaki Cloudflare Worker, www adreslerini kalıcı olarak ana alan adına yönlendirir.
 
-İletişim sayfası varsayılan olarak deponun herkese açık geri bildirim sayfasına gider. Özel bir form kullanmak için `PUBLIC_CONTACT_FORM_URL` tanımlanabilir. İsteğe bağlı analiz için `PUBLIC_GA4_MEASUREMENT_ID` kullanılabilir.
+İletişim sayfasındaki “Bize yaz” formu mesajları doğrudan Polybase’e gönderir. İsteğe bağlı analiz için `PUBLIC_GA4_MEASUREMENT_ID` kullanılabilir.
