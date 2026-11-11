@@ -9,9 +9,9 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const m = stayMapCopy[locale];
 const labels = {
-  tr:{title:'Datça otelleri ve konaklama yerleri',search:'Tesis adı veya bölge',area:'Tüm mahalleler',type:'Tüm tesis türleri',photos:'Yalnızca fotoğraflılar',contactSource:'İletişim bilgisi kaynağı',gallery:'Fotoğraf galerisi',map:'Haritada ara',web:'Tesisin sitesi',prev:'Önceki',next:'Sonraki',reset:'Filtreleri temizle',source:'Bakanlık tesis sorgusu',contact:'Muğla İl Kültür ve Turizm Müdürlüğü',asOf:'Kayıt kontrolü',number:'Belge',application:'Başvuru',count:'tesis',hotel:'Otel',apart:'Apart otel',guest:'Pansiyon',boutique:'Butik otel',special:'Özel konaklama tesisi',country:'Kırsal konaklama',camp:'Kamping',motel:'Motel',rental:'Turizm amaçlı konut',pending:'Başvurusu olan tesis',scope:'Bakanlık listesinde {certified} belgeli tesis var. Rehberde ayrıca ilanında konut izin numarası bulunan {rental} konut ve başvurusu görünen {pending} tesis yer alıyor.'},
-  en:{title:'Hotels and places to stay in Datça',search:'Property name or area',area:'All neighbourhoods',type:'All property types',photos:'With photos only',contactSource:'Contact details source',gallery:'Photo gallery',map:'Find on map',web:'Property website',prev:'Previous',next:'Next',reset:'Clear filters',source:'Ministry register',contact:'Muğla Provincial Directorate of Culture and Tourism',asOf:'Records checked',number:'Certificate',application:'Application',count:'properties',hotel:'Hotel',apart:'Aparthotel',guest:'Guesthouse',boutique:'Boutique hotel',special:'Special accommodation',country:'Rural accommodation',camp:'Campsite',motel:'Motel',rental:'Licensed holiday home',pending:'Application on file',scope:'The Ministry lists {certified} certified properties. The directory also includes {rental} holiday homes with published permit numbers and {pending} properties with applications on file.'},
-  ru:{title:'Отели и жильё в Датче',search:'Название или район',area:'Все районы',type:'Все типы жилья',photos:'Только с фото',contactSource:'Источник контактов',gallery:'Фотогалерея',map:'Найти на карте',web:'Сайт объекта',prev:'Назад',next:'Далее',reset:'Сбросить фильтры',source:'Реестр министерства',contact:'Управление культуры и туризма Муглы',asOf:'Дата проверки',number:'Свидетельство',application:'Заявка',count:'объектов',hotel:'Отель',apart:'Апарт-отель',guest:'Пансион',boutique:'Бутик-отель',special:'Особый тип размещения',country:'Загородное жильё',camp:'Кемпинг',motel:'Мотель',rental:'Лицензированное жильё',pending:'Подана заявка',scope:'В реестре министерства {certified} сертифицированных объектов. Также представлены {rental} лицензированных домов для отдыха и {pending} объекта, подавших заявку.'},
+  tr:{title:'Datça otelleri ve konaklama yerleri',search:'Tesis adı veya bölge',area:'Tüm mahalleler',type:'Tüm tesis türleri',photos:'Yalnızca fotoğraflılar',contactSource:'İletişim bilgisi kaynağı',gallery:'Fotoğraf galerisi',map:'Haritada ara',web:'Tesisin sitesi',more:'Daha fazla tesis göster',reset:'Filtreleri temizle',source:'Bakanlık tesis sorgusu',contact:'Muğla İl Kültür ve Turizm Müdürlüğü',asOf:'Kayıt kontrolü',number:'Belge',application:'Başvuru',count:'tesis',hotel:'Otel',apart:'Apart otel',guest:'Pansiyon',boutique:'Butik otel',special:'Özel konaklama tesisi',country:'Kırsal konaklama',camp:'Kamping',motel:'Motel',rental:'Turizm amaçlı konut',pending:'Başvurusu olan tesis',scope:'Bakanlık listesinde {certified} belgeli tesis var. Rehberde ayrıca ilanında konut izin numarası bulunan {rental} konut ve başvurusu görünen {pending} tesis yer alıyor.'},
+  en:{title:'Hotels and places to stay in Datça',search:'Property name or area',area:'All neighbourhoods',type:'All property types',photos:'With photos only',contactSource:'Contact details source',gallery:'Photo gallery',map:'Find on map',web:'Property website',more:'Show more properties',reset:'Clear filters',source:'Ministry register',contact:'Muğla Provincial Directorate of Culture and Tourism',asOf:'Records checked',number:'Certificate',application:'Application',count:'properties',hotel:'Hotel',apart:'Aparthotel',guest:'Guesthouse',boutique:'Boutique hotel',special:'Special accommodation',country:'Rural accommodation',camp:'Campsite',motel:'Motel',rental:'Licensed holiday home',pending:'Application on file',scope:'The Ministry lists {certified} certified properties. The directory also includes {rental} holiday homes with published permit numbers and {pending} properties with applications on file.'},
+  ru:{title:'Отели и жильё в Датче',search:'Название или район',area:'Все районы',type:'Все типы жилья',photos:'Только с фото',contactSource:'Источник контактов',gallery:'Фотогалерея',map:'Найти на карте',web:'Сайт объекта',more:'Показать ещё объекты',reset:'Сбросить фильтры',source:'Реестр министерства',contact:'Управление культуры и туризма Муглы',asOf:'Дата проверки',number:'Свидетельство',application:'Заявка',count:'объектов',hotel:'Отель',apart:'Апарт-отель',guest:'Пансион',boutique:'Бутик-отель',special:'Особый тип размещения',country:'Загородное жильё',camp:'Кемпинг',motel:'Мотель',rental:'Лицензированное жильё',pending:'Подана заявка',scope:'В реестре министерства {certified} сертифицированных объектов. Также представлены {rental} лицензированных домов для отдыха и {pending} объекта, подавших заявку.'},
 }[locale];
 const types = {otel:'hotel','apart otel':'apart',pansiyon:'guest','butik otel':'boutique','ozel konaklama tesisi':'special',motel:'motel',camping:'camp','kamping, pansiyon':'camp','kirsal turizm tesisi':'country','ciftlik evi-koy evi':'country',rental:'rental',application:'pending'} as const;
 const kind = (type: string) => types[type as keyof typeof types];
@@ -20,9 +20,11 @@ const rentals = spots.filter(spot => spot.type === 'rental').length;
 const pending = spots.filter(spot => spot.type === 'application').length;
 const scope = labels.scope.replace('{certified}', String(spots.length-rentals-pending)).replace('{rental}', String(rentals)).replace('{pending}', String(pending));
 const areas = [...new Set(data.map(spot => spot.area).filter((s): s is string => !!s))].sort((a,b)=>a.localeCompare(b,'tr'));
+const batchSize = 24;
+const placeholder = '/images/datca-day.svg';
 const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
 ---
-<section class="stays" id="konaklama-rehberi" data-stay-directory aria-labelledby="stays-title">
+<section class="stays" id="konaklama-rehberi" data-stay-directory data-batch-size={batchSize} data-placeholder={placeholder} aria-labelledby="stays-title">
   <h2 id="stays-title">{labels.title}</h2>
   <p class="scope">{scope}</p>
   <div class="filters" data-stay-controls hidden>
@@ -31,16 +33,16 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
     <select data-stay-type aria-label={labels.type}><option value="">{labels.type}</option>{[...new Set(Object.values(types))].map(type=><option value={type}>{labels[type]}</option>)}</select>
     <label class="with-photos"><input type="checkbox" data-stay-photos/>{labels.photos}</label>
   </div>
-  <div class="list-status"><p aria-live="polite" aria-atomic="true"><strong data-stay-total>{spots.length}</strong> {labels.count}</p><button data-stay-clear hidden>{labels.reset}</button></div>
+  <div class="list-status"><p aria-live="polite" aria-atomic="true"><span data-stay-progress hidden><strong data-stay-visible></strong> / </span><strong data-stay-total>{spots.length}</strong> {labels.count}</p><button data-stay-clear hidden>{labels.reset}</button></div>
   <StayMap locale={locale}/>
-  <div class="stay-grid">
-    {spots.map(spot=>{
+  <div class="stay-grid" id="stay-results">
+    {spots.map((spot,index)=>{
       const title = spot.alias || spot.name;
       const query = [title,spot.address,'Datça, Muğla'].filter(Boolean).join(', ');
       const pin = spot.coordinates;
       const mapsUrl = pin ? 'https://www.google.com/maps/dir/?api=1&destination='+pin.join(',') : 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(query);
-      return <article class="stay" data-stay data-lat={pin?.[0]} data-lon={pin?.[1]} data-number={spot.number} data-area={spot.area} data-kind={kind(spot.type)} data-terms={[spot.name,spot.alias,spot.address,spot.area,spot.number].filter(Boolean).join(' ')}>
-        {spot.photo && spot.gallery && <a class="stay-picture" data-select-stay href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={title+' · '+m.details}><img src={spot.photo} loading="lazy" decoding="async" referrerpolicy="no-referrer" width="450" height="235" alt={title}/></a>}
+      return <article class="stay" data-stay data-deferred={index >= batchSize || undefined} data-has-photo={!!(spot.photo || spot.instagramPost) || undefined} data-lat={pin?.[0]} data-lon={pin?.[1]} data-number={spot.number} data-area={spot.area} data-kind={kind(spot.type)} data-terms={[spot.name,spot.alias,spot.address,spot.area,spot.number].filter(Boolean).join(' ')}>
+        {(spot.photo || !spot.instagramPost) && <a class="stay-picture" data-select-stay href={mapsUrl} target="_blank" rel="noopener noreferrer" aria-label={title+' · '+m.details}><img src={spot.photo || placeholder} data-stay-image data-stay-placeholder={!spot.photo || undefined} loading="lazy" decoding="async" referrerpolicy="no-referrer" width="450" height="235" alt={spot.photo ? title : ''}/></a>}
         {spot.instagramPost && <iframe class="stay-embed" src={'https://www.instagram.com/p/'+spot.instagramPost+'/embed/'} title={title+' · Instagram'} loading="lazy" referrerpolicy="no-referrer" width="400" height="390"></iframe>}
         <div class="stay-body">
           <p class="kind">{labels[kind(spot.type)]}{spot.area && <> · {spot.area}</>}</p>
@@ -56,7 +58,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
       </article>
     })}
   </div>
-  <nav data-stay-pages class="stay-pages" aria-label={labels.title} hidden><button data-stay-prev>{labels.prev}</button><span data-stay-page></span><button data-stay-next>{labels.next}</button></nav>
+  <button type="button" class="stay-more" data-stay-more aria-controls="stay-results" hidden>{labels.more}</button>
   <footer>{labels.asOf} · <time datetime="2026-11-10">{new Intl.DateTimeFormat(locale,{dateStyle:'long',timeZone:'Europe/Istanbul'}).format(new Date('2026-11-10T12:00:00Z'))}</time><a href="https://www.ktb.gov.tr/genel/searchhotelgenel.aspx?lang=tr" target="_blank" rel="noopener noreferrer">{labels.source} ↗</a><a href="https://mugla.ktb.gov.tr/TR-397257/konaklama-isletmeleri.html" target="_blank" rel="noopener noreferrer">{labels.contact} ↗</a></footer>
 </section>
 <script>
@@ -67,53 +69,81 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
     const type = root.querySelector<HTMLSelectElement>('[data-stay-type]')!;
     const photos = root.querySelector<HTMLInputElement>('[data-stay-photos]')!;
     const clear = root.querySelector<HTMLButtonElement>('[data-stay-clear]')!;
-    const pages = root.querySelector<HTMLElement>('[data-stay-pages]')!;
-    const prev = pages.querySelector<HTMLButtonElement>('[data-stay-prev]')!;
-    const next = pages.querySelector<HTMLButtonElement>('[data-stay-next]')!;
+    const grid = root.querySelector<HTMLElement>('.stay-grid')!;
+    const more = root.querySelector<HTMLButtonElement>('[data-stay-more]')!;
+    const total = root.querySelector<HTMLElement>('[data-stay-total]')!;
+    const visible = root.querySelector<HTMLElement>('[data-stay-visible]')!;
+    const batchSize = Number(root.dataset.batchSize);
     const fold = (s:string) => s.toLocaleLowerCase('tr').replaceAll('ı','i').normalize('NFD').replace(/\p{M}/gu,'');
-    const cards = [...root.querySelectorAll<HTMLElement>('[data-stay]')].map(el=>({el,words:fold(el.dataset.terms || ''),photo:!!el.querySelector('.stay-picture, .stay-embed')}));
-    let page = 0;
-    const size = 12;
-    let shown: HTMLElement[] = [];
+    const cards = [...grid.querySelectorAll<HTMLElement>('[data-stay]')];
+    const terms = cards.map(card => fold(card.dataset.terms || ''));
+    let matches: HTMLElement[] = [];
+    let shown = 0;
     let updateMap: ((matches: HTMLElement[]) => void) | undefined;
-    function render(updatePins = false) {
+
+    function showMore(count = batchSize) {
+      const batch = matches.slice(shown, shown + count);
+      for (const card of batch) card.hidden = false;
+      shown += batch.length;
+      visible.textContent = String(shown);
+      more.hidden = shown >= matches.length;
+      return batch[0];
+    }
+
+    function applyFilters(limit = batchSize) {
       const query = fold(search.value.trim()).split(/\s+/).filter(Boolean);
-      const matches = cards.filter(({el,words,photo})=>
-        query.every(term=>words.includes(term)) && (!area.value || el.dataset.area===area.value) && (!type.value || el.dataset.kind===type.value) && (!photos.checked || photo));
-      if (updatePins) { shown = matches.map(m=>m.el); updateMap?.(shown); }
-      const count = Math.ceil(matches.length/size);
-      const visible = new Set(matches.slice(page*size,(page+1)*size));
-      for (const card of cards) card.el.hidden = !visible.has(card);
-      root!.querySelector('[data-stay-total]')!.textContent=String(matches.length);
-      pages.hidden=count<=1;
-      pages.querySelector('[data-stay-page]')!.textContent=(page+1)+' / '+count;
-      prev.disabled=page===0;
-      next.disabled=page+1>=count;
-      clear.hidden=!query.length && !area.value && !type.value && !photos.checked;
+      matches = cards.filter((card,index) =>
+        query.every(term => terms[index].includes(term)) &&
+        (!area.value || card.dataset.area === area.value) &&
+        (!type.value || card.dataset.kind === type.value) &&
+        (!photos.checked || card.hasAttribute('data-has-photo')));
+      for (const card of cards) card.hidden = true;
+      shown = 0;
+      showMore(limit);
+      total.textContent = String(matches.length);
+      clear.hidden = !query.length && !area.value && !type.value && !photos.checked;
+      updateMap?.(matches);
     }
-    function filter() { page=0; render(true); }
-    function turn(step:number) {
-      page+=step; render();
-      const card=root!.querySelector<HTMLElement>('[data-stay]:not([hidden]) h3');
-      if (card) {card.tabIndex=-1;card.focus({preventScroll:true});card.scrollIntoView({block:'start'});}
-    }
+
+    function filter() { applyFilters(); }
     search.addEventListener('input',filter);
     for(const input of [area,type,photos]) input.addEventListener('change',filter);
     clear.addEventListener('click',()=>{search.value=area.value=type.value='';photos.checked=false;filter();search.focus();});
-    prev.addEventListener('click',()=>turn(-1));
-    next.addEventListener('click',()=>turn(1));
-    root.addEventListener('error',event=>{
-      if (event.target instanceof HTMLImageElement) {
-        const picture = event.target.closest<HTMLElement>('.stay-picture');
-        if (picture) picture.hidden=true;
-        else if (event.target.closest('[data-content]')) event.target.hidden=true;
+    more.addEventListener('click', () => {
+      const first = showMore();
+      first?.querySelector<HTMLElement>('h3 a')?.focus();
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && !more.hidden) showMore();
+      }, { rootMargin:'300px 0px' }).observe(more);
+    }
+
+    function usePlaceholder(image: HTMLImageElement) {
+      if (image.hasAttribute('data-stay-placeholder')) return;
+      image.setAttribute('data-stay-placeholder','');
+      image.alt = '';
+      image.src = root!.dataset.placeholder!;
+      const card = image.closest<HTMLElement>('[data-stay]');
+      if (card && !card.querySelector('.stay-embed')) {
+        card.removeAttribute('data-has-photo');
+        if (photos.checked) applyFilters(Math.max(batchSize, shown));
       }
-    },true);
-    root.querySelector<HTMLElement>('[data-stay-controls]')!.hidden=false;
-    render(true);
+    }
+    root.addEventListener('error', event => {
+      if (event.target instanceof HTMLImageElement && event.target.matches('[data-stay-image]')) usePlaceholder(event.target);
+    }, true);
+    for (const image of grid.querySelectorAll<HTMLImageElement>('[data-stay-image]')) {
+      if (image.complete && !image.naturalWidth) usePlaceholder(image);
+    }
+
+    filter();
+    grid.dataset.ready = '';
+    root.querySelector<HTMLElement>('[data-stay-controls]')!.hidden = false;
+    root.querySelector<HTMLElement>('[data-stay-progress]')!.hidden = false;
     import('../scripts/stay-map').then(({ mountStayMap }) => {
-      updateMap = mountStayMap(root, cards.map(c=>c.el));
-      updateMap(shown);
+      updateMap = mountStayMap(root, cards);
+      updateMap(matches);
     }).catch(()=>{}); // The directory and map links also work without Leaflet.
   }
 </script>
@@ -122,18 +152,20 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
   .stays h2 { margin:0 0 8px; font-size:clamp(30px,4vw,46px); line-height:1.12; }
   .scope,.stay address { color:var(--muted); font-size:14px; line-height:1.55; }
   .filters { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:20px 0 8px; }
-  .filters select,.search,.stay-pages button,.list-status button { border:1px solid var(--line); border-radius:6px; background:var(--paper); color:var(--green); padding:8px 12px; min-height:44px; font:inherit; font-size:14px; }
+  .filters select,.search,.stay-more,.list-status button { border:1px solid var(--line); border-radius:6px; background:var(--paper); color:var(--green); padding:8px 12px; min-height:44px; font:inherit; font-size:14px; }
   .search { display:flex; gap:8px; align-items:center; flex:1 1 220px; }
   .search input { min-width:0; width:100%; font:inherit; background:transparent; border:0; }
   .with-photos,.phone,.stay-links a { display:inline-flex; align-items:center; gap:6px; }
   .with-photos { font-size:14px; min-height:44px; }
-  .list-status,.stay-pages,.stays footer,.stay-links { display:flex; align-items:center; gap:10px 16px; flex-wrap:wrap; }
+  .list-status,.stays footer,.stay-links { display:flex; align-items:center; gap:10px 16px; flex-wrap:wrap; }
   .list-status { justify-content:space-between; min-height:48px; }
   .stay-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; align-items:start; }
   .stay { overflow:hidden; border:1px solid var(--line); border-radius:9px; background:var(--paper); }
   .stay-picture,.stay-picture img { display:block; width:100%; }
   .stay-embed {display:block;width:100%;height:390px;border:0;}
   .stay-picture img { aspect-ratio:1.91; object-fit:cover; height:auto; background:var(--cream); }
+  .stays :global(img[data-stay-placeholder]) { object-fit:contain; padding-inline:max(14%, calc((100% - 190px) / 2)); opacity:.17; }
+  @media (scripting:enabled) { .stay-grid:not([data-ready]) > [data-deferred] { display:none; } }
   .stay-body { padding:16px; display:grid; gap:7px; }
   .stay h3 { font:500 clamp(22px,2vw,27px)/1.12 var(--serif); margin:0; overflow-wrap:anywhere; }
   .stay address { font-style:normal; }
@@ -146,8 +178,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
   .stay-links a,.phone,.credit,.stays footer a { text-decoration:underline; text-underline-offset:3px; width:fit-content; }
   .phone { font-weight:650; }
   .stay small,.stays footer { color:var(--muted); }
-  .stay-pages { justify-content:center; margin:20px 0; }
-  .stay-pages button:disabled { opacity:.45; }
+  .stay-more { display:block; margin:20px auto; }
   .stays footer { margin-top:20px; border-top:1px solid var(--line); padding-top:12px; font-size:13px; }
   @media(max-width:900px) { .stay-grid {grid-template-columns:repeat(2,minmax(0,1fr));} }
   @media(max-width:600px) { .stay-grid {grid-template-columns:1fr;} .filters {gap:5px;} .search {flex-basis:100%;} .filters select {max-width:100%;} .phone,.stay-links a,.credit {min-height:36px;display:inline-flex;align-items:center;} }
