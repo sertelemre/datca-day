@@ -3,10 +3,14 @@ import type { Locale } from './i18n';
 const dictionary = translations as Record<string, string[]>;
 const nouns: Partial<Record<Locale, Record<string, Record<string, string>>>> = {
   en: {
+    '{n} gün': {one:'{n} day',other:'{n} days'},
+    '{n} durak': {one:'{n} stop',other:'{n} stops'},
     rehber: {one:'guide',other:'guides'},
     'kaydedilmiş rehber': {one:'saved guide',other:'saved guides'},
   },
   ru: {
+    '{n} gün': {one:'{n} день',few:'{n} дня',many:'{n} дней',other:'{n} дня'},
+    '{n} durak': {one:'{n} место',few:'{n} места',many:'{n} мест',other:'{n} места'},
     rehber: {one:'путеводитель',few:'путеводителя',many:'путеводителей',other:'путеводителя'},
     'kaydedilmiş rehber': {one:'сохранённый путеводитель',few:'сохранённых путеводителя',many:'сохранённых путеводителей',other:'сохранённых путеводителя'},
   },

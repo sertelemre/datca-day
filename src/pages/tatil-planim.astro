@@ -1,20 +1,113 @@
 ---
-import { ui } from '../lib/ui';
-import { getLocale, localePath } from '../lib/i18n';
-const locale = getLocale(Astro.url.pathname);
-const t = ui(locale);
-const localize = (path: string) => localePath(path, locale);
-
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
+import { getLocale } from '../lib/i18n';
+import { ui } from '../lib/ui';
+import '../styles/planner.css';
+
+const t = ui(getLocale(Astro.url.pathname));
 ---
-<Layout noindex title={t("Kişisel tatil planım")} description={t("Sevdiğin Datça rotalarını kaydet, kendi gün gün tatil planını oluştur.")}>
-<section class="container page-intro"><div class="breadcrumbs"><a href={localize("/")}>{t("Ana sayfa")}</a><span>/</span><span>{t("Tatil planım")}</span></div><span class="eyebrow"><span class="tiny-line"></span> {t("BU TATİL SENİN HİKÂYEN")}</span><h1>{t("Benim")} <em>{t("Datça’m.")}</em></h1><p>{t("Biraz deniz, biraz keşif, biraz da boş zaman. Sevdiğin yerleri günlerine ekle, kendine ait bir tatil planı oluştur.")}</p></section>
-<section class="container plan-workspace"><aside class="plan-picker"><div class="plan-picker-heading"><Icon name="compass" size={24}/><h2>{t("Rotana bir yer ekle")}</h2></div><label for="plan-search">{t("Bir yer veya deneyim ara")}</label><div class="plan-search"><Icon name="search" size={18}/><input id="plan-search" type="search" placeholder={t("Knidos, tekne, plaj…")} autocomplete="off"/></div><div class="plan-source"><button data-plan-source="all" aria-pressed="true">{t("Tüm keşifler")}</button><button data-plan-source="saved" aria-pressed="false">{t("Kaydettiklerim")} <Icon name="heart" size={13}/></button></div><p class="plan-picker-tip">{t("Bir güne dokun, sonra keşfini o güne ekle.")}</p><div id="plan-candidates" class="plan-candidates"></div><p class="plan-local-note"><Icon name="check" size={15}/> {t("Planın bu tarayıcıda otomatik kaydedilir.")}</p></aside><div class="plan-days-area"><div class="plan-toolbar"><span><Icon name="calendar" size={19}/><strong id="plan-day-count">{t("3 günlük tatil")}</strong></span><div><button class="text-link" id="plan-print">{t("Yazdır")} <Icon name="external" size={14}/></button><button class="button button-small" id="plan-add-day">{t("Gün ekle")} <Icon name="plus" size={15}/></button></div></div><div id="plan-days" class="plan-days"></div><div class="plan-ending"><Icon name="sun" size={32}/><span>{t("Her anı planlamak zorunda değilsin.")}<br/><em>{t("Güzel sürprizlere de yer kalsın.")}</em></span></div><p id="plan-status" role="status" aria-live="polite"></p></div></section>
-<script src="../scripts/planner.ts"></script>
+<Layout noindex title={t('Kişisel tatil planım')} description={t('Sevdiğin Datça rotalarını kaydet, kendi gün gün tatil planını oluştur.')}>
+  <div class="container trip">
+    <header class="trip-cover">
+      <img src="/images/hero-datca.webp" srcset="/images/hero-datca-640.webp 640w, /images/hero-datca.webp 1920w" sizes="(max-width: 700px) 100vw, 80vw" alt="" width="1920" height="835" fetchpriority="high"/>
+      <div class="trip-cover-copy">
+        <p class="trip-location"><Icon name="pin" size={16}/> {t('Datça Yarımadası')}</p>
+        <h1>{t('Tatil planım')}</h1>
+        <p class="trip-totals"><span><Icon name="calendar" size={17}/><span id="trip-day-total"></span></span><span><Icon name="pin" size={17}/><span id="trip-stop-total"></span></span></p>
+      </div>
+      <button type="button" class="trip-print" id="trip-print"><Icon name="printer" size={18}/>{t('Yazdır')}</button>
+    </header>
+
+    <noscript><p>{t('Tatil planını düzenlemek için JavaScript’i etkinleştir.')}</p></noscript>
+    <div class="trip-workspace">
+      <section class="trip-itinerary" aria-labelledby="trip-days-heading">
+        <div class="trip-section-head">
+          <h2 id="trip-days-heading">{t('Günlerim')}</h2>
+          <button type="button" class="trip-text-button" id="trip-add-day"><Icon name="plus" size={17}/>{t('Gün ekle')}</button>
+        </div>
+        <div class="trip-days" id="trip-days" role="group" aria-labelledby="trip-days-heading"></div>
+        <article class="trip-day" aria-labelledby="trip-day-title">
+          <div class="trip-day-head">
+            <div class="trip-day-name"><span class="trip-calendar"><Icon name="calendar" size={22}/></span><h3 id="trip-day-title"></h3></div>
+            <div class="trip-day-actions">
+              <button type="button" class="trip-primary" id="trip-open-picker"><Icon name="plus" size={17}/>{t('Durak ekle')}</button>
+              <details class="trip-options" id="trip-day-options">
+                <summary class="trip-icon-button" aria-label={t('Gün seçenekleri')}><Icon name="more"/></summary>
+                <div class="trip-options-list">
+                  <button type="button" id="trip-earlier">{t('Günü önceye al')}</button>
+                  <button type="button" id="trip-later">{t('Günü sonraya al')}</button>
+                  <button type="button" id="trip-delete-day" class="trip-danger">{t('Günü sil')}</button>
+                </div>
+              </details>
+            </div>
+          </div>
+          <div class="trip-suggestions" id="trip-suggestions">
+            <h4>{t('İlk durağını seç')}</h4>
+            <div class="trip-ideas" id="trip-ideas"></div>
+          </div>
+          <ol class="trip-route" id="trip-route"></ol>
+          <details class="trip-note" id="trip-note">
+            <summary><Icon name="pencil" size={17}/>{t('Gün notu')}<Icon name="down" size={16}/></summary>
+            <textarea id="trip-note-input" aria-label={t('Gün notu')} placeholder={t('Gün batımına yetiş, havlunu unutma…')} rows="3"></textarea>
+          </details>
+        </article>
+        <p class="trip-save"><Icon name="device" size={16}/><span id="trip-save-state">{t('Planın bu tarayıcıda otomatik kaydedilir.')}</span></p>
+      </section>
+
+      <aside id="trip-dock" aria-labelledby="trip-picker-title">
+        <section class="trip-picker" id="trip-picker">
+          <div class="trip-picker-head">
+            <div><h2 id="trip-picker-title">{t('Yer keşfet')}</h2><p id="trip-destination"></p></div>
+            <span class="trip-compass"><Icon name="compass" size={27}/></span>
+            <button type="button" class="trip-icon-button trip-close" aria-label={t('Kapat')}><Icon name="close"/></button>
+          </div>
+          <div class="trip-search">
+            <Icon name="search" size={19}/>
+            <input id="trip-search" type="search" autocomplete="off" aria-label={t('Bir yer veya deneyim ara')} placeholder={t('Koy, köy veya deneyim ara')}/>
+          </div>
+          <div class="trip-filters" role="group" aria-label={t('Yer listesi')}>
+            <button type="button" data-source="all" aria-pressed="true">{t('Tüm yerler')}</button>
+            <button type="button" data-source="saved" aria-pressed="false"><Icon name="heart" size={15}/>{t('Kaydettiklerim')}</button>
+          </div>
+          <div class="trip-results" id="trip-results">
+            <ul id="trip-candidates"></ul>
+            <p id="trip-no-results" hidden></p>
+            <button type="button" class="trip-text-button" id="trip-more" hidden>{t('Daha fazla göster')}<Icon name="down" size={15}/></button>
+          </div>
+          <span class="trip-sr" role="status" id="trip-picker-status" aria-atomic="true"></span>
+          <div class="trip-sheet-footer"><button type="button" class="trip-primary trip-done">{t('Planıma dön')}<Icon name="arrow" size={16}/></button></div>
+        </section>
+      </aside>
+    </div>
+    <dialog id="trip-sheet" class="trip-sheet" aria-labelledby="trip-picker-title"></dialog>
+    <dialog id="trip-confirm" class="trip-confirm" aria-labelledby="trip-confirm-title" aria-describedby="trip-confirm-detail">
+      <h2 id="trip-confirm-title"></h2><p id="trip-confirm-detail">{t('Bu günün durakları ve notu planından kaldırılacak.')}</p>
+      <form method="dialog"><button value="cancel" class="trip-secondary" autofocus>{t('Vazgeç')}</button><button value="delete" class="trip-primary">{t('Günü sil')}</button></form>
+    </dialog>
+    <div class="trip-sr" role="status" id="trip-status" aria-atomic="true"></div>
+    <div id="trip-print-days"></div>
+
+    <template id="trip-idea-template">
+      <button type="button" class="trip-idea"><img alt="" width="320" height="180"/><strong></strong><span class="trip-plus"><Icon name="plus" size={15}/></span></button>
+    </template>
+    <template id="trip-place-template">
+      <li><a class="trip-place"><img alt="" width="54" height="54" loading="lazy"/><span><strong></strong><small></small></span></a>
+        <button type="button" class="trip-add-place"><Icon name="plus" size={18}/><Icon name="check" size={18}/></button>
+      </li>
+    </template>
+    <template id="trip-stop-template">
+      <li class="trip-stop"><span class="trip-order" aria-hidden="true"></span><a><img alt="" width="54" height="54"/><span><strong></strong><small></small></span></a>
+        <details class="trip-options">
+          <summary class="trip-icon-button"><Icon name="more"/></summary>
+          <div class="trip-options-list">
+            <button type="button" data-action="earlier">{t('Durağı önceye al')}</button>
+            <button type="button" data-action="later">{t('Durağı sonraya al')}</button>
+            <button type="button" class="trip-danger" data-action="remove">{t('Durağı kaldır')}</button>
+          </div>
+        </details>
+      </li>
+    </template>
+  </div>
+  <script src="../scripts/planner.ts"></script>
 </Layout>
-<style>
-.plan-workspace{display:grid;grid-template-columns:330px 1fr;gap:40px;padding-bottom:85px;padding-top:5px}.plan-picker{background:#f0f1e8;border:1px solid var(--line);border-radius:7px;padding:25px;height:fit-content;position:sticky;top:25px}.plan-picker-heading{display:flex;align-items:center;gap:12px;margin-bottom:25px;color:var(--orange)}.plan-picker-heading h2{font-size:26px;color:var(--green);letter-spacing:-.5px}.plan-picker label{font-size:10px;color:var(--muted)}.plan-search{display:flex;align-items:center;gap:10px;margin-top:8px;border:1px solid var(--line);border-radius:4px;background:var(--paper);padding:10px}.plan-search input{width:100%;border:0;outline:0;background:none;color:var(--green);font-size:11px;min-width:0}.plan-source{display:flex;gap:6px;margin-top:14px}.plan-source button{font-size:9px;display:flex;align-items:center;gap:5px;padding:6px 9px;border:1px solid var(--line);border-radius:4px;background:none;color:var(--muted)}.plan-source button[aria-pressed=true]{background:var(--green);border-color:var(--green);color:white}.plan-picker-tip{font-size:9px;color:var(--muted);margin:18px 0 6px}.plan-candidates{max-height:425px;overflow-y:auto}.plan-local-note{display:flex;align-items:center;gap:8px;font-size:8px;color:var(--muted);margin-top:22px}.plan-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:15px}.plan-toolbar>span,.plan-toolbar>div{display:flex;align-items:center;gap:13px}.plan-toolbar strong{font-weight:500;font-size:12px}.plan-toolbar .text-link{font-size:10px;gap:8px;cursor:pointer;background:none;border:0;padding:7px}.plan-days{display:flex;flex-direction:column;gap:18px}.plan-ending{display:flex;align-items:center;justify-content:center;gap:20px;padding:40px;color:var(--orange)}.plan-ending span{font-size:10px;color:var(--muted);line-height:2}.plan-ending em{font-family:var(--serif);font-size:20px;color:var(--green)}#plan-status{font-size:11px;color:var(--orange);text-align:center}
-@media(max-width:900px){.plan-workspace{grid-template-columns:270px 1fr;gap:24px}.plan-picker{padding:20px}.plan-picker-heading h2{font-size:22px}}@media(max-width:650px){.plan-workspace{display:flex;flex-direction:column-reverse;gap:25px;padding-bottom:55px}.plan-picker{position:static;padding:23px}.plan-candidates{max-height:300px}.plan-toolbar{gap:10px}.plan-toolbar>div{gap:9px}.plan-toolbar strong{font-size:11px}.plan-toolbar .button{font-size:10px;padding:10px 12px}.plan-ending{padding:30px 10px}.plan-picker-heading h2{font-size:26px}}
-@media print{.site-header,.site-footer,.plan-picker,.plan-toolbar>div,.plan-day-actions,.plan-item-remove,.plan-ending,dialog,.toast{display:none!important}.plan-workspace{display:block;padding:0}.container{width:100%}.page-intro{padding:20px 0}.plan-day{break-inside:avoid}.plan-notes{border:none!important}}
-</style>

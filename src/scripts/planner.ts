@@ -1,39 +1,352 @@
 import { clientUI } from '../lib/ui';
+import { loadSaved } from './site';
+
+interface Place {
+  path: string;
+  basePath: string;
+  title: string;
+  image: string;
+  excerpt?: string;
+  searchable?: boolean;
+}
+interface Day { id: string; items: Place[]; notes: string }
+
 const t = clientUI();
-interface Place {searchable?:boolean;basePath?:string;path:string;title:string;image:string;excerpt?:string}
-interface Day {id:string;items:Place[];notes:string}
-const index:Place[]=JSON.parse(document.getElementById('search-index')?.textContent||'[]').filter((place:Place)=>place.searchable!==false);
-const storageKey='datca.day:plan';
-const uniqueId=()=>`${Date.now()}-${Math.random().toString(36).slice(2,7)}`;
-const newDay=():Day=>({id:uniqueId(),items:[],notes:''});
-let days:Day[]=[];
-try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(Array.isArray(saved)&&saved.length)days=saved.filter(d=>d&&typeof d.id==='string'&&Array.isArray(d.items)).map(d=>({id:/^[a-zA-Z0-9-]+$/.test(d.id)?d.id:uniqueId(),items:d.items.flatMap((a:Place)=>{const match=a && typeof a.path==='string'?index.find(i=>i.path===a.path || (i.basePath || i.path)===(a.basePath || a.path)):undefined;return match?[match]:[];}),notes:typeof d.notes==='string'?d.notes:''}));}catch{}
-if(!days.length)days=[newDay(),newDay(),newDay()];
-let activeId=days[0].id;
-let source='all';
-const escape=(value:string)=>value.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
-const grid=document.getElementById('plan-days')!;
-const candidates=document.getElementById('plan-candidates')!;
-const searchInput=document.getElementById('plan-search') as HTMLInputElement;
-const planStatus=document.getElementById('plan-status')!;
-const fold=(value:string)=>value.toLocaleLowerCase(document.documentElement.lang).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ı/g,'i');
-function save(){try{localStorage.setItem(storageKey,JSON.stringify(days.map(day=>({...day,items:day.items.map(item=>({...item,path:item.basePath || item.path}))}))));planStatus.textContent='';}catch{planStatus.textContent=t('Tarayıcı depolaması kapalı; planın kaydedilemedi.')}}
-function render(){
- document.getElementById('plan-day-count')!.textContent=t('{n} günlük tatil',{n:days.length});
- grid.innerHTML=days.map((day,i)=>`<section class="plan-day ${day.id===activeId?'is-active':''}" data-day="${escape(day.id)}"><div class="plan-day-header"><button class="plan-day-select" data-select-day="${escape(day.id)}" aria-pressed="${day.id===activeId}"><span>${String(i+1).padStart(2,'0')}</span><strong>${t('{n}. Gün',{n:i+1})}</strong><small>${day.id===activeId?t('YER EKLENEN GÜN'):t('BU GÜNE EKLE')}</small></button><div class="plan-day-actions">${i>0?`<button data-move-day="${day.id}" aria-label="${t('{n}. günü yukarı taşı',{n:i+1})}">↑</button>`:''}<button data-remove-day="${day.id}" aria-label="${t('{n}. günü sil',{n:i+1})}" ${days.length===1?'disabled':''}>×</button></div></div><div class="plan-day-items">${day.items.length?day.items.map(item=>`<div class="plan-item"><img src="${escape(item.image||'/images/hero-datca.webp')}" alt="" width="54" height="48"><a href="${escape(item.path)}">${escape(item.title)}</a><button class="plan-item-remove" data-remove-item="${escape(item.path)}" data-from-day="${day.id}" aria-label="${escape(t('{title} planımdan kaldır',{title:item.title}))}">×</button></div>`).join(''):`<p class="plan-day-empty">${t('Bu güne biraz Datça ekle.')} <span>${t('← Keşiflerden bir yer seç.')}</span></p>`}</div><label class="plan-note-label" for="note-${day.id}">${t('Kendime küçük bir not')}</label><textarea class="plan-notes" id="note-${day.id}" data-note-day="${day.id}" placeholder="${t('Gün batımına yetiş, havlunu unutma…')}" rows="1">${escape(day.notes)}</textarea></section>`).join('');
- renderCandidates();
+const byId = <T extends HTMLElement = HTMLElement>(id: string) => document.getElementById(id) as T;
+const places: Place[] = JSON.parse(byId('search-index').textContent || '[]').filter((p: Place) => p.searchable !== false);
+const byPath = new Map(places.flatMap(place => [[place.path, place], [place.basePath, place]] as const));
+const planKey = 'datca.day:plan';
+const activeKey = 'datca.day:plan:active';
+const maxDays = 14;
+const pageSize = 10;
+const newDay = (): Day => ({ id: crypto.randomUUID(), items: [], notes: '' });
+const dayLabel = (number: number) => t('{n}. Gün', { n: number });
+const search = byId<HTMLInputElement>('trip-search');
+const tabs = byId('trip-days');
+const route = byId('trip-route');
+const note = byId<HTMLDetailsElement>('trip-note');
+const noteInput = byId<HTMLTextAreaElement>('trip-note-input');
+const candidates = byId('trip-candidates');
+const results = byId('trip-results');
+const picker = byId('trip-picker');
+const sheet = byId<HTMLDialogElement>('trip-sheet');
+const confirm = byId<HTMLDialogElement>('trip-confirm');
+const options = byId<HTMLDetailsElement>('trip-day-options');
+const openPicker = byId<HTMLButtonElement>('trip-open-picker');
+const compact = matchMedia('(max-width: 760px), (pointer: coarse) and (max-width: 1000px)');
+
+function readPlan(): Day[] {
+  try {
+    const stored = JSON.parse(localStorage.getItem(planKey) || 'null');
+    const seen = new Set<string>();
+    if (Array.isArray(stored)) {
+      const restored: Day[] = [];
+      for (const day of stored) {
+        if (!day || typeof day.id !== 'string' || !Array.isArray(day.items)) continue;
+        const id = seen.has(day.id) ? newDay().id : day.id;
+        seen.add(id);
+        const items = day.items.map((entry: Partial<Place> | null) => byPath.get(entry?.basePath || entry?.path || '')).filter(Boolean);
+        restored.push({ id, notes: typeof day.notes === 'string' ? day.notes : '', items: [...new Set<Place>(items)] });
+      }
+      if (restored.length) return restored;
+    }
+  } catch { /* A new plan also works when storage is unavailable. */ }
+  return [newDay(), newDay(), newDay()];
 }
-function renderCandidates(){let collection=index;if(source==='saved'){try{const saved:Place[]=JSON.parse(localStorage.getItem('datca.day:saved')||'[]');collection=index.filter(a=>saved.some(s=>(s.basePath || s.path)===(a.basePath || a.path)));}catch{collection=[]}}
- const q=fold(searchInput.value);let visible=collection.filter(a=>fold(a.title+' '+a.excerpt).includes(q));if(!q&&source==='all')visible=visible.sort((a,b)=>Number(/selimiye|turunc|kalesi|tekne|sedir|bozburun/i.test(b.basePath || b.path))-Number(/selimiye|turunc|kalesi|tekne|sedir|bozburun/i.test(a.basePath || a.path)));
- candidates.innerHTML=visible.slice(0,18).map(item=>{const added=days.find(d=>d.id===activeId)!.items.some(a=>a.path===item.path);return `<div class="plan-candidate"><img src="${escape(item.image||'/images/hero-datca.webp')}" alt="" width="42" height="42"><a href="${escape(item.path)}">${escape(item.title)}</a><button data-add-place="${escape(item.path)}" aria-label="${escape(t('{title} seçili güne ekle',{title:item.title}))}" ${added?'disabled':''}>${added?'✓':'+'}</button></div>`}).join('')||`<p class="plan-picker-empty">${source==='saved'?t('Önce sevdiğin yerlerdeki kalbe dokun. Kaydettiklerin burada görünecek.'):t('Bu aramada bir yer bulunamadı.')}</p>`;
+let days = readPlan();
+let active = days[0];
+try { active = days.find(day => day.id === sessionStorage.getItem(activeKey)) || active; } catch { /* Session storage is optional. */ }
+let source: 'saved' | 'all' = 'all';
+let limit = pageSize;
+
+function announce(message: string) {
+  byId(sheet.open ? 'trip-picker-status' : 'trip-status').textContent = message;
 }
-grid.addEventListener('click',event=>{const element=event.target as Element;const select=element.closest<HTMLElement>('[data-select-day]');if(select){activeId=select.dataset.selectDay!;render();return}const remove=element.closest<HTMLElement>('[data-remove-day]');if(remove&&days.length>1){const removed=remove.dataset.removeDay;days=days.filter(d=>d.id!==removed);if(activeId===removed)activeId=days[0].id;save();render();return}const move=element.closest<HTMLElement>('[data-move-day]');if(move){const i=days.findIndex(d=>d.id===move.dataset.moveDay);[days[i-1],days[i]]=[days[i],days[i-1]];save();render();return}const item=element.closest<HTMLElement>('[data-remove-item]');if(item){const day=days.find(d=>d.id===item.dataset.fromDay)!;day.items=day.items.filter(a=>a.path!==item.dataset.removeItem);save();render()}});
-grid.addEventListener('input',event=>{const target=event.target as HTMLTextAreaElement;if(target.dataset.noteDay){days.find(d=>d.id===target.dataset.noteDay)!.notes=target.value;save()}});
-candidates.addEventListener('click',event=>{const target=(event.target as Element).closest<HTMLElement>('[data-add-place]');if(!target)return;const item=index.find(a=>a.path===target.dataset.addPlace);const day=days.find(d=>d.id===activeId)!;if(item&&!day.items.some(a=>a.path===item.path)){day.items.push(item);save();render()}});
-document.getElementById('plan-add-day')?.addEventListener('click',()=>{if(days.length>=14){planStatus.textContent=t('Planına en fazla 14 gün ekleyebilirsin.');return}const day=newDay();days.push(day);activeId=day.id;save();render()});
-document.getElementById('plan-print')?.addEventListener('click',()=>window.print());
-searchInput.addEventListener('input',renderCandidates);
-document.querySelectorAll<HTMLButtonElement>('[data-plan-source]').forEach(button=>button.addEventListener('click',()=>{source=button.dataset.planSource!;document.querySelectorAll<HTMLButtonElement>('[data-plan-source]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));renderCandidates()}));
-document.addEventListener('saved-updated',renderCandidates);
-const style=document.createElement('style');style.textContent=`.plan-day{border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:19px 22px;transition:border-color .2s}.plan-day.is-active{border-color:var(--orange)}.plan-day-header{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:15px}.plan-day-select{display:flex;align-items:center;gap:14px;background:none;border:0;color:var(--green);padding:0;text-align:left}.plan-day-select>span{font-family:var(--serif);font-size:29px;color:var(--orange)}.plan-day-select strong{font-size:14px;font-weight:500}.plan-day-select small{font-size:14px;letter-spacing:1px;color:var(--muted)}.plan-day-actions{display:flex;gap:8px}.plan-day-actions button,.plan-item-remove{border:0;background:none;color:var(--muted);font-size:20px;line-height:1;padding:5px}.plan-day-actions button:disabled{opacity:.3}.plan-day-items{display:flex;flex-direction:column;gap:10px}.plan-day-empty{font-size:14px;padding:17px 0;color:var(--muted)}.plan-day-empty span{font-size:14px;display:block;margin-top:3px}.plan-item{display:flex;align-items:center;gap:13px}.plan-item img{border-radius:4px}.plan-item>a{font-family:var(--serif);font-size:21px;line-height:1.2}.plan-item-remove{margin-left:auto;font-size:18px}.plan-note-label{display:block;font-size:14px;color:var(--muted);margin-top:17px}.plan-notes{display:block;border:0;border-bottom:1px solid var(--line);padding:7px 0;resize:vertical;width:100%;background:none;color:var(--green);font-size:14px;min-height:30px}.plan-candidate{display:flex;align-items:center;gap:9px;padding:11px 0;border-bottom:1px solid var(--line)}.plan-candidate>img{border-radius:3px}.plan-candidate>a{font-size:14px;line-height:1.4}.plan-candidate>button{border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--orange);width:24px;height:24px;line-height:1;flex-shrink:0;margin-left:auto;padding:0}.plan-candidate>button:disabled{color:var(--muted);background:none}.plan-picker-empty{padding:20px 0;font-size:14px;color:var(--muted)}@media(max-width:650px){.plan-day{padding:18px}.plan-day-select small{font-size:14px}.plan-day-empty span{display:none}}`;document.head.append(style);
-render();
+function save() {
+  const state = byId('trip-save-state');
+  try {
+    localStorage.setItem(planKey, JSON.stringify(days.map(day => ({
+      ...day, items: day.items.map(place => ({ path: place.basePath || place.path }))
+    }))));
+    state.textContent = t('Planın bu tarayıcıda otomatik kaydedilir.');
+  } catch {
+    state.textContent = t('Tarayıcı depolaması kapalı; planın kaydedilemedi.');
+    announce(state.textContent);
+  }
+}
+function clone<T extends HTMLElement>(name: string) {
+  return byId<HTMLTemplateElement>('trip-' + name + '-template').content.firstElementChild!.cloneNode(true) as T;
+}
+function placeName(place: Place) {
+  const separator = place.title.indexOf(':');
+  return separator === -1 ? [place.title, ''] : [place.title.slice(0, separator), place.title.slice(separator + 1).trim()];
+}
+function setPhoto(element: HTMLElement, place: Place) {
+  const file = place.image || '/images/hero-datca.webp';
+  element.querySelector('img')!.src = file.replace(/^(\/images\/[\w-]+)\.webp$/, '$1-640.webp');
+}
+function fillPlace(row: HTMLElement, place: Place) {
+  const [name, detail] = placeName(place);
+  row.querySelector('a')!.href = place.path;
+  row.querySelector('strong')!.textContent = name;
+  row.querySelector('small')!.textContent = detail;
+  setPhoto(row, place);
+}
+function renderTabs() {
+  tabs.replaceChildren(...days.map((day, index) => {
+    const tab = document.createElement('button');
+    tab.type = 'button';
+    tab.dataset.day = day.id;
+    tab.setAttribute('aria-pressed', String(day === active));
+    tab.textContent = dayLabel(index + 1);
+    if (day.items.length) {
+      const count = document.createElement('span');
+      count.textContent = String(day.items.length);
+      tab.append(count);
+      tab.setAttribute('aria-label', dayLabel(index + 1) + ', ' + t('{n} durak', { n: day.items.length }));
+    }
+    return tab;
+  }));
+  const current = tabs.querySelector<HTMLElement>('[aria-pressed=true]')!;
+  const delta = current.getBoundingClientRect().right - tabs.getBoundingClientRect().right;
+  if (delta > 0) tabs.scrollLeft += delta + 3;
+  if (current.getBoundingClientRect().left < tabs.getBoundingClientRect().left) tabs.scrollLeft += current.getBoundingClientRect().left - tabs.getBoundingClientRect().left - 3;
+}
+const ideasByDay = [
+  ['/palamutbuku', '/eski-datca'], ['/knidos-antik-kenti', '/ovabuku'], ['/kargi-koyu', '/datca-limani']
+];
+function renderDay() {
+  const index = days.indexOf(active);
+  byId('trip-day-total').textContent = t('{n} gün', { n: days.length });
+  byId('trip-stop-total').textContent = t('{n} durak', { n: days.reduce((sum, day) => sum + day.items.length, 0) });
+  byId('trip-day-title').textContent = dayLabel(index + 1);
+  byId('trip-destination').textContent = t('Seçtiğin yerler {n}. güne eklenir.', { n: index + 1 });
+  byId<HTMLButtonElement>('trip-earlier').disabled = index === 0;
+  byId<HTMLButtonElement>('trip-later').disabled = index === days.length - 1;
+  byId<HTMLButtonElement>('trip-delete-day').disabled = days.length === 1;
+  const addDay = byId<HTMLButtonElement>('trip-add-day');
+  addDay.disabled = days.length >= maxDays;
+  addDay.title = addDay.disabled ? t('Planına en fazla 14 gün ekleyebilirsin.') : '';
+  byId('trip-suggestions').hidden = active.items.length !== 0;
+  const ideas = byId('trip-ideas');
+  ideas.replaceChildren();
+  if (!active.items.length) {
+    for (const path of ideasByDay[index % ideasByDay.length]) {
+      const place = byPath.get(path);
+      if (!place) continue;
+      const button = clone<HTMLButtonElement>('idea');
+      button.dataset.place = place.path;
+      button.setAttribute('aria-label', t('{title} seçili güne ekle', { title: place.title }));
+      button.querySelector('strong')!.textContent = placeName(place)[0];
+      setPhoto(button, place);
+      ideas.append(button);
+    }
+  }
+  route.replaceChildren(...active.items.map((place, i) => {
+    const row = clone<HTMLLIElement>('stop');
+    row.dataset.place = place.path;
+    fillPlace(row, place);
+    row.querySelector('.trip-order')!.textContent = String(i + 1).padStart(2, '0');
+    row.querySelector('summary')!.setAttribute('aria-label', t('{title} için durak seçenekleri', { title: place.title }));
+    row.querySelector<HTMLButtonElement>('[data-action=earlier]')!.disabled = i === 0;
+    row.querySelector<HTMLButtonElement>('[data-action=later]')!.disabled = i === active.items.length - 1;
+    return row;
+  }));
+  noteInput.value = active.notes;
+  renderTabs();
+  updateAddButtons();
+}
+function selectDay(day: Day) {
+  active = day;
+  try { sessionStorage.setItem(activeKey, day.id); } catch { /* The selection remains in memory. */ }
+  options.open = false;
+  note.open = Boolean(day.notes);
+  renderDay();
+  tabs.querySelector<HTMLButtonElement>('[aria-pressed=true]')!.focus({ preventScroll: true });
+}
+function updateAddButtons() {
+  const selected = new Set(active.items.map(place => place.path));
+  candidates.querySelectorAll<HTMLButtonElement>('[data-place]').forEach(button => {
+    const place = byPath.get(button.dataset.place!)!;
+    const added = selected.has(place.path);
+    button.setAttribute('aria-disabled', String(added));
+    button.setAttribute('aria-label', t(added ? '{title} bu güne eklendi' : '{title} seçili güne ekle', { title: place.title }));
+  });
+}
+const fold = (value: string) => value.toLocaleLowerCase(document.documentElement.lang).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
+function renderCandidates() {
+  const collection = source === 'saved' ? loadSaved().map(entry => byPath.get(entry.path)).filter((p): p is Place => !!p) : places;
+  const query = fold(search.value.trim());
+  const matches = collection.filter(p => fold([p.title, p.excerpt, p.basePath].join(' ')).includes(query));
+  candidates.replaceChildren(...matches.slice(0, limit).map(place => {
+    const row = clone<HTMLLIElement>('place');
+    fillPlace(row, place);
+    row.querySelector('button')!.dataset.place = place.path;
+    return row;
+  }));
+  updateAddButtons();
+  const empty = byId('trip-no-results');
+  empty.hidden = matches.length > 0;
+  empty.textContent = source === 'saved' && !collection.length
+    ? t('Önce sevdiğin yerlerdeki kalbe dokun. Kaydettiklerin burada görünecek.')
+    : t('Bu aramada bir yer bulunamadı.');
+  byId('trip-more').hidden = matches.length <= limit;
+}
+function resetResults() {
+  limit = pageSize;
+  results.scrollTop = 0;
+  renderCandidates();
+}
+function addPlace(place: Place) {
+  if (active.items.includes(place)) return;
+  active.items.push(place);
+  renderDay();
+  announce(t('{title}, {n}. güne eklendi.', { title: placeName(place)[0], n: days.indexOf(active) + 1 }));
+  save();
+}
+byId('trip-ideas').addEventListener('click', event => {
+  const button = (event.target as Element).closest<HTMLElement>('[data-place]');
+  if (!button) return;
+  addPlace(byPath.get(button.dataset.place!)!);
+  openPicker.focus({ preventScroll: true });
+});
+candidates.addEventListener('click', event => {
+  const button = (event.target as Element).closest<HTMLButtonElement>('[data-place]');
+  if (button) addPlace(byPath.get(button.dataset.place!)!);
+});
+search.addEventListener('input', resetResults);
+picker.querySelectorAll<HTMLButtonElement>('[data-source]').forEach(button => {
+  button.addEventListener('click', () => {
+    source = button.dataset.source as typeof source;
+    picker.querySelectorAll('[data-source]').forEach(el => el.setAttribute('aria-pressed', String(el === button)));
+    resetResults();
+  });
+});
+byId('trip-more').addEventListener('click', () => {
+  const firstNew = candidates.children.length;
+  limit += pageSize;
+  renderCandidates();
+  candidates.children[firstNew]?.querySelector('a')?.focus();
+});
+document.addEventListener('saved-updated', () => { if (source === 'saved') renderCandidates(); });
+tabs.addEventListener('click', event => {
+  const tab = (event.target as Element).closest<HTMLButtonElement>('[data-day]');
+  if (tab) selectDay(days.find(day => day.id === tab.dataset.day)!);
+});
+byId('trip-add-day').addEventListener('click', () => {
+  if (days.length >= maxDays) return;
+  const day = newDay();
+  days.push(day);
+  selectDay(day);
+  save();
+});
+function moveDay(offset: number) {
+  const i = days.indexOf(active);
+  days.splice(i, 1);
+  days.splice(i + offset, 0, active);
+  selectDay(active);
+  save();
+}
+byId('trip-earlier').addEventListener('click', () => moveDay(-1));
+byId('trip-later').addEventListener('click', () => moveDay(1));
+let pendingDelete: Day | undefined;
+function removeDay(day: Day) {
+  if (days.length === 1 || !days.includes(day)) return;
+  const i = days.indexOf(day);
+  days.splice(i, 1);
+  selectDay(days[Math.min(i, days.length - 1)]);
+  save();
+}
+byId('trip-delete-day').addEventListener('click', () => {
+  options.open = false;
+  if (!active.items.length && !active.notes) { removeDay(active); return; }
+  pendingDelete = active;
+  byId('trip-confirm-title').textContent = t('{n}. gün silinsin mi?', { n: days.indexOf(active) + 1 });
+  confirm.returnValue = 'cancel';
+  confirm.showModal();
+});
+confirm.addEventListener('close', () => {
+  if (confirm.returnValue === 'delete' && pendingDelete) removeDay(pendingDelete);
+  else options.querySelector('summary')!.focus();
+  pendingDelete = undefined;
+});
+document.addEventListener('click', event => {
+  document.querySelectorAll<HTMLDetailsElement>('.trip-options[open]').forEach(el => {
+    if (!el.contains(event.target as Node)) el.open = false;
+  });
+});
+document.addEventListener('keydown', event => {
+  const menu = (event.target as Element).closest<HTMLDetailsElement>('.trip-options[open]');
+  if (event.key === 'Escape' && menu) { menu.open = false; menu.querySelector('summary')!.focus(); }
+});
+route.addEventListener('click', event => {
+  const button = (event.target as Element).closest<HTMLButtonElement>('[data-action]');
+  if (!button) return;
+  const row = button.closest<HTMLElement>('[data-place]')!;
+  const i = active.items.indexOf(byPath.get(row.dataset.place!)!);
+  const [place] = active.items.splice(i, 1);
+  const action = button.dataset.action;
+  if (action !== 'remove') active.items.splice(action === 'earlier' ? i - 1 : i + 1, 0, place);
+  renderDay();
+  const next = action === 'remove' ? Math.min(i, active.items.length - 1) : active.items.indexOf(place);
+  (route.children[next]?.querySelector('summary') || openPicker).focus();
+  save();
+});
+noteInput.addEventListener('input', () => { active.notes = noteInput.value; save(); });
+
+function sizeSheet() {
+  if (!sheet.open || !window.visualViewport) return;
+  const { height, offsetTop } = window.visualViewport;
+  sheet.style.setProperty('--trip-visible', height + 'px');
+  sheet.style.setProperty('--trip-keyboard', Math.max(0, window.innerHeight - height - offsetTop) + 'px');
+}
+openPicker.addEventListener('click', () => {
+  if (compact.matches) {
+    sheet.append(picker);
+    sheet.showModal();
+    sizeSheet();
+    picker.querySelector<HTMLButtonElement>('.trip-close')!.focus({ preventScroll: true });
+  } else search.focus();
+});
+sheet.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    sheet.close();
+  }
+});
+sheet.addEventListener('close', () => {
+  byId('trip-dock').append(picker);
+  openPicker.focus({ preventScroll: true });
+});
+sheet.addEventListener('click', event => { if (event.target === sheet) sheet.close(); });
+picker.querySelectorAll('.trip-close, .trip-done').forEach(button => button.addEventListener('click', () => sheet.close()));
+compact.addEventListener('change', () => { if (sheet.open && !compact.matches) sheet.close(); });
+window.visualViewport?.addEventListener('resize', sizeSheet);
+window.visualViewport?.addEventListener('scroll', sizeSheet);
+
+function renderPrint() {
+  byId('trip-print-days').replaceChildren(...days.map((day, i) => {
+    const section = document.createElement('section');
+    const heading = document.createElement('h2');
+    heading.textContent = dayLabel(i + 1);
+    section.append(heading);
+    const list = document.createElement('ol');
+    for (const place of day.items) { const li = document.createElement('li'); li.textContent = place.title; list.append(li); }
+    const notes = document.createElement('p');
+    notes.textContent = day.notes;
+    section.append(list, notes);
+    return section;
+  }));
+}
+window.addEventListener('beforeprint', renderPrint);
+byId('trip-print').addEventListener('click', () => window.print());
+window.addEventListener('storage', event => {
+  if (event.key !== planKey && event.key !== null) return;
+  days = readPlan();
+  active = days.find(day => day.id === active.id) || days[0];
+  note.open = Boolean(active.notes) || document.activeElement === noteInput;
+  renderDay();
+});
+note.open = Boolean(active.notes);
+renderDay();
+renderCandidates();

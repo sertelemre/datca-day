@@ -1726,5 +1726,117 @@
   "Sık sorulan sorular": [
     "Frequently asked questions",
     "Частые вопросы"
+  ],
+  "Tatil planını düzenlemek için JavaScript’i etkinleştir.": [
+    "Enable JavaScript to edit your trip plan.",
+    "Включите JavaScript, чтобы редактировать план поездки."
+  ],
+  "Günlerim": [
+    "My days",
+    "Дни поездки"
+  ],
+  "Durak ekle": [
+    "Add a stop",
+    "Добавить место"
+  ],
+  "Gün seçenekleri": [
+    "Day options",
+    "Действия с днём"
+  ],
+  "Günü önceye al": [
+    "Move day earlier",
+    "Переместить день раньше"
+  ],
+  "Günü sonraya al": [
+    "Move day later",
+    "Переместить день позже"
+  ],
+  "Günü sil": [
+    "Delete day",
+    "Удалить день"
+  ],
+  "İlk durağını seç": [
+    "Choose your first stop",
+    "Выберите первую остановку"
+  ],
+  "Gün notu": [
+    "Day notes",
+    "Заметки на день"
+  ],
+  "Yer keşfet": [
+    "Explore places",
+    "Выбрать место"
+  ],
+  "Kapat": [
+    "Close",
+    "Закрыть"
+  ],
+  "Koy, köy veya deneyim ara": [
+    "Search bays, villages or activities",
+    "Поиск бухт, деревень и занятий"
+  ],
+  "Yer listesi": [
+    "Place list",
+    "Список мест"
+  ],
+  "Tüm yerler": [
+    "All places",
+    "Все места"
+  ],
+  "Daha fazla göster": [
+    "Show more",
+    "Показать ещё"
+  ],
+  "Planıma dön": [
+    "Back to my plan",
+    "Вернуться к плану"
+  ],
+  "Bu günün durakları ve notu planından kaldırılacak.": [
+    "This will remove the day’s stops and notes from your plan.",
+    "Из плана будут удалены все места и заметки этого дня."
+  ],
+  "Vazgeç": [
+    "Cancel",
+    "Отмена"
+  ],
+  "Durağı önceye al": [
+    "Move stop earlier",
+    "Переместить место выше"
+  ],
+  "Durağı sonraya al": [
+    "Move stop later",
+    "Переместить место ниже"
+  ],
+  "Durağı kaldır": [
+    "Remove stop",
+    "Убрать место"
+  ],
+  "{n} gün": [
+    "{n} days",
+    "{n} дней"
+  ],
+  "{n} durak": [
+    "{n} stops",
+    "{n} мест"
+  ],
+  "Seçtiğin yerler {n}. güne eklenir.": [
+    "Add places to day {n}.",
+    "Вы добавляете места в день {n}."
+  ],
+  "{title} için durak seçenekleri": [
+    "Stop options for {title}",
+    "Действия с местом «{title}»"
+  ],
+  "{title} bu güne eklendi": [
+    "{title} is already in this day",
+    "Место «{title}» уже добавлено в этот день"
+  ],
+  "{title}, {n}. güne eklendi.": [
+    "Added {title} to day {n}.",
+    "Место «{title}» добавлено в день {n}."
+  ],
+  "{n}. gün silinsin mi?": [
+    "Delete day {n}?",
+    "Удалить день {n}?"
   ]
 }
