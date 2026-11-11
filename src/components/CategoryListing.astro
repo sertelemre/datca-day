@@ -10,6 +10,8 @@ import { inCategory, categoryImage } from '../lib/content';
 import LocalServices from './LocalServices.astro';
 import Card from './Card.astro';
 import Icon from './Icon.astro';
+import LoadMore from './LoadMore.astro';
+import { listBatchSize } from '../scripts/infinite-list';
 import './secondary.css';
 
 interface Props { category: Category; articles: Article[]; subcategories: Category[]; }
@@ -41,15 +43,16 @@ const description = category.description;
     </div>
     {subcategories.length > 0 && <div class="category-filters" aria-label={t("Alt kategori filtresi")}><button type="button" data-category="all" class="is-active" aria-pressed="true">{t("Tümünü keşfet")} <span>{articles.length}</span></button>{subcategories.map(subcategory => <button type="button" data-category={subcategory.id} aria-pressed="false">{subcategory.name}<span>{articles.filter(article => inCategory(article, subcategory)).length}</span></button>)}</div>}
     <div class="category-results-heading"><p id="category-results-count" role="status" aria-live="polite"><strong>{articles.length}</strong> {t("rehber", {n:articles.length})}</p><span>{t("Datça’dan ilham veren hikâyeler")}</span></div>
-    <div class="category-article-grid" id="category-article-grid">{articles.map((article, index) => <div class="category-article-item" data-title={article.title} data-excerpt={article.excerpt} data-terms={article.searchTerms} data-categories={[...new Set([...article.categories, ...subcategories.filter(subcategory => inCategory(article, subcategory)).map(subcategory => subcategory.id)])].join(',')} data-date={article.date} data-order={index}><Card article={article} /></div>)}</div>
+    <div class="category-article-grid" id="category-article-grid" data-infinite-grid>{articles.map((article, index) => <div class="category-article-item" data-deferred={index >= listBatchSize || undefined} data-title={article.title} data-excerpt={article.excerpt} data-terms={article.searchTerms} data-categories={[...new Set([...article.categories, ...subcategories.filter(subcategory => inCategory(article, subcategory)).map(subcategory => subcategory.id)])].join(',')} data-date={article.date} data-order={index}><Card article={article} /></div>)}</div>
     <div class="category-empty" id="category-empty" hidden><div><Icon name="search" size={30} /></div><h2>{t("Henüz bir eşleşme yok.")}</h2><p>{t("Başka bir sözcük dene veya tüm rehberleri keşfet.")}</p><button type="button" id="category-reset">{t("Filtreleri temizle")} <Icon name="arrow" size={17} /></button></div>
-    <nav class="category-pagination" id="category-pagination" aria-label={t("Rehber sayfaları")}></nav>
+    <LoadMore controls="category-article-grid"/>
   </section>
   <section class="category-bottom-note detail-container"><div><Icon name="sun" size={27} /></div><p><strong>{t("Her mevsim başka bir Datça.")}</strong><span>{t("Bir sonraki keşfini bugünden planla.")}</span></p><a href={localize("/tatil-planim")}>{t("Rotanı oluştur")} <Icon name="arrow" size={17} /></a></section>
 </div>
 
 <script>
   import { clientUI } from '../lib/ui';
+  import { listBatchSize, mountInfiniteList } from '../scripts/infinite-list';
   const t = clientUI();
   const listing = document.querySelector<HTMLElement>('[data-category-listing]');
   if (listing) {
@@ -59,58 +62,44 @@ const description = category.description;
     const cards = Array.from(grid.querySelectorAll<HTMLElement>('.category-article-item'));
     const count = listing.querySelector<HTMLElement>('#category-results-count')!;
     const empty = listing.querySelector<HTMLElement>('#category-empty')!;
-    const pagination = listing.querySelector<HTMLElement>('#category-pagination')!;
+    const more = listing.querySelector<HTMLButtonElement>('[aria-controls="category-article-grid"]')!;
     const clear = listing.querySelector<HTMLButtonElement>('#category-search-clear')!;
     const query = new URLSearchParams(window.location.search).get('q');
     if (query) input.value = query;
     let selectedCategory = 'all';
-    let page = Math.max(1, Number.parseInt(new URLSearchParams(window.location.search).get('page') || '1', 10) || 1);
-    const pageSize = 12;
+    const initialPage = Math.max(1, Number.parseInt(new URLSearchParams(window.location.search).get('page') || '1', 10) || 1);
+    const showItems = mountInfiniteList(more, (shown, total) => {
+      const strong = document.createElement('strong');
+      strong.textContent = shown + ' / ' + total;
+      count.replaceChildren(strong, ' ' + t('rehber', {n:total}));
+    });
     const normalize = (value: string) => value.toLocaleLowerCase(document.documentElement.lang).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ı/g, 'i');
-    const render = (scroll = false) => {
+    const render = (initialCount = listBatchSize) => {
       const search = normalize(input.value.trim());
       clear.hidden = !search;
       let matching = cards.filter(card => (!search || normalize(`${card.dataset.title} ${card.dataset.excerpt} ${card.dataset.terms || ''}`).includes(search)) && (selectedCategory === 'all' || (card.dataset.categories || '').split(',').includes(selectedCategory)));
       if (sort.value === 'az' || sort.value === 'za') matching.sort((a, b) => (a.dataset.title || '').localeCompare(b.dataset.title || '', document.documentElement.lang) * (sort.value === 'za' ? -1 : 1));
       else if (sort.value === 'newest') matching.sort((a, b) => (Date.parse(b.dataset.date || '') || 0) - (Date.parse(a.dataset.date || '') || 0));
       else matching.sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order));
-      const pages = Math.ceil(matching.length / pageSize);
-      page = Math.min(page, Math.max(1, pages));
       cards.forEach(card => card.hidden = true);
-      matching.forEach((card, index) => { grid.appendChild(card); card.hidden = index < (page - 1) * pageSize || index >= page * pageSize; });
-      count.replaceChildren();
-      const strong = document.createElement('strong'); strong.textContent = String(matching.length); count.append(strong, ' ' + t('rehber', {n:matching.length}));
+      matching.forEach(card => grid.appendChild(card));
+      showItems(matching, initialCount);
       empty.hidden = matching.length !== 0;
-      pagination.replaceChildren();
-      if (pages > 1) {
-        const addButton = (label: string, target: number, disabled = false, current = false) => {
-          const button = document.createElement('button'); button.type = 'button'; button.textContent = label; button.disabled = disabled;
-          if (current) { button.className = 'is-active'; button.setAttribute('aria-current', 'page'); }
-          button.setAttribute('aria-label', /^\d+$/.test(label) ? t('Sayfa {n}', {n:target}) : label);
-          button.addEventListener('click', () => { page = target; render(true); }); pagination.appendChild(button);
-        };
-        addButton(t('Önceki'), page - 1, page === 1);
-        for (let index = 1; index <= pages; index++) {
-          if (index === 1 || index === pages || Math.abs(index - page) <= 1) addButton(String(index), index, false, index === page);
-          else if (index === page - 2 || index === page + 2) { const dots = document.createElement('span'); dots.textContent = '…'; pagination.appendChild(dots); }
-        }
-        addButton(t('Sonraki'), page + 1, page === pages);
-      }
-      if (scroll) listing.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      grid.dataset.ready = '';
     };
-    input.addEventListener('input', () => { page = 1; render(); });
-    clear.addEventListener('click', () => { input.value = ''; page = 1; render(); input.focus(); });
-    sort.addEventListener('change', () => { page = 1; render(); });
+    input.addEventListener('input', () => render());
+    clear.addEventListener('click', () => { input.value = ''; render(); input.focus(); });
+    sort.addEventListener('change', () => render());
     listing.querySelectorAll<HTMLButtonElement>('[data-category]').forEach(button => button.addEventListener('click', () => {
-      selectedCategory = button.dataset.category || 'all'; page = 1;
+      selectedCategory = button.dataset.category || 'all';
       listing.querySelectorAll<HTMLButtonElement>('[data-category]').forEach(item => { const active = item === button; item.classList.toggle('is-active', active); item.setAttribute('aria-pressed', String(active)); }); render();
     }));
     listing.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(button => button.addEventListener('click', () => {
       grid.classList.toggle('is-list-view', button.dataset.view === 'list');
       listing.querySelectorAll<HTMLButtonElement>('[data-view]').forEach(item => { item.classList.toggle('is-active', item === button); item.setAttribute('aria-pressed', String(item === button)); });
     }));
-    listing.querySelector('#category-reset')?.addEventListener('click', () => { input.value = ''; selectedCategory = 'all'; page = 1; sort.value = 'default'; listing.querySelector<HTMLButtonElement>('[data-category="all"]')?.click(); render(); });
-    render();
+    listing.querySelector('#category-reset')?.addEventListener('click', () => { input.value = ''; selectedCategory = 'all'; sort.value = 'default'; listing.querySelector<HTMLButtonElement>('[data-category="all"]')?.click(); render(); });
+    render(initialPage * listBatchSize);
   }
 </script>
 <style>.category-editorial{max-width:850px;margin:0 0 28px;padding-bottom:24px;border-bottom:1px solid var(--line);font-size:13px;line-height:1.9;color:var(--muted)}.category-editorial :global(p+p){margin-top:14px}.category-editorial :global(a){color:var(--orange);text-decoration:underline}.category-editorial :global(h2){font-size:32px;color:var(--green);margin-bottom:15px}</style>

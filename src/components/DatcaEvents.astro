@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import EventMedia from './EventMedia.astro';
+import LoadMore from './LoadMore.astro';
 import {events, calendarEvents, archivedIds, eventSources, checks, lastAttempt, type DatcaEvent} from '../lib/events';
 import {eventText, eventLabels, eventNotes} from '../lib/event-copy';
 import {dateLabel, hasEnded} from '../lib/event-dates';
@@ -74,7 +75,7 @@ const structured = event && (!withdrawn || ended) && {
     <label>{t('Tarih','Date','Дата')}<select data-period><option value="upcoming">{t('Yaklaşanlar','Upcoming','Предстоящие')}</option><option value="today">{t('Bugün','Today','Сегодня')}</option><option value="week">{t('Önümüzdeki 7 gün','Next 7 days','Ближайшие 7 дней')}</option><option value="past">{t('Son 7 gün','Past 7 days','Прошедшие 7 дней')}</option></select></label>
     <label>{t('Etkinlik türü','Event type','Тип события')}<select data-category-select><option value="">{t('Tüm türler','All types','Все типы')}</option>{categories.map(key => <option value={key}>{label(key)}</option>)}</select></label>
   </div>
-  <div class="events-grid">{list.map(item => <article class="event-card" data-event data-start={item.start} data-end={item.end} data-close={item.closeTime} data-kind={item.category} data-schedule={item.schedule} hidden={hasEnded(item)}>
+  <div class="events-grid" id="calendar-events">{list.map(item => <article class="event-card" data-event data-start={item.start} data-end={item.end} data-close={item.closeTime} data-kind={item.category} data-schedule={item.schedule} hidden={hasEnded(item)}>
     <EventMedia poster={item.poster} title={item.title}/>
     <div class="event-card-body"><div class="event-card-top"><span>{label(item.category)}</span></div><h2 class="event-name"><a href={eventPath(item,locale)}>{item.title}</a></h2>
     <div class="event-date"><Icon name="calendar" size={18}/><div><time datetime={item.start}>{range(item)}</time>{item.time && <small>{timeLabel(item)}</small>}</div></div>
@@ -82,6 +83,7 @@ const structured = event && (!withdrawn || ended) && {
     <div class="event-source"><a href={item.url} target="_blank" rel="noopener noreferrer">{getSource(item.sourceId)?.name || new URL(item.url).hostname} <Icon name="external" size={14}/></a>
     <small>{verified} · {date(item.checked)}</small></div></div>
   </article>)}</div>
+  <LoadMore controls="calendar-events"/>
   <div class="events-empty" data-empty hidden={list.some(item => !hasEnded(item))}><h2>{t('Bu seçim için etkinlik bulunamadı.','No events match this selection.','По вашему запросу событий нет.')}</h2><a class="text-link" href="#etkinlik-kaynaklari">{sourcesHeading} <Icon name="down" size={16}/></a></div>
   {history.length > 0 && <details class="event-history"><summary>{archiveHeading} ({history.length})</summary><ul>{history.map(item => <li><time datetime={item.start}>{range(item)}</time><a href={eventPath(item,locale)}>{item.title}</a></li>)}</ul></details>}
 </section>
@@ -98,6 +100,7 @@ const structured = event && (!withdrawn || ended) && {
 </div></section></>}
 </div>
 <script>
+  import { mountInfiniteList } from '../scripts/infinite-list';
   import {todayInDatca,offsetDay,fallsWithin,hasEnded} from '../lib/event-dates';
   const detail = document.querySelector<HTMLElement>('[data-detail-status]');
   if (detail && hasEnded({end:detail.dataset.end!, closeTime:detail.dataset.close})) {
@@ -110,19 +113,21 @@ const structured = event && (!withdrawn || ended) && {
     const period = calendar.querySelector<HTMLSelectElement>('[data-period]')!;
     const category = calendar.querySelector<HTMLSelectElement>('[data-category-select]')!;
     const cards = [...calendar.querySelectorAll<HTMLElement>('[data-event]')];
+    const showItems = mountInfiniteList(calendar.querySelector<HTMLButtonElement>('[data-list-more]')!);
     function apply() {
       const today = todayInDatca();
       const span:Record<string,[string,string]> = {upcoming:[today,'9999-12-31'],today:[today,today],week:[today,offsetDay(today,6)],past:[offsetDay(today,-7),today]};
       const [from,to] = span[period.value] || span.upcoming;
-      let count = 0;
+      const matches: HTMLElement[] = [];
       for (const card of cards) {
         const {kind,start,end,schedule,close} = card.dataset;
         const past = hasEnded({end:end!,closeTime:close});
         card.hidden = (category.value !== '' && kind !== category.value) || (period.value === 'past' ? !past : past) || !fallsWithin(start!,end!,schedule,from,to);
-        if (!card.hidden) count++;
+        if (!card.hidden) matches.push(card);
       }
-      calendar!.querySelector<HTMLElement>('[data-count]')!.textContent = String(count);
-      calendar!.querySelector<HTMLElement>('[data-empty]')!.hidden = count > 0;
+      showItems(matches);
+      calendar!.querySelector<HTMLElement>('[data-count]')!.textContent = String(matches.length);
+      calendar!.querySelector<HTMLElement>('[data-empty]')!.hidden = matches.length > 0;
     }
     period.addEventListener('change',apply);
     category.addEventListener('change',apply);

@@ -1,4 +1,5 @@
 import { clientUI } from '../lib/ui';
+import { listBatchSize, mountInfiniteList } from './infinite-list';
 import type { EventSearchEntry } from '../lib/search';
 const t = clientUI();
 interface Entry { path: string; basePath?:string; title: string; image: string; excerpt?: string; imageAlt?:string; searchTerms?:string; searchable?:boolean; }
@@ -12,12 +13,16 @@ const safePath = (value: string) => value.startsWith('/') && !value.startsWith('
 const safeImage = (value: string) => value.startsWith('/images/') ? value : '/images/hero-datca.webp';
 let toastTimer: ReturnType<typeof setTimeout>;
 function notify(message:string) { const toast=document.getElementById('save-toast'); if(!toast)return; toast.textContent=message; toast.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('visible'),2800); }
+const savedMore = document.querySelector<HTMLButtonElement>('[aria-controls="saved-grid"]');
+let savedShown = listBatchSize;
+const showSaved = savedMore ? mountInfiniteList(savedMore, shown => savedShown = Math.max(listBatchSize, shown)) : undefined;
 function updateSaved() {
  const saved=loadSaved();
  document.querySelectorAll<HTMLButtonElement>('[data-save]').forEach(button=>{const active=saved.some(item=>item.path===button.dataset.save);button.setAttribute('aria-pressed',String(active));button.setAttribute('aria-label',t(active?'{title} kaydı kaldır':'{title} kaydet',{title:button.dataset.title || ''}))});
  document.querySelectorAll<HTMLElement>('[data-saved-count]').forEach(el=>{el.textContent=String(saved.length);el.hidden=!saved.length});
  const grid=document.getElementById('saved-grid');
  if(grid){grid.innerHTML=saved.map(item=>`<article class="travel-card"><div class="card-photo"><a href="${escape(safePath(item.path))}"><img src="${escape(safeImage(item.image))}" alt="${escape(item.imageAlt||item.title)}" loading="lazy" width="640" height="450"></a><button class="save-button" data-save="${escape(item.path)}" data-title="${escape(item.title)}" data-image="${escape(item.image)}" aria-label="${escape(t('{title} kaydı kaldır',{title:item.title}))}" aria-pressed="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg></button></div><div class="card-copy"><span class="eyebrow">${t('SENİN KEŞFİN')}</span><h3><a href="${escape(safePath(item.path))}">${escape(item.title)}</a></h3><a class="card-link" href="${escape(safePath(item.path))}">${t('Keşfet →')}</a></div></article>`).join('');const empty=document.getElementById('saved-empty');if(empty)empty.hidden=!!saved.length;const count=document.getElementById('saved-count');if(count)count.textContent=String(saved.length);const countLabel=document.getElementById('saved-count-label');if(countLabel)countLabel.textContent=t('kaydedilmiş rehber',{n:saved.length});const clear=document.getElementById('saved-clear');if(clear)clear.hidden=!saved.length;}
+ if (grid) showSaved?.([...grid.querySelectorAll<HTMLElement>('.travel-card')], savedShown);
  document.dispatchEvent(new CustomEvent('saved-updated'));
 }
 document.addEventListener('click',event=>{
@@ -72,15 +77,27 @@ const score = (entry:SearchEntry, needle:string) => {const title=fold(entry.titl
 function search(){const query=input.value.trim();if(!query){results.innerHTML='';return;}const needle=fold(query);const available:SearchEntry[]=[...index,...eventSearchIndex.filter(currentEventEntry)];const match=available.filter(a=>a.searchable!==false&&fold([a.title, a.excerpt, 'searchTerms' in a && a.searchTerms].filter(Boolean).join(' ')).includes(needle)).sort((a,b)=>score(b,needle)-score(a,needle)).slice(0,7);results.innerHTML=match.length?match.map(a=>'kind' in a?eventResult(a):`<a class="search-result" href="${escape(safePath(a.path))}"><img src="${escape(safeImage(a.image))}" alt="" width="63" height="55"><span><strong>${escape(a.title)}</strong><small>${escape(a.excerpt||'')}</small></span><span aria-hidden="true">→</span></a>`).join(''):`<p class="search-empty">${t('Bu aramada bir yer bulamadık. Başka bir kelime dene.')}</p>`;}
 const eventSearchPage = document.querySelector<HTMLElement>('[data-event-search-page]');
 const guideSearchInput = document.querySelector<HTMLInputElement>('#category-search');
+const eventMore = eventSearchPage?.querySelector<HTMLButtonElement>('[data-list-more]');
+let previousEventQuery = '';
+let eventShown = listBatchSize;
+const showEventResults = eventMore ? mountInfiniteList(eventMore, (shown, total) => {
+ eventShown = Math.max(listBatchSize, shown);
+ const summary = eventSearchPage!.querySelector<HTMLElement>('[data-event-search-summary]')!;
+ summary.hidden = shown >= total;
+ summary.textContent = t('{n} eşleşme; ilk {shown} sonuç gösteriliyor.', {n:total,shown});
+}) : undefined;
 function updateEventPageSearch() {
  if (!eventSearchPage || !guideSearchInput) return;
  const query=guideSearchInput.value.trim(), needle=fold(query);
  eventSearchPage.hidden=!query;
+ if (query !== previousEventQuery) eventShown = listBatchSize;
+ previousEventQuery = query;
  const matches=query?eventSearchIndex.filter(entry=>currentEventEntry(entry)&&fold(`${entry.title} ${entry.excerpt}`).includes(needle)).sort((a,b)=>score(b,needle)-score(a,needle)):[];
  const list=eventSearchPage.querySelector<HTMLElement>('[data-event-search-results]');
- if(list)list.innerHTML=matches.slice(0,6).map(eventResult).join('');
- const summary=eventSearchPage.querySelector<HTMLElement>('[data-event-search-summary]');
- if(summary){summary.hidden=matches.length<=6;summary.textContent=t('{n} eşleşme; ilk {shown} sonuç gösteriliyor.',{n:matches.length,shown:6});}
+ if (list) {
+  list.innerHTML = matches.map(eventResult).join('');
+  showEventResults?.([...list.querySelectorAll<HTMLAnchorElement>('.search-result')], eventShown);
+ }
  const empty=eventSearchPage.querySelector<HTMLElement>('[data-event-search-empty]');
  if(empty)empty.hidden=matches.length>0;
 }

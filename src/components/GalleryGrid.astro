@@ -5,6 +5,8 @@ const locale = getLocale(Astro.url.pathname);
 const t = ui(locale);
 
 import Icon from './Icon.astro';
+import LoadMore from './LoadMore.astro';
+import { listBatchSize } from '../scripts/infinite-list';
 import './gallery-grid.css';
 import { photos } from '../lib/photos';
 
@@ -16,7 +18,8 @@ const galleryId = "datca-gallery";
 
 {images.length > 0 && <section class="gallery-grid-section" data-gallery aria-label={t("Fotoğraf galerisi")}>
   <header class="gallery-grid-header"><span><Icon name="grid" size={16} /> {t("FOTOĞRAF GALERİSİ")}</span><span>{t("{n} kare", {n:images.length})} <span aria-hidden="true">·</span> {t("Bir fotoğrafa dokun, yakından keşfet")}</span></header>
-  <div class="gallery-photo-grid">{images.map((image, index) => <button type="button" class:list={['gallery-photo', { 'gallery-photo-lead': index === 0, 'gallery-photo-tall': index > 0 && index % 9 === 7 }]} data-gallery-index={index} aria-label={t("{n}. fotoğrafı büyüt: {alt}", {n:index+1,alt:image.alt})} aria-haspopup="dialog"><img src={image.src.replace('.webp','-640.webp')} alt={image.alt || `${t('Datça fotoğrafı')} ${index+1}`} loading="lazy" decoding="async" sizes="(max-width: 560px) 50vw, (max-width: 800px) 50vw, 33vw" /><span class="gallery-photo-shade" aria-hidden="true"></span><span class="gallery-photo-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span class="gallery-photo-expand" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5" /></svg></span></button>)}</div>
+  <div class="gallery-photo-grid" id="gallery-photos" data-infinite-grid>{images.map((image, index) => <button type="button" class:list={['gallery-photo', { 'gallery-photo-lead': index === 0, 'gallery-photo-tall': index > 0 && index % 9 === 7 }]} data-gallery-index={index} data-deferred={index >= listBatchSize || undefined} aria-label={t("{n}. fotoğrafı büyüt: {alt}", {n:index+1,alt:image.alt})} aria-haspopup="dialog"><img src={image.src.replace('.webp','-640.webp')} alt={image.alt || `${t('Datça fotoğrafı')} ${index+1}`} loading="lazy" decoding="async" sizes="(max-width: 560px) 50vw, (max-width: 800px) 50vw, 33vw" /><span class="gallery-photo-shade" aria-hidden="true"></span><span class="gallery-photo-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span class="gallery-photo-expand" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5" /></svg></span></button>)}</div>
+  <LoadMore controls="gallery-photos"/>
   <dialog class="gallery-lightbox" aria-labelledby={`${galleryId}-caption`} aria-describedby={`${galleryId}-status`}>
     <div class="gallery-dialog-shell">
       <header class="gallery-dialog-header"><span><Icon name="waves" size={18} /><span>{t("DATÇA, KARE KARE")}</span></span><button type="button" class="gallery-dialog-close" data-gallery-close aria-label={t("Fotoğrafı kapat")}><Icon name="close" size={24} /></button></header>
@@ -33,9 +36,14 @@ const galleryId = "datca-gallery";
 
 <script>
  import { clientUI } from '../lib/ui';
+ import { mountInfiniteList } from '../scripts/infinite-list';
  const t=clientUI();
   document.querySelectorAll<HTMLElement>('[data-gallery]').forEach(gallery => {
     const images: { src: string; alt: string; photographer:string;source:string;license:string }[] = JSON.parse(gallery.querySelector('[data-gallery-images]')?.textContent || '[]');
+    const grid = gallery.querySelector<HTMLElement>('.gallery-photo-grid')!;
+    const showItems = mountInfiniteList(gallery.querySelector<HTMLButtonElement>('[data-list-more]')!);
+    showItems([...grid.querySelectorAll<HTMLButtonElement>('[data-gallery-index]')]);
+    grid.dataset.ready = '';
     const dialog = gallery.querySelector<HTMLDialogElement>('.gallery-lightbox')!;
     const preview = dialog.querySelector<HTMLImageElement>('.gallery-lightbox-image')!;
     const caption = dialog.querySelector<HTMLElement>('.gallery-dialog-caption')!;
