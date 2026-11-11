@@ -1838,5 +1838,25 @@
   "{n}. gün silinsin mi?": [
     "Delete day {n}?",
     "Удалить день {n}?"
+  ],
+  "Palamutbükü": [
+    "Palamutbükü",
+    "Паламутбюкю"
+  ],
+  "Ovabükü": [
+    "Ovabükü",
+    "Овабюкю"
+  ],
+  "Knidos": [
+    "Knidos",
+    "Книд"
+  ],
+  "Kargı Koyu": [
+    "Kargı Bay",
+    "Бухта Каргы"
+  ],
+  "Datça Limanı": [
+    "Datça harbour",
+    "Гавань Датчи"
   ]
 }

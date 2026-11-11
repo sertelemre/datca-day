@@ -113,7 +113,9 @@ function renderTabs() {
   if (current.getBoundingClientRect().left < tabs.getBoundingClientRect().left) tabs.scrollLeft += current.getBoundingClientRect().left - tabs.getBoundingClientRect().left - 3;
 }
 const ideasByDay = [
-  ['/palamutbuku', '/eski-datca'], ['/knidos-antik-kenti', '/ovabuku'], ['/kargi-koyu', '/datca-limani']
+  [{ path: '/palamutbuku', name: 'Palamutbükü' }, { path: '/eski-datca', name: 'Eski Datça' }],
+  [{ path: '/knidos-antik-kenti', name: 'Knidos' }, { path: '/ovabuku', name: 'Ovabükü' }],
+  [{ path: '/kargi-koyu', name: 'Kargı Koyu' }, { path: '/datca-limani', name: 'Datça Limanı' }]
 ];
 function renderDay() {
   const index = days.indexOf(active);
@@ -131,13 +133,13 @@ function renderDay() {
   const ideas = byId('trip-ideas');
   ideas.replaceChildren();
   if (!active.items.length) {
-    for (const path of ideasByDay[index % ideasByDay.length]) {
+    for (const { path, name } of ideasByDay[index % ideasByDay.length]) {
       const place = byPath.get(path);
       if (!place) continue;
       const button = clone<HTMLButtonElement>('idea');
       button.dataset.place = place.path;
       button.setAttribute('aria-label', t('{title} seçili güne ekle', { title: place.title }));
-      button.querySelector('strong')!.textContent = placeName(place)[0];
+      button.querySelector('strong')!.textContent = t(name);
       setPhoto(button, place);
       ideas.append(button);
     }
@@ -307,6 +309,13 @@ openPicker.addEventListener('click', () => {
     sizeSheet();
     picker.querySelector<HTMLButtonElement>('.trip-close')!.focus({ preventScroll: true });
   } else search.focus();
+});
+// Keep the software keyboard in place while a touch selects a result.
+// Otherwise Safari can move the sheet between successive taps.
+picker.addEventListener('pointerdown', event => {
+  if (sheet.open && event.pointerType === 'touch' && document.activeElement === search && (event.target as Element).closest('button')) {
+    event.preventDefault();
+  }
 });
 sheet.addEventListener('keydown', event => {
   if (event.key === 'Escape') {

@@ -183,6 +183,12 @@
   .trip-picker-head > div { display: flex; align-items: baseline; gap: 10px; }
   .trip-picker-head h2 { font-size: 25px; }
 }
+@media (orientation: landscape) and (max-height: 550px) and (max-width: 1000px) {
+  .trip-cover-copy { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 20px; padding-right: 45px; }
+  .trip-location { display: none; }
+  .trip-cover h1 { margin: 0; }
+  .trip-cover { min-height: 68px; align-items: center; }
+}
 @media (prefers-reduced-motion: reduce) { .trip-idea img { transition: none; } }
 @media print {
   .site-header, .site-footer, .skip-link, .trip-workspace, .trip .trip-print, .trip dialog, .toast, .trip-cover > img, .trip-cover::before { display: none !important; }
