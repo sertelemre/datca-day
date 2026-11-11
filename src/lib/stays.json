@@ -2419,6 +2419,12 @@
   {
     "number": "2022-48-2201",
     "name": "Esenada Oteli",
+    "archivePhoto": {
+      "source": "https://www.datca-haber.com/makale/gecmis-zaman-olur-ki-1916",
+      "tr": "Arşiv fotoğrafı · 1930’larda Esenada ve Datça Limanı",
+      "en": "Archive photo · Esenada and Datça harbour in the 1930s",
+      "ru": "Архивное фото · Эсенада и гавань Датчи в 1930-е годы"
+    },
     "type": "otel",
     "address": "İskele Mah Atatürk Cad. No:95",
     "phone": "+90 549 265 15 88",
@@ -4085,8 +4091,11 @@
   {
     "number": "24942",
     "name": "Riga Pansiyon",
+    "alias": "Bal Butik Otel (Riga Pansiyon)",
+    "photo": "https://images.trvl-media.com/lodging/96000000/95720000/95717500/95717445/ce6ca463.jpg?impolicy=resizecrop&ra=fit&rw=750",
+    "gallery": "https://tr.hotels.com/ho3063958240/bal-butik-otel-datca-turkiye/",
     "type": "pansiyon",
-    "address": "Hızırsah Mah. Hızırsah Küme Evleri No:343/A Datça/Muğla",
+    "address": "Hızırşah Mah. Hızırşah Küme Evleri No:343/A, Datça/Muğla",
     "area": "Hızırşah",
     "phone": "+90 533 709 08 88",
     "coordinates": [

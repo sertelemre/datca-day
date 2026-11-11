@@ -51,6 +51,7 @@ const photoSource = (url:string) => new URL(url).hostname.replace(/^www\./,'');
           <div class="stay-links"><a href={mapsUrl} data-map-link data-select-stay={pin ? '' : undefined} target="_blank" rel="noopener noreferrer"><Icon name="pin" size={15}/>{pin ? m.show : labels.map}</a>{spot.website && <a href={spot.website} target="_blank" rel="noopener noreferrer">{labels.web} ↗</a>}</div>
           <small>{spot.locationSource && <><a data-location-source href={spot.locationSource} target="_blank" rel="noopener noreferrer">{spot.mappedDoor ? m.addressSource : m.source} ↗</a> · </>}{spot.contactSource && <><a data-contact-source href={spot.contactSource} target="_blank" rel="noopener noreferrer">{labels.contactSource} ↗</a> · </>}{spot.type==='application'?labels.application:labels.number} {spot.number}</small>
           {spot.gallery && <a class="credit" href={spot.gallery} target="_blank" rel="noopener noreferrer">{labels.gallery} · {photoSource(spot.gallery)} ↗</a>}
+          {spot.archivePhoto && <a class="credit" href={spot.archivePhoto.source} target="_blank" rel="noopener noreferrer">{spot.archivePhoto[locale]} · {photoSource(spot.archivePhoto.source)} ↗</a>}
         </div>
       </article>
     })}
