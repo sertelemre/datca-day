@@ -70,3 +70,43 @@ test('Bubilet shared data only imports sessions matching the verified place and 
   const rows = await readSource(source,async () => ld(place) + '<script>self.__next_f.push(' + chunk + ')</script>');
   assert.deepEqual(rows.map(row=>[row.time,row.category]),[['20:00','theatre']]);
 });
+
+test('venue profiles verify organizer and location, including Dadya’s province-only address',async () => {
+  const source = {adapter:'jollin',url:'https://jollin.com.tr/dadyadostane/',venueAliases:['Dadya Dostane']};
+  const url = 'https://jollin.com.tr/etkinlik/orkestra/';
+  const profile = ld({'@type':'Organization',url:source.url});
+  const index = profile + '<main><a href="/etkinlik/orkestra/">Dadya Orkestra</a><a href="/etkinlik/old/">1 Eki 2026</a></main>';
+  const event = {...show,'@type':'Event',url,name:'Dadya Orkestra',image:[{url:'/uploads/media/show.webp'}],organizer:{url:source.url},
+    location:{name:'Dadya Dostane',address:{addressLocality:'Muğla',addressRegion:'Muğla'}}};
+  const detail = ld([event,{...event,location:{name:'Başka Sahne',address:'Bodrum'}},{...event,organizer:{url:'/other/'}},{...event,eventStatus:'EventCancelled'}]);
+  const rows = await readSource(source,async page => {
+    if (page === source.url) return index;
+    assert.equal(page,url);
+    return detail;
+  },'2026-11-04');
+  assert.deepEqual(rows.map(r => [r.category,r.poster]),[['music','https://jollin.com.tr/uploads/media/show.webp']]);
+  assert.deepEqual(await readSource(source,async () => profile + '<main>Şu an yaklaşan etkinlik yok</main>'),[]);
+  await assert.rejects(readSource(source,async () => profile + '<main>Yükleniyor</main>'));
+});
+
+test('dance performances use dated links, announcement posters and the club’s hours across midnight',async () => {
+  const source = {adapter:'dance',url:'https://dancevents.net/venues/pandora-pub'};
+  const place = {'@type':['DanceHall','LocalBusiness'],name:'Pandora Pub',url:source.url,address:{addressLocality:'Datça'}};
+  const path = '/events/latin/2026-11-13';
+  const index = ld(place) + '<a href="' + path + '">Dans gecesi</a>';
+  const poster = 'https://s3.eu-west-1.amazonaws.com/dancevents.net/events/pandora.webp';
+  const event = {'@type':'Event',name:'Latin Gecesi',location:place,url:'https://dancevents.net/events/latin',image:poster,startDate:'2026-11-13T21:00:00',endDate:'2026-11-13T23:59:00'};
+  const read = patch => readSource(source,async page => page === source.url ? index : ld({...event,...patch}));
+  const [row] = await read({description:'HER CUMA 🕤 21:30 – 00:00'});
+  assert.deepEqual([row.start,row.time,row.end,row.closeTime,row.url,row.poster],['2026-11-13','21:30','2026-11-14','00:00','https://dancevents.net' + path,poster]);
+  const [regular] = await read({image:'https://s3.eu-west-1.amazonaws.com/other-bucket/photo.webp'});
+  assert.deepEqual([regular.time,regular.closeTime,regular.poster],['21:00','23:59',undefined]);
+  assert.deepEqual(await read({eventStatus:'EventPostponed'}),[]);
+  await assert.rejects(read({startDate:'2026-11-06T21:00:00'}));
+});
+
+test('a second listing can supply a missing poster without duplicating a show or changing its ID',() => {
+  const original = normalize({...base,title:'Abdullah, Konuş!'},karia,checked);
+  const duplicate = {...original,id:'other',title:'Abdullah Konuş!',poster:'https://jollin.com.tr/show.webp'};
+  assert.deepEqual(mergeRows([original,duplicate],checked),[{...original,poster:duplicate.poster}]);
+});

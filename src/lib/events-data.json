@@ -1,58 +1,109 @@
 {
-  "attempted": "2026-11-10",
+  "attempted": "2026-11-11",
   "checks": [
     {
       "id": "belediye",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "karia",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "tsf",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "taf",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "biletinial-kultur",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "biletinial-amfi",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "biletix-kultur",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "biletix-amfi",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "bubilet-kultur",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "bubilet-amfi",
       "status": "ok",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "nui",
+      "status": "ok",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "dadya",
+      "status": "ok",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "pandora",
+      "status": "ok",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "loop",
+      "status": "ok",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "jollin-mugla",
+      "status": "ok",
+      "checked": "2026-11-11"
     }
   ],
   "events": [
+    {
+      "id": "d98218f486d0",
+      "title": "Kadınlar Matinesi",
+      "start": "2026-11-06",
+      "end": "2026-11-06",
+      "time": "20:00",
+      "venue": "Nui Datça",
+      "category": "music",
+      "url": "https://jollin.com.tr/etkinlik/kadinlar-matinesi-zsg73q/",
+      "poster": "https://jollin.com.tr/uploads/media/f1/d1/f1d191fe-6e3b-4b51-96a5-f13d388b44f3.webp",
+      "sourceId": "nui",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "f970f09c808d",
+      "title": "Ustaların Şarkıları - Dadya Orkestra",
+      "start": "2026-11-06",
+      "end": "2026-11-06",
+      "time": "20:30",
+      "venue": "Dadya Dostane Kültür ve Sanat Evi",
+      "category": "music",
+      "url": "https://jollin.com.tr/etkinlik/ustalarin-sarkilari-dadya-orkestra-ajex3h/",
+      "poster": "https://jollin.com.tr/uploads/media/c7/08/c7084182-9d14-466c-980e-4e4ad9ef38ee.webp",
+      "sourceId": "dadya",
+      "checked": "2026-11-11"
+    },
     {
       "id": "4f11a4bbdb17",
       "title": "Mahallemiz Eşrafından",
@@ -65,7 +116,33 @@
       "ticket": "https://biletino.com/tr/e-1cxf/mahallemiz-esrafindan/",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2026/mahallemiz-esrafindan.png",
       "sourceId": "karia",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "4850c060c9b1",
+      "title": "Datça Eski 45’likler Orkestrası",
+      "start": "2026-11-07",
+      "end": "2026-11-07",
+      "time": "20:30",
+      "venue": "Dadya Dostane",
+      "category": "music",
+      "url": "https://jollin.com.tr/etkinlik/datca-eski-45likler-orkestrasi-73nz6r/",
+      "poster": "https://jollin.com.tr/uploads/media/dc/cc/dccc90c1-dd8a-4ac0-b2a4-a85804547459.webp",
+      "sourceId": "dadya",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "50d70a3cf0e8",
+      "title": "Burak Gencer Sahne Performansı",
+      "start": "2026-11-07",
+      "end": "2026-11-07",
+      "time": "20:30",
+      "venue": "Nui Datça",
+      "category": "music",
+      "url": "https://jollin.com.tr/etkinlik/burak-gencer-sahne-performansi-wk2ghq/",
+      "poster": "https://jollin.com.tr/uploads/media/bf/04/bf04d4c4-1f91-4438-ac60-c2e3673675c7.webp",
+      "sourceId": "nui",
+      "checked": "2026-11-11"
     },
     {
       "id": "7164f066f6d0",
@@ -80,7 +157,75 @@
       "schedule": "friday",
       "closeTime": "12:30",
       "sourceId": "belediye",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "587159a5b36e",
+      "title": "Datça Dans Latin night",
+      "start": "2026-11-13",
+      "end": "2026-11-14",
+      "time": "21:30",
+      "venue": "Pandora Pub",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-oc3a/2026-11-13",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
+      "closeTime": "00:00",
+      "sourceId": "pandora",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "fb489a64878e",
+      "title": "Necdet Kaya ile Canlı Müzik",
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "time": "21:00",
+      "venue": "NUI | Datça",
+      "category": "music",
+      "url": "https://jollin.com.tr/etkinlik/necdet-kaya-ile-canli-muzik-9dsy4s/",
+      "poster": "https://jollin.com.tr/uploads/media/5a/0e/5a0e226d-ae23-4441-a6f9-a9b8d98f8870.webp",
+      "sourceId": "nui",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "2f10d80a813b",
+      "title": "Cansu Sezal Arp Dinletisi",
+      "start": "2026-11-15",
+      "end": "2026-11-15",
+      "time": "20:00",
+      "venue": "Bülent Ecevit Kültür Merkezi",
+      "category": "music",
+      "url": "https://jollin.com.tr/etkinlik/cansu-sezal-arp-dinletisi-f6qgh6/",
+      "poster": "https://jollin.com.tr/uploads/media/a4/56/a4561202-b81b-40f7-8627-fc129688cc91.webp",
+      "sourceId": "jollin-mugla",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "6af6b52c91c9",
+      "title": "Datça Dans Latin night",
+      "start": "2026-11-17",
+      "end": "2026-11-17",
+      "time": "21:00",
+      "venue": "LOOP Cocktail&Food",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-5fup/2026-11-17",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
+      "closeTime": "23:59",
+      "sourceId": "loop",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "31eae1f7cd5c",
+      "title": "Datça Dans Latin night",
+      "start": "2026-11-20",
+      "end": "2026-11-21",
+      "time": "21:30",
+      "venue": "Pandora Pub",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-oc3a/2026-11-20",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
+      "closeTime": "00:00",
+      "sourceId": "pandora",
+      "checked": "2026-11-11"
     },
     {
       "id": "d6a7090446b4",
@@ -91,7 +236,89 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "12685358a7ad",
+      "title": "Datça Dans Latin night",
+      "start": "2026-11-24",
+      "end": "2026-11-24",
+      "time": "21:00",
+      "venue": "LOOP Cocktail&Food",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-5fup/2026-11-24",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
+      "closeTime": "23:59",
+      "sourceId": "loop",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "c4ccc3b5933e",
+      "title": "Beş Kuruşluk Cinayet",
+      "time": "20:00",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://dayanisma-datca.org/datca-da-feminist-tiyatro-yeniden-sahnede-sozumuz-var-soylenecek/",
+      "poster": "https://dayanisma-datca.org/cdn/haberler/2026/11/datca-da-feminist-tiyatro-yeniden-sahnede-sozumuz-var-soylenecek-AOSrK.png",
+      "start": "2026-11-26",
+      "end": "2026-11-26",
+      "sourceId": "dayanisma",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "c2ecbc6be6d9",
+      "title": "Datça Dans Latin night",
+      "start": "2026-11-27",
+      "end": "2026-11-28",
+      "time": "21:30",
+      "venue": "Pandora Pub",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-oc3a/2026-11-27",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
+      "closeTime": "00:00",
+      "sourceId": "pandora",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "5ad70fb288d0",
+      "title": "Beş Kuruşluk Cinayet",
+      "time": "20:00",
+      "venue": "Datça Bülent Ecevit Kültür Merkezi",
+      "category": "theatre",
+      "url": "https://dayanisma-datca.org/datca-da-feminist-tiyatro-yeniden-sahnede-sozumuz-var-soylenecek/",
+      "poster": "https://dayanisma-datca.org/cdn/haberler/2026/11/datca-da-feminist-tiyatro-yeniden-sahnede-sozumuz-var-soylenecek-AOSrK.png",
+      "start": "2026-11-29",
+      "end": "2026-11-29",
+      "sourceId": "dayanisma",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "6878d1298da0",
+      "title": "Datça Dans Latin night",
+      "start": "2026-12-01",
+      "end": "2026-12-01",
+      "time": "21:00",
+      "venue": "LOOP Cocktail&Food",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-5fup/2026-12-01",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
+      "closeTime": "23:59",
+      "sourceId": "loop",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "2b9e9a04da9e",
+      "title": "Datça Dans Latin night",
+      "start": "2026-12-04",
+      "end": "2026-12-05",
+      "time": "21:30",
+      "venue": "Pandora Pub",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-oc3a/2026-12-04",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
+      "closeTime": "00:00",
+      "sourceId": "pandora",
+      "checked": "2026-11-11"
     },
     {
       "id": "1644f557323c",
@@ -105,7 +332,21 @@
       "ticket": "https://biletino.com/tr/e-1cxg/apsolit/",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2026/apsolit.png",
       "sourceId": "karia",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "6a0ba8e49ac2",
+      "title": "Datça Dans Latin night",
+      "start": "2026-12-08",
+      "end": "2026-12-08",
+      "time": "21:00",
+      "venue": "LOOP Cocktail&Food",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-5fup/2026-12-08",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
+      "closeTime": "23:59",
+      "sourceId": "loop",
+      "checked": "2026-11-11"
     },
     {
       "id": "65d9eb75554c",
@@ -119,7 +360,49 @@
       "closeTime": "21:55",
       "poster": "https://b6s54eznn8xq.merlincdn.net/Uploads/Films/yukleniyor-2026928137294f918a26568946f29d73d02081b3ee56.jpeg",
       "sourceId": "biletinial-kultur",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "8ffb45a94d4f",
+      "title": "Datça Dans Latin night",
+      "start": "2026-12-11",
+      "end": "2026-12-12",
+      "time": "21:30",
+      "venue": "Pandora Pub",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-oc3a/2026-12-11",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
+      "closeTime": "00:00",
+      "sourceId": "pandora",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "c95b8f5672e7",
+      "title": "Datça Dans Latin night",
+      "start": "2026-12-15",
+      "end": "2026-12-15",
+      "time": "21:00",
+      "venue": "LOOP Cocktail&Food",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-5fup/2026-12-15",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
+      "closeTime": "23:59",
+      "sourceId": "loop",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "a6d9f5a1bb75",
+      "title": "Datça Dans Latin night",
+      "start": "2026-12-18",
+      "end": "2026-12-19",
+      "time": "21:30",
+      "venue": "Pandora Pub",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-oc3a/2026-12-18",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
+      "closeTime": "00:00",
+      "sourceId": "pandora",
+      "checked": "2026-11-11"
     },
     {
       "id": "6d60cbb7bb2c",
@@ -130,7 +413,91 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "d854c71edd54",
+      "title": "Datça Dans Latin night",
+      "start": "2026-12-22",
+      "end": "2026-12-22",
+      "time": "21:00",
+      "venue": "LOOP Cocktail&Food",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-5fup/2026-12-22",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
+      "closeTime": "23:59",
+      "sourceId": "loop",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "3b8b20765aae",
+      "title": "Datça Dans Latin night",
+      "start": "2026-12-25",
+      "end": "2026-12-26",
+      "time": "21:30",
+      "venue": "Pandora Pub",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-oc3a/2026-12-25",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
+      "closeTime": "00:00",
+      "sourceId": "pandora",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "297ee5f856e8",
+      "title": "Datça Dans Latin night",
+      "start": "2026-12-29",
+      "end": "2026-12-29",
+      "time": "21:00",
+      "venue": "LOOP Cocktail&Food",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-5fup/2026-12-29",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
+      "closeTime": "23:59",
+      "sourceId": "loop",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "a51f74f6dd5d",
+      "title": "Datça Dans Latin night",
+      "start": "2027-01-01",
+      "end": "2027-01-02",
+      "time": "21:30",
+      "venue": "Pandora Pub",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-oc3a/2027-01-01",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
+      "closeTime": "00:00",
+      "sourceId": "pandora",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "802bb84f111a",
+      "title": "Datça Dans Latin night",
+      "start": "2027-01-05",
+      "end": "2027-01-05",
+      "time": "21:00",
+      "venue": "LOOP Cocktail&Food",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-5fup/2027-01-05",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
+      "closeTime": "23:59",
+      "sourceId": "loop",
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "8a23ba871b1e",
+      "title": "Datça Dans Latin night",
+      "start": "2027-01-08",
+      "end": "2027-01-09",
+      "time": "21:30",
+      "venue": "Pandora Pub",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-oc3a/2027-01-08",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
+      "closeTime": "00:00",
+      "sourceId": "pandora",
+      "checked": "2026-11-11"
     },
     {
       "id": "1068217ebc06",
@@ -144,7 +511,21 @@
       "ticket": "https://biletino.com/tr/e-1cxh/gong/",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2026/gong.png",
       "sourceId": "karia",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
+    },
+    {
+      "id": "81e6b3aa0548",
+      "title": "Datça Dans Latin night",
+      "start": "2027-01-12",
+      "end": "2027-01-12",
+      "time": "21:00",
+      "venue": "LOOP Cocktail&Food",
+      "category": "dance",
+      "url": "https://dancevents.net/events/datca-dans-latin-night-5fup/2027-01-12",
+      "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
+      "closeTime": "23:59",
+      "sourceId": "loop",
+      "checked": "2026-11-11"
     },
     {
       "id": "5cbab98bddfd",
@@ -155,7 +536,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "fa1d5da63585",
@@ -167,7 +548,7 @@
       "url": "https://datca.bel.tr/etkinlikler/21-uluslararasi-datca-acik-deniz-kis-yuzme-maratonu",
       "poster": "https://datca.bel.tr/storage/events/20260814-170339-MW1A2STP.png",
       "sourceId": "belediye",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "4b5ae7734180",
@@ -179,7 +560,7 @@
       "url": "https://datca.bel.tr/etkinlikler/8-uluslararasi-badem-cicegi-festivali",
       "poster": "https://datca.bel.tr/storage/events/20260921-142624-sRNoCfkZ.png",
       "sourceId": "belediye",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "9669fbe2a1a5",
@@ -193,7 +574,7 @@
       "ticket": "https://biletino.com/e-1dh0",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/havva.png",
       "sourceId": "karia",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "e91e0ac769b4",
@@ -204,7 +585,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "be391e1e9ee3",
@@ -218,7 +599,7 @@
       "ticket": "https://biletino.com/e-1dh4",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/zuhal.png",
       "sourceId": "karia",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "fd81c22ae1a5",
@@ -229,7 +610,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "8a22fd012f55",
@@ -243,7 +624,7 @@
       "ticket": "https://biletino.com/e-1dh5",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/abdullah-konus.png",
       "sourceId": "karia",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "b8500ec6cc1f",
@@ -256,7 +637,7 @@
       "category": "sport",
       "url": "https://kosu.taf.org.tr/kesifrun-datca-10k?id=191&lang=tr",
       "sourceId": "taf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "96c18e86a84f",
@@ -267,7 +648,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "63e68b5cd19c",
@@ -281,7 +662,7 @@
       "ticket": "https://biletino.com/e-1dh9",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/metamorfoz.png",
       "sourceId": "karia",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "6b5e6fff5d2a",
@@ -292,7 +673,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "e0da3e1ba2e8",
@@ -303,7 +684,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     },
     {
       "id": "aeb7e3a15051",
@@ -314,7 +695,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-10"
+      "checked": "2026-11-11"
     }
   ],
   "archive": []

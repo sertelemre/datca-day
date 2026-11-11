@@ -1,0 +1,29 @@
+---
+interface Props { poster?: string; title: string; detail?: boolean }
+const {poster, title, detail = false} = Astro.props;
+---
+<div class:list={['event-media', detail ? 'detail-media' : 'card-media']}>
+  {poster && <img src={poster} alt={title} loading={detail ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" data-event-poster/>}
+</div>
+
+<script>
+  for (const image of document.querySelectorAll<HTMLImageElement>('[data-event-poster]')) {
+    const showLogo = () => image.hidden = true;
+    image.addEventListener('error',showLogo,{once:true});
+    if (image.complete && !image.naturalWidth) showLogo();
+  }
+</script>
+
+<style>
+  .event-media { position:relative; display:grid; place-items:center; overflow:hidden; background:var(--cream); }
+  .event-media::before { content:""; position:absolute; inset:0; background:url('/images/datca-day.svg') center / min(72%, 190px) auto no-repeat; opacity:.17; }
+  img { position:relative; display:block; width:100%; object-fit:contain; background:var(--cream); }
+  img[hidden] { display:none; }
+  .card-media { aspect-ratio:16/9; border-bottom:1px solid var(--line); }
+  .card-media img { position:absolute; inset:0; height:100%; }
+  .detail-media { min-height:120px; margin-bottom:16px; }
+  .detail-media img { max-height:330px; }
+  @media(max-width:600px) {
+    .card-media { aspect-ratio:auto; border:0; border-right:1px solid var(--line); }
+  }
+</style>

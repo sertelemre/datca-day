@@ -18,6 +18,12 @@
   {"id":"biletix-amfi","name":"Biletix · Datça Açıkhava Tiyatrosu","kind":"tickets","topic":"stage","adapter":"biletix","url":"https://www.biletix.com/mekan/4805A/TURKIYE/tr"},
   {"id":"bubilet-kultur","name":"Bubilet · Bülent Ecevit Kültür Merkezi","kind":"tickets","topic":"theatre","adapter":"bubilet","url":"https://www.bubilet.com.tr/mekan/bulent-ecevit-kultur-merkezi"},
   {"id":"bubilet-amfi","name":"Bubilet · Datça Açıkhava Tiyatrosu","kind":"tickets","topic":"stage","adapter":"bubilet","url":"https://www.bubilet.com.tr/mekan/datca-acikhava-tiyatrosu"},
+  {"id":"nui","name":"NUI Datça","kind":"privateVenue","topic":"stage","adapter":"jollin","url":"https://jollin.com.tr/nuidatca/"},
+  {"id":"dadya","name":"Dadya Dostane Kültür ve Sanat Evi","kind":"privateVenue","topic":"stage","adapter":"jollin","venueAliases":["Dadya Dostane","Dadya Dostane Kültür ve Sanat Evi","Dostane"],"url":"https://jollin.com.tr/dadyadostane/"},
+  {"id":"pandora","name":"Pandora Pub","kind":"privateVenue","topic":"dance","adapter":"dance","url":"https://dancevents.net/venues/pandora-pub"},
+  {"id":"loop","name":"LOOP Cocktail & Food","kind":"privateVenue","topic":"dance","adapter":"dance","url":"https://dancevents.net/venues/loop-cocktailandfood"},
+  {"id":"maison-magi","name":"Maison Magi · Eski Datça","kind":"privateVenue","topic":"arts","url":"https://maisonmagi.com/venue/maison-magi/"},
+  {"id":"jollin-mugla","name":"Jollin · Muğla Etkinlikleri","kind":"local","topic":"local","adapter":"jollin","url":"https://jollin.com.tr/muglaetkinlikleri/"},
   {"id":"cocuk","name":"İzmir Çocuk Tiyatrosu","kind":"organizer","topic":"family","url":"https://bilet.izmircocuktiyatrosu.com/etkinlik_takvimi.php"},
   {"id":"dayanisma","name":"Dayanışma Datça · Etkinlikler","kind":"local","topic":"local","url":"https://dayanisma-datca.org/etkinlikler"},
   {"id":"sinema","name":"Sinemalar.com · Muğla Sinema Datça","kind":"local","topic":"cinema","url":"https://www.sinemalar.com/sinemasalonu/2054/mugla-sinema-datca"}

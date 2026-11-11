@@ -32,11 +32,14 @@ function allowedLink(raw, sourceUrl, host = new URL(sourceUrl).hostname) {
   return url.href;
 }
 function poster(image, base) {
+  if (Array.isArray(image)) return image.map(item => poster(item,base)).find(Boolean);
+  if (image && typeof image === 'object') return poster(image.contentUrl || image.url,base);
   if (!image || typeof image !== 'string') return undefined;
   try {
     const url = new URL(image,base);
     const hosts = new Set([new URL(base).hostname,'b6s54eznn8xq.merlincdn.net']);
-    if (url.protocol === 'https:' && hosts.has(url.hostname) && !url.username && !url.password && !url.port && !/og-kapak|sample-images|logo\./i.test(url.pathname)) return url.href;
+    if (new URL(base).hostname === 'dancevents.net' && url.pathname.startsWith('/dancevents.net/events/')) hosts.add('s3.eu-west-1.amazonaws.com');
+    if (url.protocol === 'https:' && hosts.has(url.hostname) && !url.username && !url.password && !url.port && !/og-kapak|sample-images|logo\.|\/avatar\/|placeholder/i.test(url.pathname)) return url.href;
   } catch {}
   return undefined;
 }
@@ -55,11 +58,13 @@ function schemas(doc) {
 }
 function category(value) {
   const name = fold(value);
-  if (/tiyatro|theater|sahne/.test(name)) return 'theatre';
+  if (/tiyatro|theater|stand[ -]?up/.test(name)) return 'theatre';
   if (/yuzme|satranc|spor|kosu|sports/.test(name)) return 'sport';
   if (/festival/.test(name)) return 'festival';
   if (/atolye|sergi/.test(name)) return 'arts';
-  if (/konser|muzik|music/.test(name)) return 'music';
+  if (/konser|muzik|music|orkestra|dinleti|\bdj\b|sarkilari/.test(name)) return 'music';
+  if (/\bdans\b|dance/.test(name)) return 'dance';
+  if (/sahne/.test(name)) return 'theatre';
   if (/sinema|film|screening/.test(name)) return 'cinema';
   if (/cocuk|aile/.test(name)) return 'family';
   return 'other';
@@ -71,7 +76,11 @@ function schemaEvents(objects, page, source, dateOnly = false) {
     const location = Array.isArray(row.location) ? row.location[0] : row.location;
     const address = location?.address;
     const addressText = typeof address === 'string' ? address : [address?.streetAddress,address?.addressLocality].join(' ');
-    if (!location?.name || !district(location.name + ' ' + addressText)) continue;
+    if (!location?.name) continue;
+    // Some Datça venue profiles report only the province in the address.
+    const namedVenue = source.venueAliases?.some(name => fold(name) === fold(location.name)) &&
+      fold(address?.addressLocality) === 'mugla' && row.organizer?.url === source.url;
+    if (!namedVenue && !district(location.name + ' ' + addressText)) continue;
     if (/Cancelled|Postponed|MovedOnline/.test(row.eventStatus || '')) continue;
     const moment = row.startDate?.match(/^(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}))?/);
     if (!moment) throw Error('Missing event date');
@@ -224,8 +233,67 @@ async function venue(doc, source, get) {
   }
   return output;
 }
-export async function readSource(source, get) {
+async function jollin(doc, source, get, cutoff) {
+  const main = nodes(doc,n => n.tagName === 'main')[0];
+  if (!main || !schemas(doc).some(row => row['@type'] === 'Organization' && row.url === source.url)) throw Error('Venue profile missing');
+  const links = nodes(main,n => n.tagName === 'a' && /^\/etkinlik\/[^/]+\/$/.test(attr(n,'href')));
+  if (!links.length && !/yaklaşan etkinlik yok/i.test(label(main))) throw Error('Venue programme missing');
+  const output = [];
+  const urls = new Set();
+  for (const link of links) {
+    if (source.kind === 'local' && !district(label(link))) continue;
+    const pastDate = label(link).match(/\b(\d{1,2}) (\p{L}{3}) (\d{4})\b/u);
+    if (pastDate && cutoff) {
+      const month = months.find(name => fold(name.slice(0,3)) === fold(pastDate[2]));
+      if (month && fromTurkish(pastDate[1],month,pastDate[3]) < cutoff) continue;
+    }
+    urls.add(allowedLink(attr(link,'href'),source.url));
+  }
+  for (const url of urls) {
+    const detail = parse(await get(url));
+    const announced = schemas(detail).filter(row => row['@type'] === 'Event' && row.url === url);
+    if (!announced.length) throw Error('Event announcement missing');
+    for (const event of announced.filter(row => row.organizer?.url === source.url)) {
+      const address = event.location?.address;
+      if (address?.addressRegion && fold(address.addressRegion) !== 'mugla') continue;
+      const [row] = schemaEvents([event],url,source);
+      if (!row) continue;
+      if (row.category === 'other' || /sahne/i.test(row.title)) row.category = category([row.title,event.description].join(' '));
+      // The regional programme sometimes appends the full street address to the venue name.
+      if (event.location.name === event.location.address?.streetAddress) row.venue = words(row.venue.split(',')[0]);
+      output.push(row);
+    }
+  }
+  return output;
+}
+
+async function danceProgramme(doc, source, get) {
+  const place = schemas(doc).find(row => [].concat(row['@type']).includes('DanceHall') && row.url === source.url && district(row.address?.addressLocality));
+  if (!place) throw Error('Datça dance venue missing');
+  const links = nodes(doc,n => n.tagName === 'a' && /^\/events\/[^/]+\/\d{4}-\d{2}-\d{2}$/.test(attr(n,'href')));
+  if (!links.length && !/no upcoming events|upcoming events\s*\(\s*0\s*\)/i.test(label(doc))) throw Error('Dated dance programme missing');
+  const rows = [];
+  for (const url of new Set(links.map(link => allowedLink(attr(link,'href'),source.url)))) {
+    const events = schemas(parse(await get(url)));
+    const day = url.slice(-10);
+    const event = events.find(row => row['@type'] === 'Event' && row.startDate?.slice(0,10) === day && row.location?.url === place.url);
+    if (!event) throw Error('Dance performance does not match venue and date');
+    const [row] = schemaEvents([event],url,source);
+    if (!row) continue;
+    // These venue-local times have no offset. The club's written hours take priority over calendar defaults.
+    const written = event.description?.match(/her\s+(?:pazartesi|salı|çarşamba|perşembe|cuma(?:rtesi)?|pazar)(?!\p{L})[^\d\n]*(\d\d:\d\d)\s*[-–]\s*(\d\d:\d\d)/iu);
+    row.time = written?.[1] || event.startDate.slice(11,16);
+    row.closeTime = written?.[2] || event.endDate?.slice(11,16);
+    if (written && row.closeTime < row.time) row.end = new Date(Date.parse(day + 'T12:00:00Z') + 86400000).toISOString().slice(0,10);
+    rows.push({...row,url,category:'dance'});
+  }
+  return rows;
+}
+
+export async function readSource(source, get, cutoff) {
   const doc = parse(await get(source.url));
+  if (source.adapter === 'jollin') return jollin(doc,source,get,cutoff);
+  if (source.adapter === 'dance') return danceProgramme(doc,source,get);
   if (source.adapter === 'council') return municipal(doc,source,get);
   if (source.adapter === 'chess') return chess(doc,source);
   if (source.adapter === 'race') return race(doc,source);
@@ -248,8 +316,11 @@ export function normalize(row, source, day) {
 export function mergeRows(rows, cutoff) {
   const found = new Map();
   for (const row of rows.filter(row => row.end >= cutoff)) {
-    const signature = [fold(row.title),row.start,row.time || '',fold(row.venue).replace(/\bdatca\b/g,'').replace(/\W/g,'')].join('|');
-    if (!found.has(signature)) found.set(signature,row);
+    const title = words(fold(row.title).replace(/\p{P}/gu,' '));
+    const signature = [title,row.start,row.time || '',fold(row.venue).replace(/\bdatca\b/g,'').replace(/\W/g,'')].join('|');
+    const existing = found.get(signature);
+    if (!existing) found.set(signature,row);
+    else if (!existing.poster && row.poster) found.set(signature,{...existing,poster:row.poster});
   }
   return [...found.values()].sort((a,b) => a.start.localeCompare(b.start) || (a.time || '').localeCompare(b.time || '') || a.id.localeCompare(b.id));
 }

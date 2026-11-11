@@ -5,6 +5,7 @@ export function eventText(locale: string, words: LocalText) {
 export const eventLabels: Record<string,LocalText> = {
   theatre: ['Tiyatro','Theatre','Театр'], sport: ['Spor','Sport','Спорт'], arts:['Sergi ve atölye','Art & workshops','Выставки и мастер-классы'],
   music:['Konser','Concerts','Концерты'], festival:['Festival','Festival','Фестиваль'], cinema:['Sinema','Cinema','Кино'], family:['Çocuk ve aile','Family','Для детей'], other:['Diğer','Other','Другое'],
+  dance:['Dans','Dance','Танцы'], privateVenue:['Özel mekânlar','Independent venues','Независимые площадки'],
   public:['Kamu kurumu','Public institution','Официальное учреждение'], organizer:['Organizatör','Organizer','Организатор'], tickets:['Bilet platformu','Ticket platform','Билетная площадка'], local:['Yerel yayın ve rehber','Local press & listings','Местные издания и афиши'],
   localTopic:['Yerel duyurular','Community announcements','Местные объявления'], chess:['Satranç turnuvaları','Chess tournaments','Шахматные турниры'], run:['Yol koşuları','Road running','Шоссейный бег'], outdoors:['Doğa sporları ve bisiklet','Outdoor sports and cycling','Велоспорт и активный отдых'], swim:['Açık deniz yüzme','Open-water swimming','Плавание на открытой воде'], stage:['Sahne programı','Live performances','Сценическая программа'], classes:['Kurslar ve sergiler','Courses and exhibitions','Курсы и выставки']
 };

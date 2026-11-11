@@ -25,6 +25,8 @@ Son komut derlenen sayfalardaki iç bağlantıları, görselleri, başlıkları,
 
 Etkinlik ve ulaşım görevleri GitHub Actions üzerinde her gün çalışır. Kaynak ve takvim verileri `src/lib` altında tutulur. Her rehber, etkinlik ve sefer sayfası okuru özgün kaynağına götürür. Yerelde yenilemek için `npm run events:update` veya `npm run transport:update` çalıştırın.
 
+Özel mekânların programları da günlük taramaya dahildir. Yalnızca afiş veya haber olarak yayımlanan gösterimler `src/lib/event-announcements.json` dosyasına kaynak bağlantısı, seans tarihleri ve son editoryal kontrol tarihiyle eklenir.
+
 Konaklama rehberinde (`src/lib/stays.json`) her harita noktası `coordinates: [enlem, boylam]` ve tesise özel bir `locationSource` ile tutulur. Koordinat eklerken tesisin adıyla birlikte adresi, belge numarasını veya telefonu eşleştirin; yalnızca mahalle biliniyorsa koordinatı boş bırakın. Harita ve dizin aynı filtreleri kullanır. Konum kaynakları tesis sitelerini, konaklama kataloglarını, [OpenStreetMap](https://www.openstreetmap.org/copyright) ve [Overture Maps Places](https://docs.overturemaps.org/attribution/#places) üzerinden alınan Meta kayıtlarını ([CDLA Permissive 2.0](https://cdla.dev/permissive-2-0/)) içerir.
 
 ## Yayın
