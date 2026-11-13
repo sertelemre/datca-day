@@ -7,7 +7,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-1-datca-eski-datca-resadiye-234",
       "sourceUpdated": "2026-10-30T16:46:12+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Eski Datça Reşadiye ( Hastane)",
       "days": [
         {
@@ -130,7 +130,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-2-ozbel-kargi-235",
       "sourceUpdated": "2026-10-30T16:46:30+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Özbel - Kargı (Cumhuriyet Meydanı)",
       "days": [
         {
@@ -250,7 +250,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-3-datca-mesudiye-231",
       "sourceUpdated": "2026-10-30T17:08:18+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Hızırşah - Hayıtbükü - Ovabükü - Mesudiye",
       "days": [
         {
@@ -343,7 +343,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-3-datca-hizirsah-232",
       "sourceUpdated": "2026-10-30T17:08:41+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Hızırşah",
       "days": [
         {
@@ -428,7 +428,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-4-datca-aktur-237",
       "sourceUpdated": "2026-10-14T16:53:47+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Aktur (Periliköşk - Karaincir - Emecik)",
       "days": [
         {
@@ -527,7 +527,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-4-datca-karaincir-238",
       "sourceUpdated": "2026-10-14T16:54:08+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Karaincir (Aktur - Emecik)",
       "days": [
         {
@@ -612,7 +612,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-5-datca-palamutbuku-78",
       "sourceUpdated": "2026-10-23T13:41:06+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Palamutbükü (Hızırşah Yol Ayrımı - Mesudiye Yol Ayrımı - Zeytincik - Örencik - Sındı - Yaka - Kumyer)",
       "days": [
         {
@@ -704,7 +704,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-5-datca-belen-76",
       "sourceUpdated": "2026-10-23T13:40:44+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Belen (Hızırşah Yol Ayrımı - Mesudiye Yol Ayrımı - Zeytincik - Örencik - Sındı - Yaka - Kumyer - Palamutbükü - Çeşme - Cumalı - Yazıköy )",
       "days": [
         {
@@ -796,7 +796,7 @@
       "kind": "intercity",
       "source": "https://ulasim.muttas.com.tr/hat/9-6-belen-mentese-228",
       "sourceUpdated": "2025-05-08T17:05:11+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Belen - Menteşe (Palamutbükü-Kumyer-Yaka-Sındı-Zeytincik-Hızırşah Yol Ayrımı-Datça-Aktur-Hisarönü-Marmaris-Çamlı-Çetibeli-Gökova Kavşağı-Akyaka Kavşağı-Kızılağaç-Ula Kavşağı-Menteşe",
       "days": [
         {
@@ -826,7 +826,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-8-datca-karakoy-290",
       "sourceUpdated": "2026-09-29T09:15:52+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Karaköy (Körmen) (Yeni Sanayi)",
       "days": [
         {
@@ -914,7 +914,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-9-datca-kizlan-68",
       "sourceUpdated": "2026-11-10T12:12:59+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Kızlan (Uşaklılar - Billurkent - Raykent )",
       "days": [
         {
@@ -1010,7 +1010,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-9-datca-golmar-65",
       "sourceUpdated": "2026-11-10T12:14:15+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça - Gölmar (Uşaklılar - Billurkent - Raykent )",
       "days": [
         {
@@ -1106,7 +1106,7 @@
       "kind": "local",
       "source": "https://ulasim.muttas.com.tr/hat/9-11-cumhuriyet-meydani-hizirsah-394",
       "sourceUpdated": "2025-09-26T16:26:55+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Cumhuriyet Meydanı - İskele Mah - Otogar (İskele Mahallesi - Çomarlık - Hastane - Hızırşah)",
       "days": []
     },
@@ -1117,7 +1117,7 @@
       "kind": "intercity",
       "source": "https://ulasim.muttas.com.tr/hat/48-15-datca-mentese-416",
       "sourceUpdated": "2025-05-08T17:06:33+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça-Reşadiye-Billurkent-Özil-Aktur-Hisarönü-Marmaris-Taşhan-Çamlı-Çetibeli-Gökçe-Akçapınar-GökovaKavşağı-AkyakaKavşağı-Kızılağaç-UlaKavşağı-GülağzıKavşağı-Menteşe",
       "days": [
         {
@@ -1147,7 +1147,7 @@
       "kind": "intercity",
       "source": "https://ulasim.muttas.com.tr/hat/48-16-datca-marmaris-432",
       "sourceUpdated": "2026-11-02T14:31:00+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Datça-Reşadiye-Billurkent-Özil-Aktur-Hisarönü-Marmaris",
       "days": [
         {
@@ -1262,33 +1262,10 @@
       "title": "Marmaris Otogar - Dalaman Havalimanı",
       "kind": "airport",
       "source": "https://ulasim.muttas.com.tr/hat/48-26-marmaris-otogar-dalaman-havalimani-440",
-      "sourceUpdated": "2026-11-12T10:21:02+03:00",
-      "checked": "2026-11-12",
+      "sourceUpdated": "2026-11-13T11:18:26+03:00",
+      "checked": "2026-11-13",
       "via": "Marmaris Otogar - Dalaman Havalimanı",
       "days": [
-        {
-          "label": "Perşembe 12.11.2026",
-          "date": "2026-11-12",
-          "directions": [
-            {
-              "from": "Marmaris Otogar",
-              "times": [
-                "03:00",
-                "07:00",
-                "14:15",
-                "17:30"
-              ],
-              "annotations": {
-                "03:00": "Çarşamba'yı Perşembe'ye bağlayan gece saatidir."
-              }
-            },
-            {
-              "from": "Dalaman Havalimanı",
-              "times": [],
-              "flight": true
-            }
-          ]
-        },
         {
           "label": "Cuma 13.11.2026",
           "date": "2026-11-13",
@@ -1357,6 +1334,53 @@
               "flight": true
             }
           ]
+        },
+        {
+          "label": "Pazartesi 16.11.2026",
+          "date": "2026-11-16",
+          "directions": [
+            {
+              "from": "Marmaris Otogar",
+              "times": [
+                "03:15",
+                "07:00",
+                "13:00",
+                "16:30",
+                "20:00"
+              ],
+              "annotations": {
+                "03:15": "Pazar'ı Pazartesi'ye bağlayan gece saatidir."
+              }
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "flight": true
+            }
+          ]
+        },
+        {
+          "label": "Salı 17.11.2026",
+          "date": "2026-11-17",
+          "directions": [
+            {
+              "from": "Marmaris Otogar",
+              "times": [
+                "06:00",
+                "07:30",
+                "17:30",
+                "19:30"
+              ],
+              "annotations": {
+                "06:00": "Pazartesi'yi Salı'ya bağlayan gece saatidir."
+              }
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "flight": true
+            }
+          ]
         }
       ]
     },
@@ -1367,7 +1391,7 @@
       "kind": "ferry",
       "source": "https://ulasim.muttas.com.tr/hat/48-48-bodrum-datca-371",
       "sourceUpdated": "2026-10-30T09:12:31+03:00",
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Bodrum - Datça",
       "days": [
         {
@@ -1505,29 +1529,9 @@
       "kind": "airport",
       "source": "https://havas.net/otobus-hizmetleri#bus-service-2",
       "sourceUpdated": null,
-      "checked": "2026-11-12",
+      "checked": "2026-11-13",
       "via": "Marmaris - Gökova - Köyceğiz - Ortaca - Dalaman - Dalaman Havalimanı",
       "days": [
-        {
-          "label": "2026-11-12",
-          "date": "2026-11-12",
-          "directions": [
-            {
-              "from": "Marmaris",
-              "times": [
-                "06:00",
-                "13:15",
-                "15:45",
-                "18:00"
-              ]
-            },
-            {
-              "from": "Dalaman Havalimanı",
-              "times": [],
-              "note": "Dalaman Havalimanına inen iç hat uçuşları için servis düzenlenmektedir."
-            }
-          ]
-        },
         {
           "label": "2026-11-13",
           "date": "2026-11-13",
@@ -1639,6 +1643,26 @@
                 "13:00",
                 "17:30",
                 "18:30"
+              ]
+            },
+            {
+              "from": "Dalaman Havalimanı",
+              "times": [],
+              "note": "Dalaman Havalimanına inen iç hat uçuşları için servis düzenlenmektedir."
+            }
+          ]
+        },
+        {
+          "label": "2026-11-19",
+          "date": "2026-11-19",
+          "directions": [
+            {
+              "from": "Marmaris",
+              "times": [
+                "06:00",
+                "13:15",
+                "15:45",
+                "18:00"
               ]
             },
             {
