@@ -1,45 +1,45 @@
 {
-  "attempted": "2026-11-13",
+  "attempted": "2026-11-14",
   "checks": [
     {
       "id": "belediye",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "karia",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "tsf",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "taf",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "biletinial-kultur",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "biletinial-amfi",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "biletix-kultur",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "biletix-amfi",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "bubilet-kultur",
@@ -54,56 +54,30 @@
     {
       "id": "nui",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "dadya",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "pandora",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "loop",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "jollin-mugla",
       "status": "ok",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     }
   ],
   "events": [
-    {
-      "id": "d98218f486d0",
-      "title": "Kadınlar Matinesi",
-      "start": "2026-11-06",
-      "end": "2026-11-06",
-      "time": "20:00",
-      "venue": "Nui Datça",
-      "category": "music",
-      "url": "https://jollin.com.tr/etkinlik/kadinlar-matinesi-zsg73q/",
-      "poster": "https://jollin.com.tr/uploads/media/f1/d1/f1d191fe-6e3b-4b51-96a5-f13d388b44f3.webp",
-      "sourceId": "nui",
-      "checked": "2026-11-13"
-    },
-    {
-      "id": "f970f09c808d",
-      "title": "Ustaların Şarkıları - Dadya Orkestra",
-      "start": "2026-11-06",
-      "end": "2026-11-06",
-      "time": "20:30",
-      "venue": "Dadya Dostane Kültür ve Sanat Evi",
-      "category": "music",
-      "url": "https://jollin.com.tr/etkinlik/ustalarin-sarkilari-dadya-orkestra-ajex3h/",
-      "poster": "https://jollin.com.tr/uploads/media/c7/08/c7084182-9d14-466c-980e-4e4ad9ef38ee.webp",
-      "sourceId": "dadya",
-      "checked": "2026-11-13"
-    },
     {
       "id": "4f11a4bbdb17",
       "title": "Mahallemiz Eşrafından",
@@ -116,7 +90,7 @@
       "ticket": "https://biletino.com/tr/e-1cxf/mahallemiz-esrafindan/",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2026/mahallemiz-esrafindan.png",
       "sourceId": "karia",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "4850c060c9b1",
@@ -129,7 +103,7 @@
       "url": "https://jollin.com.tr/etkinlik/datca-eski-45likler-orkestrasi-73nz6r/",
       "poster": "https://jollin.com.tr/uploads/media/dc/cc/dccc90c1-dd8a-4ac0-b2a4-a85804547459.webp",
       "sourceId": "dadya",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "50d70a3cf0e8",
@@ -142,7 +116,7 @@
       "url": "https://jollin.com.tr/etkinlik/burak-gencer-sahne-performansi-wk2ghq/",
       "poster": "https://jollin.com.tr/uploads/media/bf/04/bf04d4c4-1f91-4438-ac60-c2e3673675c7.webp",
       "sourceId": "nui",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "7164f066f6d0",
@@ -157,7 +131,7 @@
       "schedule": "friday",
       "closeTime": "12:30",
       "sourceId": "belediye",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "46ec4ae19846",
@@ -170,7 +144,7 @@
       "url": "https://jollin.com.tr/etkinlik/ustalarin-sarkilari-dadya-orkestra-xrk7dg/",
       "poster": "https://jollin.com.tr/uploads/media/0e/64/0e64c775-8d02-4c4f-8ad9-de9057aad883.webp",
       "sourceId": "dadya",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "587159a5b36e",
@@ -184,7 +158,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
       "closeTime": "00:00",
       "sourceId": "pandora",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "b74b9f711ffb",
@@ -197,7 +171,7 @@
       "url": "https://jollin.com.tr/etkinlik/taverna-sarkilari-dadya-orkestra-ncmfkj/",
       "poster": "https://jollin.com.tr/uploads/media/1a/ef/1aef2a4f-164a-45ec-964a-2492343b8344.webp",
       "sourceId": "dadya",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "fb489a64878e",
@@ -210,7 +184,7 @@
       "url": "https://jollin.com.tr/etkinlik/necdet-kaya-ile-canli-muzik-9dsy4s/",
       "poster": "https://jollin.com.tr/uploads/media/5a/0e/5a0e226d-ae23-4441-a6f9-a9b8d98f8870.webp",
       "sourceId": "nui",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "2f10d80a813b",
@@ -223,7 +197,7 @@
       "url": "https://jollin.com.tr/etkinlik/cansu-sezal-arp-dinletisi-f6qgh6/",
       "poster": "https://jollin.com.tr/uploads/media/a4/56/a4561202-b81b-40f7-8627-fc129688cc91.webp",
       "sourceId": "jollin-mugla",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "6af6b52c91c9",
@@ -237,7 +211,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
       "closeTime": "23:59",
       "sourceId": "loop",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "31eae1f7cd5c",
@@ -251,7 +225,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
       "closeTime": "00:00",
       "sourceId": "pandora",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "d6a7090446b4",
@@ -262,7 +236,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "12685358a7ad",
@@ -276,7 +250,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
       "closeTime": "23:59",
       "sourceId": "loop",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "c4ccc3b5933e",
@@ -303,7 +277,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
       "closeTime": "00:00",
       "sourceId": "pandora",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "5ad70fb288d0",
@@ -330,7 +304,7 @@
       "closeTime": "20:00",
       "poster": "https://b6s54eznn8xq.merlincdn.net/Uploads/Films/bir-kopru-iki-dunya-keman-resitali-20261111132068df885cc9da34fb2ab3c5c0e5c895ec3.png",
       "sourceId": "biletinial-kultur",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "6878d1298da0",
@@ -344,7 +318,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
       "closeTime": "23:59",
       "sourceId": "loop",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "2b9e9a04da9e",
@@ -358,7 +332,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
       "closeTime": "00:00",
       "sourceId": "pandora",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "1644f557323c",
@@ -372,7 +346,7 @@
       "ticket": "https://biletino.com/tr/e-1cxg/apsolit/",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2026/apsolit.png",
       "sourceId": "karia",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "6a0ba8e49ac2",
@@ -386,7 +360,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
       "closeTime": "23:59",
       "sourceId": "loop",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "65d9eb75554c",
@@ -400,7 +374,7 @@
       "closeTime": "21:55",
       "poster": "https://b6s54eznn8xq.merlincdn.net/Uploads/Films/yukleniyor-2026928137294f918a26568946f29d73d02081b3ee56.jpeg",
       "sourceId": "biletinial-kultur",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "8ffb45a94d4f",
@@ -414,7 +388,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
       "closeTime": "00:00",
       "sourceId": "pandora",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "c95b8f5672e7",
@@ -428,7 +402,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
       "closeTime": "23:59",
       "sourceId": "loop",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "a6d9f5a1bb75",
@@ -442,7 +416,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
       "closeTime": "00:00",
       "sourceId": "pandora",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "6d60cbb7bb2c",
@@ -453,7 +427,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "d854c71edd54",
@@ -467,7 +441,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
       "closeTime": "23:59",
       "sourceId": "loop",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "3b8b20765aae",
@@ -481,7 +455,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
       "closeTime": "00:00",
       "sourceId": "pandora",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "297ee5f856e8",
@@ -495,7 +469,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
       "closeTime": "23:59",
       "sourceId": "loop",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "a51f74f6dd5d",
@@ -509,7 +483,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
       "closeTime": "00:00",
       "sourceId": "pandora",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "802bb84f111a",
@@ -523,7 +497,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
       "closeTime": "23:59",
       "sourceId": "loop",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "8a23ba871b1e",
@@ -537,7 +511,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_173942_063pdk.webp",
       "closeTime": "00:00",
       "sourceId": "pandora",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "1068217ebc06",
@@ -551,7 +525,7 @@
       "ticket": "https://biletino.com/tr/e-1cxh/gong/",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2026/gong.png",
       "sourceId": "karia",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "81e6b3aa0548",
@@ -565,7 +539,7 @@
       "poster": "https://s3.eu-west-1.amazonaws.com/dancevents.net/events/Ekran_g_r_nt_s__2026-10-23_174031_eway5w.webp",
       "closeTime": "23:59",
       "sourceId": "loop",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "5cbab98bddfd",
@@ -576,7 +550,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "fa1d5da63585",
@@ -588,7 +562,7 @@
       "url": "https://datca.bel.tr/etkinlikler/21-uluslararasi-datca-acik-deniz-kis-yuzme-maratonu",
       "poster": "https://datca.bel.tr/storage/events/20260814-170339-MW1A2STP.png",
       "sourceId": "belediye",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "4b5ae7734180",
@@ -600,7 +574,7 @@
       "url": "https://datca.bel.tr/etkinlikler/8-uluslararasi-badem-cicegi-festivali",
       "poster": "https://datca.bel.tr/storage/events/20260921-142624-sRNoCfkZ.png",
       "sourceId": "belediye",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "9669fbe2a1a5",
@@ -614,7 +588,7 @@
       "ticket": "https://biletino.com/e-1dh0",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/havva.png",
       "sourceId": "karia",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "e91e0ac769b4",
@@ -625,7 +599,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "be391e1e9ee3",
@@ -639,7 +613,7 @@
       "ticket": "https://biletino.com/e-1dh4",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/zuhal.png",
       "sourceId": "karia",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "fd81c22ae1a5",
@@ -650,7 +624,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "8a22fd012f55",
@@ -664,7 +638,7 @@
       "ticket": "https://biletino.com/e-1dh5",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/abdullah-konus.png",
       "sourceId": "karia",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "b8500ec6cc1f",
@@ -677,7 +651,7 @@
       "category": "sport",
       "url": "https://kosu.taf.org.tr/kesifrun-datca-10k?id=191&lang=tr",
       "sourceId": "taf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "96c18e86a84f",
@@ -688,7 +662,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "63e68b5cd19c",
@@ -702,7 +676,7 @@
       "ticket": "https://biletino.com/e-1dh9",
       "poster": "https://datcakariatiyatrozamani.com/assets/sezon-2027/metamorfoz.png",
       "sourceId": "karia",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "6b5e6fff5d2a",
@@ -713,7 +687,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "e0da3e1ba2e8",
@@ -724,7 +698,7 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     },
     {
       "id": "aeb7e3a15051",
@@ -735,8 +709,35 @@
       "category": "sport",
       "url": "https://mugla.tsf.org.tr/dijital-etkinlik-takvimi#tsf7-ilce-datca",
       "sourceId": "tsf",
-      "checked": "2026-11-13"
+      "checked": "2026-11-14"
     }
   ],
-  "archive": []
+  "archive": [
+    {
+      "id": "d98218f486d0",
+      "title": "Kadınlar Matinesi",
+      "start": "2026-11-06",
+      "end": "2026-11-06",
+      "time": "20:00",
+      "venue": "Nui Datça",
+      "category": "music",
+      "url": "https://jollin.com.tr/etkinlik/kadinlar-matinesi-zsg73q/",
+      "poster": "https://jollin.com.tr/uploads/media/f1/d1/f1d191fe-6e3b-4b51-96a5-f13d388b44f3.webp",
+      "sourceId": "nui",
+      "checked": "2026-11-13"
+    },
+    {
+      "id": "f970f09c808d",
+      "title": "Ustaların Şarkıları - Dadya Orkestra",
+      "start": "2026-11-06",
+      "end": "2026-11-06",
+      "time": "20:30",
+      "venue": "Dadya Dostane Kültür ve Sanat Evi",
+      "category": "music",
+      "url": "https://jollin.com.tr/etkinlik/ustalarin-sarkilari-dadya-orkestra-ajex3h/",
+      "poster": "https://jollin.com.tr/uploads/media/c7/08/c7084182-9d14-466c-980e-4e4ad9ef38ee.webp",
+      "sourceId": "dadya",
+      "checked": "2026-11-13"
+    }
+  ]
 }
